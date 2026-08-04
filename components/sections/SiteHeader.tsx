@@ -19,16 +19,14 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header
-      className="fixed inset-x-0 top-0 z-[60] w-full border-b border-ink/[0.07] bg-surface/85 backdrop-blur-[12px]"
-    >
+    <header className="fixed inset-x-0 top-0 z-[60] w-full border-b border-mist/[0.08] bg-surface/85 backdrop-blur-[12px]">
       <nav
         aria-label="Primary"
         className="mx-auto flex max-w-content items-center justify-between px-6 py-5 sm:px-10 md:px-14 lg:px-16"
       >
         <Link
           href="/"
-          className="font-display text-base font-medium tracking-tight text-ink transition-colors duration-500 hover:text-ink/70"
+          className="font-display text-base font-medium tracking-tight text-mist transition-colors duration-500 hover:text-mist/70"
         >
           Axel Garland
         </Link>
@@ -40,10 +38,10 @@ export function SiteHeader() {
                 <li key={item.label}>
                   <span
                     aria-current="page"
-                    className="relative inline-block whitespace-nowrap font-display text-[0.78rem] font-medium uppercase tracking-[0.16em] text-ink"
+                    className="relative inline-block whitespace-nowrap font-display text-[0.78rem] font-medium uppercase tracking-[0.16em] text-mist"
                   >
                     {item.label}
-                    <span className="absolute -bottom-px left-0 h-px w-full bg-ink/40" />
+                    <span className="absolute -bottom-px left-0 h-px w-full bg-mist/50" />
                   </span>
                 </li>
               );
@@ -53,11 +51,11 @@ export function SiteHeader() {
                 <motion.div whileHover={{ y: -1 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
                   <Link
                     href={item.href}
-                    className="group relative inline-block whitespace-nowrap font-display text-[0.78rem] font-medium uppercase tracking-[0.16em] text-ink-muted transition-colors duration-500 hover:text-ink"
+                    className="group relative inline-block whitespace-nowrap font-display text-[0.78rem] font-medium uppercase tracking-[0.16em] text-mist-muted transition-colors duration-500 hover:text-mist"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className="absolute -bottom-px left-0 h-px w-0 bg-ink/40 transition-all duration-500 group-hover:w-full" />
+                      <span className="absolute -bottom-px left-0 h-px w-0 bg-mist/50 transition-all duration-500 group-hover:w-full" />
                     </span>
                   </Link>
                 </motion.div>

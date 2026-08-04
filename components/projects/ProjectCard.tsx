@@ -26,7 +26,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-white/70 shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-shadow duration-500 hover:shadow-[0_28px_80px_-36px_rgba(12,12,14,0.16)]"
     >
       <div
-        className={`relative aspect-[4/3] overflow-hidden bg-surface-raised transition-colors duration-500 ${
+        className={`relative aspect-[4/3] overflow-hidden bg-paper-raised transition-colors duration-500 ${
           accent ? ACCENT_HOVER_BG[accent] : ""
         }`}
       >

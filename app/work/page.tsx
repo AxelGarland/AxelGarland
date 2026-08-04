@@ -14,14 +14,14 @@ export default function WorkPage() {
       <GrainOverlay />
       <main
         id="main"
-        className="flex min-h-[100dvh] min-h-[100svh] flex-col bg-surface"
+        className="flex min-h-[100dvh] min-h-[100svh] flex-col"
       >
         <header className="pb-12 pt-24 sm:pb-14 sm:pt-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h1 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-medium tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-medium tracking-tight text-mist">
               Work
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-[rgba(12,12,14,0.85)] md:text-lg">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-mist-muted md:text-lg">
               Case studies, selected work, and other projects.
             </p>
           </div>

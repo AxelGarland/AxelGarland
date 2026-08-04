@@ -8,7 +8,7 @@ export default function Home() {
       <GrainOverlay />
       <main
         id="main"
-        className="flex min-h-[100dvh] min-h-[100svh] flex-col bg-surface"
+        className="flex min-h-[100dvh] min-h-[100svh] flex-col"
       >
         <HeroSection />
       </main>

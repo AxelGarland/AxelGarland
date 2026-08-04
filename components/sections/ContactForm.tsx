@@ -55,7 +55,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded border border-ink/15 bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -67,7 +67,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded border border-ink/15 bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -79,7 +79,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="rounded border border-ink/15 bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
         />
       </div>
 

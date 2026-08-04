@@ -24,7 +24,7 @@ export function IllustrationWork() {
             <MotionReveal>
               <h2
                 id={`section-${section}`}
-                className="font-display text-2xl font-medium tracking-tight text-ink md:text-3xl"
+                className="font-display text-2xl font-medium tracking-tight text-mist md:text-3xl"
               >
                 {SECTION_LABELS[section]}
               </h2>

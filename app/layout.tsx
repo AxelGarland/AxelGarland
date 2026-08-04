@@ -11,6 +11,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/SiteHeader";
+import { StarField } from "@/components/StarField";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,14 +77,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} ${playfair.variable} ${spaceGrotesk.variable} ${syne.variable} font-sans bg-surface text-ink antialiased`}
+        className={`${outfit.variable} ${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} ${playfair.variable} ${spaceGrotesk.variable} ${syne.variable} font-sans bg-surface text-mist antialiased`}
       >
         <a
           href="#main"
-          className="absolute left-[min(1rem,5vw)] top-4 z-[100] -translate-y-[200%] rounded border border-ink/15 bg-surface-raised px-3 py-2 text-sm text-ink transition-transform duration-300 focus:translate-y-0 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-accent"
+          className="absolute left-[min(1rem,5vw)] top-4 z-[100] -translate-y-[200%] rounded border border-ink/15 bg-paper px-3 py-2 text-sm text-ink transition-transform duration-300 focus:translate-y-0 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-accent"
         >
           Skip to main content
         </a>
+        <StarField />
         <SiteHeader />
         {children}
       </body>

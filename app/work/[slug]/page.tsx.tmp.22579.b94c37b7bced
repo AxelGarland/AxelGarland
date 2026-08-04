@@ -39,7 +39,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-/** Dense reading content always lives in a white paper card floating on the dark page. */
 function CaseStudySection({
   label,
   body,
@@ -51,18 +50,22 @@ function CaseStudySection({
 }) {
   return (
     <div
-      className={`rounded-lg border-l-4 bg-paper p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] md:p-7 ${
+      className={`overflow-hidden rounded-lg border-l-4 bg-paper shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)] ${
         accent ? ACCENT_BORDER[accent] : "border-ink/15"
       }`}
     >
-      <p
-        className={`text-xs font-medium uppercase tracking-[0.22em] ${
-          accent ? ACCENT_TEXT[accent] : "text-ink-subtle"
-        }`}
-      >
-        {label}
-      </p>
-      <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink md:text-lg">{body}</p>
+      <div className="p-6 md:p-7">
+        <p
+          className={`text-xs font-medium uppercase tracking-[0.22em] ${
+            accent ? ACCENT_TEXT[accent] : "text-ink-subtle"
+          }`}
+        >
+          {label}
+        </p>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-[rgba(12,12,14,0.85)] md:text-lg">
+          {body}
+        </p>
+      </div>
     </div>
   );
 }
@@ -101,21 +104,15 @@ export default async function ProjectPage({ params }: PageProps) {
               {project.title}
             </h1>
             {!project.caseStudy ? (
-              <div
-                className={`mt-6 max-w-2xl rounded-lg border-l-4 bg-paper p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] md:p-7 ${
-                  accent ? ACCENT_BORDER[accent] : "border-ink/15"
-                }`}
-              >
-                <p className="text-base leading-relaxed text-ink md:text-lg">
-                  {project.reflection ?? project.summary}
-                </p>
+              <div className="mt-6 max-w-2xl rounded-lg bg-paper p-6 text-base leading-relaxed text-ink shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)] md:p-7 md:text-lg">
+                {project.reflection ?? project.summary}
               </div>
             ) : null}
 
             <div
-              className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
+              className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border-2 bg-paper md:mt-12 ${
                 accent ? ACCENT_BORDER[accent] : "border-mist/15"
-              } bg-paper-raised`}
+              }`}
             >
               {hasHeroImage ? (
                 <ProjectPicture
@@ -134,7 +131,7 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
 
             {project.caseStudy ? (
-              <div className="mt-12 space-y-8 md:mt-16 md:space-y-10">
+              <div className="mt-12 space-y-6 md:mt-16 md:space-y-8">
                 <CaseStudySection label="Problem / Context" body={project.caseStudy.problem} accent={accent} />
                 <CaseStudySection label="Role" body={project.caseStudy.role} accent={accent} />
                 <CaseStudySection label="Process" body={project.caseStudy.process} accent={accent} />
@@ -165,11 +162,11 @@ export default async function ProjectPage({ params }: PageProps) {
                   {project.upcomingImages.map((slot) => (
                     <li
                       key={slot.label}
-                      className="flex aspect-[4/3] items-center justify-center rounded-md border border-dashed border-mist/20 bg-surface-elevated/60"
+                      className="flex aspect-[4/3] items-center justify-center rounded-md border border-dashed border-ink/15 bg-paper-raised/70"
                     >
-                      <span className="text-center text-xs font-medium uppercase tracking-[0.18em] text-mist-subtle">
+                      <span className="text-center text-xs font-medium uppercase tracking-[0.18em] text-ink-subtle">
                         {slot.label}
-                        <span className="mt-1 block normal-case tracking-normal text-mist-muted">
+                        <span className="mt-1 block normal-case tracking-normal text-ink-muted">
                           Placeholder
                         </span>
                       </span>

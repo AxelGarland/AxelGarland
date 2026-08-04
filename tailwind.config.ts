@@ -9,37 +9,51 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /** Page background — dark theme. Never pure black, avoids harsh contrast. */
         surface: {
-          DEFAULT: "#ffffff",
-          raised: "#f5f5f6",
-          elevated: "#eaeaeb",
+          DEFAULT: "#0a0a0e",
+          raised: "#131318",
+          elevated: "#1c1c22",
         },
+        /** Text color used INSIDE white paper cards — stays dark, unaffected by the dark theme. */
         ink: {
           DEFAULT: "#0c0c0e",
           muted: "rgba(12, 12, 14, 0.56)",
           subtle: "rgba(12, 12, 14, 0.38)",
         },
-        accent: {
-          DEFAULT: "#6d7eb3",
-          soft: "rgba(109, 126, 179, 0.16)",
-          glow: "rgba(109, 126, 179, 0.38)",
+        /** White card background for dense reading content (bio, case studies, forms) floating on the dark page. */
+        paper: {
+          DEFAULT: "#ffffff",
+          raised: "#fafafa",
         },
-        /** Per-project accent tones — one assigned per case study/project, not a global accent. */
+        /** Light text used directly on the dark page background (headlines, nav, footer). */
+        mist: {
+          DEFAULT: "#f3f3f5",
+          muted: "rgba(243, 243, 245, 0.62)",
+          subtle: "rgba(243, 243, 245, 0.4)",
+        },
+        accent: {
+          DEFAULT: "#8d9bd6",
+          soft: "rgba(141, 155, 214, 0.18)",
+          glow: "rgba(141, 155, 214, 0.4)",
+        },
+        /** Per-project accent tones — one assigned per case study/project, not a global accent.
+         *  Brightened versus their original light-theme values so they read clearly on near-black. */
         coral: {
-          DEFAULT: "#E8536B",
-          soft: "rgba(232, 83, 107, 0.14)",
+          DEFAULT: "#F06479",
+          soft: "rgba(240, 100, 121, 0.16)",
         },
         teal: {
-          DEFAULT: "#0F8B6C",
-          soft: "rgba(15, 139, 108, 0.14)",
+          DEFAULT: "#1CB88C",
+          soft: "rgba(28, 184, 140, 0.16)",
         },
         indigo: {
-          DEFAULT: "#4B3F8C",
-          soft: "rgba(75, 63, 140, 0.14)",
+          DEFAULT: "#8676DE",
+          soft: "rgba(134, 118, 222, 0.18)",
         },
         gold: {
-          DEFAULT: "#D9A441",
-          soft: "rgba(217, 164, 65, 0.16)",
+          DEFAULT: "#E4B355",
+          soft: "rgba(228, 179, 85, 0.18)",
         },
       },
       fontFamily: {

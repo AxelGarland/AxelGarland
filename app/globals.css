@@ -16,6 +16,6 @@
   }
 
   ::selection {
-    @apply bg-accent-soft text-ink;
+    @apply bg-accent text-surface;
   }
 }

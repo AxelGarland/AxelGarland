@@ -40,22 +40,33 @@ export function HeroSection() {
         <Particles reduce={reduce} />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-content">
-        <h1 className="font-display text-[clamp(2.75rem,10vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink">
-          Axel Garland
-        </h1>
-        <p className="mt-3 font-display text-lg font-medium tracking-tight text-ink-muted md:text-xl">
-          Designer &middot; Illustration &middot; AI
-        </p>
-        <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-[rgba(12,12,14,0.85)] md:mt-7 md:text-lg md:leading-relaxed">
-          <p>
-            B.A. Visual Communication Design, Shenkar College. Currently working as a designer
-            at Alut, where I also built their AI recruitment assistant.
+      <div className="relative z-10 mx-auto grid w-full max-w-content gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 lg:gap-16">
+        <div>
+          <h1 className="font-display text-[clamp(2.75rem,10vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink">
+            Axel Garland
+          </h1>
+          <p className="mt-3 font-display text-lg font-medium tracking-tight text-ink-muted md:text-xl">
+            Designer &middot; Illustration &middot; AI
           </p>
-          <p>
-            My work moves between illustration, branding, and applied AI, usually more than
-            one at a time.
-          </p>
+          <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-[rgba(12,12,14,0.85)] md:mt-7 md:text-lg md:leading-relaxed">
+            <p>
+              B.A. Visual Communication Design, Shenkar College. Currently working as a designer
+              at Alut, where I also built their AI recruitment assistant.
+            </p>
+            <p>
+              My work moves between illustration, branding, and applied AI, usually more than
+              one at a time.
+            </p>
+          </div>
+        </div>
+
+        {/* Self-portrait illustration slot — drop the file in /pictures and I'll wire it in */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border-2 border-coral bg-coral-soft md:aspect-square">
+          <div className="flex h-full items-center justify-center p-8">
+            <span className="text-center text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
+              Self-portrait illustration coming soon
+            </span>
+          </div>
         </div>
       </div>
     </header>

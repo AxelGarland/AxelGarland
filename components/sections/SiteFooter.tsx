@@ -1,0 +1,41 @@
+const links = [
+  { label: "Email", href: "mailto:hello@axelgarland.com", external: false },
+  { label: "LinkedIn", href: "https://www.linkedin.com/", external: true },
+  { label: "Instagram", href: "https://www.instagram.com/", external: true },
+  { label: "CV", href: "#", external: false },
+] as const;
+
+export function SiteFooter() {
+  return (
+    <footer className="px-6 py-12 sm:px-10 md:px-14 lg:px-16">
+      <div className="mx-auto flex max-w-content flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="font-display text-lg tracking-tight text-ink">Axel Garland</p>
+        </div>
+        <nav aria-label="Contact and links">
+          <ul className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+            {links.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  {...(item.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="text-sm text-ink-muted transition-colors duration-500 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  {item.label}
+                  {item.external ? (
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  ) : null}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <p className="mx-auto mt-10 max-w-content text-xs text-ink-subtle md:mt-12">
+        © {new Date().getFullYear()} Axel Garland. All rights reserved.
+      </p>
+    </footer>
+  );
+}

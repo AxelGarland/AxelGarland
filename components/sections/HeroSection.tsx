@@ -42,7 +42,7 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-content gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 lg:gap-16">
         <div>
-          <h1 className="font-display text-[clamp(2.75rem,10vw,7.5rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink">
+          <h1 className="font-display whitespace-nowrap text-[clamp(2rem,5.5vw,4.25rem)] font-medium leading-[0.92] tracking-[-0.03em] text-ink">
             Axel Garland
           </h1>
           <p className="mt-3 font-display text-lg font-medium tracking-tight text-ink-muted md:text-xl">

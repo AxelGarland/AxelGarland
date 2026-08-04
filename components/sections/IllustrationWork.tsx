@@ -14,7 +14,7 @@ const SECTIONS: ProjectSection[] = [
 
 export function IllustrationWork() {
   return (
-    <div className="mx-auto max-w-content space-y-20 md:space-y-28">
+    <div className="mx-auto max-w-content space-y-20 px-6 sm:px-10 md:space-y-28 md:px-14 lg:px-16">
       {SECTIONS.map((section) => {
         const items = PROJECTS.filter((p) => p.section === section);
         if (items.length === 0) return null;

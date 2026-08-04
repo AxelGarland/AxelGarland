@@ -16,8 +16,8 @@ export default function WorkPage() {
         id="main"
         className="flex min-h-[100dvh] min-h-[100svh] flex-col bg-surface"
       >
-        <header className="px-6 pb-12 pt-24 sm:px-10 sm:pb-14 sm:pt-28 md:px-14 lg:px-16">
-          <div className="mx-auto max-w-content">
+        <header className="pb-12 pt-24 sm:pb-14 sm:pt-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h1 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-medium tracking-tight text-ink">
               Work
             </h1>
@@ -27,7 +27,7 @@ export default function WorkPage() {
           </div>
         </header>
 
-        <div className="flex-1 px-6 pb-20 sm:px-10 md:px-14 lg:px-16">
+        <div className="flex-1 pb-20">
           <IllustrationWork />
         </div>
       </main>

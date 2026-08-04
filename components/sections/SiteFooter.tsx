@@ -7,8 +7,8 @@ const links = [
 
 export function SiteFooter() {
   return (
-    <footer className="px-6 py-12 sm:px-10 md:px-14 lg:px-16">
-      <div className="mx-auto flex max-w-content flex-col gap-10 md:flex-row md:items-end md:justify-between">
+    <footer className="py-12">
+      <div className="mx-auto flex max-w-content flex-col gap-10 px-6 sm:px-10 md:flex-row md:items-end md:justify-between md:px-14 lg:px-16">
         <div>
           <p className="font-display text-lg tracking-tight text-ink">Axel Garland</p>
         </div>
@@ -33,7 +33,7 @@ export function SiteFooter() {
           </ul>
         </nav>
       </div>
-      <p className="mx-auto mt-10 max-w-content text-xs text-ink-subtle md:mt-12">
+      <p className="mx-auto mt-10 max-w-content px-6 text-xs text-ink-subtle sm:px-10 md:mt-12 md:px-14 lg:px-16">
         © {new Date().getFullYear()} Axel Garland. All rights reserved.
       </p>
     </footer>

@@ -85,8 +85,8 @@ export default async function ProjectPage({ params }: PageProps) {
     <>
       <GrainOverlay />
       <main id="main" className="min-h-[100dvh] bg-surface">
-        <article className="px-6 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-28 md:px-14 lg:px-16">
-          <div className="mx-auto max-w-content">
+        <article className="pb-16 pt-24 sm:pb-20 sm:pt-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
               className="text-sm text-ink-muted transition-colors duration-500 hover:text-ink"

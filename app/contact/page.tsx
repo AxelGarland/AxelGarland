@@ -14,9 +14,9 @@ export default function ContactPage() {
       <GrainOverlay />
       <main
         id="main"
-        className="flex min-h-[100dvh] flex-col bg-surface px-6 pb-20 pt-24 sm:px-10 sm:pt-28 md:px-14 lg:px-16"
+        className="flex min-h-[100dvh] flex-col bg-surface pb-20 pt-24 sm:pt-28"
       >
-        <div className="mx-auto w-full max-w-content">
+        <div className="mx-auto w-full max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
           <h1 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-medium tracking-tight text-ink">
             Contact
           </h1>

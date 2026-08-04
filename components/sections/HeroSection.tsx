@@ -8,7 +8,7 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center px-6 pb-6 pt-24 sm:px-10 sm:pb-8 sm:pt-28 md:px-14 md:pb-10 lg:px-16 lg:pb-12">
+    <header className="relative flex flex-1 min-h-min flex-col justify-center pb-6 pt-24 sm:pb-8 sm:pt-28 md:pb-10 lg:pb-12">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-glow-radial" />
         <div className="absolute inset-0 bg-glow-corner" />
@@ -41,7 +41,7 @@ export function HeroSection() {
         <Particles reduce={reduce} />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-content gap-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 lg:gap-16">
+      <div className="relative z-10 mx-auto grid max-w-content gap-10 px-6 sm:px-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 md:px-14 lg:gap-16 lg:px-16">
         <div>
           <h1 className="font-display whitespace-nowrap text-[clamp(2rem,5.5vw,4.25rem)] font-medium leading-[0.92] tracking-[-0.03em] text-ink">
             Axel Garland

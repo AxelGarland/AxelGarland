@@ -10,6 +10,7 @@ import {
   Syne,
 } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "@/components/sections/SiteHeader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,9 +63,9 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Axel Garland — Illustration, Interaction & Systems",
+  title: "Axel Garland — Designer, Illustration & AI",
   description:
-    "Multidisciplinary creative working across illustration, interaction design, and AI-assisted design systems. Tel Aviv.",
+    "Axel Garland — Designer working across illustration, branding, and applied AI. Portfolio and case studies.",
 };
 
 export default function RootLayout({
@@ -83,6 +84,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <SiteHeader />
         {children}
       </body>
     </html>

@@ -7,9 +7,9 @@ import {
 } from "@/lib/projects";
 
 const SECTIONS: ProjectSection[] = [
+  "case-study",
   "selected-work",
   "other-work",
-  "case-study",
 ];
 
 export function IllustrationWork() {

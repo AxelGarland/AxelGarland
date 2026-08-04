@@ -24,6 +24,23 @@ const config: Config = {
           soft: "rgba(109, 126, 179, 0.16)",
           glow: "rgba(109, 126, 179, 0.38)",
         },
+        /** Per-project accent tones — one assigned per case study/project, not a global accent. */
+        coral: {
+          DEFAULT: "#E8536B",
+          soft: "rgba(232, 83, 107, 0.14)",
+        },
+        teal: {
+          DEFAULT: "#0F8B6C",
+          soft: "rgba(15, 139, 108, 0.14)",
+        },
+        indigo: {
+          DEFAULT: "#4B3F8C",
+          soft: "rgba(75, 63, 140, 0.14)",
+        },
+        gold: {
+          DEFAULT: "#D9A441",
+          soft: "rgba(217, 164, 65, 0.16)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

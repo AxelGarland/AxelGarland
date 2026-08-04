@@ -2,6 +2,7 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
@@ -57,6 +58,20 @@ export function HeroSection() {
               My work moves between illustration, branding, and applied AI, usually more than
               one at a time.
             </p>
+          </div>
+          <div className="mt-8 flex items-center gap-6 md:mt-9">
+            <Link
+              href="/work"
+              className="inline-block rounded border border-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent-soft active:bg-accent active:text-white"
+            >
+              View work
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm text-ink-muted underline underline-offset-4 transition-colors duration-300 hover:text-ink active:text-accent"
+            >
+              Contact
+            </Link>
           </div>
         </div>
 

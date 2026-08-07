@@ -58,7 +58,7 @@ export function HeroSection() {
           </div>
           <div className="mt-8 flex items-center gap-6 md:mt-9">
             <Link
-              href="/work"
+              href="#work"
               className="inline-block rounded border border-accent px-5 py-2.5 text-sm font-medium text-mist transition-colors duration-300 hover:bg-accent-soft active:bg-accent active:text-surface"
             >
               View work

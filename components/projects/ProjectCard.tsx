@@ -7,6 +7,8 @@ import Link from "next/link";
 
 type ProjectCardProps = {
   project: Project;
+  /** Tailwind aspect-ratio class for the thumbnail — varied by the masonry grid for visual rhythm. */
+  imageAspectClassName?: string;
 };
 
 const ACCENT_HOVER_BG: Record<AccentColor, string> = {
@@ -16,7 +18,7 @@ const ACCENT_HOVER_BG: Record<AccentColor, string> = {
   gold: "group-hover:bg-gold-soft",
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, imageAspectClassName = "aspect-[4/3]" }: ProjectCardProps) {
   const thumb = projectThumbnailSrc(project);
   const accent = project.accentColor;
 
@@ -26,7 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-white/70 shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-shadow duration-500 hover:shadow-[0_28px_80px_-36px_rgba(12,12,14,0.16)]"
     >
       <div
-        className={`relative aspect-[4/3] overflow-hidden bg-paper-raised transition-colors duration-500 ${
+        className={`relative ${imageAspectClassName} overflow-hidden bg-paper-raised transition-colors duration-500 ${
           accent ? ACCENT_HOVER_BG[accent] : ""
         }`}
       >

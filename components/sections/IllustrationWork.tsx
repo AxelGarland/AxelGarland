@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/components/projects/ProjectCard";
+import { MasonryProjectGrid } from "@/components/projects/MasonryProjectGrid";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import {
   PROJECTS,
@@ -29,15 +29,9 @@ export function IllustrationWork() {
                 {SECTION_LABELS[section]}
               </h2>
             </MotionReveal>
-            <ul className="mt-8 grid list-none gap-6 sm:grid-cols-2 lg:gap-8">
-              {items.map((project, i) => (
-                <MotionReveal key={project.slug} delay={0.05 * i} className="contents">
-                  <li>
-                    <ProjectCard project={project} />
-                  </li>
-                </MotionReveal>
-              ))}
-            </ul>
+            <div className="mt-8">
+              <MasonryProjectGrid projects={items} />
+            </div>
           </section>
         );
       })}

@@ -10,7 +10,7 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-6 pt-24 sm:pb-8 sm:pt-28 md:pb-10 lg:pb-12">
+    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-24 pt-24 sm:pb-28 sm:pt-28 md:pb-32 lg:pb-36">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute left-[-20%] top-[18%] h-[min(55vw,620px)] w-[min(55vw,620px)] rounded-full bg-accent-soft blur-[100px]"
@@ -72,7 +72,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border-2 border-coral bg-paper md:aspect-square">
+        <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square">
           <Image
             src={pictureSrc("Axel self illustration.png")}
             alt="Illustrated self-portrait of Axel Garland"

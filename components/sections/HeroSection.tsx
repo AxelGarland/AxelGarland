@@ -10,10 +10,8 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center pb-6 pt-24 sm:pb-8 sm:pt-28 md:pb-10 lg:pb-12">
+    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-6 pt-24 sm:pb-8 sm:pt-28 md:pb-10 lg:pb-12">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-glow-radial" />
-        <div className="absolute inset-0 bg-glow-corner" />
         <motion.div
           className="absolute left-[-20%] top-[18%] h-[min(55vw,620px)] w-[min(55vw,620px)] rounded-full bg-accent-soft blur-[100px]"
           animate={
@@ -28,7 +26,7 @@ export function HeroSection() {
           }
         />
         <motion.div
-          className="absolute bottom-[8%] right-[-12%] h-[min(45vw,480px)] w-[min(45vw,480px)] rounded-full bg-[rgba(141,155,214,0.14)] blur-[90px]"
+          className="absolute bottom-[8%] right-[-12%] h-[min(45vw,480px)] w-[min(45vw,480px)] rounded-full bg-coral-soft blur-[90px]"
           animate={
             reduce ? undefined : { opacity: [0.25, 0.42, 0.3], x: [0, -16, 0] }
           }
@@ -42,13 +40,13 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto grid max-w-content gap-10 px-6 sm:px-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 md:px-14 lg:gap-16 lg:px-16">
         <div>
-          <h1 className="font-display whitespace-nowrap text-[clamp(2rem,5.5vw,4.25rem)] font-medium leading-[0.92] tracking-[-0.03em] text-mist">
+          <h1 className="font-display whitespace-nowrap text-[clamp(2rem,5.5vw,4.25rem)] font-medium leading-[0.92] tracking-[-0.03em] text-ink">
             Axel Garland
           </h1>
-          <p className="mt-3 font-display text-lg font-medium tracking-tight text-mist-muted md:text-xl">
+          <p className="mt-3 font-display text-lg font-medium tracking-tight text-ink-muted md:text-xl">
             Designer &middot; Illustration &middot; AI
           </p>
-          <div className="mt-6 max-w-2xl space-y-4 rounded-lg bg-paper p-6 text-base leading-relaxed text-ink shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)] md:p-7 md:text-lg md:leading-relaxed">
+          <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-ink md:text-lg md:leading-relaxed">
             <p>
               B.A. Visual Communication Design, Shenkar College. Currently working as a designer
               at Alut, where I also built their AI recruitment assistant.
@@ -61,13 +59,13 @@ export function HeroSection() {
           <div className="mt-8 flex items-center gap-6 md:mt-9">
             <Link
               href="#work"
-              className="inline-block rounded border border-accent px-5 py-2.5 text-sm font-medium text-mist transition-colors duration-300 hover:bg-accent-soft active:bg-accent active:text-surface"
+              className="inline-block rounded border border-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent-soft active:bg-accent active:text-surface"
             >
               View work
             </Link>
             <Link
               href="/contact"
-              className="text-sm text-mist-muted underline underline-offset-4 transition-colors duration-300 hover:text-mist active:text-accent"
+              className="text-sm text-ink-muted underline underline-offset-4 transition-colors duration-300 hover:text-ink active:text-accent"
             >
               Contact
             </Link>

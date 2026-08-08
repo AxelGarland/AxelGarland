@@ -1,7 +1,9 @@
 "use client";
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
+import { pictureSrc } from "@/lib/pictures";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -72,13 +74,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Self-portrait illustration slot — drop the file in /pictures and I'll wire it in */}
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border-2 border-coral bg-paper md:aspect-square">
-          <div className="flex h-full items-center justify-center p-8">
-            <span className="text-center text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
-              Self-portrait illustration coming soon
-            </span>
-          </div>
+          <Image
+            src={pictureSrc("Axel self illustration.png")}
+            alt="Illustrated self-portrait of Axel Garland"
+            fill
+            priority
+            className="object-contain p-4"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
         </div>
       </div>
     </header>

@@ -1,7 +1,9 @@
+import MorphSlider from "@/components/MorphSlider";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectPicture } from "@/components/projects/ProjectPicture";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
+import { pictureSrc } from "@/lib/pictures";
 import { getProject, PROJECTS, SECTION_LABELS, type AccentColor } from "@/lib/projects";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -112,26 +114,45 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : null}
 
-            <div
-              className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
-                accent ? ACCENT_BORDER[accent] : "border-mist/15"
-              } bg-paper-raised`}
-            >
-              {hasHeroImage ? (
-                <ProjectPicture
-                  file={project.hero}
-                  alt={`${project.title} — hero`}
-                  priority
-                  className="object-cover"
+            {project.useMorphSlider && project.gallery.length > 0 ? (
+              <div
+                className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
+                  accent ? ACCENT_BORDER[accent] : "border-mist/15"
+                }`}
+              >
+                <MorphSlider
+                  items={project.gallery.map((img) => ({ image: pictureSrc(img.file), caption: img.alt }))}
+                  transition="melt"
+                  intensity={0.5}
+                  aberration={0.25}
+                  drift={0.3}
+                  loop
+                  radius={0}
+                  overlayColor="#0a0a0e"
                 />
-              ) : (
-                <div className="flex h-full items-center justify-center p-8">
-                  <span className="text-center text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
-                    Image coming soon
-                  </span>
-                </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div
+                className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
+                  accent ? ACCENT_BORDER[accent] : "border-mist/15"
+                } bg-paper-raised`}
+              >
+                {hasHeroImage ? (
+                  <ProjectPicture
+                    file={project.hero}
+                    alt={`${project.title} — hero`}
+                    priority
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center p-8">
+                    <span className="text-center text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
+                      Image coming soon
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
 
             {project.caseStudy ? (
               <div className="mt-12 space-y-8 md:mt-16 md:space-y-10">
@@ -142,7 +163,7 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : null}
 
-            {gridImages.length > 0 ? (
+            {!project.useMorphSlider && gridImages.length > 0 ? (
               <div className="mt-12 md:mt-16">
                 <h2 className="mb-6 font-display text-xl font-medium tracking-tight text-mist md:text-2xl">
                   Gallery

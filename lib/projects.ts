@@ -45,6 +45,8 @@ export type Project = {
   upcomingImages?: ProjectPlaceholder[];
   /** Entire project awaiting assets */
   awaitingAssets?: boolean;
+  /** Show the gallery as a WebGL morph-transition slider instead of a static grid+lightbox. */
+  useMorphSlider?: boolean;
 };
 
 export const SECTION_LABELS: Record<ProjectSection, string> = {
@@ -140,6 +142,7 @@ export const PROJECTS: Project[] = [
     section: "selected-work",
     summary: "A fully illustrated book of Lewis Carroll's nonsense poem.",
     accentColor: "coral",
+    useMorphSlider: true,
     reflection:
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem — a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
     thumbnail: "jabberwocky book cover.jpg",

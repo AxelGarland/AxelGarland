@@ -25,7 +25,7 @@ export function ProjectCard({ project, imageAspectClassName = "aspect-[4/3]" }: 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-white/70 shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-shadow duration-500 hover:shadow-[0_28px_80px_-36px_rgba(12,12,14,0.16)]"
+      className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-white/70 shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_32px_90px_-32px_rgba(12,12,14,0.2)]"
     >
       <div
         className={`relative ${imageAspectClassName} overflow-hidden bg-paper-raised transition-colors duration-500 ${

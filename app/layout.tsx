@@ -1,65 +1,18 @@
 import type { Metadata } from "next";
-import {
-  Bebas_Neue,
-  Instrument_Serif,
-  Inter,
-  JetBrains_Mono,
-  Outfit,
-  Playfair_Display,
-  Space_Grotesk,
-  Syne,
-} from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/SiteHeader";
 import { StarField } from "@/components/StarField";
 
-const inter = Inter({
+const bodySans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
   display: "swap",
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-bebas",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space",
-  display: "swap",
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
   display: "swap",
 });
 
@@ -77,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} ${playfair.variable} ${spaceGrotesk.variable} ${syne.variable} font-sans bg-surface text-mist antialiased`}
+        className={`${outfit.variable} ${bodySans.variable} font-sans bg-surface text-mist antialiased`}
       >
         <a
           href="#main"

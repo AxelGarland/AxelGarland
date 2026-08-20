@@ -22,10 +22,15 @@ export function MotionReveal({
   const reduce = useHydrationSafeReducedMotion();
 
   const variants: Variants = {
-    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 28 },
+    hidden: {
+      opacity: reduce ? 1 : 0,
+      y: reduce ? 0 : 28,
+      filter: reduce ? "blur(0px)" : "blur(6px)",
+    },
     visible: {
       opacity: 1,
       y: 0,
+      filter: "blur(0px)",
       transition: reduce
         ? { duration: 0 }
         : {

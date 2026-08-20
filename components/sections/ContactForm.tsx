@@ -1,5 +1,7 @@
 "use client";
 
+import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
+import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 
 /**
@@ -12,6 +14,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const reduce = useHydrationSafeReducedMotion();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -55,7 +58,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -67,7 +70,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -79,7 +82,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="rounded border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent"
+          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
 
@@ -87,13 +90,16 @@ export function ContactForm() {
         <p className="text-sm text-coral">Something went wrong — try again, or email me directly.</p>
       ) : null}
 
-      <button
+      <motion.button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-block w-fit rounded border border-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-500 hover:bg-accent-soft disabled:opacity-50"
+        whileHover={reduce ? undefined : { y: -2 }}
+        whileTap={reduce ? undefined : { scale: 0.96 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="inline-block w-fit rounded-full border border-accent px-6 py-3 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent-soft disabled:opacity-50"
       >
         {status === "submitting" ? "Sending…" : "Send"}
-      </button>
+      </motion.button>
     </form>
   );
 }

@@ -16,34 +16,7 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute left-[-20%] top-[18%] h-[min(55vw,620px)] w-[min(55vw,620px)] rounded-full bg-accent-soft blur-[100px]"
-          animate={
-            reduce
-              ? undefined
-              : { opacity: [0.35, 0.55, 0.4], scale: [1, 1.06, 1.02] }
-          }
-          transition={
-            reduce
-              ? undefined
-              : { duration: 22, repeat: Infinity, ease: "easeInOut" }
-          }
-        />
-        <motion.div
-          className="absolute bottom-[8%] right-[-12%] h-[min(45vw,480px)] w-[min(45vw,480px)] rounded-full bg-coral-soft blur-[90px]"
-          animate={
-            reduce ? undefined : { opacity: [0.25, 0.42, 0.3], x: [0, -16, 0] }
-          }
-          transition={
-            reduce
-              ? undefined
-              : { duration: 28, repeat: Infinity, ease: "easeInOut" }
-          }
-        />
-      </div>
-
+    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-haze pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
       <div className="relative z-10 mx-auto grid max-w-content gap-10 px-6 sm:px-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 md:px-14 lg:gap-16 lg:px-16">
         <div>
           <div className="inline-block">

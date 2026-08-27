@@ -26,6 +26,11 @@ const config: Config = {
           DEFAULT: "#ffffff",
           raised: "#fafafa",
         },
+        /** Flat, single-tone light grey — the hero's own background (replaces a white bg + colored
+         *  gradient blobs, which read as blotchy rather than one clean color). */
+        haze: {
+          DEFAULT: "#F1F0EE",
+        },
         /** Light text used directly on the dark page background (headlines, nav, footer). */
         mist: {
           DEFAULT: "#f3f3f5",

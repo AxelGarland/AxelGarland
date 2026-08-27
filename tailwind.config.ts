@@ -55,6 +55,15 @@ const config: Config = {
           DEFAULT: "#E4B355",
           soft: "rgba(228, 179, 85, 0.18)",
         },
+        /** Sampled directly from the hero self-portrait illustration: the pencil's yellow and the
+         *  red cheek blush. Used for the hero's "Work" button and its ambient glow blobs. */
+        pencil: {
+          DEFAULT: "#FEB728",
+        },
+        blush: {
+          DEFAULT: "#D64040",
+          soft: "rgba(214, 64, 64, 0.2)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-body)", "system-ui", "sans-serif"],

@@ -10,7 +10,7 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-24 pt-24 sm:pb-28 sm:pt-28 md:pb-32 lg:pb-36">
+    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute left-[-20%] top-[18%] h-[min(55vw,620px)] w-[min(55vw,620px)] rounded-full bg-accent-soft blur-[100px]"
@@ -58,19 +58,7 @@ export function HeroSection() {
               to life.
             </p>
           </div>
-          <div className="mt-8 flex items-center gap-6 md:mt-9">
-            <motion.div
-              whileHover={reduce ? undefined : { y: -2 }}
-              whileTap={reduce ? undefined : { scale: 0.96 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Link
-                href="#work"
-                className="inline-block rounded-full border border-accent px-6 py-3 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent-soft active:bg-accent active:text-surface"
-              >
-                View work
-              </Link>
-            </motion.div>
+          <div className="mt-8 md:mt-9">
             <Link
               href="/contact"
               className="text-sm text-ink-muted underline underline-offset-4 transition-colors duration-300 hover:text-ink active:text-accent"
@@ -90,6 +78,22 @@ export function HeroSection() {
             sizes="(max-width: 768px) 100vw, 40vw"
           />
         </div>
+      </div>
+
+      <div className="relative z-10 mt-16 flex justify-center md:mt-20 lg:mt-24">
+        <motion.div
+          whileHover={reduce ? undefined : { y: -3 }}
+          whileTap={reduce ? undefined : { scale: 0.97 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link
+            href="#work"
+            className="inline-flex items-center gap-3 rounded-full border-2 border-ink px-12 py-5 font-display text-lg font-medium tracking-tight text-ink transition-colors duration-300 hover:bg-ink hover:text-paper active:bg-accent active:border-accent md:px-16 md:py-6 md:text-xl"
+          >
+            Work
+            <span aria-hidden className="text-base md:text-lg">&darr;</span>
+          </Link>
+        </motion.div>
       </div>
     </header>
   );

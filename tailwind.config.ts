@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /** Page background — dark theme. Never pure black, avoids harsh contrast. */
+        /** Page background — dark theme. A warm charcoal grey, not near-black — avoids harsh contrast. */
         surface: {
-          DEFAULT: "#0a0a0e",
-          raised: "#131318",
-          elevated: "#1c1c22",
+          DEFAULT: "#242226",
+          raised: "#2d2a2f",
+          elevated: "#3a363c",
         },
         /** Text color used INSIDE white paper cards — stays dark, unaffected by the dark theme. */
         ink: {

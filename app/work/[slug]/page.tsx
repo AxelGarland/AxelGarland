@@ -142,7 +142,7 @@ export default async function ProjectPage({ params }: PageProps) {
                     file={project.hero}
                     alt={`${project.title} — hero`}
                     priority
-                    className="object-cover"
+                    className={project.heroFit === "contain" ? "object-contain p-6" : "object-cover"}
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center p-8">

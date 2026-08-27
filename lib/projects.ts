@@ -47,6 +47,8 @@ export type Project = {
   awaitingAssets?: boolean;
   /** Show the gallery as a WebGL morph-transition slider instead of a static grid+lightbox. */
   useMorphSlider?: boolean;
+  /** Hero image object-fit — "contain" for transparent character art that shouldn't be cropped, "cover" (default) for full-bleed photos/screenshots. */
+  heroFit?: "cover" | "contain";
 };
 
 export const SECTION_LABELS: Record<ProjectSection, string> = {
@@ -61,8 +63,9 @@ export const PROJECTS: Project[] = [
     slug: "alutit",
     title: "Alutit",
     section: "case-study",
-    summary: "An illustrated recruitment avatar for Alut — images coming soon.",
+    summary: "An illustrated recruitment avatar for Alut.",
     accentColor: "coral",
+    heroFit: "contain",
     caseStudy: {
       problem:
         "Alut's Recruitment Department was using standard social media content — postings, generic photos — that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",
@@ -73,10 +76,25 @@ export const PROJECTS: Project[] = [
       outcome:
         "She appeared across social content, video, recruitment materials, and physical merch — including tote bags branded with her name, handed out at university campus events. The clearest proof came from the tote bags: at campus events, students gave up their contact details specifically to get one — and said so directly. Beyond that single moment, her ongoing presence across content channels now feeds a steady, passive stream of candidates applying to open roles sourced from social — not a campaign spike, but a running channel.",
     },
-    thumbnail: "",
-    hero: "",
-    gallery: [],
-    awaitingAssets: true,
+    thumbnail: "alutit/Alutit rainbow.png",
+    hero: "alutit/Alutit rainbow.png",
+    gallery: [
+      { file: "alutit/Alutit rainbow.png", alt: "Alutit in her branded sweater, holding up a rainbow" },
+      { file: "alutit/alutit on unicorn.png", alt: "Alutit in a graduation cap, riding a unicorn across a rainbow" },
+      { file: "alutit/alutit handyman.png", alt: "Alutit dressed as a maintenance worker with a tool belt and hard hat" },
+      { file: "alutit/alutit nurse.png", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
+      { file: "alutit/Alutit physiotherapist.png", alt: "Alutit as a physiotherapist working with a client" },
+      { file: "alutit/alutit speech therapist.png", alt: "Alutit as a speech therapist using a communication board with a client" },
+      { file: "alutit/alutit onesie.png", alt: "Alutit wearing a unicorn onesie" },
+      { file: "alutit/alutit desk.png", alt: "Alutit at her desk in an Alutit-branded shirt" },
+      { file: "alutit/alutit office.png", alt: "Alutit in an office setting with recruitment materials on the wall" },
+      { file: "alutit/אלוטית גן.JPG", alt: "Alutit in front of an Alut kindergarten facility" },
+      { file: "alutit/אלוטית מרצ׳.png", alt: "Alutit merchandise flat-lay — tote bag, notebook, and game board" },
+      { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events" },
+      { file: "alutit/חבר מביא חבר לוגו.png", alt: "Alutit fronting Alut's \"bring a friend\" referral program logo" },
+      { file: "alutit/חבר מביא סושיאל לוגו.png", alt: "Alutit fronting the social-media version of the referral program logo" },
+    ],
+    lightboxFeatured: ["alutit/אלוטית תיק.png", "alutit/אלוטית מרצ׳.png"],
   },
   {
     slug: "giuson",

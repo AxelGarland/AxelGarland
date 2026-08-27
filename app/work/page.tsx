@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Work — Axel Garland",
-  description: "Case studies and selected work — illustration, branding, and applied AI.",
+  description: "Case studies and selected work — illustration, branding, and digital experiences.",
 };
 
 export default function WorkPage() {

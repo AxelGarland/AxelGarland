@@ -17,9 +17,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Axel Garland — Designer, Illustration & AI",
+  title: "Axel Garland — Visual Communication Designer & Illustrator",
   description:
-    "Axel Garland — Designer working across illustration, branding, and applied AI. Portfolio and case studies.",
+    "Axel Garland — Visual communication designer and illustrator working across illustration, branding, and digital experiences. Portfolio and case studies.",
 };
 
 export default function RootLayout({

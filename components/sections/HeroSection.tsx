@@ -48,12 +48,14 @@ export function HeroSection() {
           </p>
           <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-ink md:text-lg md:leading-relaxed">
             <p>
-              B.A. Visual Communication Design, Shenkar College. Currently working as a designer
-              at Alut, where I also built their AI recruitment assistant.
+              I&rsquo;m a visual communication designer and illustrator, recently graduated from
+              Shenkar College.
             </p>
             <p>
-              My work moves between illustration, branding, and applied AI, usually more than
-              one at a time.
+              My work moves between illustration, branding, and digital experiences, often
+              combining hands-on making with emerging technologies. I&rsquo;m drawn to
+              storytelling, playful experimentation, and finding unexpected ways to bring ideas
+              to life.
             </p>
           </div>
           <div className="mt-8 flex items-center gap-6 md:mt-9">

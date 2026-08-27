@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/SiteHeader";
-import { StarField } from "@/components/StarField";
 
 const bodySans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -38,7 +37,6 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <StarField />
         <SiteHeader />
         {children}
       </body>

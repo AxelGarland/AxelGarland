@@ -16,7 +16,7 @@ export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
 
   return (
-    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-haze pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
+    <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-surface pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
       <div className="relative z-10 mx-auto grid max-w-content gap-10 px-6 sm:px-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-12 md:px-14 lg:gap-16 lg:px-16">
         <div>
           <div className="inline-block">

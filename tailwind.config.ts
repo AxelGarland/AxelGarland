@@ -9,33 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /** Page background — dark theme. A warm charcoal grey, not near-black — avoids harsh contrast. */
+        /** Page background — light theme (2026-08-27: switched from a dark charcoal theme per direct
+         *  request — "switch everything to a light grey"). One flat light grey used everywhere: hero,
+         *  nav, footer, Work sections. `raised`/`elevated` step slightly darker/greyer for placeholders
+         *  and subtle separation, mirroring the old dark theme's logic in reverse. */
         surface: {
-          DEFAULT: "#242226",
-          raised: "#2d2a2f",
-          elevated: "#3a363c",
+          DEFAULT: "#F1F0EE",
+          raised: "#E8E6E2",
+          elevated: "#DEDBD6",
         },
-        /** Text color used INSIDE white paper cards — stays dark, unaffected by the dark theme. */
+        /** Text color used INSIDE white paper cards — stays dark, unaffected by the page theme. */
         ink: {
           DEFAULT: "#0c0c0e",
           muted: "rgba(12, 12, 14, 0.56)",
           subtle: "rgba(12, 12, 14, 0.38)",
         },
-        /** White card background for dense reading content (bio, case studies, forms) floating on the dark page. */
+        /** White card background for dense reading content (bio, case studies, forms) floating on the
+         *  light grey page. */
         paper: {
           DEFAULT: "#ffffff",
           raised: "#fafafa",
         },
-        /** Flat, single-tone light grey — the hero's own background (replaces a white bg + colored
-         *  gradient blobs, which read as blotchy rather than one clean color). */
-        haze: {
-          DEFAULT: "#F1F0EE",
-        },
-        /** Light text used directly on the dark page background (headlines, nav, footer). */
+        /** Dark text used directly on the light grey page background (headlines, nav, footer) — same
+         *  role `mist` always had, just flipped from light-on-dark to dark-on-light. */
         mist: {
-          DEFAULT: "#f3f3f5",
-          muted: "rgba(243, 243, 245, 0.62)",
-          subtle: "rgba(243, 243, 245, 0.4)",
+          DEFAULT: "#1c1b1e",
+          muted: "rgba(28, 27, 30, 0.62)",
+          subtle: "rgba(28, 27, 30, 0.4)",
         },
         accent: {
           DEFAULT: "#8d9bd6",

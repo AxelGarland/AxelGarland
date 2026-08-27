@@ -16,6 +16,6 @@
   }
 
   ::selection {
-    @apply bg-accent text-surface;
+    @apply bg-accent text-ink;
   }
 }

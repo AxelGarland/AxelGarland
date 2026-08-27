@@ -100,8 +100,9 @@ export const PROJECTS: Project[] = [
     slug: "giuson",
     title: "Giuson",
     section: "case-study",
-    summary: "An AI recruitment assistant for Alut — images and video coming soon.",
+    summary: "A recruitment and information tool for Alut, built to replace three disconnected sources.",
     accentColor: "teal",
+    heroFit: "contain",
     caseStudy: {
       problem:
         "Before this existed, recruiters were working across three disconnected sources: a Google Sheet where individual locations logged which roles they were short on, personal notebooks holding the information needed to actually run a recruitment phone call, and a separate PDF guide with reference material. Every call meant juggling all three, and roles with more complex requirements — care-staff positions (נשות טיפול) in particular — were hard enough to fully understand that only one or two recruiters felt confident handling them.",
@@ -111,10 +112,27 @@ export const PROJECTS: Project[] = [
       outcome:
         "It's in daily use — by the recruitment team, and by field workers who need the same information during their own part of the recruitment process. The clearest change: recruiting for care-staff roles (נשות טיפול) used to depend on the one or two recruiters comfortable with how complicated that information was. Now that the tool holds and organizes that complexity, more recruiters can take on that recruitment — the bottleneck of relying on just a couple of people is gone.",
     },
-    thumbnail: "",
-    hero: "",
-    gallery: [],
-    awaitingAssets: true,
+    thumbnail: "giuson/giuson recruitment map.png",
+    hero: "giuson/giuson recruitment map.png",
+    gallery: [
+      {
+        file: "giuson/giuson recruitment map.png",
+        alt: "Recruitment search — a map of open positions by location, filtered by role and search radius, with distance to each shortage",
+      },
+      {
+        file: "giuson/giuson home.png",
+        alt: "The tool's home screen — two entry points, recruitment search and the information hub",
+      },
+      {
+        file: "giuson/giuson role detail.png",
+        alt: "Role detail — requirements, licensing conditions, and staffing model for a given position",
+      },
+      {
+        file: "giuson/giuson hours table.png",
+        alt: "Weekly hours by classroom size and staffing model, consolidated into one reference table",
+      },
+    ],
+    lightboxFeatured: ["giuson/giuson recruitment map.png", "giuson/giuson hours table.png"],
   },
   {
     slug: "better-eater",

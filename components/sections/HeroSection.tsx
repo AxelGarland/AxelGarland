@@ -80,7 +80,7 @@ export function HeroSection() {
 
         <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square">
           <Image
-            src={pictureSrc("Axel self illustration.png")}
+            src={pictureSrc("Axel self illustration final.png")}
             alt="Illustrated self-portrait of Axel Garland"
             fill
             priority

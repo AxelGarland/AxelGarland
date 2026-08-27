@@ -49,6 +49,8 @@ export type Project = {
   useMorphSlider?: boolean;
   /** Hero image object-fit — "contain" for transparent character art that shouldn't be cropped, "cover" (default) for full-bleed photos/screenshots. */
   heroFit?: "cover" | "contain";
+  /** Work-grid thumbnail object-fit — "contain" for UI screenshots where a masonry crop would cut off meaningful content (nav bars, labels), "cover" (default) for illustration thumbnails that read fine cropped. */
+  thumbnailFit?: "cover" | "contain";
 };
 
 export const SECTION_LABELS: Record<ProjectSection, string> = {
@@ -103,6 +105,7 @@ export const PROJECTS: Project[] = [
     summary: "A recruitment and information tool for Alut, built to replace three disconnected sources.",
     accentColor: "teal",
     heroFit: "contain",
+    thumbnailFit: "contain",
     caseStudy: {
       problem:
         "Before this existed, recruiters were working across three disconnected sources: a Google Sheet where individual locations logged which roles they were short on, personal notebooks holding the information needed to actually run a recruitment phone call, and a separate PDF guide with reference material. Every call meant juggling all three, and roles with more complex requirements — care-staff positions (נשות טיפול) in particular — were hard enough to fully understand that only one or two recruiters felt confident handling them.",
@@ -140,6 +143,7 @@ export const PROJECTS: Project[] = [
     section: "case-study",
     summary: "A personalized meal-planning and recipe app.",
     accentColor: "teal",
+    thumbnailFit: "contain",
     caseStudy: {
       problem:
         "The brief: design an app that helps someone transition to healthier eating with no prior kitchen experience — through personalized recommendations, detailed recipes and videos, and content that adapts to the user's specific dietary needs.",

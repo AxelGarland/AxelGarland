@@ -21,14 +21,15 @@ const ACCENT_HOVER_BG: Record<AccentColor, string> = {
 export function ProjectCard({ project, imageAspectClassName = "aspect-[4/3]" }: ProjectCardProps) {
   const thumb = projectThumbnailSrc(project);
   const accent = project.accentColor;
+  const contain = project.thumbnailFit === "contain";
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-white/70 shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_32px_90px_-32px_rgba(12,12,14,0.2)]"
+      className="group flex flex-col overflow-hidden rounded-lg border border-ink/10 bg-paper shadow-[0_20px_60px_-40px_rgba(12,12,14,0.12)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_32px_90px_-32px_rgba(12,12,14,0.2)]"
     >
       <div
-        className={`relative ${imageAspectClassName} overflow-hidden bg-paper-raised transition-colors duration-500 ${
+        className={`relative ${imageAspectClassName} overflow-hidden bg-paper transition-colors duration-500 ${
           accent ? ACCENT_HOVER_BG[accent] : ""
         }`}
       >
@@ -37,7 +38,9 @@ export function ProjectCard({ project, imageAspectClassName = "aspect-[4/3]" }: 
             src={thumb}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className={`transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
+              contain ? "object-contain p-4" : "object-cover"
+            }`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : (

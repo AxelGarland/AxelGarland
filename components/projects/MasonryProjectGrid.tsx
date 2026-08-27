@@ -31,7 +31,13 @@ function ParallaxColumn({
           <ProjectCard
             key={project.slug}
             project={project}
-            imageAspectClassName={ASPECTS[(aspectStart + i) % ASPECTS.length]}
+            // UI-screenshot thumbnails (thumbnailFit: "contain") keep a fixed landscape aspect —
+            // the masonry portrait ratios would crop nav bars and labels out of the frame.
+            imageAspectClassName={
+              project.thumbnailFit === "contain"
+                ? "aspect-[4/3]"
+                : ASPECTS[(aspectStart + i) % ASPECTS.length]
+            }
           />
         ))}
       </motion.div>

@@ -5,49 +5,25 @@ import { pictureSrc } from "@/lib/pictures";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
-/** Evenly fanned upward arc (-170deg to -10deg, centered on straight-up at -90deg) so every star
- *  bursts up and outward from the button rather than drifting sideways or down. Fixed, not
- *  Math.random() — deterministic like StarField, and it means every click looks intentional. */
-const STAR_BURST = [
-  { angle: -170, distance: 58, size: 10, delay: 0 },
-  { angle: -147, distance: 88, size: 14, delay: 0.03 },
-  { angle: -124, distance: 68, size: 9, delay: 0.06 },
-  { angle: -101, distance: 102, size: 16, delay: 0.01 },
-  { angle: -78, distance: 100, size: 15, delay: 0.05 },
-  { angle: -55, distance: 70, size: 10, delay: 0.02 },
-  { angle: -32, distance: 90, size: 13, delay: 0.07 },
-  { angle: -10, distance: 56, size: 9, delay: 0.04 },
-].map((s) => {
-  const rad = (s.angle * Math.PI) / 180;
-  return { ...s, dx: Math.cos(rad) * s.distance, dy: Math.sin(rad) * s.distance };
-});
-
-function SparkleStar({ size }: { size: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
+/** Small blush-red dot used as a separator between the three tagline words — sampled from the
+ *  self-portrait's cheek color, not a generic accent. */
+function TaglineDot() {
+  return <span aria-hidden className="h-2.5 w-2.5 shrink-0 rounded-full bg-blush md:h-3 md:w-3" />;
 }
 
 export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
-  const [burstId, setBurstId] = useState(0);
 
   return (
     <header className="relative flex flex-1 min-h-min flex-col justify-center overflow-hidden bg-paper pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 lg:pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute left-[-24%] top-[14%] h-[min(68vw,760px)] w-[min(68vw,760px)] rounded-full bg-blush-soft blur-[110px]"
+          className="absolute left-[-20%] top-[18%] h-[min(55vw,620px)] w-[min(55vw,620px)] rounded-full bg-accent-soft blur-[100px]"
           animate={
             reduce
               ? undefined
-              : { opacity: [0.3, 0.5, 0.35], scale: [1, 1.06, 1.02] }
+              : { opacity: [0.35, 0.55, 0.4], scale: [1, 1.06, 1.02] }
           }
           transition={
             reduce
@@ -56,9 +32,9 @@ export function HeroSection() {
           }
         />
         <motion.div
-          className="absolute bottom-[4%] right-[-16%] h-[min(56vw,600px)] w-[min(56vw,600px)] rounded-full bg-blush-soft blur-[95px]"
+          className="absolute bottom-[8%] right-[-12%] h-[min(45vw,480px)] w-[min(45vw,480px)] rounded-full bg-coral-soft blur-[90px]"
           animate={
-            reduce ? undefined : { opacity: [0.22, 0.4, 0.28], x: [0, -16, 0] }
+            reduce ? undefined : { opacity: [0.25, 0.42, 0.3], x: [0, -16, 0] }
           }
           transition={
             reduce
@@ -76,7 +52,9 @@ export function HeroSection() {
             </h1>
             <div className="mt-3 flex w-full items-center justify-between font-display text-lg font-medium tracking-tight text-ink-muted md:text-xl">
               <span>Design</span>
+              <TaglineDot />
               <span>Illustration</span>
+              <TaglineDot />
               <span>AI</span>
             </div>
           </div>
@@ -115,40 +93,21 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mt-16 flex justify-center md:mt-20 lg:mt-24">
-        <div className="relative">
-          <div aria-hidden className="pointer-events-none absolute bottom-0 left-1/2 h-0 w-0">
-            {!reduce && burstId > 0
-              ? STAR_BURST.map((s, i) => (
-                  <motion.span
-                    key={`${burstId}-${i}`}
-                    className="absolute left-0 top-0 text-pencil"
-                    initial={{ opacity: 1, scale: 0.3, x: 0, y: 0 }}
-                    animate={{ opacity: 0, scale: 1, x: s.dx, y: s.dy }}
-                    transition={{ duration: 0.75, delay: s.delay, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    <SparkleStar size={s.size} />
-                  </motion.span>
-                ))
-              : null}
-          </div>
-
-          <motion.div
-            whileHover={reduce ? undefined : { y: -3 }}
-            whileTap={reduce ? undefined : { scale: 0.97 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        <motion.div
+          whileHover={reduce ? undefined : { y: -3 }}
+          whileTap={reduce ? undefined : { scale: 0.97 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link
+            href="#work"
+            className="inline-flex items-center gap-3 bg-pencil px-12 py-5 font-display text-lg font-medium tracking-tight text-ink shadow-[0_20px_45px_-20px_rgba(254,183,40,0.55)] transition-colors duration-300 hover:bg-ink hover:text-pencil md:px-16 md:py-6 md:text-xl"
           >
-            <Link
-              href="#work"
-              onClick={() => setBurstId((n) => n + 1)}
-              className="relative z-10 inline-flex items-center gap-3 bg-pencil px-12 py-5 font-display text-lg font-medium tracking-tight text-ink shadow-[0_20px_45px_-20px_rgba(254,183,40,0.55)] transition-colors duration-300 hover:bg-ink hover:text-pencil md:px-16 md:py-6 md:text-xl"
-            >
-              Work
-              <span aria-hidden className="text-base md:text-lg">
-                &darr;
-              </span>
-            </Link>
-          </motion.div>
-        </div>
+            Work
+            <span aria-hidden className="text-base md:text-lg">
+              &darr;
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </header>
   );

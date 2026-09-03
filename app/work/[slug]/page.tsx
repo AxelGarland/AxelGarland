@@ -1,4 +1,5 @@
 import MorphSlider from "@/components/MorphSlider";
+import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectPicture } from "@/components/projects/ProjectPicture";
 import { GrainOverlay } from "@/components/GrainOverlay";
@@ -114,7 +115,15 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : null}
 
-            {project.useMorphSlider && project.gallery.length > 0 ? (
+            {project.prototype ? (
+              <div className="mt-10 md:mt-12">
+                <PrototypeMockup prototype={project.prototype} title={`${project.title} prototype`} />
+                <p className="mt-3 text-sm text-mist-muted">
+                  A quick clickthrough, not the live tool — pick a path on the home screen to see
+                  where it leads.
+                </p>
+              </div>
+            ) : project.useMorphSlider && project.gallery.length > 0 ? (
               <div
                 className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
                   accent ? ACCENT_BORDER[accent] : "border-mist/15"

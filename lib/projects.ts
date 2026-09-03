@@ -14,6 +14,36 @@ export type ProjectPlaceholder = {
 
 export type AccentColor = "coral" | "teal" | "indigo" | "gold";
 
+/** A clickable hotspot over a prototype screen — percent-based so it scales with the rendered
+ *  image regardless of viewport width. */
+export type PrototypeHotspot = {
+  xPct: number;
+  yPct: number;
+  wPct: number;
+  hPct: number;
+  /** id of the screen this hotspot navigates to */
+  goTo: string;
+  /** Accessible name — the hotspot itself is invisible until hovered/focused. */
+  label: string;
+};
+
+export type PrototypeScreen = {
+  id: string;
+  /** Exact filename in `/pictures` */
+  file: string;
+  alt: string;
+  hotspots?: PrototypeHotspot[];
+  /** Shows a visible "Back" affordance that returns to this screen id. */
+  backTo?: string;
+};
+
+export type ProjectPrototype = {
+  /** Shown in the mockup's URL pill — not a real link, just sets the scene. */
+  domain: string;
+  startId: string;
+  screens: PrototypeScreen[];
+};
+
 export type CaseStudyContent = {
   problem: string;
   role: string;
@@ -51,6 +81,11 @@ export type Project = {
   heroFit?: "cover" | "contain";
   /** Work-grid thumbnail object-fit — "contain" for UI screenshots where a masonry crop would cut off meaningful content (nav bars, labels), "cover" (default) for illustration thumbnails that read fine cropped. */
   thumbnailFit?: "cover" | "contain";
+  /** A small clickable prototype (2-3 static screens + hotspots) shown in a browser-window
+   *  mockup in place of the static hero image — for projects whose real, live tool shouldn't be
+   *  open to the public, but where a working-feeling demo still serves the case study better
+   *  than a flat screenshot. */
+  prototype?: ProjectPrototype;
 };
 
 export const SECTION_LABELS: Record<ProjectSection, string> = {
@@ -106,6 +141,47 @@ export const PROJECTS: Project[] = [
     accentColor: "teal",
     heroFit: "contain",
     thumbnailFit: "contain",
+    prototype: {
+      domain: "smart-giuson.vercel.app",
+      startId: "home",
+      screens: [
+        {
+          id: "home",
+          file: "giuson/giuson home.png",
+          alt: "Giuson home — choose between recruitment search and the information hub",
+          hotspots: [
+            {
+              xPct: 30.5,
+              yPct: 26,
+              wPct: 18.75,
+              hPct: 28.8,
+              goTo: "map",
+              label: "Open recruitment search",
+            },
+            {
+              xPct: 50.65,
+              yPct: 26,
+              wPct: 18.75,
+              hPct: 28.8,
+              goTo: "role",
+              label: "Open the information hub",
+            },
+          ],
+        },
+        {
+          id: "map",
+          file: "giuson/giuson recruitment map.png",
+          alt: "Recruitment search — open positions by location and distance",
+          backTo: "home",
+        },
+        {
+          id: "role",
+          file: "giuson/giuson role detail.png",
+          alt: "Role detail — requirements, licensing, and staffing model",
+          backTo: "home",
+        },
+      ],
+    },
     caseStudy: {
       problem:
         "Before this existed, recruiters were working across three disconnected sources: a Google Sheet where individual locations logged which roles they were short on, personal notebooks holding the information needed to actually run a recruitment phone call, and a separate PDF guide with reference material. Every call meant juggling all three, and roles with more complex requirements — care-staff positions (נשות טיפול) in particular — were hard enough to fully understand that only one or two recruiters felt confident handling them.",

@@ -19,7 +19,7 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative overflow-hidden bg-surface-raised ${layout.span}`}
+      className={`group relative overflow-hidden bg-surface/5 ${layout.span}`}
     >
       <div aria-hidden className="absolute right-5 top-5 z-10 flex h-9 w-9 -translate-y-1 items-center justify-center bg-surface opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -47,21 +47,21 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
           />
         ) : (
           <div className="flex h-full items-center justify-center p-8">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-surface/40">
               Image coming soon
             </span>
           </div>
         )}
       </div>
 
-      <div className="border-t border-line p-6">
-        <p className="mb-2 text-xs uppercase tracking-[0.1em] text-ink-subtle">
+      <div className="border-t border-surface/15 p-6">
+        <p className="mb-2 text-xs uppercase tracking-[0.1em] text-surface/50">
           {SECTION_LABELS[project.section]}
         </p>
-        <h3 className="mb-1.5 font-display text-xl font-semibold leading-tight text-ink">
+        <h3 className="mb-1.5 font-display text-xl font-semibold leading-tight text-surface">
           {project.title}
         </h3>
-        <p className="text-sm leading-relaxed text-ink-muted">{project.summary}</p>
+        <p className="text-sm leading-relaxed text-surface/70">{project.summary}</p>
       </div>
     </Link>
   );

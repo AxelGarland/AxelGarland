@@ -39,10 +39,11 @@ const ACCENT_TEXT: Record<AccentColor, string> = {
   gold: "text-gold",
 };
 
-/** "alutit" has its own bespoke page at app/work/alutit/page.tsx — excluded here so the two
- *  routes don't both try to generate /work/alutit. */
+/** "alutit" and "giuson" have their own bespoke pages (app/work/alutit, app/work/giuson) —
+ *  excluded here so those routes don't collide with this dynamic one. */
+const BESPOKE_SLUGS = ["alutit", "giuson"];
 export function generateStaticParams() {
-  return PROJECTS.filter((p) => p.slug !== "alutit").map((p) => ({ slug: p.slug }));
+  return PROJECTS.filter((p) => !BESPOKE_SLUGS.includes(p.slug)).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

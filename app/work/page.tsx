@@ -5,29 +5,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Work — Axel Garland",
-  description: "Case studies and selected work — illustration, branding, and digital experiences.",
+  description: "UX/UI case studies and illustration work — Alutit, Giuson, and more.",
 };
 
 export default function WorkPage() {
   return (
     <>
       <GrainOverlay />
-      <main
-        id="main"
-        className="flex min-h-[100dvh] min-h-[100svh] flex-col"
-      >
-        <header className="pb-12 pt-24 sm:pb-14 sm:pt-28">
+      <main id="main" className="flex min-h-[100dvh] min-h-[100svh] flex-col bg-surface">
+        <header className="border-b border-line pb-12 pt-32 sm:pb-14 sm:pt-36">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h1 className="font-display text-[clamp(2rem,6vw,3.75rem)] font-medium tracking-tight text-mist">
-              Work
+            <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Work</p>
+            <h1 className="max-w-[16ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-tight text-ink">
+              Case studies &amp; illustration
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-mist-muted md:text-lg">
-              Case studies, selected work, and other projects.
-            </p>
           </div>
         </header>
 
-        <div className="flex-1 pb-20">
+        <div className="flex-1">
           <IllustrationWork />
         </div>
       </main>

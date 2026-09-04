@@ -9,38 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /** Page background — light theme (2026-08-27: switched from a dark charcoal theme per direct
-         *  request — "switch everything to a light grey"). One flat light grey used everywhere: hero,
-         *  nav, footer, Work sections. `raised`/`elevated` step slightly darker/greyer for placeholders
-         *  and subtle separation, mirroring the old dark theme's logic in reverse. */
+        /** Page background — warm editorial palette (2026-09-04, replacing the flat light-grey theme):
+         *  a cream base with a slightly deeper "raised" tone for cards/panels and an "elevated" step
+         *  for hover/placeholder states. Sourced from Axel's own Adobe Express mockup. */
         surface: {
-          DEFAULT: "#F1F0EE",
-          raised: "#E8E6E2",
-          elevated: "#DEDBD6",
+          DEFAULT: "#F5F3EF",
+          raised: "#EDEBE5",
+          elevated: "#E3DFD5",
         },
-        /** Text color used INSIDE white paper cards — stays dark, unaffected by the page theme. */
+        /** Primary text color, everywhere — page bg and card bg are close enough in tone now that
+         *  there's no separate "text on white card" vs "text on page" distinction like the old
+         *  dark-theme system needed. */
         ink: {
-          DEFAULT: "#0c0c0e",
-          muted: "rgba(12, 12, 14, 0.56)",
-          subtle: "rgba(12, 12, 14, 0.38)",
+          DEFAULT: "#1A1916",
+          muted: "#5C5A54",
+          subtle: "#9C9A94",
         },
-        /** White card background for dense reading content (bio, case studies, forms) floating on the
-         *  light grey page. */
+        /** Card/panel background — same family as `surface`, kept as a distinct name for spots that
+         *  read better as a slightly-raised "card" than the bare page (contact form, case-study panels). */
         paper: {
-          DEFAULT: "#ffffff",
-          raised: "#fafafa",
+          DEFAULT: "#EDEBE5",
+          raised: "#E3DFD5",
         },
-        /** Dark text used directly on the light grey page background (headlines, nav, footer) — same
-         *  role `mist` always had, just flipped from light-on-dark to dark-on-light. */
+        /** Same role `ink` always had under its old name `mist` (text directly on the page background) —
+         *  aliased to identical values so nothing relying on the old name breaks mid-migration. */
         mist: {
-          DEFAULT: "#1c1b1e",
-          muted: "rgba(28, 27, 30, 0.62)",
-          subtle: "rgba(28, 27, 30, 0.4)",
+          DEFAULT: "#1A1916",
+          muted: "#5C5A54",
+          subtle: "#9C9A94",
         },
+        /** Warm terracotta — the site's one accent color: eyebrows, links, focus rings, hover states. */
         accent: {
-          DEFAULT: "#8d9bd6",
-          soft: "rgba(141, 155, 214, 0.18)",
-          glow: "rgba(141, 155, 214, 0.4)",
+          DEFAULT: "#B85C38",
+          hover: "#8F4429",
+          soft: "rgba(184, 92, 56, 0.14)",
+          glow: "rgba(184, 92, 56, 0.35)",
+        },
+        /** Crisp warm-grey border — replaces opacity-based `border-ink/10` style borders where a
+         *  solid hairline reads cleaner against the cream palette. */
+        line: {
+          DEFAULT: "#D8D5CE",
         },
         /** Per-project accent tones — one assigned per case study/project, not a global accent.
          *  Brightened versus their original light-theme values so they read clearly on near-black. */

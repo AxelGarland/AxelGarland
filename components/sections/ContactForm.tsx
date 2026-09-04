@@ -41,7 +41,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <p className="rounded-md border border-teal/30 bg-teal-soft px-5 py-4 text-sm text-ink">
+      <p className="border border-teal/30 bg-teal-soft px-5 py-4 text-sm text-ink">
         Thanks — your message is in. I&rsquo;ll get back to you soon.
       </p>
     );
@@ -58,7 +58,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
+          className="border border-line bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -70,7 +70,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
+          className="border border-line bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -82,7 +82,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          className="rounded-lg border border-ink/15 bg-paper-raised px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
+          className="border border-line bg-surface px-4 py-2.5 text-sm text-ink outline-none transition-all duration-300 focus:border-accent focus:ring-2 focus:ring-accent/20"
         />
       </div>
 
@@ -96,7 +96,7 @@ export function ContactForm() {
         whileHover={reduce ? undefined : { y: -2 }}
         whileTap={reduce ? undefined : { scale: 0.96 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="inline-block w-fit rounded-full border border-accent px-6 py-3 text-sm font-medium text-ink transition-colors duration-300 hover:bg-accent-soft disabled:opacity-50"
+        className="inline-flex w-fit min-h-[44px] items-center bg-pencil px-7 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil disabled:opacity-50"
       >
         {status === "submitting" ? "Sending…" : "Send"}
       </motion.button>

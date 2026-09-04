@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/SiteHeader";
 
-const bodySans = Plus_Jakarta_Sans({
+const bodySans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
 });
 
-const outfit = Outfit({
+const displaySerif = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Axel Garland — Visual Communication Designer & Illustrator",
+  title: "Axel Garland — UX/UI Design & Illustration",
   description:
-    "Axel Garland — Visual communication designer and illustrator working across illustration, branding, and digital experiences. Portfolio and case studies.",
+    "Axel Garland — UX/UI designer and illustrator working across product design, branding, and illustration. Portfolio and case studies.",
 };
 
 export default function RootLayout({
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${bodySans.variable} font-sans bg-surface text-mist antialiased`}
+        className={`${displaySerif.variable} ${bodySans.variable} font-sans bg-surface text-mist antialiased`}
       >
         <a
           href="#main"

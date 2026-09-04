@@ -57,7 +57,7 @@ export function ProjectGallery({
               onClick={() =>
                 setLightboxIndex(ordered.findIndex((o) => o.file === img.file))
               }
-              className="group relative block aspect-[4/3] w-full overflow-hidden rounded-md border border-ink/8 bg-surface-raised text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className="group relative block aspect-[4/3] w-full overflow-hidden border border-line bg-surface-raised text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
               <Image
                 src={pictureSrc(img.file)}

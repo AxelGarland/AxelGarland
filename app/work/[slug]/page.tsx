@@ -14,11 +14,22 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+/** Full-outline accent border — for media frames (hero image, slider) where the whole edge takes
+ *  the project's color. */
 const ACCENT_BORDER: Record<AccentColor, string> = {
   coral: "border-coral",
   teal: "border-teal",
   indigo: "border-indigo",
   gold: "border-gold",
+};
+
+/** Directional (left-only) border-color utilities — combined with a base `border border-line` so
+ *  only the accent stripe changes color, not the whole outline. Used for text panels. */
+const ACCENT_BORDER_LEFT: Record<AccentColor, string> = {
+  coral: "border-l-coral",
+  teal: "border-l-teal",
+  indigo: "border-l-indigo",
+  gold: "border-l-gold",
 };
 
 const ACCENT_TEXT: Record<AccentColor, string> = {
@@ -42,7 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-/** Dense reading content always lives in a white paper card floating on the dark page. */
+/** Dense reading content lives in a bordered panel — a hairline border plus a colored left edge,
+ *  not a shadowed card, matching the site's flat editorial language. */
 function CaseStudySection({
   label,
   body,
@@ -54,8 +66,8 @@ function CaseStudySection({
 }) {
   return (
     <div
-      className={`rounded-lg border-l-4 bg-paper p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] md:p-7 ${
-        accent ? ACCENT_BORDER[accent] : "border-ink/15"
+      className={`border border-line border-l-4 bg-paper p-6 md:p-7 ${
+        accent ? ACCENT_BORDER_LEFT[accent] : ""
       }`}
     >
       <p
@@ -83,7 +95,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <>
       <GrainOverlay />
-      <main id="main" className="min-h-[100dvh]">
+      <main id="main" className="min-h-[100dvh] bg-surface">
         <article className="pb-16 pt-24 sm:pb-20 sm:pt-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
@@ -105,8 +117,8 @@ export default async function ProjectPage({ params }: PageProps) {
             </h1>
             {!project.caseStudy ? (
               <div
-                className={`mt-6 max-w-2xl rounded-lg border-l-4 bg-paper p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.6)] md:p-7 ${
-                  accent ? ACCENT_BORDER[accent] : "border-ink/15"
+                className={`mt-6 max-w-2xl border border-line border-l-4 bg-paper p-6 md:p-7 ${
+                  accent ? ACCENT_BORDER_LEFT[accent] : ""
                 }`}
               >
                 <p className="text-base leading-relaxed text-ink md:text-lg">
@@ -125,8 +137,8 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : project.useMorphSlider && project.gallery.length > 0 ? (
               <div
-                className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
-                  accent ? ACCENT_BORDER[accent] : "border-mist/15"
+                className={`relative mt-10 aspect-[16/10] overflow-hidden border md:mt-12 ${
+                  accent ? ACCENT_BORDER[accent] : "border-line"
                 }`}
               >
                 <MorphSlider
@@ -142,8 +154,8 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : (
               <div
-                className={`relative mt-10 aspect-[16/10] overflow-hidden rounded-lg border md:mt-12 ${
-                  accent ? ACCENT_BORDER[accent] : "border-mist/15"
+                className={`relative mt-10 aspect-[16/10] overflow-hidden border md:mt-12 ${
+                  accent ? ACCENT_BORDER[accent] : "border-line"
                 } bg-paper-raised`}
               >
                 {hasHeroImage ? (
@@ -195,7 +207,7 @@ export default async function ProjectPage({ params }: PageProps) {
                   {project.upcomingImages.map((slot) => (
                     <li
                       key={slot.label}
-                      className="flex aspect-[4/3] items-center justify-center rounded-md border border-dashed border-mist/20 bg-surface-elevated/60"
+                      className="flex aspect-[4/3] items-center justify-center border border-dashed border-line bg-surface-elevated/60"
                     >
                       <span className="text-center text-xs font-medium uppercase tracking-[0.18em] text-mist-subtle">
                         {slot.label}

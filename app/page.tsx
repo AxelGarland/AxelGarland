@@ -9,9 +9,7 @@ export default function Home() {
       <GrainOverlay />
       <main id="main" className="flex flex-col">
         <HeroSection />
-        <div id="work" className="pb-20 pt-16 md:pt-20">
-          <IllustrationWork />
-        </div>
+        <IllustrationWork />
       </main>
       <SiteFooter />
     </>

@@ -22,7 +22,9 @@ const DELIVERABLES = [
     title: "Social & Video",
     body: "Alutit fronts the recruitment account's ongoing social content and short-form video — the consistent face behind an otherwise rotating set of postings.",
     images: [
-      { file: "alutit/alutit social.png", alt: "Alutit standing in front of an Alut kindergarten, shown as a phone-screen social media post", caption: "Social Post" },
+      { file: "alutit/social media.png", alt: "Alutit at her desk, shown as a social media post", caption: "At Her Desk" },
+      { file: "alutit/social media 1.png", alt: "Alutit in a garden, shown as a social media post", caption: "In the Garden" },
+      { file: "alutit/social media 3.png", alt: "Alutit in front of the Eiffel Tower, shown as an Instagram Reels-style post", caption: "Reels Style" },
     ],
   },
   {

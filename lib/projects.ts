@@ -63,6 +63,8 @@ export type Project = {
   caseStudy?: CaseStudyContent;
   /** Selected Work section only: short reflection paragraph */
   reflection?: string;
+  /** Link to the real, live version of the project, when one exists publicly. */
+  liveUrl?: string;
   /** Grid card thumbnail — exact filename */
   thumbnail: string;
   /** Detail hero — exact filename */
@@ -312,6 +314,7 @@ export const PROJECTS: Project[] = [
     section: "other-work",
     summary:
       "A generative illustration experiment: choosing different attributes builds a different illustrated face each time. The idea underneath it — how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+    liveUrl: "https://mask-facette-app.vercel.app/",
     thumbnail: "Facettes image.png",
     hero: "Facettes image.png",
     gallery: [{ file: "Facettes image.png", alt: "Facettes multi-face grid" }],

@@ -130,6 +130,19 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             ) : null}
 
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm text-mist-muted underline underline-offset-4 transition-colors duration-300 hover:text-mist"
+              >
+                View the live project
+                <span aria-hidden>&#8599;</span>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            ) : null}
+
             {project.prototype ? (
               <div className="mt-10 md:mt-12">
                 <PrototypeMockup prototype={project.prototype} title={`${project.title} prototype`} />

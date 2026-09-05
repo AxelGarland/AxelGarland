@@ -1,3 +1,4 @@
+import { DeliverableCarousel } from "@/components/projects/DeliverableCarousel";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -177,21 +178,7 @@ export default function AlutitPage() {
                   key={item.num}
                   className="border border-surface/15 bg-surface/5 transition-colors duration-300 hover:border-coral/50"
                 >
-                  {item.images.length > 0 ? (
-                    <div className="flex gap-px bg-surface/15">
-                      {item.images.map((img) => (
-                        <div key={img.file} className="relative aspect-[4/5] flex-1 overflow-hidden">
-                          <Image
-                            src={pictureSrc(img.file)}
-                            alt={img.alt}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 50vw, 25vw"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
+                  <DeliverableCarousel images={item.images} />
                   <div className="flex items-baseline gap-4 p-6">
                     <span className="font-display text-lg leading-none text-surface/30">
                       {item.num}

@@ -20,7 +20,9 @@ const DELIVERABLES = [
     num: "01",
     title: "Social & Video",
     body: "Alutit fronts the recruitment account's ongoing social content and short-form video — the consistent face behind an otherwise rotating set of postings.",
-    images: [],
+    images: [
+      { file: "alutit/alutit social.png", alt: "Alutit standing in front of an Alut kindergarten, shown as a phone-screen social media post", caption: "Social Post" },
+    ],
   },
   {
     num: "02",
@@ -37,6 +39,8 @@ const DELIVERABLES = [
     title: "Recruitment Materials",
     body: "Alutit carries the same character system into printed and campus-facing recruitment materials, including a \"bring a friend\" referral program.",
     images: [
+      { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn", caption: "Social Workers Flyer" },
+      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut — the perfect job for students\"", caption: "Student Flyer" },
       { file: "alutit/חבר מביא חבר לוגו.png", alt: "Alutit fronting Alut's \"bring a friend\" referral program logo", caption: "Referral Logo" },
       { file: "alutit/חבר מביא סושיאל לוגו.png", alt: "Alutit fronting the social-media version of the referral program logo", caption: "Social Variant" },
     ],

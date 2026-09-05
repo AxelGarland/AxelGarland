@@ -213,15 +213,6 @@ export default function AlutitPage() {
               </div>
 
               <div className="grid grid-cols-1 gap-5">
-                <div className="border border-line bg-paper p-8">
-                  <p className="mb-2 font-display text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-coral">
-                    4+
-                  </p>
-                  <p className="text-sm leading-relaxed text-ink-muted">
-                    Distinct formats — social, video, print, and merchandise — carried by a single
-                    character system
-                  </p>
-                </div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden border border-line">
                   <Image
                     src={pictureSrc("alutit/אלוטית מרצ׳.png")}

@@ -152,27 +152,6 @@ export default function AlutitPage() {
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy?.role}
                 </p>
-
-                <div className="mt-4 grid grid-cols-1 border border-line bg-surface sm:grid-cols-3">
-                  <div className="border-b border-line p-6 sm:border-b-0 sm:border-r">
-                    <p className="mb-1.5 text-xs uppercase tracking-[0.1em] text-ink-subtle">
-                      Role
-                    </p>
-                    <p className="font-display text-xl text-ink">Illustrator</p>
-                  </div>
-                  <div className="border-b border-line p-6 sm:border-b-0 sm:border-r">
-                    <p className="mb-1.5 text-xs uppercase tracking-[0.1em] text-ink-subtle">
-                      Client
-                    </p>
-                    <p className="font-display text-xl text-ink">Alut</p>
-                  </div>
-                  <div className="p-6">
-                    <p className="mb-1.5 text-xs uppercase tracking-[0.1em] text-ink-subtle">
-                      Formats
-                    </p>
-                    <p className="font-display text-xl text-ink">4</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

@@ -120,21 +120,15 @@ export default function AlutitPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative aspect-[9/11] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(240,100,121,0.25)]">
-                <Image
-                  src={pictureSrc(project.hero)}
-                  alt="Alutit in her branded sweater, holding up a rainbow"
-                  fill
-                  priority
-                  className="object-contain p-6"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-              <div className="absolute -bottom-5 -left-5 bg-ink px-5 py-3.5 shadow-lg sm:-left-6">
-                <p className="mb-0.5 text-xs uppercase tracking-[0.08em] text-coral">Client</p>
-                <p className="font-display text-xl font-semibold text-surface">Alut</p>
-              </div>
+            <div className="relative aspect-[9/11] w-full">
+              <Image
+                src={pictureSrc(project.hero)}
+                alt="Alutit in her branded sweater, holding up a rainbow"
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 45vw"
+              />
             </div>
           </div>
         </header>

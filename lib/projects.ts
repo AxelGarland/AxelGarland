@@ -107,7 +107,7 @@ export const PROJECTS: Project[] = [
       problem:
         "Alut's Recruitment Department was using standard social media content — postings, generic photos — that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",
       role:
-        "I conceived and designed the character — concept, illustration style, and how she'd be used across roles and content. My boss, who isn't a designer, was the approver on the project rather than a creative collaborator on the character itself.",
+        "I conceived and designed the character — concept, illustration style, and how she'd be used across roles and content.",
       process:
         "I designed Alutit, a cartoon-illustrated character fronting the recruitment account — riffing on the AI-avatar trend visible elsewhere but keeping her fully hand-illustrated rather than AI-generated, so she'd read as authored and specific to Alut, not a generic trend-follow. She was built as a functional device, not just a mascot: a consistent base design (curly orange hair, glasses) redressed into role-specific outfits — tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones — so she could explain the actual range of jobs at Alut visually, something a standard listing can't do. A recurring whimsical motif (unicorn, rainbow) gave the account a consistent, joyful tone across otherwise very different role content.",
       outcome:

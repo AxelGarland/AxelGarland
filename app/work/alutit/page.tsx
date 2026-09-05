@@ -175,36 +175,30 @@ export default function AlutitPage() {
               {DELIVERABLES.map((item) => (
                 <div
                   key={item.num}
-                  className="grid grid-cols-[2.5rem_1fr] gap-5 border border-surface/15 bg-surface/5 p-7 transition-colors duration-300 hover:border-coral/50 hover:bg-coral/10"
+                  className="border border-surface/15 bg-surface/5 transition-colors duration-300 hover:border-coral/50"
                 >
-                  <span className="pt-0.5 font-display text-2xl leading-none text-surface/30">
-                    {item.num}
-                  </span>
-                  <div>
-                    <h3 className="mb-2 font-display text-xl font-semibold text-surface">
+                  {item.images.length > 0 ? (
+                    <div className="flex gap-px bg-surface/15">
+                      {item.images.map((img) => (
+                        <div key={img.file} className="relative aspect-[4/5] flex-1 overflow-hidden">
+                          <Image
+                            src={pictureSrc(img.file)}
+                            alt={img.alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  <div className="flex items-baseline gap-4 p-6">
+                    <span className="font-display text-lg leading-none text-surface/30">
+                      {item.num}
+                    </span>
+                    <h3 className="font-display text-xl font-semibold text-surface">
                       {item.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-surface/70">{item.body}</p>
-                    {item.images.length > 0 ? (
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        {item.images.map((img) => (
-                          <div key={img.file} className="w-20">
-                            <div className="relative aspect-[4/5] overflow-hidden border border-surface/15 bg-surface/10">
-                              <Image
-                                src={pictureSrc(img.file)}
-                                alt={img.alt}
-                                fill
-                                className="object-cover"
-                                sizes="90px"
-                              />
-                            </div>
-                            <p className="mt-1.5 text-center text-[0.65rem] uppercase tracking-[0.06em] text-surface/50">
-                              {img.caption}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    ) : null}
                   </div>
                 </div>
               ))}

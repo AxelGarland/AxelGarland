@@ -9,7 +9,7 @@ import { useState } from "react";
 function vimeoEmbedSrc(videoUrl: string): string | null {
   const match = videoUrl.match(/vimeo\.com\/(\d+)/);
   if (!match) return null;
-  return `https://player.vimeo.com/video/${match[1]}?autoplay=1&title=0&byline=0&portrait=0`;
+  return `https://player.vimeo.com/video/${match[1]}?autoplay=1&loop=1&title=0&byline=0&portrait=0`;
 }
 
 /** Hero image that plays its video inline, in place, once clicked — a poster with a play

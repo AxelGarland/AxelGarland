@@ -58,18 +58,6 @@ const DELIVERABLES = [
   },
 ];
 
-/** The remaining real photos/illustrations, given their own showcase rather than crammed into
- *  the deliverable cards — the character's whole point is range, so seeing several roles side
- *  by side does real work here. */
-const GALLERY = [
-  { file: "alutit/Alutit physiotherapist.png", alt: "Alutit as a physiotherapist working with a client", caption: "Physiotherapist", aspect: "aspect-[3/4]" },
-  { file: "alutit/alutit speech therapist.png", alt: "Alutit as a speech therapist using a communication board with a client", caption: "Speech Therapist", aspect: "aspect-square" },
-  { file: "alutit/alutit onesie.png", alt: "Alutit wearing a unicorn onesie", caption: "Off Duty", aspect: "aspect-[3/4]" },
-  { file: "alutit/alutit desk.png", alt: "Alutit at her desk in an Alutit-branded shirt", caption: "At Her Desk", aspect: "aspect-square" },
-  { file: "alutit/alutit office.png", alt: "Alutit in an office setting with recruitment materials on the wall", caption: "In the Office", aspect: "aspect-[4/3]" },
-  { file: "alutit/אלוטית גן.JPG", alt: "Alutit in front of an Alut kindergarten facility", caption: "Kindergarten Visit", aspect: "aspect-[4/3]" },
-];
-
 export default function AlutitPage() {
   const project = getProject("alutit");
   if (!project) notFound();
@@ -188,41 +176,6 @@ export default function AlutitPage() {
                     <h3 className="font-display text-xl font-semibold text-surface">
                       {item.title}
                     </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery */}
-        <section className="border-t border-line bg-paper py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
-              Gallery
-            </p>
-            <h2 className="mb-4 max-w-[24ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-              One character, every context
-            </h2>
-            <p className="mb-14 max-w-[52ch] text-base leading-relaxed text-ink-muted md:mb-16">
-              The same design, carried across the range of roles Alut actually hires for —
-              proof the character system holds up outside the hero shot.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-5">
-              {GALLERY.map((img) => (
-                <div key={img.file} className={`group relative overflow-hidden border border-line bg-surface ${img.aspect}`}>
-                  <Image
-                    src={pictureSrc(img.file)}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 30vw"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <p className="text-xs font-medium uppercase tracking-[0.08em] text-surface">
-                      {img.caption}
-                    </p>
                   </div>
                 </div>
               ))}

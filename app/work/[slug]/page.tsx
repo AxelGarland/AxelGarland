@@ -2,6 +2,7 @@ import MorphSlider from "@/components/MorphSlider";
 import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectPicture } from "@/components/projects/ProjectPicture";
+import { VideoHero } from "@/components/projects/VideoHero";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -175,30 +176,13 @@ export default async function ProjectPage({ params }: PageProps) {
                 } bg-paper-raised`}
               >
                 {hasHeroImage && project.videoUrl ? (
-                  <a
-                    href={project.videoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group absolute inset-0"
-                    aria-label={`Watch the ${project.title} video (opens in a new tab)`}
-                  >
-                    <ProjectPicture
-                      file={project.hero}
-                      alt={`${project.title} — hero`}
-                      priority
-                      className={
-                        (project.heroFit === "contain" ? "object-contain p-6" : "object-cover") +
-                        " transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                      }
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-ink/20 transition-colors duration-300 group-hover:bg-ink/35">
-                      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-surface/90 shadow-lg transition-transform duration-300 group-hover:scale-110 md:h-20 md:w-20">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-                          <path d="M7 4.5v13l11-6.5-11-6.5Z" fill="#1A1916" />
-                        </svg>
-                      </span>
-                    </div>
-                  </a>
+                  <VideoHero
+                    file={project.hero}
+                    alt={`${project.title} — hero`}
+                    videoUrl={project.videoUrl}
+                    priority
+                    fit={project.heroFit === "contain" ? "contain" : "cover"}
+                  />
                 ) : hasHeroImage ? (
                   <ProjectPicture
                     file={project.hero}

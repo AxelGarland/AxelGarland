@@ -121,9 +121,21 @@ export default function FacettesPage() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
               The Website
             </p>
-            <h2 className="mb-10 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-12">
+            <h2 className="mb-6 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
               Pick attributes, get a face and a caption
             </h2>
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-10 inline-flex items-center gap-2 text-sm text-ink-muted underline underline-offset-4 transition-colors duration-300 hover:text-ink md:mb-12"
+              >
+                Try it yourself
+                <span aria-hidden>&#8599;</span>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            ) : null}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {WEBSITE_SHOTS.map((shot) => (
                 <div key={shot.file}>

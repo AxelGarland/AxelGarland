@@ -1,7 +1,11 @@
+"use client";
+
 import type { Project } from "@/lib/projects";
 import { projectThumbnailSrc } from "@/lib/projects";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 /** Real medium per piece, not a generic category — matches the reference's per-item "type" label. */
 const MEDIUM: Record<string, string> = {
@@ -12,30 +16,13 @@ const MEDIUM: Record<string, string> = {
   "the-burial": "Sculpture",
 };
 
-/** Slow ambient drift cycled per item — the same drift/driftVertical keyframes the hero's
- *  background blobs use, so the background field feels like it belongs to the same site
- *  language rather than introducing new motion. */
-const DRIFT = ["animate-drift-slow", "animate-drift-medium", "animate-drift-vertical"] as const;
-
-/** Explicit grid placement per item, on a 4-column/3-row grid — two on top, one centered in
- *  the middle row, two on the bottom, each spanning 2 of the 4 columns. */
-const PLACEMENT = [
-  "col-start-1 row-start-1",
-  "col-start-3 row-start-1",
-  "col-start-2 row-start-2",
-  "col-start-1 row-start-3",
-  "col-start-3 row-start-3",
-] as const;
-
-function IllustrationItem({ project, index }: { project: Project; index: number }) {
+function IllustrationItem({ project }: { project: Project }) {
   const thumb = projectThumbnailSrc(project);
-  const drift = DRIFT[index % DRIFT.length];
-  const placement = PLACEMENT[index % PLACEMENT.length];
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative col-span-2 overflow-hidden bg-surface will-change-transform ${drift} ${placement}`}
+      className="group relative block aspect-[3/4] w-full overflow-hidden bg-surface"
     >
       {thumb ? (
         <Image
@@ -43,7 +30,7 @@ function IllustrationItem({ project, index }: { project: Project; index: number 
           alt={project.title}
           fill
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          sizes="50vw"
+          sizes="(max-width: 640px) 90vw, 45vw"
         />
       ) : (
         <div className="flex h-full items-center justify-center p-6">
@@ -65,6 +52,17 @@ function IllustrationItem({ project, index }: { project: Project; index: number 
 }
 
 export function IllustrationShowcase({ projects }: { projects: Project[] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  // Two columns drift at different rates and starting offsets as the section scrolls through
+  // the viewport — a real scroll-linked parallax, not just an ambient animation.
+  const yLeft = useTransform(scrollYProgress, [0, 1], [40, -60]);
+  const yRight = useTransform(scrollYProgress, [0, 1], [-40, 80]);
+
+  const left = projects.filter((_, i) => i % 2 === 0);
+  const right = projects.filter((_, i) => i % 2 === 1);
+
   return (
     <div>
       {/* Title — sits in normal flow above the grid, not over the images, sized to match
@@ -75,13 +73,26 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
         </p>
       </div>
 
-      {/* Background field — a 2/1/2 diamond: two on top, one centered in the middle, two on
-          the bottom — big, clearly separated tiles, each drifting slowly and independently */}
-      <div className="relative h-[860px] overflow-hidden sm:h-[1000px] md:h-[1300px] lg:h-[1500px]">
-        <div className="grid h-full grid-cols-4 grid-rows-3 gap-4 p-4 sm:gap-8 sm:p-8 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
-          {projects.map((project, i) => (
-            <IllustrationItem key={project.slug} project={project} index={i} />
-          ))}
+      {/* Two offset columns — the right one starts lower, so no two pieces share a row —
+          each parallaxing at its own rate while the section scrolls through view. */}
+      <div
+        ref={ref}
+        className="mx-auto max-w-content px-6 pb-20 sm:px-10 md:px-14 md:pb-32 lg:px-16"
+      >
+        <div className="grid grid-cols-2 gap-5 sm:gap-8 md:gap-10">
+          <motion.div style={{ y: yLeft }} className="flex flex-col gap-5 sm:gap-8 md:gap-10">
+            {left.map((project) => (
+              <IllustrationItem key={project.slug} project={project} />
+            ))}
+          </motion.div>
+          <motion.div
+            style={{ y: yRight }}
+            className="mt-16 flex flex-col gap-5 sm:mt-24 sm:gap-8 md:mt-28 md:gap-10"
+          >
+            {right.map((project) => (
+              <IllustrationItem key={project.slug} project={project} />
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

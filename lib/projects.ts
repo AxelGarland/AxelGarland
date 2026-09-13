@@ -108,7 +108,6 @@ export const PROJECTS: Project[] = [
     summary: "An illustrated recruitment avatar for Alut.",
     accentColor: "coral",
     heroFit: "contain",
-    thumbnailFit: "contain",
     caseStudy: {
       problem:
         "Alut's Recruitment Department was using standard social media content — postings, generic photos — that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",
@@ -119,7 +118,7 @@ export const PROJECTS: Project[] = [
       outcome:
         "She appeared across social content, video, recruitment materials, and physical merch — including tote bags branded with her name, handed out at university campus events. The clearest proof came from the tote bags: at campus events, students gave up their contact details specifically to get one — and said so directly. Beyond that single moment, her ongoing presence across content channels now feeds a steady, passive stream of candidates applying to open roles sourced from social — not a campaign spike, but a running channel.",
     },
-    thumbnail: "alutit/Alutit rainbow.png",
+    thumbnail: "alutit/banner alutit.png",
     hero: "alutit/Alutit rainbow.png",
     gallery: [
       { file: "alutit/Alutit rainbow.png", alt: "Alutit in her branded sweater, holding up a rainbow" },

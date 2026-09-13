@@ -70,15 +70,6 @@ const DELIVERABLES: Deliverable[] = [
   },
 ];
 
-/** Placeholder metrics — swap the `value` for the real numbers before shipping. Labels describe
- *  the metric the case study already claims (candidates sourced, campus signups, sustained
- *  channel) so the stat block matches the outcome copy above it. */
-const STATS = [
-  { value: "—", label: "Candidates sourced from social per month" },
-  { value: "—", label: "Tote bags handed out at campus events" },
-  { value: "—", label: "Months the channel has run without a campaign refresh" },
-];
-
 /** Column count per deliverable's image row — a literal lookup (not computed) so Tailwind's
  *  scanner can see every class name in the source file. */
 const IMAGE_GRID_COLS: Record<number, string> = {
@@ -255,22 +246,11 @@ export default function AlutitPage() {
                 The Outcome
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                A recruitment channel people actually follow
+                A new channel, <em className="italic text-indigo">and a character people recognize</em>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-muted">
                 {project.caseStudy?.outcome}
               </p>
-            </div>
-
-            <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-14 sm:grid-cols-3 md:mt-16 md:pt-16">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-display text-5xl font-semibold text-indigo">{stat.value}</p>
-                  <p className="mt-3 max-w-[28ch] text-sm leading-relaxed text-ink-muted">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

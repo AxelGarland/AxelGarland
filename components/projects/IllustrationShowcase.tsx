@@ -77,7 +77,7 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
           each parallaxing at its own rate while the section scrolls through view. */}
       <div
         ref={ref}
-        className="mx-auto max-w-content px-6 pb-20 sm:px-10 md:px-14 md:pb-32 lg:px-16"
+        className="relative mx-auto max-w-content px-6 pb-20 sm:px-10 md:px-14 md:pb-32 lg:px-16"
       >
         <div className="grid grid-cols-2 gap-5 sm:gap-8 md:gap-10">
           <motion.div style={{ y: yLeft }} className="flex flex-col gap-5 sm:gap-8 md:gap-10">

@@ -35,9 +35,7 @@ export function IllustrationWork() {
       </section>
 
       <section id="illustration" className="border-t border-line bg-paper py-20 md:py-32">
-        <MotionReveal>
-          <IllustrationShowcase projects={illustrationProjects} />
-        </MotionReveal>
+        <IllustrationShowcase projects={illustrationProjects} />
       </section>
     </>
   );

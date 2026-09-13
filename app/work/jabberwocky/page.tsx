@@ -9,8 +9,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Jabberwocky — Axel Garland",
-  description: "Jabberwocky — a fully illustrated book of Lewis Carroll's nonsense poem.",
+  title: "Jabberwocky · Axel Garland",
+  description: "Jabberwocky, a fully illustrated book of Lewis Carroll's nonsense poem.",
 };
 
 export default function JabberwockyPage() {
@@ -37,7 +37,7 @@ export default function JabberwockyPage() {
           <div className="relative mx-auto aspect-[5145/3780] w-full max-w-3xl px-6 sm:px-10">
             <Image
               src={pictureSrc("book mock up.jpg")}
-              alt="Jabberwocky — printed book mockup"
+              alt="Jabberwocky, printed book mockup"
               fill
               priority
               className="object-contain"

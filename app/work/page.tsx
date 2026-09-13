@@ -4,8 +4,8 @@ import { SiteFooter } from "@/components/sections/SiteFooter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work — Axel Garland",
-  description: "UX/UI case studies and illustration work — Alutit, Giuson, and more.",
+  title: "Work · Axel Garland",
+  description: "UX/UI case studies and illustration work: Alutit, Giuson, and more.",
 };
 
 export default function WorkPage() {

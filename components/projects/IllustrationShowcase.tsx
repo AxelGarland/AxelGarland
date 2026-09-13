@@ -77,8 +77,8 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
           Different jobs, <em className="italic text-accent">one way of seeing</em>
         </h2>
         <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-ink-muted">
-          Book illustration, fictional branding, sculpture, and generative work — different
-          jobs carried by the same practice: bold color, confident silhouette.
+          Book illustration, fictional branding, sculpture, and generative work: different
+          jobs carried by the same practice, bold color, confident silhouette.
         </p>
       </div>
 

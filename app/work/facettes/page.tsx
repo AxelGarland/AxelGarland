@@ -10,9 +10,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Facettes — Axel Garland",
+  title: "Facettes · Axel Garland",
   description:
-    "Facettes — a generative illustration experiment where choosing different attributes builds a different illustrated face each time.",
+    "Facettes, a generative illustration experiment where choosing different attributes builds a different illustrated face each time.",
 };
 
 const POSTERS = Array.from({ length: 10 }, (_, i) => {
@@ -24,8 +24,8 @@ const POSTERS = Array.from({ length: 10 }, (_, i) => {
 });
 
 const WEBSITE_SHOTS = [
-  { file: "Facettes/facettes website landing.png", alt: "Facettes website — landing screen", caption: "Landing" },
-  { file: "Facettes/facettes website generator.png", alt: "Facettes website — a generated face with its caption", caption: "The Generator" },
+  { file: "Facettes/facettes website landing.png", alt: "Facettes website: landing screen", caption: "Landing" },
+  { file: "Facettes/facettes website generator.png", alt: "Facettes website: a generated face with its caption", caption: "The Generator" },
 ];
 
 export default function FacettesPage() {
@@ -53,7 +53,7 @@ export default function FacettesPage() {
             <div className="relative mx-auto aspect-[16/10] w-full max-w-3xl overflow-hidden border border-line">
               <VideoHero
                 file={project.hero}
-                alt={`${project.title} — hero`}
+                alt={`${project.title}, hero`}
                 videoUrl={project.videoUrl!}
                 priority
               />

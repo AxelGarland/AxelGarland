@@ -42,7 +42,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <p className="border border-teal/30 bg-teal-soft px-5 py-4 text-sm text-ink">
-        Thanks — your message is in. I&rsquo;ll get back to you soon.
+        Thanks, your message is in. I&rsquo;ll get back to you soon.
       </p>
     );
   }
@@ -87,7 +87,7 @@ export function ContactForm() {
       </div>
 
       {status === "error" ? (
-        <p className="text-sm text-coral">Something went wrong — try again, or email me directly.</p>
+        <p className="text-sm text-coral">Something went wrong, try again, or email me directly.</p>
       ) : null}
 
       <motion.button

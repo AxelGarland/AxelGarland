@@ -39,7 +39,7 @@ export function HeroSection() {
         >
           I&rsquo;m a visual communication designer and illustrator, recently graduated from
           Shenkar College. My work moves between illustration, branding, and digital experiences,
-          often combining hands-on making with emerging technologies — drawn to storytelling,
+          often combining hands-on making with emerging technologies, drawn to storytelling,
           playful experimentation, and finding unexpected ways to bring ideas to life.
         </motion.p>
 

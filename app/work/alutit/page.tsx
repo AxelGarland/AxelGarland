@@ -9,9 +9,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Alutit — Axel Garland",
+  title: "Alutit · Axel Garland",
   description:
-    "Alutit — an illustrated recruitment character designed for Alut, Israel's national organization for people with autism.",
+    "Alutit, an illustrated recruitment character designed for Alut, Israel's national organization for people with autism.",
 };
 
 const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
@@ -30,7 +30,7 @@ const DELIVERABLES: Deliverable[] = [
   {
     num: "01",
     title: "Social & Video",
-    body: "Alutit fronts the recruitment account's ongoing social content and short-form video — the consistent face behind an otherwise rotating set of postings.",
+    body: "Alutit fronts the recruitment account's ongoing social content and short-form video, the consistent face behind an otherwise rotating set of postings.",
     images: [
       { file: "alutit/social media.png", alt: "Alutit at her desk, shown as a social media post", caption: "At Her Desk" },
       { file: "alutit/social media 1.png", alt: "Alutit in a garden, shown as a social media post", caption: "In the Garden" },
@@ -40,7 +40,7 @@ const DELIVERABLES: Deliverable[] = [
   {
     num: "02",
     title: "Role-Specific Illustration",
-    body: "The same base design — curly orange hair, glasses — redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
+    body: "The same base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
     images: [
       { file: "alutit/alutit handyman.png", alt: "Alutit dressed as a maintenance worker with a tool belt and hard hat", caption: "Maintenance" },
       { file: "alutit/alutit nurse.png", alt: "Alutit dressed as a care worker in scrubs with a stethoscope", caption: "Care Staff" },
@@ -56,14 +56,14 @@ const DELIVERABLES: Deliverable[] = [
     lightTiles: true,
     images: [
       { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn", caption: "Social Workers Flyer" },
-      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut — the perfect job for students\"", caption: "Student Flyer" },
+      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut, the perfect job for students\"", caption: "Student Flyer" },
       { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
     ],
   },
   {
     num: "04",
     title: "Branded Merchandise",
-    body: "Her illustration translated to physical products — tote bags among them — handed out at university campus events, extending the character past digital channels.",
+    body: "Her illustration translated to physical products, tote bags among them, handed out at university campus events, extending the character past digital channels.",
     images: [
       { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
     ],
@@ -135,7 +135,7 @@ export default function AlutitPage() {
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                 Alutit is an illustrated character designed for Alut, Israel&rsquo;s national
-                organization for people with autism — giving their recruitment office a warm,
+                organization for people with autism, giving their recruitment office a warm,
                 recognizable face across social media, video, print, and merchandise.
               </p>
               <div className="flex flex-wrap gap-2.5">

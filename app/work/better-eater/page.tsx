@@ -8,8 +8,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Better Eater — Axel Garland",
-  description: "Better Eater — a personalized meal-planning and recipe app.",
+  title: "Better Eater · Axel Garland",
+  description: "Better Eater, a personalized meal-planning and recipe app.",
 };
 
 const TAGS = ["Product Design", "Mobile App", "Interactive Course"];
@@ -50,8 +50,8 @@ export default function BetterEaterPage() {
               Cooking, made <em className="italic text-teal">approachable</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              {project.summary} Designed around one real persona — someone with no prior kitchen
-              experience — rather than a generic user.
+              {project.summary} Designed around one real persona, someone with no prior kitchen
+              experience, rather than a generic user.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
               {TAGS.map((tag) => (
@@ -67,7 +67,7 @@ export default function BetterEaterPage() {
             <div className="relative aspect-[1104/862] w-full overflow-hidden border border-line bg-paper">
               <Image
                 src={pictureSrc(project.hero)}
-                alt="Better Eater — recommended meal plan, home screen, and recipe detail"
+                alt="Better Eater: recommended meal plan, home screen, and recipe detail"
                 fill
                 priority
                 className="object-contain"
@@ -116,14 +116,14 @@ export default function BetterEaterPage() {
                   Try the full flow
                 </h2>
                 <p className="text-base leading-relaxed text-ink-muted">
-                  The real Figma prototype, live and clickable — plan a week, get a
+                  The real Figma prototype, live and clickable: plan a week, get a
                   recommendation, and follow a recipe through to the shopping list.
                 </p>
               </div>
               <div className="mx-auto aspect-[3/4] w-full max-w-xl overflow-hidden border border-line bg-ink">
                 <iframe
                   src={project.figmaEmbedUrl}
-                  title="Better Eater — Figma prototype"
+                  title="Better Eater, Figma prototype"
                   allowFullScreen
                   className="h-full w-full"
                 />
@@ -139,7 +139,7 @@ export default function BetterEaterPage() {
               The Outcome
             </p>
             <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-12">
-              A working, tested loop — start to finish
+              A working, tested loop: start to finish
             </h2>
             <ol className="grid grid-cols-1 gap-5 sm:grid-cols-5">
               {FLOW.map((step, i) => (

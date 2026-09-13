@@ -50,9 +50,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return { title: "Project — Axel Garland" };
+  if (!project) return { title: "Project · Axel Garland" };
   return {
-    title: `${project.title} — Axel Garland`,
+    title: `${project.title} · Axel Garland`,
     description: project.summary,
   };
 }
@@ -148,7 +148,7 @@ export default async function ProjectPage({ params }: PageProps) {
               <div className="mt-10 md:mt-12">
                 <PrototypeMockup prototype={project.prototype} title={`${project.title} prototype`} />
                 <p className="mt-3 text-sm text-mist-muted">
-                  A quick clickthrough, not the live tool — pick a path on the home screen to see
+                  A quick clickthrough, not the live tool: pick a path on the home screen to see
                   where it leads.
                 </p>
               </div>
@@ -178,7 +178,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 {hasHeroImage && project.videoUrl ? (
                   <VideoHero
                     file={project.hero}
-                    alt={`${project.title} — hero`}
+                    alt={`${project.title}, hero`}
                     videoUrl={project.videoUrl}
                     priority
                     fit={project.heroFit === "contain" ? "contain" : "cover"}
@@ -186,7 +186,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 ) : hasHeroImage ? (
                   <ProjectPicture
                     file={project.hero}
-                    alt={`${project.title} — hero`}
+                    alt={`${project.title}, hero`}
                     priority
                     className={project.heroFit === "contain" ? "object-contain p-6" : "object-cover"}
                   />

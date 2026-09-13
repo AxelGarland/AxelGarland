@@ -24,8 +24,8 @@ export function IllustrationWork() {
                 </h2>
               </div>
               <p className="max-w-[38ch] self-end text-base leading-relaxed text-surface/70">
-                From an AI recruitment tool to an illustrated brand mascot — each piece starts with
-                a real problem worth solving.
+                From an AI recruitment tool to an illustrated brand mascot, each one built to solve
+                a real problem.
               </p>
             </div>
           </MotionReveal>

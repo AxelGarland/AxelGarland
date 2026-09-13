@@ -4,8 +4,8 @@ import { SiteFooter } from "@/components/sections/SiteFooter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — Axel Garland",
-  description: "Get in touch with Axel Garland — open to full-time and contract design roles.",
+  title: "Contact · Axel Garland",
+  description: "Get in touch with Axel Garland, open to full-time and contract design roles.",
 };
 
 const details = [
@@ -69,7 +69,7 @@ export default function ContactPage() {
             </h1>
             <p className="mb-10 max-w-[42ch] text-base leading-relaxed text-ink-muted md:text-lg">
               I&rsquo;m finishing my degree at Shenkar and looking for full-time or contract design
-              roles — UX/UI, product design, or work that leans on illustration too. Send a note and
+              roles: UX/UI, product design, or work that leans on illustration too. Send a note and
               I&rsquo;ll get back to you soon.
             </p>
 

@@ -9,9 +9,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Giuson — Axel Garland",
+  title: "Giuson · Axel Garland",
   description:
-    "Giuson — a recruitment and information tool built for Alut, replacing three disconnected sources with one.",
+    "Giuson, a recruitment and information tool built for Alut, replacing three disconnected sources with one.",
 };
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
@@ -19,12 +19,12 @@ const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 const SCREENS = [
   {
     file: "giuson/giuson recruitment map.png",
-    alt: "Recruitment search — open positions by location and distance",
+    alt: "Recruitment search: open positions by location and distance",
     caption: "Location & Radius Search",
   },
   {
     file: "giuson/giuson role detail.png",
-    alt: "Role detail — requirements, licensing, and staffing model",
+    alt: "Role detail: requirements, licensing, and staffing model",
     caption: "Role & Info Hub",
   },
   {
@@ -71,7 +71,7 @@ export default function GiusonPage() {
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                 Giuson replaces a Google Sheet, a set of personal notebooks, and a reference PDF
-                with one fast recruitment workflow — built for Alut&rsquo;s own recruitment team.
+                with one fast recruitment workflow, built for Alut&rsquo;s own recruitment team.
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {TAGS.map((tag) => (
@@ -88,7 +88,7 @@ export default function GiusonPage() {
             <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(28,184,140,0.3)]">
               <Image
                 src={pictureSrc("giuson/giuson recruitment map.png")}
-                alt="Recruitment search — open positions by location and distance"
+                alt="Recruitment search: open positions by location and distance"
                 fill
                 priority
                 className="object-cover"
@@ -117,7 +117,7 @@ export default function GiusonPage() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-surface">
                   <Image
                     src={pictureSrc("giuson/giuson home.png")}
-                    alt="Giuson home — two entry points instead of three separate sources"
+                    alt="Giuson home: two entry points instead of three separate sources"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 45vw"
@@ -175,7 +175,7 @@ export default function GiusonPage() {
                 See it in context
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
-                A quick clickthrough, not the live tool — pick a path on the home screen to see
+                A quick clickthrough, not the live tool: pick a path on the home screen to see
                 where it leads. Built solo, end to end.
               </p>
             </div>

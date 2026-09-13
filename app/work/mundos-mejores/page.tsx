@@ -9,16 +9,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Mundos Mejores — Axel Garland",
+  title: "Mundos Mejores · Axel Garland",
   description:
-    "Mundos Mejores — a series of retablo-inspired boxes combining traditional Peruvian craft with illustration, Axel Garland's final project at Shenkar.",
+    "Mundos Mejores, a series of retablo-inspired boxes combining traditional Peruvian craft with illustration, Axel Garland's final project at Shenkar.",
 };
 
 const BOXES = [
   {
     title: "Familia",
     images: [
-      { file: "mundos mejores/Familia 1.jpg", alt: "The \"Mundos Mejores\" box — a family of figures standing arm in arm" },
+      { file: "mundos mejores/Familia 1.jpg", alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
       { file: "mundos mejores/familia 2.jpg", alt: "Family box, detail view" },
       { file: "mundos mejores/familia 3.jpg", alt: "Family box, detail view" },
     ],
@@ -80,7 +80,7 @@ export default function MundosMejoresPage() {
           <div className="relative mx-auto aspect-[6544/2521] w-full max-w-4xl px-6 sm:px-10">
             <Image
               src={pictureSrc(project.hero)}
-              alt="The “Mundos Mejores” box — a family of figures standing arm in arm beneath the project's title"
+              alt="The “Mundos Mejores” box: a family of figures standing arm in arm beneath the project's title"
               fill
               priority
               className="object-contain"

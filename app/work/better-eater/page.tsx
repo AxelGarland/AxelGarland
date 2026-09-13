@@ -64,10 +64,10 @@ export default function BetterEaterPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[1658/680] w-full overflow-hidden border border-line bg-paper">
+            <div className="relative aspect-[1104/862] w-full overflow-hidden border border-line bg-paper">
               <Image
                 src={pictureSrc(project.hero)}
-                alt="Better Eater — home screen, recipe detail, and recommendation flow"
+                alt="Better Eater — recommended meal plan, home screen, and recipe detail"
                 fill
                 priority
                 className="object-contain"

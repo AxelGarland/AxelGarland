@@ -231,7 +231,6 @@ export const PROJECTS: Project[] = [
     section: "case-study",
     summary: "A personalized meal-planning and recipe app.",
     accentColor: "teal",
-    thumbnailFit: "contain",
     figmaEmbedUrl:
       "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fw3GO2poltFSRm4zvrMapin%2FBETTEREATER%3Fnode-id%3D811-2920%26t%3DrItpRNz8symuMgLU-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D811%253A2412%26starting-point-node-id%3D811%253A2920",
     caseStudy: {
@@ -243,9 +242,14 @@ export const PROJECTS: Project[] = [
       outcome:
         "A working, prototyped flow covering the full loop — plan the week, get a recommendation, see the recipe, cook it, shop for the next one — built and tested as a functioning Figma prototype.",
     },
-    thumbnail: "Better Eater .png",
-    hero: "Better Eater .png",
-    gallery: [{ file: "Better Eater .png", alt: "Better Eater app screen" }],
+    thumbnail: "bettereater banner.png",
+    hero: "bettereater banner.png",
+    gallery: [
+      {
+        file: "bettereater banner.png",
+        alt: "Better Eater — recommended meal plan, home screen, and recipe detail",
+      },
+    ],
     upcomingImages: [
       { label: "Meal-plan screen" },
       { label: "Recipe-detail screen" },

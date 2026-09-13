@@ -17,24 +17,14 @@ const MEDIUM: Record<string, string> = {
  *  language rather than introducing new motion. */
 const DRIFT = ["animate-drift-slow", "animate-drift-medium", "animate-drift-vertical"] as const;
 
-function IllustrationItem({
-  project,
-  index,
-  wide,
-}: {
-  project: Project;
-  index: number;
-  wide?: boolean;
-}) {
+function IllustrationItem({ project, index }: { project: Project; index: number }) {
   const thumb = projectThumbnailSrc(project);
   const drift = DRIFT[index % DRIFT.length];
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative overflow-hidden bg-surface will-change-transform ${drift} ${
-        wide ? "sm:col-span-2" : ""
-      }`}
+      className={`group relative overflow-hidden bg-surface will-change-transform ${drift}`}
     >
       {thumb ? (
         <Image
@@ -42,7 +32,7 @@ function IllustrationItem({
           alt={project.title}
           fill
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
         />
       ) : (
         <div className="flex h-full items-center justify-center p-6">
@@ -64,44 +54,18 @@ function IllustrationItem({
 }
 
 export function IllustrationShowcase({ projects }: { projects: Project[] }) {
-  const [first, second, third, fourth, fifth] = projects;
-
   return (
-    <div className="relative h-[760px] overflow-hidden sm:h-[860px] md:h-[960px] lg:h-[1040px]">
-      {/* Background field — bigger boxes than before, each drifting slowly and independently */}
-      <div className="grid h-full grid-cols-2 gap-3 p-3 sm:grid-cols-3 sm:gap-4 sm:p-4 md:gap-5 md:p-6">
-        {first ? <IllustrationItem project={first} index={0} /> : null}
-        {second ? <IllustrationItem project={second} index={1} /> : null}
-        {third ? <IllustrationItem project={third} index={2} /> : null}
-        {fourth ? <IllustrationItem project={fourth} index={3} /> : null}
-        {fifth ? <IllustrationItem project={fifth} index={4} wide /> : null}
-      </div>
+    <div className="relative h-[820px] overflow-hidden sm:h-[760px] md:h-[940px] lg:h-[1080px]">
+      {/* Title, plain — no box, no background, just the label sitting over the imagery */}
+      <p className="absolute left-6 top-6 z-10 text-sm uppercase tracking-[0.12em] text-ink drop-shadow-[0_1px_12px_rgba(245,243,239,0.9)] sm:left-10 sm:top-10 md:left-14 md:top-12">
+        Illustration
+      </p>
 
-      {/* Centered text banner, overlaid on top of the background field */}
-      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6">
-        <div className="pointer-events-auto w-full max-w-xl border border-line bg-surface/80 px-8 py-10 text-center sm:px-12 sm:py-14">
-          <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Illustration</p>
-          <p className="mx-auto mb-8 max-w-[36ch] text-base leading-relaxed text-ink-muted">
-            Drawn from a practice rooted in bold color and confident silhouette — book
-            illustration, fictional branding, sculpture, and generative work, always carried
-            through as one full visual world rather than a single image.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-              <path
-                d="M2 7h10M8 3l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Get in Touch
-          </Link>
-        </div>
+      {/* Background field — big, clearly separated tiles, each drifting slowly and independently */}
+      <div className="grid h-full grid-cols-2 gap-4 p-4 sm:gap-8 sm:p-8 md:grid-cols-3 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
+        {projects.map((project, i) => (
+          <IllustrationItem key={project.slug} project={project} index={i} />
+        ))}
       </div>
     </div>
   );

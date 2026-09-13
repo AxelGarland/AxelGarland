@@ -29,18 +29,18 @@ export default function JabberwockyPage() {
             >
               &larr; Work
             </Link>
-          </div>
 
-          {/* Book mockup — the visual lead, before any text */}
-          <div className="relative mx-auto aspect-[16/10] w-full max-w-[1400px] overflow-hidden border-y border-line bg-paper sm:aspect-[21/10]">
-            <Image
-              src={pictureSrc("book mock up.jpg")}
-              alt="Jabberwocky — printed book mockup"
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
+            {/* Book mockup — the visual lead, before any text */}
+            <div className="relative mx-auto aspect-[5145/3780] w-full max-w-xl overflow-hidden border border-line bg-paper">
+              <Image
+                src={pictureSrc("book mock up.jpg")}
+                alt="Jabberwocky — printed book mockup"
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 640px) 100vw, 576px"
+              />
+            </div>
           </div>
         </div>
 

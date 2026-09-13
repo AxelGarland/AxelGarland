@@ -35,11 +35,9 @@ export function IllustrationWork() {
       </section>
 
       <section id="illustration" className="border-t border-line bg-paper py-20 md:py-32">
-        <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-          <MotionReveal>
-            <IllustrationShowcase projects={illustrationProjects} />
-          </MotionReveal>
-        </div>
+        <MotionReveal>
+          <IllustrationShowcase projects={illustrationProjects} />
+        </MotionReveal>
       </section>
     </>
   );

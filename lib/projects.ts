@@ -6,6 +6,9 @@ export type ProjectImage = {
   /** Exact filename in `/pictures` */
   file: string;
   alt: string;
+  /** Accompanying verse/caption text shown alongside the image (e.g. Jabberwocky's
+   *  page-by-page poem text). Optional — most projects don't use this. */
+  verse?: string;
 };
 
 export type ProjectPlaceholder = {
@@ -281,19 +284,64 @@ export const PROJECTS: Project[] = [
     thumbnail: "jabberwocky book cover.png",
     hero: "book mock up.jpg",
     // Higher-res per-page exports, replacing the old spread PNGs. Pages 5, 7, and 8 aren't in
-    // the new set yet — add them here once they exist.
+    // the new set yet — add them here once they exist. Verse text matched by actually looking
+    // at each page's artwork against Lewis Carroll's poem (public domain), not guessed from
+    // the page numbers alone.
     gallery: [
-      { file: "jabberwocky book cover.png", alt: "Jabberwocky book cover — title lettering beneath an illustrated Jabberwock head" },
-      { file: "page 1.jpg", alt: "Jabberwocky — page 1" },
-      { file: "עמוד 2.jpg", alt: "Jabberwocky — page 2" },
-      { file: "עמוד 3.jpg", alt: "Jabberwocky — page 3" },
-      { file: "עמוד 4.jpg", alt: "Jabberwocky — page 4" },
-      { file: "עמוד 6.jpg", alt: "Jabberwocky — page 6" },
-      { file: "עמוד 9.jpg", alt: "Jabberwocky — page 9" },
-      { file: "עמוד 10.jpg", alt: "Jabberwocky — page 10" },
-      { file: "עמוד 11.jpg", alt: "Jabberwocky — page 11" },
-      { file: "עמוד 12.jpg", alt: "Jabberwocky — page 12" },
-      { file: "עמוד 13.jpg", alt: "Jabberwocky — page 13" },
+      {
+        file: "jabberwocky book cover.png",
+        alt: "Jabberwocky book cover — title lettering beneath an illustrated Jabberwock head",
+      },
+      {
+        file: "page 1.jpg",
+        alt: "A smoking cottage tucked among hills dotted with whimsical spiral creatures",
+        verse: "'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
+      },
+      {
+        file: "עמוד 2.jpg",
+        alt: "A father warns his son",
+        verse: '"Beware the Jabberwock, my son!',
+      },
+      {
+        file: "עמוד 3.jpg",
+        alt: "Close-up of the Jabberwock's jaws and teeth, lettered \"The jaws that bite\"",
+        verse: "The jaws that bite, the claws that catch!",
+      },
+      {
+        file: "עמוד 4.jpg",
+        alt: "The prince draws his sword against the spotted Bandersnatch among bones",
+        verse: 'Beware the Jubjub bird, and shun\nThe frumious Bandersnatch!"',
+      },
+      {
+        file: "עמוד 6.jpg",
+        alt: "The prince rests beneath the Tumtum tree beside his striped steed",
+        verse: "So rested he by the Tumtum tree\nAnd stood awhile in thought.",
+      },
+      {
+        file: "עמוד 9.jpg",
+        alt: "The Jabberwock, eyes aflame, confronts the prince",
+        verse: "The Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!",
+      },
+      {
+        file: "עמוד 10.jpg",
+        alt: "The Jabberwock recoils from the vorpal blade",
+        verse: "One, two! One, two! And through and through\nThe vorpal blade went snicker-snack!",
+      },
+      {
+        file: "עמוד 11.jpg",
+        alt: "The prince rides back on his steed, dragging the Jabberwock's head",
+        verse: "He left it dead, and with its head\nHe went galumphing back.",
+      },
+      {
+        file: "עמוד 12.jpg",
+        alt: "A celebration — the king embraces the boy amid bunting and confetti",
+        verse: '"And hast thou slain the Jabberwock?\nCome to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!"\nHe chortled in his joy.',
+      },
+      {
+        file: "עמוד 13.jpg",
+        alt: "The creatures of the wabe together again at dusk, closing the loop",
+        verse: "'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
+      },
     ],
   },
   {

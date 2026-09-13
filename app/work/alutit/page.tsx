@@ -39,7 +39,7 @@ const DELIVERABLES: Deliverable[] = [
   },
   {
     num: "02",
-    title: "Role-Specific Illustration",
+    title: "Character Illustrations",
     body: "The same base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
     images: [
       { file: "alutit/alutit handyman.png", alt: "Alutit dressed as a maintenance worker with a tool belt and hard hat", caption: "Maintenance" },

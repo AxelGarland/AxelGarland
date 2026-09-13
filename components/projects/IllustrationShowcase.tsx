@@ -17,14 +17,25 @@ const MEDIUM: Record<string, string> = {
  *  language rather than introducing new motion. */
 const DRIFT = ["animate-drift-slow", "animate-drift-medium", "animate-drift-vertical"] as const;
 
+/** Explicit grid placement per item, on a 4-column/3-row grid — two on top, one centered in
+ *  the middle row, two on the bottom, each spanning 2 of the 4 columns. */
+const PLACEMENT = [
+  "col-start-1 row-start-1",
+  "col-start-3 row-start-1",
+  "col-start-2 row-start-2",
+  "col-start-1 row-start-3",
+  "col-start-3 row-start-3",
+] as const;
+
 function IllustrationItem({ project, index }: { project: Project; index: number }) {
   const thumb = projectThumbnailSrc(project);
   const drift = DRIFT[index % DRIFT.length];
+  const placement = PLACEMENT[index % PLACEMENT.length];
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative overflow-hidden bg-surface will-change-transform ${drift}`}
+      className={`group relative col-span-2 overflow-hidden bg-surface will-change-transform ${drift} ${placement}`}
     >
       {thumb ? (
         <Image
@@ -32,7 +43,7 @@ function IllustrationItem({ project, index }: { project: Project; index: number 
           alt={project.title}
           fill
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
+          sizes="50vw"
         />
       ) : (
         <div className="flex h-full items-center justify-center p-6">
@@ -64,9 +75,10 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
         </p>
       </div>
 
-      {/* Background field — big, clearly separated tiles, each drifting slowly and independently */}
-      <div className="relative h-[820px] overflow-hidden sm:h-[760px] md:h-[940px] lg:h-[1080px]">
-        <div className="grid h-full grid-cols-2 gap-4 p-4 sm:gap-8 sm:p-8 md:grid-cols-3 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
+      {/* Background field — a 2/1/2 diamond: two on top, one centered in the middle, two on
+          the bottom — big, clearly separated tiles, each drifting slowly and independently */}
+      <div className="relative h-[860px] overflow-hidden sm:h-[1000px] md:h-[1300px] lg:h-[1500px]">
+        <div className="grid h-full grid-cols-4 grid-rows-3 gap-4 p-4 sm:gap-8 sm:p-8 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
           {projects.map((project, i) => (
             <IllustrationItem key={project.slug} project={project} index={i} />
           ))}

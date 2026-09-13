@@ -40,9 +40,9 @@ const ACCENT_TEXT: Record<AccentColor, string> = {
   gold: "text-gold",
 };
 
-/** "alutit" and "giuson" have their own bespoke pages (app/work/alutit, app/work/giuson) —
- *  excluded here so those routes don't collide with this dynamic one. */
-const BESPOKE_SLUGS = ["alutit", "giuson"];
+/** "alutit", "giuson", and "jabberwocky" have their own bespoke pages — excluded here so those
+ *  routes don't collide with this dynamic one. */
+const BESPOKE_SLUGS = ["alutit", "giuson", "jabberwocky"];
 export function generateStaticParams() {
   return PROJECTS.filter((p) => !BESPOKE_SLUGS.includes(p.slug)).map((p) => ({ slug: p.slug }));
 }

@@ -98,7 +98,7 @@ export default function AlutitPage() {
                 &larr; Work
               </Link>
               <div className="mb-6 flex items-center gap-3">
-                <span className="text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+                <span className="text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
                   Alutit
                 </span>
                 <span aria-hidden className="h-1 w-1 rounded-full bg-line" />
@@ -109,7 +109,7 @@ export default function AlutitPage() {
               <h1 className="mb-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
                 A character
                 <br />
-                with <em className="italic text-coral">purpose</em>
+                with <em className="italic text-indigo">purpose</em>
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                 Alutit is an illustrated character designed for Alut, Israel&rsquo;s national
@@ -146,7 +146,7 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
                   The Brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -169,10 +169,10 @@ export default function AlutitPage() {
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <div
             aria-hidden
-            className="pointer-events-none absolute -bottom-[10%] -left-[10%] h-[55%] w-[55%] rounded-full bg-coral/10 blur-[100px]"
+            className="pointer-events-none absolute -bottom-[10%] -left-[10%] h-[55%] w-[55%] rounded-full bg-indigo/10 blur-[100px]"
           />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
               Deliverables
             </p>
             <h2 className="mb-14 max-w-[20ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-16">
@@ -183,7 +183,7 @@ export default function AlutitPage() {
               {DELIVERABLES.map((item) => (
                 <div
                   key={item.num}
-                  className="border border-surface/15 bg-surface/5 p-6 transition-colors duration-300 hover:border-coral/50 md:p-8"
+                  className="border border-surface/15 bg-surface/5 p-6 transition-colors duration-300 hover:border-indigo/50 md:p-8"
                 >
                   <div className="mb-6 flex items-baseline gap-4">
                     <span className="font-display text-lg leading-none text-surface/30">
@@ -223,7 +223,7 @@ export default function AlutitPage() {
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[70ch]">
-              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
                 The Outcome
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -237,7 +237,7 @@ export default function AlutitPage() {
             <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-14 sm:grid-cols-3 md:mt-16 md:pt-16">
               {STATS.map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-display text-5xl font-semibold text-coral">{stat.value}</p>
+                  <p className="font-display text-5xl font-semibold text-indigo">{stat.value}</p>
                   <p className="mt-3 max-w-[28ch] text-sm leading-relaxed text-ink-muted">
                     {stat.label}
                   </p>

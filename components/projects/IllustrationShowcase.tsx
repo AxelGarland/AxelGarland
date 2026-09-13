@@ -55,18 +55,22 @@ function IllustrationItem({ project, index }: { project: Project; index: number 
 
 export function IllustrationShowcase({ projects }: { projects: Project[] }) {
   return (
-    <div className="relative h-[820px] overflow-hidden sm:h-[760px] md:h-[940px] lg:h-[1080px]">
-      {/* Title, plain — no box, no background, just the label sitting over the imagery.
-          Sized and colored to match the "Selected Work" eyebrow treatment, scaled up. */}
-      <p className="absolute left-6 top-6 z-10 font-display text-3xl font-semibold uppercase tracking-[0.06em] text-accent drop-shadow-[0_1px_16px_rgba(245,243,239,0.95)] sm:left-10 sm:top-10 sm:text-4xl md:left-14 md:top-12 md:text-5xl">
-        Illustration
-      </p>
+    <div>
+      {/* Title — sits in normal flow above the grid, not over the images, sized to match
+          the "Selected Work" section's heading exactly. */}
+      <div className="mx-auto mb-10 max-w-content px-6 sm:px-10 md:mb-14 md:px-14 lg:px-16">
+        <p className="font-display text-3xl font-semibold leading-[1.1] text-accent sm:text-4xl">
+          Illustration
+        </p>
+      </div>
 
       {/* Background field — big, clearly separated tiles, each drifting slowly and independently */}
-      <div className="grid h-full grid-cols-2 gap-4 p-4 sm:gap-8 sm:p-8 md:grid-cols-3 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
-        {projects.map((project, i) => (
-          <IllustrationItem key={project.slug} project={project} index={i} />
-        ))}
+      <div className="relative h-[820px] overflow-hidden sm:h-[760px] md:h-[940px] lg:h-[1080px]">
+        <div className="grid h-full grid-cols-2 gap-4 p-4 sm:gap-8 sm:p-8 md:grid-cols-3 md:gap-10 md:p-12 lg:gap-14 lg:p-16">
+          {projects.map((project, i) => (
+            <IllustrationItem key={project.slug} project={project} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

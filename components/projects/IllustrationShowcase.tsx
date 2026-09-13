@@ -79,13 +79,8 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
 
       {/* Centered text banner, overlaid on top of the background field */}
       <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6">
-        <div className="pointer-events-auto w-full max-w-xl border border-line bg-surface px-8 py-10 text-center sm:px-12 sm:py-14">
+        <div className="pointer-events-auto w-full max-w-xl border border-line bg-surface/80 px-8 py-10 text-center sm:px-12 sm:py-14">
           <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Illustration</p>
-          <h2 className="mb-5 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl">
-            Images that
-            <br />
-            <em className="italic text-accent">hold their ground</em>
-          </h2>
           <p className="mx-auto mb-8 max-w-[36ch] text-base leading-relaxed text-ink-muted">
             Drawn from a practice rooted in bold color and confident silhouette — book
             illustration, fictional branding, sculpture, and generative work, always carried

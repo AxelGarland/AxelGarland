@@ -1,4 +1,3 @@
-import { DeliverableCarousel } from "@/components/projects/DeliverableCarousel";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -58,6 +57,24 @@ const DELIVERABLES = [
   },
 ];
 
+/** Placeholder metrics — swap the `value` for the real numbers before shipping. Labels describe
+ *  the metric the case study already claims (candidates sourced, campus signups, sustained
+ *  channel) so the stat block matches the outcome copy above it. */
+const STATS = [
+  { value: "—", label: "Candidates sourced from social per month" },
+  { value: "—", label: "Tote bags handed out at campus events" },
+  { value: "—", label: "Months the channel has run without a campaign refresh" },
+];
+
+/** Column count per deliverable's image row — a literal lookup (not computed) so Tailwind's
+ *  scanner can see every class name in the source file. */
+const IMAGE_GRID_COLS: Record<number, string> = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-2 sm:grid-cols-3",
+  4: "grid-cols-2 sm:grid-cols-4",
+};
+
 export default function AlutitPage() {
   const project = getProject("alutit");
   if (!project) notFound();
@@ -70,7 +87,7 @@ export default function AlutitPage() {
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-coral-soft blur-[100px]"
+            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-indigo-soft blur-[100px]"
           />
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-2 md:gap-16 md:px-14 lg:px-16">
             <div>
@@ -162,20 +179,39 @@ export default function AlutitPage() {
               Where Alutit appears
             </h2>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="flex flex-col gap-6">
               {DELIVERABLES.map((item) => (
                 <div
                   key={item.num}
-                  className="border border-surface/15 bg-surface/5 transition-colors duration-300 hover:border-coral/50"
+                  className="border border-surface/15 bg-surface/5 p-6 transition-colors duration-300 hover:border-coral/50 md:p-8"
                 >
-                  <DeliverableCarousel images={item.images} />
-                  <div className="flex items-baseline gap-4 p-6">
+                  <div className="mb-6 flex items-baseline gap-4">
                     <span className="font-display text-lg leading-none text-surface/30">
                       {item.num}
                     </span>
                     <h3 className="font-display text-xl font-semibold text-surface">
                       {item.title}
                     </h3>
+                  </div>
+                  <div
+                    className={`grid gap-3 ${
+                      IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
+                    } ${item.images.length === 1 ? "max-w-xs" : ""}`}
+                  >
+                    {item.images.map((img) => (
+                      <div
+                        key={img.file}
+                        className="relative aspect-[3/4] w-full overflow-hidden bg-surface/10"
+                      >
+                        <Image
+                          src={pictureSrc(img.file)}
+                          alt={img.alt}
+                          fill
+                          className="object-contain p-3"
+                          sizes="(max-width: 640px) 45vw, 25vw"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -186,43 +222,27 @@ export default function AlutitPage() {
         {/* Impact */}
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
-              <div className="flex flex-col gap-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.1em] text-coral">
-                  The Outcome
-                </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                  A recruitment channel people actually follow
-                </h2>
-                <p className="max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-                  {project.caseStudy?.outcome}
-                </p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "A sustained social presence the recruitment team runs on their own",
-                    "One character system scaling from Instagram stories to printed flyers",
-                    "Tote bags students traded contact details for at campus events",
-                    "An ongoing, passive stream of candidates sourced from social — not a one-off campaign",
-                  ].map((line) => (
-                    <li key={line} className="flex items-start gap-3 text-base text-ink-muted">
-                      <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mx-auto max-w-[70ch]">
+              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+                The Outcome
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+                A recruitment channel people actually follow
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+                {project.caseStudy?.outcome}
+              </p>
+            </div>
 
-              <div className="grid grid-cols-1 gap-5">
-                <div className="relative aspect-[4/3] w-full overflow-hidden border border-line">
-                  <Image
-                    src={pictureSrc("alutit/אלוטית מרצ׳.png")}
-                    alt="Alutit merchandise flat-lay — tote bag, notebook, and game board"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
+            <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-14 sm:grid-cols-3 md:mt-16 md:pt-16">
+              {STATS.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display text-5xl font-semibold text-coral">{stat.value}</p>
+                  <p className="mt-3 max-w-[28ch] text-sm leading-relaxed text-ink-muted">
+                    {stat.label}
+                  </p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

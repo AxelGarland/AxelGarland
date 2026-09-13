@@ -108,6 +108,7 @@ export const PROJECTS: Project[] = [
     summary: "An illustrated recruitment avatar for Alut.",
     accentColor: "coral",
     heroFit: "contain",
+    thumbnailFit: "contain",
     caseStudy: {
       problem:
         "Alut's Recruitment Department was using standard social media content — postings, generic photos — that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",

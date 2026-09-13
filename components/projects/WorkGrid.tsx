@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 /** Asymmetric spans + aspect ratios cycled per card index — an editorial rhythm instead of a
- *  uniform grid, following the same alternating-width pattern as the reference layout. */
+ *  uniform grid. The first slot is deliberately the most prominent (full-width) one, since
+ *  `PROJECTS`' case-study order puts the strongest project first and the grid should read that
+ *  way too, rather than letting a later, visually louder screenshot dominate by accident. */
 const LAYOUT = [
-  { span: "md:col-span-8", aspect: "aspect-[16/9]" },
-  { span: "md:col-span-4", aspect: "aspect-[4/3]" },
   { span: "md:col-span-12", aspect: "aspect-[16/9]" },
   { span: "md:col-span-6", aspect: "aspect-[4/3]" },
+  { span: "md:col-span-6", aspect: "aspect-[4/3]" },
+  { span: "md:col-span-8", aspect: "aspect-[16/9]" },
 ] as const;
 
 function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOUT)[number] }) {
@@ -34,7 +36,9 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
         </svg>
       </div>
 
-      <div className={`relative w-full overflow-hidden ${layout.aspect}`}>
+      <div
+        className={`relative w-full overflow-hidden ${layout.aspect} ${contain ? "bg-[#E4E3DF]" : ""}`}
+      >
         {thumb ? (
           <Image
             src={thumb}

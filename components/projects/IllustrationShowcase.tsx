@@ -72,12 +72,12 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
       {/* Title — sits in normal flow above the grid, not over the images. Two-tier header
           matching the "Selected Work" section: small eyebrow + big heading + a line of context. */}
       <div className="mx-auto mb-10 max-w-content px-6 sm:px-10 md:mb-14 md:px-14 lg:px-16">
-        <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Illustration</p>
+        <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Other Work</p>
         <h2 className="max-w-[24ch] font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl">
-          Different jobs, <em className="italic text-accent">one way of seeing</em>
+          Illustration, <em className="italic text-accent">telling stories through different media</em>
         </h2>
         <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-ink-muted">
-          Book illustration, fictional branding, sculpture, and generative work: different
+          Book illustration, illustrated branding, sculpture, and generative work: different
           jobs carried by the same practice, bold color, confident silhouette.
         </p>
       </div>

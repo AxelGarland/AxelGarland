@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { HoverCollage } from "@/components/projects/HoverCollage";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -15,7 +16,17 @@ export const metadata: Metadata = {
 
 const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
 
-const DELIVERABLES = [
+type Deliverable = {
+  num: string;
+  title: string;
+  body: string;
+  /** Use a light tile background instead of the default dark one — for images (like flyer
+   *  mockups) whose own drop shadows were composed against a light backdrop. */
+  lightTiles?: boolean;
+  images: { file: string; alt: string; caption: string }[];
+};
+
+const DELIVERABLES: Deliverable[] = [
   {
     num: "01",
     title: "Social & Video",
@@ -33,6 +44,8 @@ const DELIVERABLES = [
     images: [
       { file: "alutit/alutit handyman.png", alt: "Alutit dressed as a maintenance worker with a tool belt and hard hat", caption: "Maintenance" },
       { file: "alutit/alutit nurse.png", alt: "Alutit dressed as a care worker in scrubs with a stethoscope", caption: "Care Staff" },
+      { file: "alutit/Alutit physiotherapist.png", alt: "Alutit as a physiotherapist working with a client", caption: "Physiotherapy" },
+      { file: "alutit/alutit speech therapist.png", alt: "Alutit as a speech therapist using a communication board with a client", caption: "Speech Therapy" },
       { file: "alutit/alutit on unicorn.png", alt: "Alutit in a graduation cap, riding a unicorn across a rainbow", caption: "Milestones" },
     ],
   },
@@ -40,9 +53,11 @@ const DELIVERABLES = [
     num: "03",
     title: "Recruitment Materials",
     body: "Alutit carries the same character system into printed, campus-facing recruitment materials.",
+    lightTiles: true,
     images: [
       { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn", caption: "Social Workers Flyer" },
       { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut — the perfect job for students\"", caption: "Student Flyer" },
+      { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
     ],
   },
   {
@@ -91,9 +106,18 @@ export default function AlutitPage() {
             <div>
               <Link
                 href="/work"
-                className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+                aria-label="Back to Work"
+                className="mb-8 inline-flex h-10 w-10 items-center justify-center text-indigo/60 transition-colors duration-300 hover:text-indigo"
               >
-                &larr; Work
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                  <path
+                    d="M12.5 4.5 6 10l6.5 5.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </Link>
               <div className="mb-6 flex items-center gap-3">
                 <span className="text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
@@ -177,13 +201,10 @@ export default function AlutitPage() {
               Where Alutit appears
             </h2>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-10">
               {DELIVERABLES.map((item) => (
-                <div
-                  key={item.num}
-                  className="border border-surface/15 bg-surface/5 p-6 transition-colors duration-300 hover:border-indigo/50 md:p-8"
-                >
-                  <div className="mb-6 flex items-baseline gap-4">
+                <div key={item.num} className="bg-surface/5 p-6 md:p-8">
+                  <div className="mb-3 flex items-baseline gap-4">
                     <span className="font-display text-lg leading-none text-surface/30">
                       {item.num}
                     </span>
@@ -191,26 +212,35 @@ export default function AlutitPage() {
                       {item.title}
                     </h3>
                   </div>
-                  <div
-                    className={`grid gap-3 ${
-                      IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
-                    } ${item.images.length === 1 ? "max-w-xs" : ""}`}
-                  >
-                    {item.images.map((img) => (
-                      <div
-                        key={img.file}
-                        className="relative aspect-[3/4] w-full overflow-hidden bg-surface/10"
-                      >
-                        <Image
-                          src={pictureSrc(img.file)}
-                          alt={img.alt}
-                          fill
-                          className="object-contain p-3"
-                          sizes="(max-width: 640px) 45vw, 25vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-surface/70">
+                    {item.body}
+                  </p>
+                  {item.num === "02" ? (
+                    <HoverCollage images={item.images} />
+                  ) : (
+                    <div
+                      className={`grid gap-3 ${
+                        IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
+                      } ${item.images.length === 1 ? "max-w-xs" : ""}`}
+                    >
+                      {item.images.map((img) => (
+                        <div
+                          key={img.file}
+                          className={`relative aspect-[3/4] w-full overflow-hidden ${
+                            item.lightTiles ? "bg-[#E4E3DF]" : "bg-surface/10"
+                          }`}
+                        >
+                          <Image
+                            src={pictureSrc(img.file)}
+                            alt={img.alt}
+                            fill
+                            className="object-contain p-3"
+                            sizes="(max-width: 640px) 45vw, 25vw"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

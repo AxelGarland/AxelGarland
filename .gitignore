@@ -33,3 +33,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# raw source assets too large/wrong format for the web (export a jpg/png instead)
+pictures/mundos mejores/underwater

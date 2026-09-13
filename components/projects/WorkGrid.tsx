@@ -1,7 +1,14 @@
-import type { Project } from "@/lib/projects";
+import type { AccentColor, Project } from "@/lib/projects";
 import { projectThumbnailSrc, SECTION_LABELS } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
+
+const ACCENT_GLOW: Record<AccentColor, string> = {
+  coral: "bg-coral",
+  teal: "bg-teal",
+  indigo: "bg-indigo",
+  gold: "bg-gold",
+};
 
 /** Asymmetric spans + aspect ratios cycled per card index — an editorial rhythm instead of a
  *  uniform grid. The first slot is deliberately the most prominent (full-width) one, since
@@ -17,27 +24,20 @@ const LAYOUT = [
 function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOUT)[number] }) {
   const thumb = projectThumbnailSrc(project);
   const contain = project.thumbnailFit === "contain";
+  const glow = ACCENT_GLOW[project.accentColor ?? "gold"];
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative overflow-hidden bg-surface/5 ${layout.span}`}
+      className={`group relative bg-surface/5 ${layout.span}`}
     >
-      <div aria-hidden className="absolute right-5 top-5 z-10 flex h-9 w-9 -translate-y-1 items-center justify-center bg-surface opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path
-            d="M2 7h10M8 3l4 4-4 4"
-            stroke="currentColor"
-            className="text-ink"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute -inset-6 z-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30 ${glow}`}
+      />
 
       <div
-        className={`relative w-full overflow-hidden ${layout.aspect} ${contain ? "bg-[#E4E3DF]" : ""}`}
+        className={`relative z-10 w-full overflow-hidden ${layout.aspect} ${contain ? "bg-[#E4E3DF]" : ""}`}
       >
         {thumb ? (
           <Image

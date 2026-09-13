@@ -24,26 +24,30 @@ function IllustrationItem({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="group relative block aspect-[3/4] w-full overflow-hidden bg-surface"
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 z-0 bg-accent opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-25"
+      />
       {thumb ? (
         <Image
           src={thumb}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          className="relative z-10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
           sizes="(max-width: 640px) 90vw, 45vw"
         />
       ) : (
-        <div className="flex h-full items-center justify-center p-6">
+        <div className="relative z-10 flex h-full items-center justify-center p-6">
           <span className="text-center text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
             Image coming soon
           </span>
         </div>
       )}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent p-4 sm:p-5">
-        <span className="block font-display text-base font-semibold text-surface sm:text-lg">
+      <div className="absolute inset-x-0 bottom-0 z-20 flex items-baseline justify-between gap-3 bg-ink/85 px-4 py-3 backdrop-blur-sm transition-colors duration-300 group-hover:bg-ink sm:px-5 sm:py-4">
+        <span className="font-display text-base font-semibold text-surface sm:text-lg">
           {project.title}
         </span>
-        <span className="block text-xs uppercase tracking-[0.08em] text-surface/70">
+        <span className="whitespace-nowrap text-xs uppercase tracking-[0.08em] text-surface/60">
           {MEDIUM[project.slug] ?? "Illustration"}
         </span>
       </div>
@@ -65,11 +69,16 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
 
   return (
     <div>
-      {/* Title — sits in normal flow above the grid, not over the images, sized to match
-          the "Selected Work" section's heading exactly. */}
+      {/* Title — sits in normal flow above the grid, not over the images. Two-tier header
+          matching the "Selected Work" section: small eyebrow + big heading + a line of context. */}
       <div className="mx-auto mb-10 max-w-content px-6 sm:px-10 md:mb-14 md:px-14 lg:px-16">
-        <p className="font-display text-3xl font-semibold leading-[1.1] text-accent sm:text-4xl">
-          Illustration
+        <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Illustration</p>
+        <h2 className="max-w-[24ch] font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl">
+          Different jobs, <em className="italic text-accent">one way of seeing</em>
+        </h2>
+        <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-ink-muted">
+          Book illustration, fictional branding, sculpture, and generative work — different
+          jobs carried by the same practice: bold color, confident silhouette.
         </p>
       </div>
 

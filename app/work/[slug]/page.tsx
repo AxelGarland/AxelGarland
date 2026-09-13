@@ -40,6 +40,14 @@ const ACCENT_TEXT: Record<AccentColor, string> = {
   gold: "text-gold",
 };
 
+/** Muted-to-full accent tint for the icon-only back arrow, matching Alutit's treatment. */
+const ACCENT_BACK_ARROW: Record<AccentColor, string> = {
+  coral: "text-coral/60 hover:text-coral",
+  teal: "text-teal/60 hover:text-teal",
+  indigo: "text-indigo/60 hover:text-indigo",
+  gold: "text-gold/60 hover:text-gold",
+};
+
 /** "alutit", "giuson", "jabberwocky", "facettes", "better-eater", and "mundos-mejores" have
  *  their own bespoke pages — excluded here so those routes don't collide with this dynamic one. */
 const BESPOKE_SLUGS = ["alutit", "giuson", "jabberwocky", "facettes", "better-eater", "mundos-mejores"];
@@ -104,9 +112,20 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
-              className="text-sm text-mist-muted transition-colors duration-500 hover:text-mist"
+              aria-label="Back to Work"
+              className={`inline-flex h-10 w-10 items-center justify-center transition-colors duration-300 ${
+                accent ? ACCENT_BACK_ARROW[accent] : "text-mist-subtle hover:text-mist"
+              }`}
             >
-              &larr; Work
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
 
             <p

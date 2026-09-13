@@ -112,7 +112,7 @@ export const PROJECTS: Project[] = [
     slug: "alutit",
     title: "Alutit",
     section: "case-study",
-    summary: "An illustrated recruitment avatar for Alut.",
+    summary: "An illustrated recruitment avatar for Alut, Israel's national organization for people with autism.",
     accentColor: "coral",
     heroFit: "contain",
     caseStudy: {

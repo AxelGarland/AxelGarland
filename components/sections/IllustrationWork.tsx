@@ -18,9 +18,9 @@ export function IllustrationWork() {
               <div>
                 <p className="mb-3 text-sm uppercase tracking-[0.12em] text-blush">Selected Work</p>
                 <h2 className="max-w-[20ch] font-display text-3xl font-semibold leading-[1.1] text-surface sm:text-4xl">
-                  Projects that
+                  Ideas built
                   <br />
-                  <em className="italic text-blush">move things forward</em>
+                  <em className="italic text-blush">to be used</em>
                 </h2>
               </div>
               <p className="max-w-[38ch] self-end text-base leading-relaxed text-surface/70">

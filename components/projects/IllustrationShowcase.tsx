@@ -56,8 +56,9 @@ function IllustrationItem({ project, index }: { project: Project; index: number 
 export function IllustrationShowcase({ projects }: { projects: Project[] }) {
   return (
     <div className="relative h-[820px] overflow-hidden sm:h-[760px] md:h-[940px] lg:h-[1080px]">
-      {/* Title, plain — no box, no background, just the label sitting over the imagery */}
-      <p className="absolute left-6 top-6 z-10 text-sm uppercase tracking-[0.12em] text-ink drop-shadow-[0_1px_12px_rgba(245,243,239,0.9)] sm:left-10 sm:top-10 md:left-14 md:top-12">
+      {/* Title, plain — no box, no background, just the label sitting over the imagery.
+          Sized and colored to match the "Selected Work" eyebrow treatment, scaled up. */}
+      <p className="absolute left-6 top-6 z-10 font-display text-3xl font-semibold uppercase tracking-[0.06em] text-accent drop-shadow-[0_1px_16px_rgba(245,243,239,0.95)] sm:left-10 sm:top-10 sm:text-4xl md:left-14 md:top-12 md:text-5xl">
         Illustration
       </p>
 

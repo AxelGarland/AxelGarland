@@ -68,6 +68,10 @@ export type Project = {
   /** When set, the hero image becomes a clickable video poster linking out to this URL
    *  (e.g. a Vimeo/YouTube demo) instead of just a static image. */
   videoUrl?: string;
+  /** Figma "embed" URL (figma.com/embed?...&url=<encoded proto link>) for projects whose only
+   *  working demo is a Figma prototype rather than a real deployed product — embedded live and
+   *  clickable on the page instead of a static screenshot. */
+  figmaEmbedUrl?: string;
   /** Grid card thumbnail — exact filename */
   thumbnail: string;
   /** Detail hero — exact filename */
@@ -228,6 +232,8 @@ export const PROJECTS: Project[] = [
     summary: "A personalized meal-planning and recipe app.",
     accentColor: "teal",
     thumbnailFit: "contain",
+    figmaEmbedUrl:
+      "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fw3GO2poltFSRm4zvrMapin%2FBETTEREATER%3Fnode-id%3D811-2920%26t%3DrItpRNz8symuMgLU-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D811%253A2412%26starting-point-node-id%3D811%253A2920",
     caseStudy: {
       problem:
         "The brief: design an app that helps someone transition to healthier eating with no prior kitchen experience — through personalized recommendations, detailed recipes and videos, and content that adapts to the user's specific dietary needs.",

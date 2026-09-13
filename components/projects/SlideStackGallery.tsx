@@ -12,8 +12,17 @@ export type SlideStackImage = { file: string; alt: string; verse?: string };
  *  the front card animates (a standard AnimatePresence enter/exit) — the peek cards are plain,
  *  fixed-position layers whose image swaps instantly, which avoids the bugs that come from
  *  trying to keep several persistent elements smoothly morphing between stack positions. */
-export function SlideStackGallery({ images }: { images: SlideStackImage[] }) {
+export function SlideStackGallery({
+  images,
+  aspect = "aspect-[8/5]",
+}: {
+  images: SlideStackImage[];
+  /** Tailwind aspect-ratio class for the image stack — defaults to the landscape ratio
+   *  Jabberwocky's pages use; pass a portrait one (e.g. "aspect-[3/4]") for taller art. */
+  aspect?: string;
+}) {
   const [index, setIndex] = useState(0);
+  const hasVerse = images.some((img) => img.verse);
 
   if (images.length === 0) return null;
 
@@ -26,8 +35,12 @@ export function SlideStackGallery({ images }: { images: SlideStackImage[] }) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[3fr_2fr] md:gap-12">
-        <div className="relative mx-auto aspect-[8/5] w-full max-w-3xl">
+      <div
+        className={`grid grid-cols-1 items-center gap-8 ${
+          hasVerse ? "md:grid-cols-[3fr_2fr] md:gap-12" : ""
+        }`}
+      >
+        <div className={`relative mx-auto ${aspect} w-full max-w-3xl`}>
           {peek2 ? (
             <div
               aria-hidden

@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
+import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { VideoHero } from "@/components/projects/VideoHero";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -96,22 +97,7 @@ export default function FacettesPage() {
             <h2 className="mb-10 max-w-[24ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-12">
               A print set, one per color combination
             </h2>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-              {POSTERS.map((poster) => (
-                <div
-                  key={poster.file}
-                  className="relative aspect-[842/1191] w-full overflow-hidden border border-line bg-surface"
-                >
-                  <Image
-                    src={pictureSrc(poster.file)}
-                    alt={poster.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 18vw"
-                  />
-                </div>
-              ))}
-            </div>
+            <SlideStackGallery images={POSTERS} aspect="aspect-[842/1191]" />
           </div>
         </section>
 

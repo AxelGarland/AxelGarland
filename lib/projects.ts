@@ -133,8 +133,6 @@ export const PROJECTS: Project[] = [
       { file: "alutit/אלוטית גן.JPG", alt: "Alutit in front of an Alut kindergarten facility" },
       { file: "alutit/אלוטית מרצ׳.png", alt: "Alutit merchandise flat-lay — tote bag, notebook, and game board" },
       { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events" },
-      { file: "alutit/חבר מביא חבר לוגו.png", alt: "Alutit fronting Alut's \"bring a friend\" referral program logo" },
-      { file: "alutit/חבר מביא סושיאל לוגו.png", alt: "Alutit fronting the social-media version of the referral program logo" },
       { file: "alutit/social media.png", alt: "Alutit at her desk, shown as a social media post" },
       { file: "alutit/social media 1.png", alt: "Alutit in a garden, shown as a social media post" },
       { file: "alutit/social media 3.png", alt: "Alutit in front of the Eiffel Tower, shown as an Instagram Reels-style post" },

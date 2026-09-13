@@ -39,12 +39,10 @@ const DELIVERABLES = [
   {
     num: "03",
     title: "Recruitment Materials",
-    body: "Alutit carries the same character system into printed and campus-facing recruitment materials, including a \"bring a friend\" referral program.",
+    body: "Alutit carries the same character system into printed, campus-facing recruitment materials.",
     images: [
       { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn", caption: "Social Workers Flyer" },
       { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut — the perfect job for students\"", caption: "Student Flyer" },
-      { file: "alutit/חבר מביא חבר לוגו.png", alt: "Alutit fronting Alut's \"bring a friend\" referral program logo", caption: "Referral Logo" },
-      { file: "alutit/חבר מביא סושיאל לוגו.png", alt: "Alutit fronting the social-media version of the referral program logo", caption: "Social Variant" },
     ],
   },
   {

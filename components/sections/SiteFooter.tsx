@@ -1,7 +1,7 @@
 const links = [
   { label: "Email", href: "mailto:hello@axelgarland.com", external: false },
   { label: "LinkedIn", href: "https://www.linkedin.com/", external: true },
-  { label: "CV", href: "#", external: false },
+  { label: "CV", href: "/Axel%20Garland%20CV.pdf", external: true },
 ] as const;
 
 const navLinks = [

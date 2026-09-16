@@ -1,7 +1,7 @@
 "use client";
 
 import { gsap } from "gsap";
-import { Mesh, Program, Renderer, Texture, Triangle } from "ogl";
+import { Mesh, Program, Renderer, Texture, Triangle, type OGLRenderingContext } from "ogl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import "./MorphSlider.css";
@@ -178,7 +178,7 @@ void main() {
 }
 `;
 
-function makeFallbackTexture(gl: any) {
+function makeFallbackTexture(gl: OGLRenderingContext) {
   const size = 4;
   const data = new Uint8Array(size * size * 4);
   for (let i = 0; i < size * size; i++) {
@@ -187,7 +187,7 @@ function makeFallbackTexture(gl: any) {
     data[i * 4 + 2] = 28;
     data[i * 4 + 3] = 255;
   }
-  return new Texture(gl, { image: data as any, width: size, height: size, generateMipmaps: false });
+  return new Texture(gl, { image: data, width: size, height: size, generateMipmaps: false });
 }
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -227,7 +227,7 @@ class MorphEngine {
   shownIndex: number;
   tween: gsap.core.Tween | null;
   renderer: Renderer;
-  gl: any;
+  gl: OGLRenderingContext;
   canvas: HTMLCanvasElement;
   geometry: Triangle;
   textures: Texture[];
@@ -506,9 +506,9 @@ class MorphEngine {
     this.resizeObserver.disconnect();
     this.canvas.removeEventListener("webglcontextlost", this.boundContextLost);
     this.textures.forEach(tex => {
-      if (tex && (tex as any).texture) this.gl.deleteTexture((tex as any).texture);
+      if (tex && tex.texture) this.gl.deleteTexture(tex.texture);
     });
-    if (this.program && (this.program as any).program) this.gl.deleteProgram((this.program as any).program);
+    if (this.program && this.program.program) this.gl.deleteProgram(this.program.program);
     const ext = this.gl.getExtension("WEBGL_lose_context");
     if (ext) ext.loseContext();
     if (this.canvas.parentNode) this.canvas.parentNode.removeChild(this.canvas);
@@ -593,7 +593,6 @@ export default function MorphSlider({
       engine.destroy();
       engineRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items, startIndex]);
 
   const handleNext = useCallback(() => engineRef.current?.next(), []);

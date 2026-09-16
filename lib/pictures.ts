@@ -1,4 +1,4 @@
-/** Base URL for files in `/pictures` (served via `public/pictures` symlink). */
+/** Base URL for files in `/pictures` (served from `public/pictures`). */
 export const PICTURES_BASE = "/pictures";
 
 /** Build a URL-safe src for an exact on-disk filename (spaces, typos preserved).

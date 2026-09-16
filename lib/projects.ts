@@ -9,13 +9,16 @@ export type ProjectImage = {
   /** Accompanying verse/caption text shown alongside the image (e.g. Jabberwocky's
    *  page-by-page poem text). Optional — most projects don't use this. */
   verse?: string;
+  /** Renders full-width at its own real aspect ratio in the gallery grid instead of the
+   *  uniform 4:3 crop — for images (like a ticket stub) whose shape the standard crop ruins. */
+  wide?: boolean;
 };
 
 export type ProjectPlaceholder = {
   label: string;
 };
 
-export type AccentColor = "coral" | "teal" | "indigo" | "gold";
+export type AccentColor = "coral" | "teal" | "indigo" | "gold" | "violet" | "blue";
 
 /** A clickable hotspot over a prototype screen — percent-based so it scales with the rendered
  *  image regardless of viewport width. */
@@ -68,6 +71,9 @@ export type Project = {
   reflection?: string;
   /** Link to the real, live version of the project, when one exists publicly. */
   liveUrl?: string;
+  /** Real client/brand logo, shown as a small credibility badge on the work-grid card —
+   *  for actual client work only, not student/course projects. */
+  clientLogo?: string;
   /** When set, the hero image becomes a clickable video poster linking out to this URL
    *  (e.g. a Vimeo/YouTube demo) instead of just a static image. */
   videoUrl?: string;
@@ -113,8 +119,9 @@ export const PROJECTS: Project[] = [
     title: "Alutit",
     section: "case-study",
     summary: "An illustrated recruitment avatar for Alut, Israel's national organization for people with autism.",
-    accentColor: "coral",
+    accentColor: "violet",
     heroFit: "contain",
+    clientLogo: "alutit/alut logo no background.png",
     caseStudy: {
       problem:
         "Alut's Recruitment Department was using standard social media content (postings, generic photos) that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",
@@ -154,8 +161,7 @@ export const PROJECTS: Project[] = [
     section: "case-study",
     summary: "A recruitment and information tool for Alut, built to replace three disconnected sources.",
     accentColor: "teal",
-    heroFit: "contain",
-    thumbnailFit: "contain",
+    clientLogo: "alutit/alut logo no background.png",
     prototype: {
       domain: "smart-giuson.vercel.app",
       startId: "home",
@@ -206,8 +212,8 @@ export const PROJECTS: Project[] = [
       outcome:
         "It's in daily use, by the recruitment team, and by field workers who need the same information during their own part of the recruitment process. The clearest change: recruiting for care-staff roles (נשות טיפול) used to depend on the one or two recruiters comfortable with how complicated that information was. Now that the tool holds and organizes that complexity, more recruiters can take on that recruitment: the bottleneck of relying on just a couple of people is gone.",
     },
-    thumbnail: "giuson/giuson recruitment map.png",
-    hero: "giuson/giuson recruitment map.png",
+    thumbnail: "giuson/giuson banner.jpg",
+    hero: "giuson/giuson banner.jpg",
     gallery: [
       {
         file: "giuson/giuson recruitment map.png",
@@ -233,7 +239,7 @@ export const PROJECTS: Project[] = [
     title: "Better Eater",
     section: "case-study",
     summary: "A personalized meal-planning and recipe app.",
-    accentColor: "teal",
+    accentColor: "blue",
     figmaEmbedUrl:
       "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fw3GO2poltFSRm4zvrMapin%2FBETTEREATER%3Fnode-id%3D811-2920%26t%3DrItpRNz8symuMgLU-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D811%253A2412%26starting-point-node-id%3D811%253A2920",
     caseStudy: {
@@ -269,7 +275,7 @@ export const PROJECTS: Project[] = [
     heroFit: "contain",
     reflection:
       "Mundos Mejores is my final project at Shenkar: a series of retablo-inspired boxes that combine traditional Peruvian illustrative and sculptural craft with my own illustration style. Each box holds a hand-sculpted scene built around the same recurring figure, moving through different remembered and imagined moments: an infinite library, underwater, swinging among the stars, a family gathered together. It's the largest and most worked-on body of work I've made so far, and the most personal.",
-    thumbnail: "mundos mejores/Familia 1.jpg",
+    thumbnail: "mundos mejores/between the stars2.jpg",
     hero: "mundos mejores/Familia 1.jpg",
     gallery: [
       { file: "mundos mejores/Familia 1.jpg", alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
@@ -299,7 +305,7 @@ export const PROJECTS: Project[] = [
     accentColor: "coral",
     reflection:
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
-    thumbnail: "jabberwocky book cover.png",
+    thumbnail: "jabberwocky banner.png",
     hero: "book mock up.jpg",
     // Higher-res per-page exports, replacing the old spread PNGs. Pages 5, 7, and 8 aren't in
     // the new set yet — add them here once they exist. Verse text matched by actually looking
@@ -376,7 +382,7 @@ export const PROJECTS: Project[] = [
       { file: "Akko festival hero web.png", alt: "Akko Fringe Festival hero artwork" },
       { file: "Akko festival shirts.png", alt: "Akko Fringe Festival shirt mockup" },
       { file: "Akko festival shirts 2.png", alt: "Akko Fringe Festival shirt mockup, alternate" },
-      { file: "Akko festival ticket.png", alt: "Akko Fringe Festival ticket mockup" },
+      { file: "Akko festival ticket.png", alt: "Akko Fringe Festival ticket mockup", wide: true },
     ],
     lightboxFeatured: ["Akko festival hero web.png"],
   },
@@ -387,31 +393,14 @@ export const PROJECTS: Project[] = [
     title: "Facettes",
     section: "other-work",
     summary:
-      "A generative illustration experiment: choosing different attributes builds a different illustrated face each time. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+      "A generative illustration experiment: choosing different attributes builds a different face each time.",
+    reflection:
+      "Facettes is a generative illustration experiment: choosing different attributes builds a different illustrated face each time. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
     videoUrl: "https://vimeo.com/1224292689?share=copy&fl=sv&fe=ci",
     thumbnail: "Facettes image.png",
     hero: "Facettes image.png",
     gallery: [{ file: "Facettes image.png", alt: "Facettes multi-face grid" }],
-  },
-  {
-    slug: "the-burial",
-    title: "The Burial",
-    section: "other-work",
-    summary:
-      "Small glossy-clay sculptures turning death and burial imagery into something playful rather than grim.",
-    accentColor: "gold",
-    thumbnail: "funeral sculpture.jpg",
-    hero: "funeral sculpture.jpg",
-    gallery: [
-      { file: "funeral sculpture.jpg", alt: "The Burial: sculpture group view" },
-      { file: "funeral sculpture 1.jpg", alt: "The Burial: sculpture detail 1" },
-      { file: "funeral sculpture 2.jpg", alt: "The Burial: sculpture detail 2" },
-      { file: "funeral sculpture 3.jpg", alt: "The Burial: sculpture detail 3" },
-      { file: "funeral sculpture 4.jpg", alt: "The Burial: sculpture detail 4" },
-      { file: "funeral sculpture 5.jpg", alt: "The Burial: sculpture detail 5" },
-      { file: "funeral scuplture 6.jpg", alt: "The Burial: sculpture detail 6" },
-    ],
   },
 ];
 

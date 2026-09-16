@@ -1,13 +1,18 @@
 import type { AccentColor, Project } from "@/lib/projects";
 import { projectThumbnailSrc, SECTION_LABELS } from "@/lib/projects";
+import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 import Link from "next/link";
 
-const ACCENT_GLOW: Record<AccentColor, string> = {
-  coral: "bg-coral",
-  teal: "bg-teal",
-  indigo: "bg-indigo",
-  gold: "bg-gold",
+/** A thin crisp ring right at the card edge, plus a soft blurred halo bleeding outward from
+ *  that same edge — a glow that reads as coming from the border, not a blob behind the card. */
+const ACCENT_BORDER_GLOW: Record<AccentColor, string> = {
+  coral: "hover:shadow-[0_0_0_1px_#F06479,0_0_16px_-4px_#F06479]",
+  teal: "hover:shadow-[0_0_0_1px_#1CB88C,0_0_16px_-4px_#1CB88C]",
+  indigo: "hover:shadow-[0_0_0_1px_#8676DE,0_0_16px_-4px_#8676DE]",
+  gold: "hover:shadow-[0_0_0_1px_#E4B355,0_0_16px_-4px_#E4B355]",
+  violet: "hover:shadow-[0_0_0_1px_#9B5DE5,0_0_16px_-4px_#9B5DE5]",
+  blue: "hover:shadow-[0_0_0_1px_#3B82F6,0_0_16px_-4px_#3B82F6]",
 };
 
 /** Asymmetric spans + aspect ratios cycled per card index — an editorial rhythm instead of a
@@ -24,18 +29,13 @@ const LAYOUT = [
 function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOUT)[number] }) {
   const thumb = projectThumbnailSrc(project);
   const contain = project.thumbnailFit === "contain";
-  const glow = ACCENT_GLOW[project.accentColor ?? "gold"];
+  const borderGlow = ACCENT_BORDER_GLOW[project.accentColor ?? "gold"];
 
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative bg-surface/5 ${layout.span}`}
+      className={`group relative bg-surface/5 shadow-none transition-shadow duration-500 ${borderGlow} ${layout.span}`}
     >
-      <div
-        aria-hidden
-        className={`pointer-events-none absolute -inset-6 z-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30 ${glow}`}
-      />
-
       <div
         className={`relative z-10 w-full overflow-hidden ${layout.aspect} ${contain ? "bg-[#E4E3DF]" : ""}`}
       >
@@ -56,6 +56,17 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
             </span>
           </div>
         )}
+        {project.clientLogo ? (
+          <div className="absolute bottom-3 left-3 z-20 flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-md backdrop-blur-sm sm:h-12 sm:w-12">
+            <Image
+              src={pictureSrc(project.clientLogo)}
+              alt={`${project.title}: real client work`}
+              width={80}
+              height={80}
+              className="h-full w-full object-contain"
+            />
+          </div>
+        ) : null}
       </div>
 
       <div className="border-t border-surface/15 p-6">

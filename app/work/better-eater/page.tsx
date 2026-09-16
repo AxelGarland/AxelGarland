@@ -39,11 +39,23 @@ export default function BetterEaterPage() {
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
-              className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+              aria-label="Back to Work"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-teal/60 transition-colors duration-300 hover:text-teal"
             >
-              &larr; Work
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
-            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+              Case Studies
+            </p>
+            <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
               Better Eater
             </p>
             <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">

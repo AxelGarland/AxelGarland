@@ -51,19 +51,26 @@ export function ProjectGallery({
     <>
       <ul className="grid gap-4 sm:grid-cols-2 lg:gap-6">
         {images.map((img, index) => (
-          <li key={img.file} className={index === 0 && heroFile === img.file ? "sm:col-span-2" : ""}>
+          <li
+            key={img.file}
+            className={(index === 0 && heroFile === img.file) || img.wide ? "sm:col-span-2" : ""}
+          >
             <button
               type="button"
               onClick={() =>
                 setLightboxIndex(ordered.findIndex((o) => o.file === img.file))
               }
-              className="group relative block aspect-[4/3] w-full overflow-hidden border border-line bg-surface-raised text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className={`group relative block w-full overflow-hidden border border-line bg-surface-raised text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                img.wide ? "aspect-[1729/629]" : "aspect-[4/3]"
+              }`}
             >
               <Image
                 src={pictureSrc(img.file)}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className={`transition-transform duration-500 group-hover:scale-[1.02] ${
+                  img.wide ? "object-contain" : "object-cover"
+                }`}
                 sizes="(max-width: 768px) 100vw, 600px"
               />
             </button>

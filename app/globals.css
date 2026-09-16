@@ -11,7 +11,20 @@
     @apply bg-surface;
   }
 
+  /* Scale type and spacing with the wider layout on large screens */
+  @media (min-width: 1280px) {
+    html {
+      font-size: 106.25%; /* 17px */
+    }
+  }
+
+  @media (min-width: 1536px) {
+    html {
+      font-size: 112.5%; /* 18px */
+    }
+  }
+
   ::selection {
-    @apply bg-accent text-ink;
+    @apply bg-line text-ink;
   }
 }

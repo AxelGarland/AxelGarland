@@ -40,9 +40,18 @@ export default function FacettesPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
-              className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+              aria-label="Back to Work"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-ink-subtle transition-colors duration-300 hover:text-ink"
             >
-              &larr; Work
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </div>
@@ -71,7 +80,9 @@ export default function FacettesPage() {
               <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {project.title}
               </h1>
-              <p className="text-lg leading-relaxed text-ink-muted">{project.summary}</p>
+              <p className="text-lg leading-relaxed text-ink-muted">
+                {project.reflection ?? project.summary}
+              </p>
               {project.liveUrl ? (
                 <a
                   href={project.liveUrl}

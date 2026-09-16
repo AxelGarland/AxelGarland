@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
-import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
+import { RetabloSelector } from "@/components/projects/RetabloSelector";
+import { MUNDOS_BOXES } from "@/lib/mundos";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
@@ -14,50 +15,6 @@ export const metadata: Metadata = {
     "Mundos Mejores, a series of retablo-inspired boxes combining traditional Peruvian craft with illustration, Axel Garland's final project at Shenkar.",
 };
 
-const BOXES = [
-  {
-    title: "Familia",
-    images: [
-      { file: "mundos mejores/Familia 1.jpg", alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
-      { file: "mundos mejores/familia 2.jpg", alt: "Family box, detail view" },
-      { file: "mundos mejores/familia 3.jpg", alt: "Family box, detail view" },
-    ],
-  },
-  {
-    title: "Between the Stars",
-    images: [
-      { file: "mundos mejores/between the stars.jpg", alt: "A figure swinging among hanging painted stars" },
-      { file: "mundos mejores/between the stars1.jpg", alt: "Stars box, detail view" },
-      { file: "mundos mejores/between the stars2.jpg", alt: "Stars box, detail view" },
-      { file: "mundos mejores/between stars 3.jpg", alt: "Stars box, detail view" },
-    ],
-  },
-  {
-    title: "Biblioteca",
-    images: [
-      { file: "mundos mejores/biblioteca1.jpg", alt: "A figure reading among towering stacks of books" },
-      { file: "mundos mejores/biblioteca 2.jpg", alt: "Library box, detail view" },
-      { file: "mundos mejores/biblioteca 3.jpg", alt: "Library box, detail view" },
-    ],
-  },
-  {
-    title: "Underwater",
-    images: [
-      { file: "mundos mejores/underwater1.jpg", alt: "A figure in a swimsuit and flippers, suspended underwater" },
-      { file: "mundos mejores/underwater 2.jpg", alt: "Underwater box, detail view" },
-      { file: "mundos mejores/underwater 3.jpg", alt: "Underwater box, detail view" },
-    ],
-  },
-  {
-    title: "Summer",
-    images: [
-      { file: "mundos mejores/summer 1.jpg", alt: "A figure basking beneath a smiling sun and blooming flowers" },
-      { file: "mundos mejores/summer 2.jpg", alt: "Summer box, detail view" },
-      { file: "mundos mejores/summer 3.jpg", alt: "Summer box, detail view" },
-      { file: "mundos mejores/summer 4.jpg", alt: "Summer box, detail view" },
-    ],
-  },
-];
 
 export default function MundosMejoresPage() {
   const project = getProject("mundos-mejores");
@@ -71,9 +28,18 @@ export default function MundosMejoresPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
-              className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+              aria-label="Back to Work"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-gold/60 transition-colors duration-300 hover:text-gold"
             >
-              &larr; Work
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
 
@@ -104,25 +70,12 @@ export default function MundosMejoresPage() {
           </div>
         </section>
 
-        {/* One box per scene */}
-        {BOXES.map((box, i) => (
-          <section
-            key={box.title}
-            className={`py-16 md:py-24 ${
-              i % 2 === 1 ? "border-t border-line bg-paper" : "border-t border-line"
-            }`}
-          >
-            <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
-                Box {String(i + 1).padStart(2, "0")}
-              </p>
-              <h2 className="mb-10 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-12">
-                {box.title}
-              </h2>
-              <SlideStackGallery images={box.images} aspect="aspect-[4/3]" />
-            </div>
-          </section>
-        ))}
+        {/* The five retablos — each opens its own page */}
+        <section className="pb-16 pt-4 md:pb-24 md:pt-8">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <RetabloSelector boxes={MUNDOS_BOXES} />
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </>

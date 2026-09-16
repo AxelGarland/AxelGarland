@@ -38,12 +38,14 @@ const config: Config = {
           muted: "#5C5A54",
           subtle: "#9C9A94",
         },
-        /** Warm terracotta — the site's one accent color: eyebrows, links, focus rings, hover states. */
+        /** The site's one accent color: eyebrows, links, focus rings, hover states. Same red as
+         *  `blush` (2026-09-15, replacing the previous terracotta, which read too close to
+         *  Claude's own brand orange for a portfolio). */
         accent: {
-          DEFAULT: "#B85C38",
-          hover: "#8F4429",
-          soft: "rgba(184, 92, 56, 0.14)",
-          glow: "rgba(184, 92, 56, 0.35)",
+          DEFAULT: "#D64040",
+          hover: "#A03030",
+          soft: "rgba(214, 64, 64, 0.14)",
+          glow: "rgba(214, 64, 64, 0.35)",
         },
         /** Crisp warm-grey border — replaces opacity-based `border-ink/10` style borders where a
          *  solid hairline reads cleaner against the cream palette. */
@@ -68,6 +70,18 @@ const config: Config = {
           DEFAULT: "#E4B355",
           soft: "rgba(228, 179, 85, 0.18)",
         },
+        /** True violet — distinct from `indigo` (Akko's cooler blue-purple), for Alutit's own
+         *  warmer purple identity. */
+        violet: {
+          DEFAULT: "#9B5DE5",
+          soft: "rgba(155, 93, 229, 0.18)",
+        },
+        /** Clean sky blue — distinct from `teal` (greener) and `indigo` (more purple), for
+         *  Better Eater's work-grid glow. */
+        blue: {
+          DEFAULT: "#3B82F6",
+          soft: "rgba(59, 130, 246, 0.18)",
+        },
         /** Sampled directly from the hero self-portrait illustration: the pencil's yellow and the
          *  red cheek blush. Used for the hero's "Work" button and its ambient glow blobs. */
         pencil: {
@@ -88,7 +102,7 @@ const config: Config = {
         30: "7.5rem",
       },
       maxWidth: {
-        content: "min(92vw, 72rem)",
+        content: "min(96vw, 1408px)",
         prose: "42ch",
       },
       animation: {

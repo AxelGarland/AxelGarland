@@ -60,14 +60,6 @@ const DELIVERABLES: Deliverable[] = [
       { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
     ],
   },
-  {
-    num: "04",
-    title: "Branded Merchandise",
-    body: "Her illustration translated to physical products, tote bags among them, handed out at university campus events, extending the character past digital channels.",
-    images: [
-      { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
-    ],
-  },
 ];
 
 /** Column count per deliverable's image row — a literal lookup (not computed) so Tailwind's
@@ -110,8 +102,11 @@ export default function AlutitPage() {
                   />
                 </svg>
               </Link>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
+                Case Studies
+              </p>
               <div className="mb-6 flex items-center gap-3">
-                <span className="text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
+                <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
                   Alutit
                 </span>
                 <span aria-hidden className="h-1 w-1 rounded-full bg-line" />

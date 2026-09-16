@@ -41,9 +41,10 @@ export function SiteHeader() {
                 <li key={item.label}>
                   <span
                     aria-current="page"
-                    className="whitespace-nowrap text-[0.78rem] font-medium uppercase tracking-[0.14em] text-ink"
+                    className="inline-flex items-center gap-2 whitespace-nowrap text-[0.78rem] font-medium uppercase tracking-[0.14em] text-ink"
                   >
                     {item.label}
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
                   </span>
                 </li>
               );
@@ -90,11 +91,14 @@ export function SiteHeader() {
               key={item.label}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={`border-b border-line py-3 text-sm font-medium uppercase tracking-[0.12em] ${
+              className={`flex items-center gap-2 border-b border-line py-3 text-sm font-medium uppercase tracking-[0.12em] ${
                 isActive(pathname, item.href) ? "text-ink" : "text-ink-muted"
               }`}
             >
               {item.label}
+              {isActive(pathname, item.href) ? (
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+              ) : null}
             </Link>
           ))}
         </div>

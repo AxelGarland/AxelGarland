@@ -53,46 +53,56 @@ export default function GiusonPage() {
             aria-hidden
             className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-teal-soft blur-[100px]"
           />
-          <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-2 md:gap-16 md:px-14 lg:px-16">
-            <div>
-              <Link
-                href="/work"
-                className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
-              >
-                &larr; Work
-              </Link>
-              <p className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-                Giuson &middot; Alut Recruitment Department
-              </p>
-              <h1 className="mb-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-                Three sources,
-                <br />
-                <em className="italic text-teal">one tool</em>
-              </h1>
-              <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                Giuson replaces a Google Sheet, a set of personal notebooks, and a reference PDF
-                with one fast recruitment workflow, built for Alut&rsquo;s own recruitment team.
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {TAGS.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border border-line px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.06em] text-ink-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+          <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <Link
+              href="/work"
+              aria-label="Back to Work"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-teal/60 transition-colors duration-300 hover:text-teal"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+              Case Studies
+            </p>
+            <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
+              Giuson &middot; Alut Recruitment Department
+            </p>
+            <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+              Three sources,
+              <br />
+              <em className="italic text-teal">one tool</em>
+            </h1>
+            <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+              Giuson replaces a Google Sheet, a set of personal notebooks, and a reference PDF
+              with one fast recruitment workflow, built for Alut&rsquo;s own recruitment team.
+            </p>
+            <div className="mb-12 flex flex-wrap gap-2.5">
+              {TAGS.map((tag) => (
+                <span
+                  key={tag}
+                  className="border border-line px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.06em] text-ink-muted"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
 
-            <div className="relative aspect-[16/10] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(28,184,140,0.3)]">
+            <div className="relative aspect-[1682/935] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(28,184,140,0.3)]">
               <Image
-                src={pictureSrc("giuson/giuson recruitment map.png")}
-                alt="Recruitment search: open positions by location and distance"
+                src={pictureSrc("giuson/giuson banner.jpg")}
+                alt="Giuson shown across a laptop and two monitors: the recruitment search map and the information hub"
                 fill
                 priority
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 45vw"
+                sizes="(max-width: 768px) 100vw, 1152px"
               />
             </div>
           </div>

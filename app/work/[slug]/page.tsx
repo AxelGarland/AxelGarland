@@ -22,6 +22,8 @@ const ACCENT_BORDER: Record<AccentColor, string> = {
   teal: "border-teal",
   indigo: "border-indigo",
   gold: "border-gold",
+  violet: "border-violet",
+  blue: "border-blue",
 };
 
 /** Directional (left-only) border-color utilities — combined with a base `border border-line` so
@@ -31,6 +33,8 @@ const ACCENT_BORDER_LEFT: Record<AccentColor, string> = {
   teal: "border-l-teal",
   indigo: "border-l-indigo",
   gold: "border-l-gold",
+  violet: "border-l-violet",
+  blue: "border-l-blue",
 };
 
 const ACCENT_TEXT: Record<AccentColor, string> = {
@@ -38,6 +42,8 @@ const ACCENT_TEXT: Record<AccentColor, string> = {
   teal: "text-teal",
   indigo: "text-indigo",
   gold: "text-gold",
+  violet: "text-violet",
+  blue: "text-blue",
 };
 
 /** Muted-to-full accent tint for the icon-only back arrow, matching Alutit's treatment. */
@@ -46,6 +52,8 @@ const ACCENT_BACK_ARROW: Record<AccentColor, string> = {
   teal: "text-teal/60 hover:text-teal",
   indigo: "text-indigo/60 hover:text-indigo",
   gold: "text-gold/60 hover:text-gold",
+  violet: "text-violet/60 hover:text-violet",
+  blue: "text-blue/60 hover:text-blue",
 };
 
 /** "alutit", "giuson", "jabberwocky", "facettes", "better-eater", and "mundos-mejores" have

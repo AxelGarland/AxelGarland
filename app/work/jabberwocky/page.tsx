@@ -25,9 +25,18 @@ export default function JabberwockyPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
-              className="mb-8 inline-block text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+              aria-label="Back to Work"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-coral/60 transition-colors duration-300 hover:text-coral"
             >
-              &larr; Work
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path
+                  d="M12.5 4.5 6 10l6.5 5.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </div>
@@ -46,9 +55,27 @@ export default function JabberwockyPage() {
           </div>
         </div>
 
-        {/* Text explaining the project */}
+        {/* Text explaining the project — flanked by two mirrored corner flourishes, cut from the
+            book cover's own Jabberwock head, sized to the title text so they read as an ornament
+            rather than an illustration competing with it. */}
         <section className="py-16 md:py-20">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+          <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <Image
+              src={pictureSrc("jabberwocky title no background.png")}
+              alt=""
+              aria-hidden
+              width={200}
+              height={200}
+              className="absolute left-6 -top-[20px] h-[100px] w-[100px] object-contain sm:left-10 sm:h-[124px] sm:w-[124px] md:left-14 md:h-[156px] md:w-[156px] lg:left-16"
+            />
+            <Image
+              src={pictureSrc("jabberwocky title no background.png")}
+              alt=""
+              aria-hidden
+              width={200}
+              height={200}
+              className="absolute right-6 -top-[20px] h-[100px] w-[100px] -scale-x-100 object-contain sm:right-10 sm:h-[124px] sm:w-[124px] md:right-14 md:h-[156px] md:w-[156px] lg:right-16"
+            />
             <div className="mx-auto max-w-[68ch] text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
                 Selected Work

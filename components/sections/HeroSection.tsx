@@ -28,7 +28,7 @@ export function HeroSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
           className="mb-8 font-display text-[clamp(3rem,7.5vw,6rem)] font-light leading-[0.95] tracking-tight text-ink"
         >
-          Axel<span className="text-accent">.</span>Garland
+          Axel Garland
         </motion.h1>
 
         <motion.p

@@ -75,35 +75,35 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-5">
               {details.map((d) => (
-                <div key={d.label} className="flex items-center gap-4">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden
-                    className="shrink-0 text-accent"
-                  >
-                    {d.icon}
-                  </svg>
-                  <div>
-                    <p className="mb-0.5 text-xs uppercase tracking-[0.1em] text-ink-subtle">
+                <div key={d.label} className="flex flex-col gap-1">
+                  <div className="flex items-center gap-3">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden
+                      className="shrink-0 text-accent"
+                    >
+                      {d.icon}
+                    </svg>
+                    <p className="text-xs uppercase tracking-[0.1em] text-ink-subtle">
                       {d.label}
                     </p>
-                    {d.href ? (
-                      <a
-                        href={d.href}
-                        {...(d.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                        className="border-b border-line pb-px text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent"
-                      >
-                        {d.value}
-                      </a>
-                    ) : (
-                      <p className="text-base font-medium text-ink">{d.value}</p>
-                    )}
                   </div>
+                  {d.href ? (
+                    <a
+                      href={d.href}
+                      {...(d.href.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="w-fit border-b border-line pb-px pl-8 text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent"
+                    >
+                      {d.value}
+                    </a>
+                  ) : (
+                    <p className="pl-8 text-base font-medium text-ink">{d.value}</p>
+                  )}
                 </div>
               ))}
             </div>

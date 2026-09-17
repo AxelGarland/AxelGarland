@@ -18,8 +18,8 @@ export function HeroSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-ink-muted"
         >
-          <span aria-hidden className="h-px w-8 bg-accent" />
-          UX / UI Design &amp; Illustration
+          <span aria-hidden className="h-px w-8 shrink-0 bg-accent" />
+          Product &amp; Visual Designer | UX/UI and AI-Assisted Prototyping
         </motion.p>
 
         <motion.h1
@@ -37,10 +37,11 @@ export function HeroSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
           className="mb-10 max-w-[40ch] text-lg leading-relaxed text-ink-muted"
         >
-          I&rsquo;m a visual communication designer and illustrator, recently graduated from
-          Shenkar College. My work moves between illustration, branding, and digital experiences,
-          often combining hands-on making with emerging technologies, drawn to storytelling,
-          playful experimentation, and finding unexpected ways to bring ideas to life.
+          I&rsquo;m a product &amp; visual designer working across UX/UI and AI-assisted
+          prototyping, recently graduated from Shenkar College. My work moves between
+          illustration, branding, and digital experiences, often combining hands-on making with
+          emerging technologies, drawn to storytelling, playful experimentation, and finding
+          unexpected ways to bring ideas to life.
         </motion.p>
 
         <motion.div

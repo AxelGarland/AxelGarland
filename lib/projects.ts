@@ -431,9 +431,9 @@ export const PROJECTS: Project[] = [
     title: "Facettes",
     section: "other-work",
     summary:
-      "A generative illustration experiment: choosing different attributes builds a different face each time.",
+      "A generative illustration system exploring where code, algorithms, and illustration meet.",
     reflection:
-      "Facettes is a generative illustration experiment: choosing different attributes builds a different illustrated face each time. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+      "Facettes is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless combination of graphic portraits, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
     videoUrl: "https://vimeo.com/1224292689?share=copy&fl=sv&fe=ci",
     thumbnail: "Facettes image.png",

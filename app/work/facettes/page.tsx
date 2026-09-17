@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Facettes · Axel Garland",
   description:
-    "Facettes, a generative illustration experiment where choosing different attributes builds a different illustrated face each time.",
+    "Facettes, a generative illustration system exploring where code, algorithms, and illustration meet, producing an endless combination of graphic portraits.",
 };
 
 const POSTERS = Array.from({ length: 10 }, (_, i) => {
@@ -88,9 +88,9 @@ export default function FacettesPage() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-sm text-ink-muted underline underline-offset-4 transition-colors duration-300 hover:text-ink"
+                  className="mt-6 inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
                 >
-                  View the live project
+                  Try it yourself
                   <span aria-hidden>&#8599;</span>
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
@@ -119,7 +119,7 @@ export default function FacettesPage() {
               The Website
             </p>
             <h2 className="mb-6 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-              Pick attributes, get a face and a caption
+              A new face, generated automatically
             </h2>
             {project.liveUrl ? (
               <a

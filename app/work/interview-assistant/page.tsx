@@ -95,10 +95,10 @@ export default function InterviewAssistantPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[2560/990] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(228,179,85,0.35)]">
+            <div className="relative aspect-[2560/1800] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(228,179,85,0.35)]">
               <Image
                 src={pictureSrc(project.hero)}
-                alt="Interview for Success: three modules, interview prep, reference check, and rating"
+                alt="Interview for Success: intro video, and the three module cards"
                 fill
                 priority
                 className="object-cover"

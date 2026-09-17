@@ -79,7 +79,9 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
           {titleHebrew ? (
             <>
               {" "}
-              <span style={{ fontFamily: "var(--font-hebrew)" }}>{titleHebrew}</span>
+              <span className="text-[0.75em]" style={{ fontFamily: "var(--font-hebrew)" }}>
+                {titleHebrew}
+              </span>
             </>
           ) : null}
         </h3>

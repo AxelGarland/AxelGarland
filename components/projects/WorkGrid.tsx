@@ -16,14 +16,17 @@ const ACCENT_BORDER_GLOW: Record<AccentColor, string> = {
 };
 
 /** Asymmetric spans + aspect ratios cycled per card index — an editorial rhythm instead of a
- *  uniform grid. The first slot is deliberately the most prominent (full-width) one, since
- *  `PROJECTS`' case-study order puts the strongest project first and the grid should read that
- *  way too, rather than letting a later, visually louder screenshot dominate by accident. */
+ *  uniform grid. Full-width, then two halves, then full-width again: with exactly four case
+ *  studies this bookends the row so nothing dangles with an empty gap next to it (an 8-col last
+ *  slot did, leaving 4 columns of nothing). The first slot is deliberately the most prominent
+ *  one, since `PROJECTS`' case-study order puts the strongest project first and the grid should
+ *  read that way too, rather than letting a later, visually louder screenshot dominate by
+ *  accident. */
 const LAYOUT = [
   { span: "md:col-span-12", aspect: "aspect-[16/9]" },
   { span: "md:col-span-6", aspect: "aspect-[4/3]" },
   { span: "md:col-span-6", aspect: "aspect-[4/3]" },
-  { span: "md:col-span-8", aspect: "aspect-[16/9]" },
+  { span: "md:col-span-12", aspect: "aspect-[16/9]" },
 ] as const;
 
 function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOUT)[number] }) {

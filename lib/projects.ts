@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
     title: "Interview for Success (ראיון להצלחה)",
     section: "case-study",
     summary:
-      "An AI-assisted interview toolkit for Alut's non-recruiter managers: interview prep, reference calls, and candidate scoring.",
+      "An interview toolkit for Alut's non-recruiter managers: interview prep, reference calls, and a weighted scoring system for candidates.",
     accentColor: "gold",
     clientLogo: "alutit/alut logo no background.png",
     caseStudy: {

@@ -10,10 +10,10 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Interview for Success · Axel Garland",
   description:
-    "Interview for Success (ראיון להצלחה), an AI-assisted interview toolkit for Alut's non-recruiter managers.",
+    "Interview for Success (ראיון להצלחה), an interview toolkit for Alut's non-recruiter managers.",
 };
 
-const TAGS = ["AI Agent", "Internal Tool", "Recruitment"];
+const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
 const SCREENS = [
   {
@@ -95,7 +95,7 @@ export default function InterviewAssistantPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[2560/1800] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(228,179,85,0.35)]">
+            <div className="relative aspect-[2560/990] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(228,179,85,0.35)]">
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Interview for Success: three modules, interview prep, reference check, and rating"

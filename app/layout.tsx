@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Work_Sans } from "next/font/google";
+import { Cormorant_Garamond, Heebo, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/sections/SiteHeader";
 
@@ -13,6 +13,16 @@ const displaySerif = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
+  display: "swap",
+});
+
+/** Neither Work Sans nor Cormorant Garamond ship Hebrew glyphs, so any Hebrew text (project
+ *  names like "ראיון להצלחה") was falling back to a mismatched system serif. A neutral Hebrew
+ *  sans in the font stack (see tailwind.config.ts) fixes this automatically wherever Hebrew
+ *  appears, without touching the copy itself. */
+const hebrewSans = Heebo({
+  subsets: ["hebrew"],
+  variable: "--font-hebrew",
   display: "swap",
 });
 
@@ -30,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${displaySerif.variable} ${bodySans.variable} font-sans bg-surface text-mist antialiased`}
+        className={`${displaySerif.variable} ${bodySans.variable} ${hebrewSans.variable} font-sans bg-surface text-mist antialiased`}
       >
         <a
           href="#main"

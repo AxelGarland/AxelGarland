@@ -442,6 +442,18 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+/** Splits a trailing Hebrew parenthetical off a title (e.g. "Interview for Success (ראיון
+ *  להצלחה)") so it can be rendered in a Hebrew-appropriate font. Neither of the site's two
+ *  fonts ship Hebrew glyphs, and the browser's automatic per-glyph fallback lands on Next's
+ *  own metric-matched fallback font before it ever reaches the Hebrew font in the stack, since
+ *  that fallback happens to have real (mismatched) Hebrew glyphs of its own — so this can't be
+ *  fixed by font-stack order alone and needs the Hebrew text isolated into its own element. */
+export function splitHebrewParenthetical(title: string): { main: string; hebrew: string | null } {
+  const match = title.match(/^(.*?)\s*(\([֐-׿][^)]*\))$/);
+  if (!match) return { main: title, hebrew: null };
+  return { main: match[1], hebrew: match[2] };
+}
+
 export function getProject(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);
 }

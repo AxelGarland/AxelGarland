@@ -1,5 +1,5 @@
 import type { AccentColor, Project } from "@/lib/projects";
-import { projectThumbnailSrc, SECTION_LABELS } from "@/lib/projects";
+import { projectThumbnailSrc, SECTION_LABELS, splitHebrewParenthetical } from "@/lib/projects";
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,6 +30,7 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
   const thumb = projectThumbnailSrc(project);
   const contain = project.thumbnailFit === "contain";
   const borderGlow = ACCENT_BORDER_GLOW[project.accentColor ?? "gold"];
+  const { main: titleMain, hebrew: titleHebrew } = splitHebrewParenthetical(project.title);
 
   return (
     <Link
@@ -74,7 +75,13 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
           {SECTION_LABELS[project.section]}
         </p>
         <h3 className="mb-1.5 font-display text-xl font-semibold leading-tight text-surface">
-          {project.title}
+          {titleMain}
+          {titleHebrew ? (
+            <>
+              {" "}
+              <span style={{ fontFamily: "var(--font-hebrew)" }}>{titleHebrew}</span>
+            </>
+          ) : null}
         </h3>
         <p className="text-sm leading-relaxed text-surface/70">{project.summary}</p>
       </div>

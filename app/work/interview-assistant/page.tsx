@@ -76,7 +76,9 @@ export default function InterviewAssistantPage() {
               Case Studies
             </p>
             <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
-              Interview for Success (ראיון להצלחה) &middot; Alut Recruitment Department
+              Interview for Success{" "}
+              <span style={{ fontFamily: "var(--font-hebrew)" }}>(ראיון להצלחה)</span> &middot; Alut
+              Recruitment Department
             </p>
             <h1 className="mb-6 max-w-[20ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
               Anyone can run <em className="italic text-gold">a good interview</em>

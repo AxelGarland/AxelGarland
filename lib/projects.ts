@@ -235,6 +235,44 @@ export const PROJECTS: Project[] = [
     lightboxFeatured: ["giuson/giuson recruitment map.png", "giuson/giuson hours table.png"],
   },
   {
+    slug: "interview-assistant",
+    title: "Interview for Success (ראיון להצלחה)",
+    section: "case-study",
+    summary:
+      "An AI-assisted interview toolkit for Alut's non-recruiter managers: interview prep, reference calls, and candidate scoring.",
+    accentColor: "gold",
+    clientLogo: "alutit/alut logo no background.png",
+    caseStudy: {
+      problem:
+        "Facility managers across Alut's frameworks aren't recruitment specialists, but they're the ones interviewing and hiring for their own teams. Without a shared structure, interview quality, reference checks, and hiring decisions varied manager to manager, with no consistent way to compare candidates.",
+      role: "I designed and built the tool.",
+      process:
+        "Four connected pieces: role-specific interview question generation (fill in candidate and role details, get tailored questions), a structured reference-call script covering what to ask and how to run the call, a weighted rating questionnaire that turns interview signals into one comparable score, and a labor-law FAQ that keeps managers compliant along the way: what's legal to ask, notice requirements, timelines.",
+      outcome:
+        "Now in daily use by facility managers across Alut's frameworks, most without any recruitment background. The tool gives them the same structured, professional interview process a trained recruiter would run, plus a comparable score to support the final hiring call, without needing recruitment expertise to live in one central team.",
+    },
+    thumbnail: "interview-assistant/hero.png",
+    hero: "interview-assistant/hero.png",
+    gallery: [
+      {
+        file: "interview-assistant/interview-prep.png",
+        alt: "Interview prep: candidate and role details in, a set of tailored interview questions out",
+      },
+      {
+        file: "interview-assistant/recommender.png",
+        alt: "Reference-check script: structure and questions for the recommender phone call",
+      },
+      {
+        file: "interview-assistant/rating.png",
+        alt: "Rating questionnaire: weighted scoring across categories, rolled into one comparable number",
+      },
+      {
+        file: "interview-assistant/faq.png",
+        alt: "Labor-law FAQ: quick, compliant answers for hiring managers",
+      },
+    ],
+  },
+  {
     slug: "better-eater",
     title: "Better Eater",
     section: "case-study",

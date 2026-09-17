@@ -58,7 +58,15 @@ const ACCENT_BACK_ARROW: Record<AccentColor, string> = {
 
 /** "alutit", "giuson", "jabberwocky", "facettes", "better-eater", and "mundos-mejores" have
  *  their own bespoke pages — excluded here so those routes don't collide with this dynamic one. */
-const BESPOKE_SLUGS = ["alutit", "giuson", "jabberwocky", "facettes", "better-eater", "mundos-mejores"];
+const BESPOKE_SLUGS = [
+  "alutit",
+  "giuson",
+  "jabberwocky",
+  "facettes",
+  "better-eater",
+  "mundos-mejores",
+  "interview-assistant",
+];
 export function generateStaticParams() {
   return PROJECTS.filter((p) => !BESPOKE_SLUGS.includes(p.slug)).map((p) => ({ slug: p.slug }));
 }

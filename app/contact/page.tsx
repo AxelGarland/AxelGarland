@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 const details = [
   {
     label: "Email",
-    value: "hello@axelgarland.com",
-    href: "mailto:hello@axelgarland.com",
+    value: "axelgrobman@gmail.com",
+    href: "mailto:axelgrobman@gmail.com",
     icon: (
       <path
         d="M3 6h18v12H3V6Zm0 0 9 7 9-7"
@@ -68,9 +68,9 @@ export default function ContactPage() {
               what&rsquo;s <em className="italic text-accent">next</em>
             </h1>
             <p className="mb-10 max-w-[42ch] text-base leading-relaxed text-ink-muted md:text-lg">
-              I&rsquo;m finishing my degree at Shenkar and looking for full-time or contract design
-              roles: UX/UI, product design, or work that leans on illustration too. Send a note and
-              I&rsquo;ll get back to you soon.
+              I recently graduated from Shenkar and I&rsquo;m looking for full-time or contract
+              design roles: UX/UI, product design, or work that leans on illustration too. Send a
+              note and I&rsquo;ll get back to you soon.
             </p>
 
             <div className="flex flex-col gap-5">

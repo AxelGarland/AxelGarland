@@ -4,11 +4,7 @@ import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMo
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 
-/**
- * TODO: replace with your real Formspree endpoint once you've created a form at formspree.io.
- * It looks like: https://formspree.io/f/xxxxxxxx
- */
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdenpl";
 
 type Status = "idle" | "submitting" | "success" | "error";
 

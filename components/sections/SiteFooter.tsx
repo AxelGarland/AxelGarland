@@ -1,5 +1,5 @@
 const links = [
-  { label: "Email", href: "mailto:hello@axelgarland.com", external: false },
+  { label: "Email", href: "mailto:axelgrobman@gmail.com", external: false },
   { label: "LinkedIn", href: "https://www.linkedin.com/", external: true },
   { label: "CV", href: "/Axel%20Garland%20CV.pdf", external: true },
 ] as const;

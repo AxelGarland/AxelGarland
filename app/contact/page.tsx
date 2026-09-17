@@ -41,7 +41,7 @@ const details = [
   {
     label: "Connect",
     value: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/axel-garland-138188292/",
     icon: (
       <path
         d="M9 15l6-6M10.5 7.5l1-1a3.5 3.5 0 0 1 5 5l-1 1M13.5 16.5l-1 1a3.5 3.5 0 0 1-5-5l1-1"

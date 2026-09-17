@@ -76,7 +76,7 @@ export default function BetterEaterPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[1104/862] w-full overflow-hidden border border-line bg-paper">
+            <div className="relative aspect-[1335/1093] w-full overflow-hidden border border-line bg-paper">
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Better Eater: recommended meal plan, home screen, and recipe detail"

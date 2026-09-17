@@ -289,11 +289,11 @@ export const PROJECTS: Project[] = [
       outcome:
         "A working, prototyped flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built and tested as a functioning Figma prototype.",
     },
-    thumbnail: "bettereater banner.png",
-    hero: "bettereater banner.png",
+    thumbnail: "bettereater/hero.png",
+    hero: "bettereater/hero.png",
     gallery: [
       {
-        file: "bettereater banner.png",
+        file: "bettereater/hero.png",
         alt: "Better Eater: recommended meal plan, home screen, and recipe detail",
       },
     ],

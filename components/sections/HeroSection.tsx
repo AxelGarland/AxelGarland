@@ -18,8 +18,8 @@ export function HeroSection() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-ink-muted"
         >
-          <span aria-hidden className="h-px w-8 shrink-0 bg-accent" />
-          Product &amp; Visual Designer | UX/UI and AI-Assisted Prototyping
+          <span aria-hidden className="h-px w-8 bg-accent" />
+          Product &amp; Visual Designer
         </motion.p>
 
         <motion.h1

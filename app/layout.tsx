@@ -19,7 +19,7 @@ const displaySerif = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Axel Garland · Product & Visual Designer",
   description:
-    "Axel Garland, a product & visual designer working across UX/UI and AI-assisted prototyping, plus branding and illustration. Portfolio and case studies.",
+    "Axel Garland, a product & visual designer working across UX/UI, branding, and illustration. Portfolio and case studies.",
 };
 
 export default function RootLayout({

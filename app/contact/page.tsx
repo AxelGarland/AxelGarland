@@ -75,14 +75,14 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-5">
               {details.map((d) => (
-                <div key={d.label} className="flex items-start gap-4">
+                <div key={d.label} className="flex items-center gap-4">
                   <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
                     aria-hidden
-                    className="mt-0.5 shrink-0 text-accent"
+                    className="shrink-0 text-accent"
                   >
                     {d.icon}
                   </svg>

@@ -281,22 +281,6 @@ export default function AfterLifePage() {
             </div>
           </div>
         </section>
-
-        {/* Voice */}
-        <section className="border-t border-line bg-ink py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-              The Voice
-            </p>
-            <h2 className="mb-8 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
-              Will it hurt moving into the afterlife?
-            </h2>
-            <p className="max-w-[40ch] font-display text-2xl font-light leading-snug text-surface/90 sm:text-3xl">
-              Of course not. Quite the opposite, it&rsquo;s a great sensation. At least we think,
-              no one remembers how it feels.
-            </p>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </>

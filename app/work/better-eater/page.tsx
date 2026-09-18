@@ -14,6 +14,27 @@ export const metadata: Metadata = {
 
 const TAGS = ["Product Design", "Mobile App", "Interactive Course"];
 
+const SCREENS = [
+  {
+    file: "bettereater/iPhone 14 Pro Space Black Mockup-2.png",
+    alt: "Better Eater home screen: a greeting, the user's progress, and the next meals to plan",
+    title: "Home",
+    body: "A greeting, the user's progress so far, and the next meals waiting to be chosen.",
+  },
+  {
+    file: "bettereater/iPhone 14 Pro Space Black Mockup-1.png",
+    alt: "Better Eater recommended meal plan: breakfast, lunch, and dinner for a chosen day",
+    title: "Meal Plan",
+    body: "A recommended breakfast, lunch, and dinner for each day, with an ingredients-to-shopping-list shortcut.",
+  },
+  {
+    file: "bettereater/iPhone 14 Pro Space Black Mockup.png",
+    alt: "Better Eater recipe detail: time, difficulty, servings, and ingredients and instructions tabs",
+    title: "Recipe",
+    body: "Time, difficulty, servings, and step-by-step instructions, ending in a single Start Cooking button.",
+  },
+];
+
 const FLOW = [
   "Plan the week",
   "Get a recommendation",
@@ -124,33 +145,43 @@ export default function BetterEaterPage() {
           </div>
         </section>
 
-        {/* Prototype — the live, clickable Figma prototype */}
-        {project.figmaEmbedUrl ? (
-          <section className="bg-surface py-20 md:py-28">
-            <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-              <div className="mx-auto mb-10 max-w-[56ch] text-center md:mb-12">
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-                  Prototype
-                </p>
-                <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                  Try the full flow
-                </h2>
-                <p className="text-base leading-relaxed text-ink-muted">
-                  The real Figma prototype, live and clickable: plan a week, get a
-                  recommendation, and follow a recipe through to the shopping list.
-                </p>
-              </div>
-              <div className="mx-auto aspect-[3/4] w-full max-w-xl overflow-hidden border border-line bg-ink">
-                <iframe
-                  src={project.figmaEmbedUrl}
-                  title="Better Eater, Figma prototype"
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
+        {/* Screens — the three key screens, each shown whole */}
+        <section className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <div className="mb-12 max-w-[56ch] md:mb-16">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+                The Screens
+              </p>
+              <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+                From a greeting to a recipe
+              </h2>
             </div>
-          </section>
-        ) : null}
+            <div className="grid grid-cols-1 gap-14 sm:grid-cols-3 sm:gap-8">
+              {SCREENS.map((screen, i) => (
+                <div key={screen.file}>
+                  <div className="relative mx-auto aspect-[505/1023] w-full max-w-[16rem]">
+                    <Image
+                      src={pictureSrc(screen.file)}
+                      alt={screen.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 256px, 30vw"
+                    />
+                  </div>
+                  <div className="mx-auto mt-6 max-w-[16rem]">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-display text-sm leading-none text-ink-subtle">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-sm font-semibold text-ink">{screen.title}</p>
+                    </div>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{screen.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Outcome — the loop, as a flow instead of plain text */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
@@ -159,7 +190,7 @@ export default function BetterEaterPage() {
               The Outcome
             </p>
             <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-12">
-              A working, tested loop: start to finish
+              The full loop, designed
             </h2>
             <ol className="grid grid-cols-1 gap-5 sm:grid-cols-5">
               {FLOW.map((step, i) => (

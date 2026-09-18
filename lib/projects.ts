@@ -77,10 +77,6 @@ export type Project = {
   /** When set, the hero image becomes a clickable video poster linking out to this URL
    *  (e.g. a Vimeo/YouTube demo) instead of just a static image. */
   videoUrl?: string;
-  /** Figma "embed" URL (figma.com/embed?...&url=<encoded proto link>) for projects whose only
-   *  working demo is a Figma prototype rather than a real deployed product — embedded live and
-   *  clickable on the page instead of a static screenshot. */
-  figmaEmbedUrl?: string;
   /** Grid card thumbnail — exact filename */
   thumbnail: string;
   /** Detail hero — exact filename */
@@ -278,8 +274,6 @@ export const PROJECTS: Project[] = [
     section: "case-study",
     summary: "A personalized meal-planning and recipe app.",
     accentColor: "blue",
-    figmaEmbedUrl:
-      "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fw3GO2poltFSRm4zvrMapin%2FBETTEREATER%3Fnode-id%3D811-2920%26t%3DrItpRNz8symuMgLU-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D811%253A2412%26starting-point-node-id%3D811%253A2920",
     caseStudy: {
       problem:
         "The brief: design an app that helps someone transition to healthier eating with no prior kitchen experience, through personalized recommendations, detailed recipes and videos, and content that adapts to the user's specific dietary needs.",
@@ -287,7 +281,7 @@ export const PROJECTS: Project[] = [
       process:
         "Started from persona research rather than a generic user: the personalization at the core of the brief only makes sense against a specific person's real habits and constraints, so the app was designed around one defined persona throughout. From there: a weekly meal-plan calendar, a personalized home screen surfacing what's next to cook, detailed recipe screens (time, difficulty, nutritional tags, ingredients/instructions), and an integrated shopping list so planning turns directly into action.",
       outcome:
-        "A working, prototyped flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built and tested as a functioning Figma prototype.",
+        "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
     },
     thumbnail: "bettereater/hero.png",
     hero: "bettereater/hero.png",

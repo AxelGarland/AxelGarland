@@ -80,7 +80,7 @@ export default function BetterEaterPage() {
               Better Eater
             </p>
             <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Cooking, made <em className="italic text-teal">approachable</em>
+              Eating, made <em className="italic text-teal">better</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
               {project.summary} Designed around the user&rsquo;s own preferences.
@@ -126,7 +126,7 @@ export default function BetterEaterPage() {
                   The Brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
-                  Starting from a persona, not a generic user
+                  Meet Amit, who we designed it for
                 </h2>
               </div>
               <div className="flex flex-col gap-6">

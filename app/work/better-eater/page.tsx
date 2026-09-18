@@ -147,14 +147,14 @@ export default function BetterEaterPage() {
               className="mx-auto mb-10 h-auto w-full max-w-[26rem] md:mb-14 md:max-w-[32rem]"
             />
 
-            <div className="relative aspect-[1335/1093] w-full overflow-hidden">
+            <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[42rem] overflow-hidden">
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Better Eater: recommended meal plan, home screen, and recipe detail"
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 1152px"
+                sizes="(max-width: 768px) 100vw, 672px"
               />
             </div>
           </div>

@@ -64,8 +64,12 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
   const yLeft = useTransform(scrollYProgress, [0, 1], [40, -60]);
   const yRight = useTransform(scrollYProgress, [0, 1], [-40, 80]);
 
-  const left = projects.filter((_, i) => i % 2 === 0);
-  const right = projects.filter((_, i) => i % 2 === 1);
+  // With an odd count, the last piece would leave a hole under one column, so it sits centered
+  // on its own row below the two columns instead.
+  const paired = projects.length % 2 === 0 ? projects : projects.slice(0, -1);
+  const last = projects.length % 2 === 0 ? null : projects[projects.length - 1];
+  const left = paired.filter((_, i) => i % 2 === 0);
+  const right = paired.filter((_, i) => i % 2 === 1);
 
   return (
     <div>
@@ -103,6 +107,11 @@ export function IllustrationShowcase({ projects }: { projects: Project[] }) {
             ))}
           </motion.div>
         </div>
+        {last ? (
+          <div className="mx-auto mt-20 w-[calc(50%-0.625rem)] sm:mt-24 sm:w-[calc(50%-1rem)] md:mt-28 md:w-[calc(50%-1.25rem)]">
+            <IllustrationItem project={last} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -70,9 +70,9 @@ const APP_FRAMES = [
 ];
 
 const OPENERS = [
-  { file: "afterlife/Fold 33.png", alt: "AfterLife screen: a skull between violet leaves, labeled Die" },
-  { file: "afterlife/Fold 37.png", alt: "AfterLife screen: a teal flower between red leaves, labeled Celebrate" },
-  { file: "afterlife/Fold 38.png", alt: "AfterLife screen: a red heart between teal leaves, labeled Live" },
+  { file: "afterlife/Fold 38.png", alt: "AfterLife loading screen: a red heart between teal leaves, labeled Live" },
+  { file: "afterlife/Fold 33.png", alt: "AfterLife loading screen: a skull between violet leaves, labeled Die" },
+  { file: "afterlife/Fold 37.png", alt: "AfterLife loading screen: a teal flower between red leaves, labeled Celebrate" },
 ];
 
 export default function AfterLifePage() {
@@ -194,8 +194,8 @@ export default function AfterLifePage() {
                 <LoadingLoop frames={OPENERS} />
               </div>
               <p className="max-w-[40ch] text-base leading-relaxed text-ink-muted">
-                Before the page opens, a short loading animation runs through three words: Die,
-                Celebrate, Live. It sets the tone before a single line of copy.
+                Before the page opens, a short loading animation runs through three words: Live,
+                Die, Celebrate. It sets the tone before a single line of copy.
               </p>
             </div>
             <div

@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -188,6 +189,15 @@ export default function AfterLifePage() {
                 in a set of FAQs. Scroll inside the frame to see all of it.
               </p>
             </div>
+            <div className="mx-auto mb-10 flex max-w-[60rem] flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
+              <div className="w-full max-w-[24rem] shrink-0">
+                <LoadingLoop frames={OPENERS} />
+              </div>
+              <p className="max-w-[40ch] text-base leading-relaxed text-ink-muted">
+                Before the page opens, a short loading animation runs through three words: Die,
+                Celebrate, Live. It sets the tone before a single line of copy.
+              </p>
+            </div>
             <div
               tabIndex={0}
               role="region"
@@ -268,22 +278,6 @@ export default function AfterLifePage() {
                   <p className="mt-1.5 max-w-[56ch] text-sm leading-relaxed text-ink-muted">
                     {frame.body}
                   </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-20 grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {OPENERS.map((frame) => (
-                <div
-                  key={frame.file}
-                  className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-black"
-                >
-                  <Image
-                    src={pictureSrc(frame.file)}
-                    alt={frame.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 370px"
-                  />
                 </div>
               ))}
             </div>

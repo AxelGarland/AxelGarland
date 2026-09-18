@@ -16,21 +16,21 @@ const TAGS = ["Product Design", "Mobile App", "Interactive Course"];
 
 const SCREENS = [
   {
-    file: "bettereater/iPhone 14 Pro Space Black Mockup-2.png",
-    alt: "Better Eater home screen: a greeting, the user's progress, and the next meals to plan",
-    title: "Home",
-    body: "A greeting, the user's progress so far, and the next meals waiting to be chosen.",
-  },
-  {
     file: "bettereater/iPhone 14 Pro Space Black Mockup-1.png",
     alt: "Better Eater recommended meal plan: breakfast, lunch, and dinner for a chosen day",
-    title: "Meal Plan",
+    title: "Plan the week",
     body: "A recommended breakfast, lunch, and dinner for each day, with an ingredients-to-shopping-list shortcut.",
+  },
+  {
+    file: "bettereater/iPhone 14 Pro Space Black Mockup-2.png",
+    alt: "Better Eater home screen: a greeting, the user's progress, and the next meals to plan",
+    title: "Get a recommendation",
+    body: "A greeting, the user's progress so far, and the next meals waiting to be chosen.",
   },
   {
     file: "bettereater/iPhone 14 Pro Space Black Mockup.png",
     alt: "Better Eater recipe detail: time, difficulty, servings, and ingredients and instructions tabs",
-    title: "Recipe",
+    title: "See the recipe, then cook",
     body: "Time, difficulty, servings, and step-by-step instructions, ending in a single Start Cooking button.",
   },
 ];
@@ -153,16 +153,20 @@ export default function BetterEaterPage() {
           </div>
         </section>
 
-        {/* Screens — the three key screens, each shown whole */}
+        {/* How it works — the three key screens, each shown whole, in flow order */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
-                The Screens
+                How It Works
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                From a greeting to a recipe
+                Three screens, one loop
               </h2>
+              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+                Plan the week, get told what to cook next, and follow the recipe from the first
+                ingredient to the last step.
+              </p>
             </div>
             <div className="grid grid-cols-1 gap-14 sm:grid-cols-3 sm:gap-8">
               {SCREENS.map((screen, i) => (

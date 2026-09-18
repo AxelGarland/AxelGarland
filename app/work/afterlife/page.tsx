@@ -182,11 +182,11 @@ export default function AfterLifePage() {
                 The Landing Page
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                Welcome. Yes, you are dead.
+                Selling the afterlife
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                One long page that explains the service, sells it with a straight face, and ends
-                in a set of FAQs. Scroll inside the frame to see all of it.
+                One long page that explains the service, backs it up with big numbers, and ends in
+                a set of FAQs, all with a straight face. Scroll inside the frame to see all of it.
               </p>
             </div>
             <div className="mx-auto mb-10 flex max-w-[60rem] flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
@@ -205,10 +205,10 @@ export default function AfterLifePage() {
               className="mx-auto max-h-[38rem] max-w-[60rem] overflow-y-auto border border-line bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo"
             >
               <Image
-                src={pictureSrc("afterlife/Frame 6.png")}
-                alt="The full AfterLife landing page: welcome, the pitch, stats, and FAQs"
+                src={pictureSrc("afterlife/landing page.png")}
+                alt="The full AfterLife landing page: the pitch, stats, and FAQs"
                 width={1920}
-                height={10978}
+                height={7728}
                 className="h-auto w-full"
                 sizes="(max-width: 960px) 100vw, 960px"
               />

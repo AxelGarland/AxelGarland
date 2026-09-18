@@ -120,16 +120,25 @@ export default function BetterEaterPage() {
         {/* Brief */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr_16rem] lg:gap-16">
-              <div className="order-1">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
+              <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
                   The Brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Meet Amit, who we designed it for
                 </h2>
+                <div className="relative mt-8 aspect-square w-48 overflow-hidden rounded-full md:w-56">
+                  <Image
+                    src={pictureSrc("bettereater/Amit.jpg")}
+                    alt="Amit, the persona Better Eater was designed for"
+                    fill
+                    className="object-cover object-[58%_40%]"
+                    sizes="224px"
+                  />
+                </div>
               </div>
-              <div className="order-3 flex flex-col gap-6 lg:order-2">
+              <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy.problem}
                 </p>
@@ -139,15 +148,6 @@ export default function BetterEaterPage() {
                 <p className="max-w-[64ch] text-base leading-relaxed text-ink-subtle">
                   {project.caseStudy.role}
                 </p>
-              </div>
-              <div className="relative order-2 aspect-square w-48 self-start overflow-hidden rounded-full lg:order-3 lg:w-full">
-                <Image
-                  src={pictureSrc("bettereater/Amit.jpg")}
-                  alt="Amit, the persona Better Eater was designed for"
-                  fill
-                  className="object-cover object-[58%_40%]"
-                  sizes="(max-width: 1024px) 192px, 256px"
-                />
               </div>
             </div>
           </div>

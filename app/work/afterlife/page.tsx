@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { HeroVideo } from "@/components/projects/HeroVideo";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -126,13 +127,10 @@ export default function AfterLifePage() {
               ))}
             </div>
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <Image
-                src={pictureSrc(project.hero)}
-                alt="AfterLife: a skeleton welcoming you to the afterlife"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1152px"
+              <HeroVideo
+                src={pictureSrc("afterlife/entrance animation.mp4")}
+                poster={pictureSrc("afterlife/entrance-poster.jpg")}
+                label="AfterLife's landing page entrance: two skeletons dance beside the logo"
               />
             </div>
           </div>

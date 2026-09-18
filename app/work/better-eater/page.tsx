@@ -126,7 +126,7 @@ export default function BetterEaterPage() {
               Eating, made <em className="italic text-leaf">better</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              {project.summary} Designed around the user&rsquo;s own preferences.
+              {project.summary} Built to help you move toward the way of eating you want to try.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
               {TAGS.map((tag) => (

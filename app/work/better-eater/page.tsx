@@ -76,6 +76,14 @@ export default function BetterEaterPage() {
               ))}
             </div>
 
+            <Image
+              src={pictureSrc("bettereater/wordmark.png")}
+              alt="Better Eater, the app"
+              width={1231}
+              height={315}
+              className="mx-auto mb-10 h-auto w-full max-w-[26rem] md:mb-14 md:max-w-[32rem]"
+            />
+
             <div className="relative aspect-[1335/1093] w-full overflow-hidden">
               <Image
                 src={pictureSrc(project.hero)}

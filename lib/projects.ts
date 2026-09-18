@@ -277,7 +277,7 @@ export const PROJECTS: Project[] = [
     caseStudy: {
       problem:
         "Amit is driven and curious, and holds herself to her own deadlines. She's taken up yoga and meditation, and she's always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn't wanting to eat well. It's not knowing where to begin, and not having room in a busy week to work it out.",
-      role: "Co-designed with Yuval Sa'ar as a two-person team project, first-year Interactive course at Shenkar.",
+      role: "Co-designed with Yuval Sa'ar as a team project for a Shenkar course.",
       process:
         "Better Eater takes that off her plate: a weekly meal plan built around her preferences, a home screen that shows what's next, detailed recipes with clear steps and videos, and a shopping list that turns planning into action. Cooking becomes easy at any level, and part of her week rather than a project on top of it.",
       outcome:

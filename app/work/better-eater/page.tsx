@@ -161,7 +161,7 @@ export default function BetterEaterPage() {
                 How It Works
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                Three screens, one loop
+                From plan to plate
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
                 Plan the week, get told what to cook next, and follow the recipe from the first

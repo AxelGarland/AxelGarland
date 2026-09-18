@@ -83,8 +83,7 @@ export default function BetterEaterPage() {
               Cooking, made <em className="italic text-teal">approachable</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              {project.summary} Designed around one real persona, someone with no prior kitchen
-              experience, rather than a generic user.
+              {project.summary} Designed around the user&rsquo;s own preferences.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
               {TAGS.map((tag) => (

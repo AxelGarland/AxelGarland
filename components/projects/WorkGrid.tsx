@@ -49,7 +49,7 @@ function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOU
             alt={project.title}
             fill
             className={`transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
-              contain ? "object-contain p-6" : "object-cover"
+              contain ? "object-contain p-8 md:p-16" : "object-cover"
             }`}
             sizes="(max-width: 768px) 100vw, 50vw"
           />

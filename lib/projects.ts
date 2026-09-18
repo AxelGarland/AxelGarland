@@ -284,6 +284,7 @@ export const PROJECTS: Project[] = [
         "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
     },
     thumbnail: "bettereater/hero.png",
+    thumbnailFit: "contain",
     hero: "bettereater/hero.png",
     gallery: [
       {

@@ -15,6 +15,21 @@ export const metadata: Metadata = {
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
+const OUTCOME_BEATS = [
+  {
+    title: "Presented to managers",
+    body: "We showed it in a meeting held for managers, and they were excited to have a tool that would help them.",
+  },
+  {
+    title: "Asked for more",
+    body: "Managers use it, and they keep asking us to add more roles.",
+  },
+  {
+    title: "Part of intake",
+    body: "The scores then became part of the intake process, so for certain intakes managers have to use it.",
+  },
+];
+
 const SCREENS = [
   {
     file: "interview-assistant/interview-prep.png",
@@ -178,17 +193,29 @@ export default function InterviewAssistantPage() {
         {/* Outcome */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto max-w-[70ch]">
+            <div className="max-w-[70ch]">
               <p className="text-sm font-semibold uppercase tracking-[0.1em] text-gold">
                 The Outcome
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
                 A repeatable process, <em className="italic text-gold">not a personal skill</em>
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-surface/70">
-                {project.caseStudy.outcome}
-              </p>
             </div>
+            <ol className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3 md:mt-12">
+              {OUTCOME_BEATS.map((beat, i) => (
+                <li key={beat.title} className="border border-surface/15 bg-surface/5 p-6">
+                  <span className="mb-3 block font-display text-lg leading-none text-gold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mb-2 block font-display text-xl font-semibold text-surface">
+                    {beat.title}
+                  </span>
+                  <span className="block text-base leading-relaxed text-surface/70">
+                    {beat.body}
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       </main>

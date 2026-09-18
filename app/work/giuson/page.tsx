@@ -16,6 +16,17 @@ export const metadata: Metadata = {
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
+const DECISIONS = [
+  {
+    title: "One tool, not three sources",
+    body: "Recruiters already had to work with the interactive PDF. Turning it into an online tool that also holds the sheet and all the new information gave them one useful place to work from.",
+  },
+  {
+    title: "A radius, not a fixed distance",
+    body: "Some candidates in the periphery of Israel are willing to commute farther, depending on the area. So the search takes a radius the recruiter can set, instead of a single fixed distance.",
+  },
+];
+
 const SCREENS = [
   {
     file: "giuson/giuson recruitment map.png",
@@ -81,7 +92,7 @@ export default function GiusonPage() {
               <em className="italic text-teal">one tool</em>
             </h1>
             <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-              Giuson replaces a Google Sheet, a set of personal notebooks, and a reference PDF
+              Giuson replaces a Google Sheet, a set of personal notebooks, and an interactive PDF
               with one fast recruitment workflow, built for Alut&rsquo;s own recruitment team.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
@@ -174,6 +185,29 @@ export default function GiusonPage() {
           </div>
         </section>
 
+        {/* Design decisions */}
+        <section className="border-t border-line bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+              Design Decisions
+            </p>
+            <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-12">
+              Built around how recruiters actually work
+            </h2>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {DECISIONS.map((item, i) => (
+                <div key={item.title} className="border border-line p-6">
+                  <span className="mb-3 block font-display text-lg leading-none text-teal">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mb-2 font-display text-xl font-semibold text-ink">{item.title}</p>
+                  <p className="text-base leading-relaxed text-ink-muted">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Prototype — the visual centerpiece */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
@@ -186,7 +220,7 @@ export default function GiusonPage() {
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
                 A quick clickthrough, not the live tool: pick a path on the home screen to see
-                where it leads. Built solo, end to end.
+                where it leads. Built with the head of the recruitment department.
               </p>
             </div>
             <div className="mx-auto max-w-3xl">
@@ -203,7 +237,7 @@ export default function GiusonPage() {
                 The Outcome
               </p>
               <p className="font-display text-2xl font-light italic leading-snug text-surface sm:text-3xl">
-                &ldquo;{outcomeQuote}&rdquo;
+                {outcomeQuote}
               </p>
               <p className="mt-8 text-base leading-relaxed text-surface/60">{outcomeLead}</p>
             </div>

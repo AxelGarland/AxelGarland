@@ -201,12 +201,12 @@ export const PROJECTS: Project[] = [
     },
     caseStudy: {
       problem:
-        "Before this existed, recruiters were working across three disconnected sources: a Google Sheet where individual locations logged which roles they were short on, personal notebooks holding the information needed to actually run a recruitment phone call, and a separate PDF guide with reference material. Every call meant juggling all three, and roles with more complex requirements, care-staff positions (נשות טיפול) in particular, were hard enough to fully understand that only one or two recruiters felt confident handling them.",
-      role: "I built the tool.",
+        "Before this existed, recruiters were working across three disconnected sources: an interactive PDF guide, itself called Giuson, packed with information and hyperlinks; a Google Sheet where individual locations logged which roles they were short on; and personal notebooks holding the information needed to actually run a recruitment phone call. Every call meant juggling all three, and roles with more complex requirements, care-staff positions (נשות טיפול) in particular, were hard enough to fully understand that only one or two recruiters felt confident handling them.",
+      role: "I designed and built the tool together with the head of the recruitment department.",
       process:
-        "I consolidated the three separate sources into one tool with two entry points: a location- and role-based search showing which frameworks have open positions within a chosen radius of a candidate, and an information hub covering role requirements, standards, and admission conditions, replacing the scattered notebooks and PDF.",
+        "I watched recruiters work and asked them questions, then built the tool with the head of the recruitment department over about a month and a half to two months. The recruiters already had to work with the interactive PDF, so I made it an online tool that combines it with the sheet and all the new information they needed, with two entry points: a location- and role-based search showing which frameworks have open positions within a chosen radius of a candidate, and an information hub covering role requirements, standards, and admission conditions, replacing the scattered notebooks and PDF.",
       outcome:
-        "It's in daily use, by the recruitment team, and by field workers who need the same information during their own part of the recruitment process. The clearest change: recruiting for care-staff roles (נשות טיפול) used to depend on the one or two recruiters comfortable with how complicated that information was. Now that the tool holds and organizes that complexity, more recruiters can take on that recruitment: the bottleneck of relying on just a couple of people is gone.",
+        "Every recruiter at Alut now uses it as an integral part of the recruitment process, and so do the managers of Alut's frameworks (מסגרות) when they need information to make their own hires. The clearest change: recruiting for care-staff roles (נשות טיפול) used to depend on one or two recruiters, because there was so much to learn before making those calls. Now five recruiters can learn it quickly enough to make those calls.",
     },
     thumbnail: "giuson/giuson banner.jpg",
     hero: "giuson/giuson banner.jpg",
@@ -240,12 +240,12 @@ export const PROJECTS: Project[] = [
     clientLogo: "alutit/alut logo no background.png",
     caseStudy: {
       problem:
-        "Facility managers across Alut's frameworks aren't recruitment specialists, but they're the ones interviewing and hiring for their own teams. Without a shared structure, interview quality, reference checks, and hiring decisions varied manager to manager, with no consistent way to compare candidates.",
-      role: "I designed and built the tool.",
+        "Facility managers across Alut's frameworks aren't recruitment specialists, but they're the ones interviewing and hiring for their own teams. Without a shared structure, interview quality, reference checks, and hiring decisions varied manager to manager, with no consistent way to compare candidates. The head of the recruitment department saw the need and came up with the idea: give the managers in the field a tool.",
+      role: "I designed and built the tool together with the head of the recruitment department, whose years of recruiting experience shaped it.",
       process:
-        "Four connected pieces: role-specific interview question generation (fill in candidate and role details, get tailored questions), a structured reference-call script covering what to ask and how to run the call, a weighted rating questionnaire that turns interview signals into one comparable score, and a labor-law FAQ that keeps managers compliant along the way: what's legal to ask, notice requirements, timelines.",
+        "The head of recruitment is the department's authority, with years of experience, so the goal was to carry her knowledge into a process that newer managers could follow. Four connected pieces: role-specific interview questions, where each role has its own list and every question measures a different section or quality; a structured reference-call script covering what to ask and how to run the call; a weighted rating questionnaire that turns interview signals into one comparable score; and a labor-law FAQ that keeps managers compliant along the way: what's legal to ask, notice requirements, timelines.",
       outcome:
-        "Now in daily use by facility managers across Alut's frameworks, most without any recruitment background. The tool gives them the same structured, professional interview process a trained recruiter would run, plus a comparable score to support the final hiring call, without needing recruitment expertise to live in one central team.",
+        "We presented it in a meeting held for managers, and they were excited to have a tool that would help them. They use it, and they keep asking us to add more roles. The scores then became part of the intake process, so for certain intakes managers have to use it.",
     },
     thumbnail: "interview-assistant/hero.png",
     hero: "interview-assistant/hero.png",

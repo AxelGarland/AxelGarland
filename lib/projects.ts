@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
       process:
         "I designed Alutit, a cartoon-illustrated character fronting the recruitment account, riffing on the AI-avatar trend visible elsewhere but keeping her fully hand-illustrated rather than AI-generated, so she'd read as authored and specific to Alut, not a generic trend-follow. She was built as a functional device, not just a mascot: a consistent base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. This let her explain the actual range of jobs at Alut visually, something a standard listing can't do. A recurring whimsical motif (unicorn, rainbow) gave the account a consistent, joyful tone across otherwise very different role content.",
       outcome:
-        "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of Alut's recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That's a measurable shift in the recruitment department's strategy, and a real branding success for Alut.",
+        "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of Alut's recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That's a meaningful shift in the recruitment department's strategy, and a real branding success for Alut.",
     },
     thumbnail: "alutit/banner alutit.png",
     hero: "alutit/Alutit rainbow.png",
@@ -232,7 +232,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "interview-assistant",
-    title: "Interview for Success (ראיון להצלחה)",
+    title: "Interview for Success",
     section: "case-study",
     summary:
       "An interview toolkit for Alut's non-recruiter managers: interview prep, reference calls, and a weighted scoring system for candidates.",
@@ -448,18 +448,6 @@ export const PROJECTS: Project[] = [
     gallery: [{ file: "Facettes image.png", alt: "Facettes multi-face grid" }],
   },
 ];
-
-/** Splits a trailing Hebrew parenthetical off a title (e.g. "Interview for Success (ראיון
- *  להצלחה)") so it can be rendered in a Hebrew-appropriate font. Neither of the site's two
- *  fonts ship Hebrew glyphs, and the browser's automatic per-glyph fallback lands on Next's
- *  own metric-matched fallback font before it ever reaches the Hebrew font in the stack, since
- *  that fallback happens to have real (mismatched) Hebrew glyphs of its own — so this can't be
- *  fixed by font-stack order alone and needs the Hebrew text isolated into its own element. */
-export function splitHebrewParenthetical(title: string): { main: string; hebrew: string | null } {
-  const match = title.match(/^(.*?)\s*(\([֐-׿][^)]*\))$/);
-  if (!match) return { main: title, hebrew: null };
-  return { main: match[1], hebrew: match[2] };
-}
 
 export function getProject(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);

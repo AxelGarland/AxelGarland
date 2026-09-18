@@ -75,7 +75,7 @@ export function HeroSection() {
             href="/contact"
             className="border-b border-line pb-0.5 text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-ink hover:text-ink"
           >
-            Open to projects
+            Open to opportunities
           </Link>
         </motion.div>
       </div>

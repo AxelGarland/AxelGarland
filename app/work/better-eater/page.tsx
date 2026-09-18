@@ -55,13 +55,13 @@ export default function BetterEaterPage() {
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-teal-soft blur-[100px]"
+            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-leaf-soft blur-[100px]"
           />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-teal/60 transition-colors duration-300 hover:text-teal"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-leaf/60 transition-colors duration-300 hover:text-leaf"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -73,14 +73,14 @@ export default function BetterEaterPage() {
                 />
               </svg>
             </Link>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
               Case Studies
             </p>
             <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
               Better Eater
             </p>
             <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Eating, made <em className="italic text-teal">better</em>
+              Eating, made <em className="italic text-leaf">better</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
               {project.summary} Designed around the user&rsquo;s own preferences.
@@ -122,7 +122,7 @@ export default function BetterEaterPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
                   The Brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -157,7 +157,7 @@ export default function BetterEaterPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
                 The Screens
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -194,7 +194,7 @@ export default function BetterEaterPage() {
         {/* Outcome — the loop, as a flow instead of plain text */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
               The Outcome
             </p>
             <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-12">
@@ -206,7 +206,7 @@ export default function BetterEaterPage() {
                   key={step}
                   className="border border-surface/15 bg-surface/5 p-5"
                 >
-                  <span className="mb-3 block font-display text-lg leading-none text-teal">
+                  <span className="mb-3 block font-display text-lg leading-none text-leaf">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-display text-base font-semibold text-surface">{step}</span>

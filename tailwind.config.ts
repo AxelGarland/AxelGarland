@@ -62,6 +62,11 @@ const config: Config = {
           DEFAULT: "#1CB88C",
           soft: "rgba(28, 184, 140, 0.16)",
         },
+        /** Better Eater's wordmark green, sampled from the logo. */
+        leaf: {
+          DEFAULT: "#4AA444",
+          soft: "rgba(74, 164, 68, 0.16)",
+        },
         indigo: {
           DEFAULT: "#8676DE",
           soft: "rgba(134, 118, 222, 0.18)",

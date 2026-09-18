@@ -402,6 +402,18 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "afterlife",
+    title: "AfterLife",
+    section: "selected-work",
+    summary: "A landing page and an app for a service that helps you celebrate your life as you move on.",
+    accentColor: "indigo",
+    reflection:
+      "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
+    thumbnail: "afterlife/thumbnail.jpg",
+    hero: "afterlife/Frame 40.png",
+    gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
+  },
+  {
     slug: "akko-fringe-festival",
     title: "Akko Fringe Festival",
     section: "selected-work",

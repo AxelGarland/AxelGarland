@@ -66,6 +66,7 @@ const BESPOKE_SLUGS = [
   "better-eater",
   "mundos-mejores",
   "interview-assistant",
+  "afterlife",
 ];
 export function generateStaticParams() {
   return PROJECTS.filter((p) => !BESPOKE_SLUGS.includes(p.slug)).map((p) => ({ slug: p.slug }));

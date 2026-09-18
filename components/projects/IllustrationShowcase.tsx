@@ -13,6 +13,7 @@ const MEDIUM: Record<string, string> = {
   jabberwocky: "Illustrated Book",
   "akko-fringe-festival": "Branding",
   facettes: "Generative",
+  afterlife: "Web & Illustration",
 };
 
 function IllustrationItem({ project }: { project: Project }) {

@@ -16,22 +16,43 @@ const TAGS = ["Product Design", "Mobile App", "Interactive Course"];
 
 const SCREENS = [
   {
-    file: "bettereater/iPhone 14 Pro Space Black Mockup-1.png",
-    alt: "Better Eater recommended meal plan: breakfast, lunch, and dinner for a chosen day",
-    title: "Plan the week",
-    body: "A recommended breakfast, lunch, and dinner for each day, with an ingredients-to-shopping-list shortcut.",
+    file: "bettereater/how often do you want to cook.png",
+    alt: "Better Eater onboarding: a slider to choose how often to cook, with every 3 days recommended",
+    title: "Set your pace",
+    body: "Choose how often to cook, from every day to every seven days. The recommended option is a bigger batch every three days, to save time and stay on track.",
   },
   {
-    file: "bettereater/iPhone 14 Pro Space Black Mockup-2.png",
-    alt: "Better Eater home screen: a greeting, the user's progress, and the next meals to plan",
-    title: "Get a recommendation",
-    body: "A greeting, the user's progress so far, and the next meals waiting to be chosen.",
+    file: "bettereater/recommended meal plan.png",
+    alt: "Better Eater recommended meal plan: breakfast, lunch, and dinner for a chosen day",
+    title: "Get a weekly plan",
+    body: "A recommended breakfast, lunch, and dinner for each day, with time, taste, and difficulty at a glance, and a shortcut to add every ingredient to the shopping list.",
+  },
+  {
+    file: "bettereater/iPhone 14 Pro Space Black Mockup copy.png",
+    alt: "Better Eater home screen: a greeting, progress so far, and the next meals with a Start Cooking button",
+    title: "Come back to what's next",
+    body: "A greeting, the progress so far, and the next meals waiting, each one tap away from Start Cooking.",
   },
   {
     file: "bettereater/iPhone 14 Pro Space Black Mockup.png",
     alt: "Better Eater recipe detail: time, difficulty, servings, and ingredients and instructions tabs",
-    title: "See the recipe, then cook",
+    title: "See the recipe",
     body: "Time, difficulty, servings, and step-by-step instructions, ending in a single Start Cooking button.",
+  },
+];
+
+const COOK_SCREENS = [
+  {
+    file: "bettereater/cook-instructions-landscape.png",
+    alt: "Better Eater cooking mode: a captioned step video beside the recipe's ingredients and instructions",
+    title: "Cook along",
+    body: "A captioned video of each step, with the ingredients and instructions right beside it.",
+  },
+  {
+    file: "bettereater/cook-video-landscape.png",
+    alt: "Better Eater full-screen cooking video with chapters: Prep, Bake, Roast, Chickpeas, Bake",
+    title: "Jump between steps",
+    body: "Full-screen chapters like Prep, Bake, and Roast, so it's easy to skip ahead or replay a step without losing your place.",
   },
 ];
 
@@ -164,11 +185,11 @@ export default function BetterEaterPage() {
                 From plan to plate
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                Plan the week, get told what to cook next, and follow the recipe from the first
-                ingredient to the last step.
+                From choosing how often to cook, to a plan for the week, to following along in the
+                kitchen, one step at a time.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-14 sm:grid-cols-3 sm:gap-8">
+            <div className="grid grid-cols-1 gap-14 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
               {SCREENS.map((screen, i) => (
                 <div key={screen.file}>
                   <div className="relative mx-auto aspect-[505/1023] w-full max-w-[16rem]">
@@ -177,13 +198,37 @@ export default function BetterEaterPage() {
                       alt={screen.alt}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 640px) 256px, 30vw"
+                      sizes="(max-width: 640px) 256px, 25vw"
                     />
                   </div>
                   <div className="mx-auto mt-6 max-w-[16rem]">
                     <div className="flex items-baseline gap-3">
                       <span className="font-display text-sm leading-none text-ink-subtle">
                         {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-sm font-semibold text-ink">{screen.title}</p>
+                    </div>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{screen.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-20 grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-8">
+              {COOK_SCREENS.map((screen, i) => (
+                <div key={screen.file}>
+                  <div className="relative mx-auto aspect-[1023/505] w-full max-w-[34rem]">
+                    <Image
+                      src={pictureSrc(screen.file)}
+                      alt={screen.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 34rem"
+                    />
+                  </div>
+                  <div className="mx-auto mt-6 max-w-[34rem]">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-display text-sm leading-none text-ink-subtle">
+                        {String(SCREENS.length + i + 1).padStart(2, "0")}
                       </span>
                       <p className="text-sm font-semibold text-ink">{screen.title}</p>
                     </div>

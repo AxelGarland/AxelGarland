@@ -128,6 +128,15 @@ export default function BetterEaterPage() {
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Meet Amit, who we designed it for
                 </h2>
+                <div className="relative mt-8 aspect-[4/5] w-full max-w-[22rem] overflow-hidden">
+                  <Image
+                    src={pictureSrc("bettereater/Amit.jpg")}
+                    alt="Amit, the persona Better Eater was designed for"
+                    fill
+                    className="object-cover object-[60%_35%]"
+                    sizes="(max-width: 768px) 352px, 30vw"
+                  />
+                </div>
               </div>
               <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">

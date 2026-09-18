@@ -32,27 +32,27 @@ const APP_FRAMES = [
     wide: true,
   },
   {
+    file: "afterlife/Frame 43.png",
+    alt: "AfterLife app statistics screen: a flower-shaped chart with leaves labeled friends, love, dreams, and more",
+    title: "Your statistics",
+    body: "The numbers of a life drawn as a flower, with a leaf for each part: friends, love, dreams, achievements, laughter, and more. Each leaf leads to its own screen.",
+  },
+  {
     file: "afterlife/Frame 33.png",
     alt: "AfterLife app screen: You were a dreamer, with illustrated flowers",
-    title: "One thing at a time",
-    body: "Each screen states one fact about your life, like being a dreamer who spent nights creating fantasy lands in your head.",
+    title: "Dreams",
+    body: "One leaf opens into a screen about the dreamer you were, who spent nights creating fantasy lands in your head.",
   },
   {
     file: "afterlife/Frame 41.png",
     alt: "AfterLife app screen: Your heart was full of love, with hearts connected like a constellation",
-    title: "Your heart was full of love",
-    body: "Hearts joined like a constellation stand in for the people you loved.",
-  },
-  {
-    file: "afterlife/Frame 43.png",
-    alt: "AfterLife app statistics screen: a flower-shaped chart with leaves labeled friends, love, dreams, and more",
-    title: "Your statistics",
-    body: "The numbers of a life drawn as a flower, with a leaf for each part: friends, love, dreams, achievements, laughter, and more.",
+    title: "Love",
+    body: "Another leaf becomes hearts joined like a constellation, standing in for the people you loved.",
   },
   {
     file: "afterlife/Frame 44.png",
     alt: "AfterLife app screen: It's okay to cry, with tear drops showing 8 liters of tears, 50% of joy",
-    title: "It's okay to cry",
+    title: "Tears",
     body: "Even the sad numbers get gentle treatment: 8 liters of tears, half of them from joy.",
   },
   {
@@ -258,8 +258,8 @@ export default function AfterLifePage() {
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
                 The app walks you through your life in four stages: Video, Memories, Statistics,
-                and Ready to move on. Each screen says one thing about your life, gently and with
-                a little humor.
+                and Ready to move on. At the center is a flower-shaped statistics chart, and each
+                leaf opens into a screen about one part of your life, told gently and with a little humor.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">

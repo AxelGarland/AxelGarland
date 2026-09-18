@@ -56,10 +56,25 @@ const COOK_SCREENS = [
   },
 ];
 
+const DECISIONS = [
+  {
+    title: "Cooking every 3 days",
+    body: "The cooking-frequency scale runs from every day to once a week. We recommend the middle, every three days: a bigger batch that saves time and stays realistic for a student who also works.",
+  },
+  {
+    title: "Learn by watching",
+    body: "Written steps are there, but the video lets you copy an expert cooking, so a beginner can learn an easy and proper way to do it.",
+  },
+  {
+    title: "Green, on purpose",
+    body: "Better Eater is a helper for changing how you eat, not a diet app. Green felt natural, fresh, friendly, and calming, so even if the kitchen doesn't feel like home, the process feels easy.",
+  },
+];
+
 const REFLECTIONS = [
   {
     title: "Working as a team",
-    body: "Co-designing with Yuval meant making decisions together and keeping one consistent app across two sets of hands.",
+    body: "We both worked across the persona, wireframes, visual design, and the prototype, and the app came together easily because we shared one direction.",
   },
   {
     title: "Starting from wireframes",
@@ -241,6 +256,34 @@ export default function BetterEaterPage() {
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{screen.body}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Design decisions */}
+        <section className="border-t border-line bg-paper py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
+              Design Decisions
+            </p>
+            <h2 className="mb-6 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              Why it works this way
+            </h2>
+            <p className="mb-10 max-w-[64ch] text-lg leading-relaxed text-ink-muted md:mb-12">
+              The hardest part was not making just another cooking or meal-prep app. So each choice
+              below points back to the goal: an easy transition into the way of eating you want to
+              try, not a diet.
+            </p>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+              {DECISIONS.map((item, i) => (
+                <div key={item.title} className="border border-line p-6">
+                  <span className="mb-3 block font-display text-lg leading-none text-leaf">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mb-2 font-display text-xl font-semibold text-ink">{item.title}</p>
+                  <p className="text-base leading-relaxed text-ink-muted">{item.body}</p>
                 </div>
               ))}
             </div>

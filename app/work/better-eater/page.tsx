@@ -56,12 +56,19 @@ const COOK_SCREENS = [
   },
 ];
 
-const FLOW = [
-  "Plan the week",
-  "Get a recommendation",
-  "See the recipe",
-  "Cook it",
-  "Shop for the next one",
+const REFLECTIONS = [
+  {
+    title: "Working as a team",
+    body: "Co-designing with Yuval meant making decisions together and keeping one consistent app across two sets of hands.",
+  },
+  {
+    title: "Starting from wireframes",
+    body: "Working through wireframes first let us settle the structure of the flow before any visual detail.",
+  },
+  {
+    title: "Designing for one person",
+    body: "Designing for Amit made every decision easier to judge, and showed how much a product that fits one person's daily life can matter.",
+  },
 ];
 
 export default function BetterEaterPage() {
@@ -240,25 +247,27 @@ export default function BetterEaterPage() {
           </div>
         </section>
 
-        {/* Outcome — the loop, as a flow instead of plain text */}
+        {/* Reflection */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-leaf">
-              The Outcome
+              Reflection
             </p>
             <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-12">
-              The full loop, designed
+              What I took from it
             </h2>
-            <ol className="grid grid-cols-1 gap-5 sm:grid-cols-5">
-              {FLOW.map((step, i) => (
-                <li
-                  key={step}
-                  className="border border-surface/15 bg-surface/5 p-5"
-                >
+            <ol className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+              {REFLECTIONS.map((item, i) => (
+                <li key={item.title} className="border border-surface/15 bg-surface/5 p-6">
                   <span className="mb-3 block font-display text-lg leading-none text-leaf">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-base font-semibold text-surface">{step}</span>
+                  <span className="mb-2 block font-display text-xl font-semibold text-surface">
+                    {item.title}
+                  </span>
+                  <span className="block text-base leading-relaxed text-surface/70">
+                    {item.body}
+                  </span>
                 </li>
               ))}
             </ol>

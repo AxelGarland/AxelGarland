@@ -208,8 +208,15 @@ export default function KindredPage() {
               Crowds for the wall
             </h2>
             <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-ink-muted md:mb-12">
-              Each poster is a crowd of twelve faces drawn from the same rules. Prints are coming
-              soon.
+              Each poster is a crowd of twelve faces drawn from the same rules. Prints are
+              available on request:{" "}
+              <Link
+                href="/contact"
+                className="text-ink underline underline-offset-4 transition-colors duration-300 hover:text-accent"
+              >
+                get in touch
+              </Link>
+              .
             </p>
             <SlideStackGallery images={POSTERS} aspect="aspect-[842/1191]" />
           </div>

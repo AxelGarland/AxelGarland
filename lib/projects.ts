@@ -340,7 +340,7 @@ export const PROJECTS: Project[] = [
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
     thumbnail: "jabberwocky thumbnail.png",
     hero: "book mock up.jpg",
-    // Higher-res per-page exports, replacing the old spread PNGs. Pages 5, 7, and 8 aren't in
+    // Higher-res per-page exports, replacing the old spread PNGs. Pages 7 and 8 aren't in
     // the new set yet — add them here once they exist. Verse text matched by actually looking
     // at each page's artwork against Lewis Carroll's poem (public domain), not guessed from
     // the page numbers alone.
@@ -362,12 +362,22 @@ export const PROJECTS: Project[] = [
       {
         file: "עמוד 3.jpg",
         alt: "Close-up of the Jabberwock's jaws and teeth, lettered \"The jaws that bite\"",
-        verse: "The jaws that bite, the claws that catch!",
+        verse: "The jaws that bite,",
       },
       {
         file: "עמוד 4.jpg",
         alt: "The prince draws his sword against the spotted Bandersnatch among bones",
         verse: 'Beware the Jubjub bird, and shun\nThe frumious Bandersnatch!"',
+      },
+      {
+        file: "book page 5 a.jpg",
+        alt: "Two black claws reach toward each other on an orange page, lettered \"The claws that catch!\"",
+        verse: "The claws that catch!",
+      },
+      {
+        file: "book page 5 b.jpg",
+        alt: "The Jubjub bird dangles the tiny prince upside down, his sword fallen on the hills beside a nest of spotted eggs",
+        verse: "Beware the Jubjub bird",
       },
       {
         file: "עמוד 6.jpg",

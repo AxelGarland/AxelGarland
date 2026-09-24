@@ -365,11 +365,6 @@ export const PROJECTS: Project[] = [
         verse: "The jaws that bite,",
       },
       {
-        file: "עמוד 4.jpg",
-        alt: "The prince draws his sword against the spotted Bandersnatch among bones",
-        verse: 'Beware the Jubjub bird, and shun\nThe frumious Bandersnatch!"',
-      },
-      {
         file: "book page 5 a.jpg",
         alt: "Two black claws reach toward each other on an orange page, lettered \"The claws that catch!\"",
         verse: "The claws that catch!",
@@ -377,7 +372,12 @@ export const PROJECTS: Project[] = [
       {
         file: "book page 5 b.jpg",
         alt: "The Jubjub bird dangles the tiny prince upside down, his sword fallen on the hills beside a nest of spotted eggs",
-        verse: "Beware the Jubjub bird",
+        verse: "Beware the Jubjub bird, and shun",
+      },
+      {
+        file: "עמוד 4.jpg",
+        alt: "The prince draws his sword against the spotted Bandersnatch among bones",
+        verse: 'The frumious Bandersnatch!"',
       },
       {
         file: "עמוד 6.jpg",

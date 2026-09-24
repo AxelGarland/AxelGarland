@@ -331,6 +331,31 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "kindred",
+    title: "Kindred",
+    section: "selected-work",
+    summary:
+      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
+    reflection:
+      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+    liveUrl: "https://mask-facette-app.vercel.app/",
+    thumbnail: "kindred/thumbnail.jpg",
+    hero: "kindred/hero.jpg",
+    gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
+  },
+  {
+    slug: "afterlife",
+    title: "AfterLife",
+    section: "selected-work",
+    summary: "A landing page and an app for a service that helps you celebrate your life as you move on.",
+    accentColor: "indigo",
+    reflection:
+      "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
+    thumbnail: "afterlife/thumbnail.jpg",
+    hero: "afterlife/Frame 40.png",
+    gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
+  },
+  {
     slug: "jabberwocky",
     title: "Jabberwocky",
     section: "selected-work",
@@ -425,18 +450,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "afterlife",
-    title: "AfterLife",
-    section: "selected-work",
-    summary: "A landing page and an app for a service that helps you celebrate your life as you move on.",
-    accentColor: "indigo",
-    reflection:
-      "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
-    thumbnail: "afterlife/thumbnail.jpg",
-    hero: "afterlife/Frame 40.png",
-    gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
-  },
-  {
     slug: "akko-fringe-festival",
     title: "Akko Fringe Festival",
     section: "selected-work",
@@ -453,21 +466,6 @@ export const PROJECTS: Project[] = [
       { file: "Akko festival ticket.png", alt: "Akko Fringe Festival ticket mockup", wide: true },
     ],
     lightboxFeatured: ["Akko festival hero web.png"],
-  },
-
-  // --- Other Work ---
-  {
-    slug: "kindred",
-    title: "Kindred",
-    section: "selected-work",
-    summary:
-      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
-    reflection:
-      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
-    liveUrl: "https://mask-facette-app.vercel.app/",
-    thumbnail: "kindred/thumbnail.jpg",
-    hero: "kindred/hero.jpg",
-    gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
   },
 ];
 

@@ -338,7 +338,7 @@ export const PROJECTS: Project[] = [
     accentColor: "coral",
     reflection:
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
-    thumbnail: "jabberwocky banner.png",
+    thumbnail: "jabberwocky thumbnail.png",
     hero: "book mock up.jpg",
     // Higher-res per-page exports, replacing the old spread PNGs. Pages 5, 7, and 8 aren't in
     // the new set yet — add them here once they exist. Verse text matched by actually looking

@@ -11,6 +11,9 @@ import { fileURLToPath } from "url";
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [{ source: "/work/facettes", destination: "/work/kindred", permanent: true }];
+  },
   outputFileTracingRoot: rootDir,
   turbopack: {
     root: rootDir,

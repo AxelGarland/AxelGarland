@@ -457,18 +457,17 @@ export const PROJECTS: Project[] = [
 
   // --- Other Work ---
   {
-    slug: "facettes",
-    title: "Facettes",
-    section: "other-work",
+    slug: "kindred",
+    title: "Kindred",
+    section: "selected-work",
     summary:
-      "A generative illustration system exploring where code, algorithms, and illustration meet.",
+      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
     reflection:
-      "Facettes is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless combination of graphic portraits, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
-    videoUrl: "https://vimeo.com/1224292689?share=copy&fl=sv&fe=ci",
-    thumbnail: "Facettes image.png",
-    hero: "Facettes image.png",
-    gallery: [{ file: "Facettes image.png", alt: "Facettes multi-face grid" }],
+    thumbnail: "kindred/thumbnail.jpg",
+    hero: "kindred/hero.jpg",
+    gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
   },
 ];
 

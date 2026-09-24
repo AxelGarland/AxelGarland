@@ -12,7 +12,7 @@ const MEDIUM: Record<string, string> = {
   "mundos-mejores": "Sculpture",
   jabberwocky: "Illustrated Book",
   "akko-fringe-festival": "Branding",
-  facettes: "Generative",
+  kindred: "Generative",
   afterlife: "Web & Illustration",
 };
 

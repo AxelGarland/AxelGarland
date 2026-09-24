@@ -97,8 +97,8 @@ export default function GiusonPage() {
             </h1>
             <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
               Giuson is a recruitment website for Alut: a live map of open positions, plus
-              everything recruiters need to know about each role, built with the head of the
-              recruitment department.
+              everything recruiters need to know about each role, built for the recruitment
+              department.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
               {TAGS.map((tag) => (
@@ -229,7 +229,7 @@ export default function GiusonPage() {
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
                 A quick clickthrough, not the live tool: pick a path on the home screen to see
-                where it leads. Built with the head of the recruitment department.
+                where it leads. Built for the recruitment department.
               </p>
             </div>
             <div className="mx-auto max-w-3xl">

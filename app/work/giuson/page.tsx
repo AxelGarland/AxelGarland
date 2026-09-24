@@ -11,19 +11,23 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Giuson · Axel Garland",
   description:
-    "Giuson, a recruitment and information tool built for Alut, replacing three disconnected sources with one.",
+    "Giuson, a recruitment website built for Alut: a live map of open positions and everything recruiters need to know, in one place.",
 };
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
 const DECISIONS = [
   {
-    title: "One tool, not three sources",
-    body: "Recruiters already had to work with the interactive PDF. Turning it into an online tool that also holds the sheet and all the new information gave them one useful place to work from.",
+    title: "Everything in one flow",
+    body: "The map, the role explanations, the salary ladders, and the grants and perks live in one place, in the order a recruiter needs them during a call.",
   },
   {
     title: "A radius, not a fixed distance",
     body: "Some candidates in the periphery of Israel are willing to commute farther, depending on the area. So the search takes a radius the recruiter can set, instead of a single fixed distance.",
+  },
+  {
+    title: "A library for the field",
+    body: "Managers who hire on site get constant access to the same information as the recruitment office, instead of relying on whoever remembers it.",
   },
 ];
 
@@ -87,13 +91,14 @@ export default function GiusonPage() {
               Giuson &middot; Alut Recruitment Department
             </p>
             <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Three sources,
+              Everything a recruiter needs,
               <br />
-              <em className="italic text-teal">one tool</em>
+              <em className="italic text-teal">in one place</em>
             </h1>
             <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-              Giuson replaces a Google Sheet, a set of personal notebooks, and an interactive PDF
-              with one fast recruitment workflow, built for Alut&rsquo;s own recruitment team.
+              Giuson is a recruitment website for Alut: a live map of open positions, plus
+              everything recruiters need to know about each role, built with the head of the
+              recruitment department.
             </p>
             <div className="mb-12 flex flex-wrap gap-2.5">
               {TAGS.map((tag) => (
@@ -128,24 +133,28 @@ export default function GiusonPage() {
                   The Problem
                 </p>
                 <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink">
-                  A process built on a sheet, a notebook, and a PDF
+                  Too much to know, and all of it changing
                 </h2>
-                <p className="max-w-[46ch] text-base leading-relaxed text-ink-muted">
-                  {project.caseStudy?.problem.split("Every call")[0]}
-                </p>
+                <div className="flex max-w-[46ch] flex-col gap-4">
+                  {project.caseStudy?.problem.split("\n\n").map((para) => (
+                    <p key={para.slice(0, 24)} className="text-base leading-relaxed text-ink-muted">
+                      {para}
+                    </p>
+                  ))}
+                </div>
               </div>
               <div>
                 <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-surface">
                   <Image
                     src={pictureSrc("giuson/giuson home.png")}
-                    alt="Giuson home: two entry points instead of three separate sources"
+                    alt="Giuson home: two entry points, recruitment search and the information hub"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 45vw"
                   />
                 </div>
                 <p className="mt-3 text-sm text-ink-subtle">
-                  Replacing 3 disconnected sources with 2 clear entry points
+                  Two entry points: recruitment search and the information hub
                 </p>
               </div>
             </div>
@@ -194,7 +203,7 @@ export default function GiusonPage() {
             <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-12">
               Built around how recruiters actually work
             </h2>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
               {DECISIONS.map((item, i) => (
                 <div key={item.title} className="border border-line p-6">
                   <span className="mb-3 block font-display text-lg leading-none text-teal">

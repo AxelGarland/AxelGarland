@@ -155,7 +155,7 @@ export const PROJECTS: Project[] = [
     slug: "giuson",
     title: "Giuson",
     section: "case-study",
-    summary: "A recruitment and information tool for Alut, built to replace three disconnected sources.",
+    summary: "A recruitment website for Alut: a live map of open positions and everything recruiters need to know, in one place.",
     accentColor: "teal",
     clientLogo: "alutit/alut logo no background.png",
     prototype: {
@@ -201,12 +201,12 @@ export const PROJECTS: Project[] = [
     },
     caseStudy: {
       problem:
-        "Before this existed, recruiters were working across three disconnected sources: an interactive PDF guide, itself called Giuson, packed with information and hyperlinks; a Google Sheet where individual locations logged which roles they were short on; and personal notebooks holding the information needed to actually run a recruitment phone call. Every call meant juggling all three, and roles with more complex requirements, care-staff positions (נשות טיפול) in particular, were hard enough to fully understand that only one or two recruiters felt confident handling them.",
+        "Every summer, when the school year starts in Alut's kindergartens (גנים), recruiting health professionals gets very complicated. Alut has many frameworks (מסגרות) to recruit for and many different professional roles, each with its own salary by profession and seniority (ותק), grants and scholarships, and professional training (הכשרות). That was already a lot of information for one person to hold at all times.\n\nOn top of that, the list of open positions changed constantly, across many locations in Israel. Recruiters had to draw on a PDF of information, a Google Sheet of open positions, their own notes, and Google Maps, and that made the process anything but simple. Very few recruiters could ever learn enough to specialize.",
       role: "I designed and built the tool together with the head of the recruitment department.",
       process:
-        "I watched recruiters work and asked them questions, then built the tool with the head of the recruitment department over about a month and a half to two months. The recruiters already had to work with the interactive PDF, so I made it an online tool that combines it with the sheet and all the new information they needed, with two entry points: a location- and role-based search showing which frameworks have open positions within a chosen radius of a candidate, and an information hub covering role requirements, standards, and admission conditions, replacing the scattered notebooks and PDF.",
+        "I watched recruiters work and asked them questions, then built the tool with the head of the recruitment department over about a month and a half to two months. I wanted a website that holds everything needed to recruit successfully: a map where recruiters see open roles within a radius, with live information; explanations of the intricacies of each professional role, the salary ladders, the grants and other perks, in the right flow for making the best recruitment call; and a library, so the managers in the field always have access to the same information.",
       outcome:
-        "Every recruiter at Alut now uses it as an integral part of the recruitment process, and so do the managers of Alut's frameworks (מסגרות) when they need information to make their own hires. The clearest change: recruiting for care-staff roles (נשות טיפול) used to depend on one or two recruiters, because there was so much to learn before making those calls. Now five recruiters can learn it quickly enough to make those calls.",
+        "Throughout the summer, everyone on the recruiting team used it. It let five recruiters make these specialized calls instead of just one or two, and it became a necessary work tool, both for the recruitment office and for the managers in the field who hire on site. The success was big enough that we're now building a similar tool for the rest of the roles open at Alut.",
     },
     thumbnail: "giuson/giuson banner.jpg",
     hero: "giuson/giuson banner.jpg",

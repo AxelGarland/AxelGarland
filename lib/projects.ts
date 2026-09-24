@@ -340,10 +340,8 @@ export const PROJECTS: Project[] = [
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
     thumbnail: "jabberwocky thumbnail.png",
     hero: "book mock up.jpg",
-    // Higher-res per-page exports, replacing the old spread PNGs. Pages 7 and 8 aren't in
-    // the new set yet — add them here once they exist. Verse text matched by actually looking
-    // at each page's artwork against Lewis Carroll's poem (public domain), not guessed from
-    // the page numbers alone.
+    // Page order and verse text follow the book's own PDF (jabberwocky book file.pdf), page by
+    // page. Pages 2-4, 6 and 9-14 are still lower-res exports; the newer ones are full-size.
     gallery: [
       {
         file: "jabberwocky book cover.png",
@@ -352,12 +350,12 @@ export const PROJECTS: Project[] = [
       {
         file: "page 1.jpg",
         alt: "A smoking cottage tucked among hills dotted with whimsical spiral creatures",
-        verse: "'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
+        verse: "Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
       },
       {
         file: "עמוד 2.jpg",
         alt: "A father warns his son",
-        verse: '"Beware the Jabberwock, my son!',
+        verse: "Beware of the Jabberwock, my son!",
       },
       {
         file: "עמוד 3.jpg",
@@ -372,12 +370,17 @@ export const PROJECTS: Project[] = [
       {
         file: "book page 5 b.jpg",
         alt: "The Jubjub bird dangles the tiny prince upside down, his sword fallen on the hills beside a nest of spotted eggs",
-        verse: "Beware the Jubjub bird, and shun",
+        verse: "Beware the Jubjub bird,",
       },
       {
         file: "עמוד 4.jpg",
         alt: "The prince draws his sword against the spotted Bandersnatch among bones",
-        verse: 'The frumious Bandersnatch!"',
+        verse: "and shun\nthe frumious\nBandersnatch",
+      },
+      {
+        file: "book page 7.a.jpg",
+        alt: "The prince rides his striped steed with his sword raised, searching for the manxome foe",
+        verse: "He took his vorpal sword in hand;\nLong time the manxome foe he sought",
       },
       {
         file: "עמוד 6.jpg",
@@ -385,29 +388,39 @@ export const PROJECTS: Project[] = [
         verse: "So rested he by the Tumtum tree\nAnd stood awhile in thought.",
       },
       {
+        file: "עמוד 14.jpg",
+        alt: "The Jabberwock rises above a forest of red trees against a burning sunset, claws out",
+        verse: "And, as in uffish thought he stood,\nThe Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!",
+      },
+      {
         file: "עמוד 9.jpg",
-        alt: "The Jabberwock, eyes aflame, confronts the prince",
-        verse: "The Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!",
+        alt: "The prince strikes the Jabberwock with the vorpal blade amid red flames",
+        verse: "One, two! One, two!\nAnd through and through\nThe vorpal blade went snicker-snack!",
       },
       {
         file: "עמוד 10.jpg",
-        alt: "The Jabberwock recoils from the vorpal blade",
-        verse: "One, two! One, two! And through and through\nThe vorpal blade went snicker-snack!",
+        alt: "The Jabberwock, left dead, against a red and orange sunset",
+        verse: "He left it dead,",
       },
       {
         file: "עמוד 11.jpg",
         alt: "The prince rides back on his steed, dragging the Jabberwock's head",
-        verse: "He left it dead, and with its head\nHe went galumphing back.",
+        verse: "and with its head\nHe went galumphing back.",
+      },
+      {
+        file: "book page 13.jpg",
+        alt: "The king, wearing an eyepatch, sits on his throne among mounted monster heads and candle-bearing creatures",
+        verse: "And hast thou slain the Jabberwock?",
       },
       {
         file: "עמוד 12.jpg",
         alt: "A celebration: the king embraces the boy amid bunting and confetti",
-        verse: '"And hast thou slain the Jabberwock?\nCome to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!"\nHe chortled in his joy.',
+        verse: "Come to my arms, my beamish boy!\nOh frabjous day! Callooh! Callay!\nHe chortled in his joy.",
       },
       {
         file: "עמוד 13.jpg",
         alt: "The creatures of the wabe together again at dusk, closing the loop",
-        verse: "'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
+        verse: "Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
       },
     ],
   },

@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { ViewportVideo } from "@/components/projects/ViewportVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -92,6 +93,28 @@ export default function JabberwockyPage() {
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <SlideStackGallery images={project.gallery} />
+          </div>
+        </section>
+
+        {/* The book itself — a silent page-turn through the finished spreads */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <div className="mx-auto mb-8 max-w-[56ch] text-center md:mb-10">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
+                The Book
+              </p>
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+                Turning the pages
+              </h2>
+            </div>
+            <div className="mx-auto aspect-video w-full max-w-4xl overflow-hidden">
+              <ViewportVideo
+                src={pictureSrc("jabberwocky/book-flip.mp4")}
+                poster={pictureSrc("jabberwocky/book-flip-poster.jpg")}
+                label="The Jabberwocky book opening and turning through its illustrated spreads"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </section>
       </main>

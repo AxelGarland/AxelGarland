@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { HeroVideo } from "@/components/projects/HeroVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -115,14 +116,12 @@ export default function KindredPage() {
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             ) : null}
-            <div className="relative aspect-[2400/1393] w-full overflow-hidden bg-black">
-              <Image
-                src={pictureSrc(project.hero)}
-                alt="Kindred landing page: the headline beside a grid of colourful geometric faces"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1152px"
+            <div className="relative aspect-video w-full overflow-hidden bg-black">
+              <HeroVideo
+                src={pictureSrc("kindred/showreel.mp4")}
+                poster={pictureSrc("kindred/showreel-poster.jpg")}
+                label="Kindred showreel: crowds of colourful geometric faces that keep changing"
+                soundToggle
               />
             </div>
           </div>

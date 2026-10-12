@@ -67,15 +67,11 @@ export default function InterviewAssistantPage() {
       <main id="main" className="bg-surface">
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-gold-soft blur-[100px]"
-          />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-gold/60 transition-colors duration-300 hover:text-gold"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -87,8 +83,8 @@ export default function InterviewAssistantPage() {
                 />
               </svg>
             </Link>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-gold">
-              Case Studies
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              Case studies
             </p>
             <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
               Interview for Success{" "}
@@ -96,7 +92,7 @@ export default function InterviewAssistantPage() {
               Recruitment Department
             </p>
             <h1 className="mb-6 max-w-[20ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Anyone can run <em className="italic text-gold">a good interview</em>
+              Anyone can run <em className="italic text-accent">a good interview</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
               {project.summary}
@@ -112,7 +108,7 @@ export default function InterviewAssistantPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[2560/1800] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(228,179,85,0.35)]">
+            <div className="relative aspect-[2560/1800] w-full overflow-hidden border border-line bg-paper shadow-[0_32px_70px_-34px_rgba(26,25,22,0.28)]">
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Interview for Success: intro video, and the three module cards"
@@ -130,8 +126,8 @@ export default function InterviewAssistantPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-gold">
-                  The Brief
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Hiring, without a hiring background
@@ -153,8 +149,8 @@ export default function InterviewAssistantPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[64ch] md:mb-14">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-gold">
-                The Solution
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                The solution
               </p>
               <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
                 Four tools, one interview
@@ -193,29 +189,32 @@ export default function InterviewAssistantPage() {
         {/* Outcome */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="max-w-[70ch]">
-              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-gold">
-                The Outcome
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
-                A repeatable process, <em className="italic text-gold">not a personal skill</em>
-              </h2>
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.2fr] md:gap-20">
+              <div>
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The outcome
+                </p>
+                <h2 className="max-w-[16ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
+                  A repeatable process, <em className="italic text-accent">not a personal skill</em>
+                </h2>
+              </div>
+              <ol className="relative border-l border-surface/20 pl-8 sm:pl-10">
+                {OUTCOME_BEATS.map((beat) => (
+                  <li key={beat.title} className="relative pb-10 last:pb-0">
+                    <span
+                      aria-hidden
+                      className="absolute -left-[2.3rem] top-2 h-2.5 w-2.5 rounded-full bg-accent sm:-left-[2.8rem]"
+                    />
+                    <h3 className="mb-2 font-display text-2xl font-medium text-surface">
+                      {beat.title}
+                    </h3>
+                    <p className="max-w-[48ch] text-base leading-relaxed text-surface/70">
+                      {beat.body}
+                    </p>
+                  </li>
+                ))}
+              </ol>
             </div>
-            <ol className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3 md:mt-12">
-              {OUTCOME_BEATS.map((beat, i) => (
-                <li key={beat.title} className="border border-surface/15 bg-surface/5 p-6">
-                  <span className="mb-3 block font-display text-lg leading-none text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="mb-2 block font-display text-xl font-semibold text-surface">
-                    {beat.title}
-                  </span>
-                  <span className="block text-base leading-relaxed text-surface/70">
-                    {beat.body}
-                  </span>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
       </main>

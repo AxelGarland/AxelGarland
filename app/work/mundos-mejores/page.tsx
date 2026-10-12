@@ -29,7 +29,7 @@ export default function MundosMejoresPage() {
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-gold/60 transition-colors duration-300 hover:text-gold"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -59,8 +59,8 @@ export default function MundosMejoresPage() {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[68ch] text-center">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
-                Selected Work
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                Selected work
               </p>
               <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {project.title}

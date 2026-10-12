@@ -64,15 +64,11 @@ export default function GiusonPage() {
       <main id="main" className="bg-surface">
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-teal-soft blur-[100px]"
-          />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-teal/60 transition-colors duration-300 hover:text-teal"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -84,8 +80,8 @@ export default function GiusonPage() {
                 />
               </svg>
             </Link>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-              Case Studies
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              Case studies
             </p>
             <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
               Giuson &middot; Alut Recruitment Department
@@ -93,7 +89,7 @@ export default function GiusonPage() {
             <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
               Everything a recruiter needs,
               <br />
-              <em className="italic text-teal">in one place</em>
+              <em className="italic text-accent">in one place</em>
             </h1>
             <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
               Giuson is a recruitment website for Alut: a live map of open positions, plus
@@ -111,7 +107,7 @@ export default function GiusonPage() {
               ))}
             </div>
 
-            <div className="relative aspect-[1682/935] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_64px_-24px_rgba(28,184,140,0.3)]">
+            <div className="relative aspect-[1682/935] w-full overflow-hidden border border-line bg-paper shadow-[0_32px_70px_-34px_rgba(26,25,22,0.28)]">
               <Image
                 src={pictureSrc("giuson/giuson banner.jpg")}
                 alt="Giuson shown across a laptop and two monitors: the recruitment search map and the information hub"
@@ -129,8 +125,8 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-                  The Problem
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The problem
                 </p>
                 <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Too much to know, and all of it changing
@@ -165,8 +161,8 @@ export default function GiusonPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-14">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-                The Solution
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                The solution
               </p>
               <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
                 One tool, two ways in
@@ -197,22 +193,33 @@ export default function GiusonPage() {
         {/* Design decisions */}
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-              Design Decisions
-            </p>
-            <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-12">
-              Built around how recruiters actually work
-            </h2>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {DECISIONS.map((item, i) => (
-                <div key={item.title} className="border border-line p-6">
-                  <span className="mb-3 block font-display text-lg leading-none text-teal">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="mb-2 font-display text-xl font-semibold text-ink">{item.title}</p>
-                  <p className="text-base leading-relaxed text-ink-muted">{item.body}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-20">
+              <div className="md:sticky md:top-28 md:self-start">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  Design decisions
+                </p>
+                <h2 className="max-w-[16ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+                  Built around how recruiters actually work
+                </h2>
+              </div>
+              <ol className="border-t border-line">
+                {DECISIONS.map((item, i) => (
+                  <li
+                    key={item.title}
+                    className="grid grid-cols-[2.5rem_1fr] gap-x-4 gap-y-2 border-b border-line py-8 sm:grid-cols-[3rem_1fr_1.25fr] sm:gap-x-8"
+                  >
+                    <span className="pt-1.5 font-display text-sm tabular-nums text-ink-subtle">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-2xl font-medium leading-tight text-ink">
+                      {item.title}
+                    </h3>
+                    <p className="col-start-2 text-base leading-relaxed text-ink-muted sm:col-start-3">
+                      {item.body}
+                    </p>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
@@ -221,7 +228,7 @@ export default function GiusonPage() {
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto mb-10 max-w-[56ch] text-center md:mb-12">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
                 Preview
               </p>
               <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -242,8 +249,8 @@ export default function GiusonPage() {
         <section className="border-t border-line bg-ink py-24 md:py-32">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[64ch] text-center">
-              <p className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-teal">
-                The Outcome
+              <p className="mb-6 text-sm font-medium tracking-[0.01em] text-accent">
+                The outcome
               </p>
               <p className="font-display text-2xl font-light italic leading-snug text-surface sm:text-3xl">
                 {outcomeQuote}

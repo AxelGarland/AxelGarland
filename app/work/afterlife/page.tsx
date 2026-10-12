@@ -86,15 +86,11 @@ export default function AfterLifePage() {
       <main id="main" className="bg-surface">
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-indigo-soft blur-[100px]"
-          />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-indigo/60 transition-colors duration-300 hover:text-indigo"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -106,11 +102,11 @@ export default function AfterLifePage() {
                 />
               </svg>
             </Link>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-              Selected Work
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              Selected work
             </p>
             <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Your life, <em className="italic text-indigo">wrapped</em>
+              Your life, <em className="italic text-accent">wrapped</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
               A landing page and an app for AfterLife, an invented service that helps you
@@ -141,8 +137,8 @@ export default function AfterLifePage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                  The Brief
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Death, but positive
@@ -176,8 +172,8 @@ export default function AfterLifePage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-10 max-w-[56ch] md:mb-12">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                The Landing Page
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                The landing page
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
                 Selling the afterlife
@@ -200,7 +196,7 @@ export default function AfterLifePage() {
               tabIndex={0}
               role="region"
               aria-label="AfterLife landing page, scrollable"
-              className="mx-auto max-h-[38rem] max-w-[60rem] overflow-y-auto border border-line bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo"
+              className="mx-auto max-h-[38rem] max-w-[60rem] overflow-y-auto border border-line bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
               <Image
                 src={pictureSrc("afterlife/landing page.png")}
@@ -217,8 +213,8 @@ export default function AfterLifePage() {
         {/* Illustrations */}
         <section className="bg-black py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-              The Illustrations
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              The illustrations
             </p>
             <h2 className="mb-6 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
               A small cast, drawn in Illustrator
@@ -248,8 +244,8 @@ export default function AfterLifePage() {
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                The App
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                The app
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
                 A recap for a whole life

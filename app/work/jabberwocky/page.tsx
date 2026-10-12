@@ -27,7 +27,7 @@ export default function JabberwockyPage() {
             <Link
               href="/work"
               aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-coral/60 transition-colors duration-300 hover:text-coral"
+              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                 <path
@@ -78,8 +78,8 @@ export default function JabberwockyPage() {
               className="absolute right-6 -top-[20px] h-[100px] w-[100px] -scale-x-100 object-contain sm:right-10 sm:h-[124px] sm:w-[124px] md:right-14 md:h-[156px] md:w-[156px] lg:right-16"
             />
             <div className="mx-auto max-w-[68ch] text-center">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
-                Selected Work
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                Selected work
               </p>
               <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {project.title}
@@ -100,8 +100,8 @@ export default function JabberwockyPage() {
         <section className="bg-white py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto mb-8 max-w-[56ch] text-center md:mb-10">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-coral">
-                The Book
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                The book
               </p>
               <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 Turning the pages

@@ -84,8 +84,8 @@ export default function KindredPage() {
                 />
               </svg>
             </Link>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
-              Selected Work
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              Selected work
             </p>
             <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
               Of the same kind. <em className="italic text-accent">Never the same.</em>
@@ -132,8 +132,8 @@ export default function KindredPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
-                  The Idea
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The idea
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Where code, algorithms, and illustration meet
@@ -163,8 +163,8 @@ export default function KindredPage() {
         {/* How it works */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
-              How It Works
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              How it works
             </p>
             <h2 className="mb-12 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-16">
               A few rules, and a family of faces
@@ -200,7 +200,7 @@ export default function KindredPage() {
         {/* Posters */}
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-accent">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
               Posters
             </p>
             <h2 className="mb-4 max-w-[24ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">

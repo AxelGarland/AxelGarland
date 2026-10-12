@@ -81,16 +81,12 @@ export default function AlutitPage() {
       <main id="main" className="bg-surface">
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-[10%] -top-[10%] h-[55%] w-[55%] rounded-full bg-indigo-soft blur-[100px]"
-          />
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-2 md:gap-16 md:px-14 lg:px-16">
             <div>
               <Link
                 href="/work"
                 aria-label="Back to Work"
-                className="mb-8 inline-flex h-10 w-10 items-center justify-center text-indigo/60 transition-colors duration-300 hover:text-indigo"
+                className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                   <path
@@ -102,8 +98,8 @@ export default function AlutitPage() {
                   />
                 </svg>
               </Link>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                Case Studies
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                Case studies
               </p>
               <div className="mb-6 flex items-center gap-3">
                 <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
@@ -117,7 +113,7 @@ export default function AlutitPage() {
               <h1 className="mb-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
                 A character
                 <br />
-                with <em className="italic text-indigo">purpose</em>
+                with <em className="italic text-accent">purpose</em>
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                 Alutit is an illustrated character designed for Alut, Israel&rsquo;s national
@@ -154,8 +150,8 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                  The Brief
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                  The brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
                   Building presence through character
@@ -175,12 +171,8 @@ export default function AlutitPage() {
 
         {/* Deliverables — dark inverted, matching the footer's treatment */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -bottom-[10%] -left-[10%] h-[55%] w-[55%] rounded-full bg-indigo/10 blur-[100px]"
-          />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
               Deliverables
             </p>
             <h2 className="mb-14 max-w-[20ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-16">
@@ -237,11 +229,11 @@ export default function AlutitPage() {
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[70ch]">
-              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-indigo">
-                The Outcome
+              <p className="text-sm font-medium tracking-[0.01em] text-accent">
+                The outcome
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
-                A new channel, <em className="italic text-indigo">and a character people recognize</em>
+                A new channel, <em className="italic text-accent">and a character people recognize</em>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-muted">
                 {project.caseStudy?.outcome}

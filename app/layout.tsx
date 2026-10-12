@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Heebo, Work_Sans } from "next/font/google";
 import "./globals.css";
+import { CursorDot } from "@/components/CursorDot";
 import { SiteHeader } from "@/components/sections/SiteHeader";
 
 const bodySans = Work_Sans({
@@ -62,6 +63,7 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         {children}
+        <CursorDot />
         <Analytics />
       </body>
     </html>

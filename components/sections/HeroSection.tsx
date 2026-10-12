@@ -81,22 +81,31 @@ export function HeroSection() {
 
         {/* The portrait sits on a flat yellow disc (the pencil's yellow) and runs off the bottom
             edge of the page, so the illustration breaks out of its box instead of being framed. */}
-        <motion.div
-          initial={reduce ? undefined : { opacity: 0, y: 28 }}
-          animate={reduce ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
-          className="relative mx-auto -mb-[9%] mt-12 aspect-square w-[92%] max-w-[30rem] md:absolute md:-bottom-[5%] md:right-[-5vw] md:mx-0 md:mb-0 md:mt-0 md:w-[min(56vw,54rem)] md:max-w-none"
-        >
-          <div aria-hidden className="absolute left-[9%] top-[8%] h-[82%] w-[82%] rounded-full bg-pencil" />
-          <Image
-            src={pictureSrc("Axel self illustration final.png")}
-            alt="Illustrated self-portrait of Axel Garland"
-            fill
-            priority
-            className="object-contain"
-            sizes="(max-width: 768px) 92vw, 56vw"
+        <div className="relative mx-auto -mb-[9%] mt-12 aspect-square w-[92%] max-w-[30rem] md:absolute md:-bottom-[5%] md:right-[-5vw] md:mx-0 md:mb-0 md:mt-0 md:w-[min(56vw,54rem)] md:max-w-none">
+          {/* The disc grows out from its own centre, then the portrait settles in on top of it. */}
+          <motion.div
+            aria-hidden
+            initial={reduce ? undefined : { scale: 0 }}
+            animate={reduce ? undefined : { scale: 1 }}
+            transition={{ duration: 1.1, ease: EASE, delay: 0.15 }}
+            className="absolute left-[9%] top-[8%] h-[82%] w-[82%] origin-center rounded-full bg-pencil"
           />
-        </motion.div>
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 24 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={pictureSrc("Axel self illustration final.png")}
+              alt="Illustrated self-portrait of Axel Garland"
+              fill
+              priority
+              className="object-contain"
+              sizes="(max-width: 768px) 92vw, 56vw"
+            />
+          </motion.div>
+        </div>
       </div>
     </header>
   );

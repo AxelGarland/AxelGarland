@@ -1,95 +1,101 @@
-import type { AccentColor, Project } from "@/lib/projects";
-import { projectThumbnailSrc, SECTION_LABELS } from "@/lib/projects";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { pictureSrc } from "@/lib/pictures";
+import { projectThumbnailSrc, type Project } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
 
-/** A thin crisp ring right at the card edge, plus a soft blurred halo bleeding outward from
- *  that same edge — a glow that reads as coming from the border, not a blob behind the card. */
-const ACCENT_BORDER_GLOW: Record<AccentColor, string> = {
-  coral: "hover:shadow-[0_0_0_1px_#F06479,0_0_16px_-4px_#F06479]",
-  teal: "hover:shadow-[0_0_0_1px_#1CB88C,0_0_16px_-4px_#1CB88C]",
-  indigo: "hover:shadow-[0_0_0_1px_#8676DE,0_0_16px_-4px_#8676DE]",
-  gold: "hover:shadow-[0_0_0_1px_#E4B355,0_0_16px_-4px_#E4B355]",
-  violet: "hover:shadow-[0_0_0_1px_#9B5DE5,0_0_16px_-4px_#9B5DE5]",
-  blue: "hover:shadow-[0_0_0_1px_#3B82F6,0_0_16px_-4px_#3B82F6]",
+type Slot = { span: string; aspect: string; sizes: string };
+
+/** An asymmetric 12-column rhythm: one wide opener, then pairs that alternate a wide card with
+ *  a tall one. Bottoms are aligned (`items-end` on the grid), so captions sit on one line while
+ *  the image tops step up and down. */
+const SLOTS: Record<string, Slot> = {
+  kindred: { span: "md:col-span-12", aspect: "aspect-[4/3] md:aspect-[2/1]", sizes: "(max-width: 1440px) 94vw, 1408px" },
+  afterlife: { span: "md:col-span-7", aspect: "aspect-[16/9]", sizes: "(max-width: 768px) 94vw, 58vw" },
+  alutit: { span: "md:col-span-5", aspect: "aspect-[4/5]", sizes: "(max-width: 768px) 94vw, 42vw" },
+  "mundos-mejores": { span: "md:col-span-5", aspect: "aspect-[4/5]", sizes: "(max-width: 768px) 94vw, 42vw" },
+  jabberwocky: { span: "md:col-span-7", aspect: "aspect-[16/10]", sizes: "(max-width: 768px) 94vw, 58vw" },
+  giuson: { span: "md:col-span-6", aspect: "aspect-[16/10]", sizes: "(max-width: 768px) 94vw, 47vw" },
+  "interview-assistant": { span: "md:col-span-6", aspect: "aspect-[16/10]", sizes: "(max-width: 768px) 94vw, 47vw" },
 };
 
-/** Asymmetric spans + aspect ratios cycled per card index — an editorial rhythm instead of a
- *  uniform grid. Full-width, then two halves, then full-width again: with exactly four case
- *  studies this bookends the row so nothing dangles with an empty gap next to it (an 8-col last
- *  slot did, leaving 4 columns of nothing). The first slot is deliberately the most prominent
- *  one, since `PROJECTS`' case-study order puts the strongest project first and the grid should
- *  read that way too, rather than letting a later, visually louder screenshot dominate by
- *  accident. */
-const LAYOUT = [
-  { span: "md:col-span-12", aspect: "aspect-[16/9]" },
-  { span: "md:col-span-6", aspect: "aspect-[4/3]" },
-  { span: "md:col-span-6", aspect: "aspect-[4/3]" },
-  { span: "md:col-span-12", aspect: "aspect-[16/9]" },
-] as const;
+const FALLBACK: Slot = { span: "md:col-span-6", aspect: "aspect-[4/3]", sizes: "(max-width: 768px) 94vw, 47vw" };
 
-function WorkCard({ project, layout }: { project: Project; layout: (typeof LAYOUT)[number] }) {
+function WorkCard({ project, index }: { project: Project; index: number }) {
+  const slot = SLOTS[project.slug] ?? FALLBACK;
   const thumb = projectThumbnailSrc(project);
-  const contain = project.thumbnailFit === "contain";
-  const borderGlow = ACCENT_BORDER_GLOW[project.accentColor ?? "gold"];
 
   return (
-    <Link
-      href={`/work/${project.slug}`}
-      className={`group relative bg-surface/5 shadow-none transition-shadow duration-500 ${borderGlow} ${layout.span}`}
-    >
-      <div
-        className={`relative z-10 w-full overflow-hidden ${layout.aspect} ${contain ? "bg-[#E4E3DF]" : ""}`}
+    <MotionReveal className={slot.span} amount={0.15}>
+      <Link
+        href={`/work/${project.slug}`}
+        className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
       >
-        {thumb ? (
-          <Image
-            src={thumb}
-            alt={project.title}
-            fill
-            className={`transition-transform duration-500 ease-out group-hover:scale-[1.03] ${
-              contain ? "object-contain p-8 md:p-16" : "object-cover"
-            }`}
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center p-8">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-surface/40">
-              Image coming soon
-            </span>
-          </div>
-        )}
-        {project.clientLogo ? (
-          <div className="absolute bottom-3 left-3 z-20 flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-md backdrop-blur-sm sm:h-12 sm:w-12">
+        <div className={`relative overflow-hidden bg-surface-raised ${slot.aspect}`}>
+          {thumb ? (
             <Image
-              src={pictureSrc(project.clientLogo)}
-              alt={`${project.title}: real client work`}
-              width={80}
-              height={80}
-              className="h-full w-full object-contain"
+              src={thumb}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+              sizes={slot.sizes}
             />
-          </div>
-        ) : null}
-      </div>
+          ) : null}
+          {project.clientLogo ? (
+            <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-sm sm:h-12 sm:w-12">
+              <Image
+                src={pictureSrc(project.clientLogo)}
+                alt={`${project.title}: real client work`}
+                width={80}
+                height={80}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          ) : null}
+        </div>
 
-      <div className="border-t border-surface/15 p-6">
-        <p className="mb-2 text-xs uppercase tracking-[0.1em] text-surface/50">
-          {SECTION_LABELS[project.section]}
+        <div className="mt-4 flex items-baseline justify-between gap-6">
+          <h3 className="font-display text-2xl font-medium leading-tight tracking-tight text-ink sm:text-[1.75rem]">
+            <span className="mr-3 align-middle text-sm font-normal tabular-nums text-ink-subtle">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="underline decoration-transparent decoration-1 underline-offset-[6px] transition-colors duration-300 group-hover:decoration-accent">
+              {project.title}
+            </span>
+          </h3>
+          {project.discipline ? (
+            <span className="shrink-0 text-right text-[0.8rem] text-ink-muted">{project.discipline}</span>
+          ) : null}
+        </div>
+        <p className="mt-1.5 line-clamp-2 max-w-[54ch] text-[0.95rem] leading-relaxed text-ink-muted">
+          {project.summary}
         </p>
-        <h3 className="mb-1.5 font-display text-xl font-semibold leading-tight text-surface">
-          {project.title}
-        </h3>
-        <p className="text-sm leading-relaxed text-surface/70">{project.summary}</p>
-      </div>
-    </Link>
+      </Link>
+    </MotionReveal>
   );
 }
 
 export function WorkGrid({ projects }: { projects: Project[] }) {
+  const firstProduct = projects.findIndex((p) => p.discipline === "Product design");
+
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
+    <div className="grid grid-cols-1 items-end gap-x-8 gap-y-16 md:grid-cols-12 md:gap-x-10 md:gap-y-24">
       {projects.map((project, i) => (
-        <WorkCard key={project.slug} project={project} layout={LAYOUT[i % LAYOUT.length]} />
+        <div key={project.slug} className="contents">
+          {i === firstProduct ? (
+            <div className="border-t border-line pt-8 md:col-span-12">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2">
+                <h3 className="font-display text-3xl font-light tracking-tight text-ink sm:text-4xl">
+                  Product design
+                </h3>
+                <p className="max-w-[44ch] text-[0.95rem] leading-relaxed text-ink-muted">
+                  Two tools for Alut&rsquo;s recruitment department, both in daily use.
+                </p>
+              </div>
+            </div>
+          ) : null}
+          <WorkCard project={project} index={i} />
+        </div>
       ))}
     </div>
   );

@@ -63,6 +63,8 @@ export type Project = {
   section: ProjectSection;
   /** Short one-liner for grid cards */
   summary: string;
+  /** What kind of work it is, shown quietly beside the title on cards and in the index. */
+  discipline?: string;
   /** Per-project accent tone, drives hero/divider/hover tint */
   accentColor?: AccentColor;
   /** Case-study section only: full Problem/Role/Process/Outcome breakdown */
@@ -128,7 +130,8 @@ export const PROJECTS: Project[] = [
       outcome:
         "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of Alut's recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That's a meaningful shift in the recruitment department's strategy, and a real branding success for Alut.",
     },
-    thumbnail: "alutit/banner alutit.png",
+    discipline: "Illustration & branding",
+    thumbnail: "alutit/card.jpg",
     hero: "alutit/Alutit rainbow.png",
     gallery: [
       { file: "alutit/Alutit rainbow.png", alt: "Alutit in her branded sweater, holding up a rainbow" },
@@ -208,6 +211,7 @@ export const PROJECTS: Project[] = [
       outcome:
         "Throughout the summer, everyone on the recruiting team used it. It let five recruiters make these specialized calls instead of just one or two, and it became a necessary work tool, both for the recruitment office and for the managers in the field who hire on site. The success was big enough that we're now building a similar tool for the rest of the roles open at Alut.",
     },
+    discipline: "Product design",
     thumbnail: "giuson/giuson banner.jpg",
     hero: "giuson/giuson banner.jpg",
     gallery: [
@@ -247,6 +251,7 @@ export const PROJECTS: Project[] = [
       outcome:
         "We presented it in a meeting held for managers, and they were excited to have a tool that would help them. They use it, and they keep asking us to add more roles. The scores then became part of the intake process, so for certain intakes managers have to use it.",
     },
+    discipline: "Product design",
     thumbnail: "interview-assistant/hero.png",
     hero: "interview-assistant/hero.png",
     gallery: [
@@ -279,7 +284,8 @@ export const PROJECTS: Project[] = [
     reflection:
       "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
-    thumbnail: "kindred/thumbnail.jpg",
+    discipline: "Generative design",
+    thumbnail: "kindred/card.jpg",
     hero: "kindred/hero.jpg",
     gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
   },
@@ -292,6 +298,7 @@ export const PROJECTS: Project[] = [
     heroFit: "contain",
     reflection:
       "Mundos Mejores is my final project at Shenkar: a series of retablo-inspired boxes that combine traditional Peruvian illustrative and sculptural craft with my own illustration style. Each box holds a hand-sculpted scene built around the same recurring figure, moving through different remembered and imagined moments: an infinite library, underwater, swinging among the stars, a family gathered together. It's the largest and most worked-on body of work I've made so far, and the most personal.",
+    discipline: "Sculpture",
     thumbnail: "mundos mejores/between the stars2.jpg",
     hero: "mundos mejores/Familia 1.jpg",
     gallery: [
@@ -322,7 +329,8 @@ export const PROJECTS: Project[] = [
     accentColor: "indigo",
     reflection:
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
-    thumbnail: "afterlife/thumbnail.jpg",
+    discipline: "Web & illustration",
+    thumbnail: "afterlife/entrance-poster.jpg",
     hero: "afterlife/Frame 40.png",
     gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
   },
@@ -334,7 +342,8 @@ export const PROJECTS: Project[] = [
     accentColor: "coral",
     reflection:
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
-    thumbnail: "jabberwocky thumbnail.png",
+    discipline: "Illustrated book",
+    thumbnail: "book mock up.jpg",
     hero: "book mock up.jpg",
     // Page order and verse text follow the book's own PDF (jabberwocky book file.pdf), page by
     // page. Pages 2-4, 6 and 9-14 are still lower-res exports; the newer ones are full-size.
@@ -421,6 +430,24 @@ export const PROJECTS: Project[] = [
     ],
   },
 ];
+
+/** The order projects appear in on the home page and the work index. Creative work leads,
+ *  the two product tools for Alut follow as their own group. */
+export const WORK_ORDER = [
+  "kindred",
+  "afterlife",
+  "alutit",
+  "mundos-mejores",
+  "jabberwocky",
+  "giuson",
+  "interview-assistant",
+] as const;
+
+export function getOrderedProjects(): Project[] {
+  return WORK_ORDER.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter(
+    (p): p is Project => Boolean(p),
+  );
+}
 
 export function getProject(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);

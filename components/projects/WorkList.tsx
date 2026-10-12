@@ -28,7 +28,13 @@ export function WorkList({ projects }: { projects: Project[] }) {
               <span className="row-span-2 flex w-24 justify-end sm:row-span-1 sm:w-48">
                 <span className="relative h-16 w-24 overflow-hidden bg-surface-raised transition-all duration-500 ease-out sm:h-20 sm:w-32 sm:group-hover:w-48">
                   {thumb ? (
-                    <Image src={thumb} alt="" fill className="object-cover" sizes="192px" />
+                    <Image
+                      src={thumb}
+                      alt=""
+                      fill
+                      className={`object-cover ${project.thumbnailBlend ? "mix-blend-multiply" : ""}`}
+                      sizes="192px"
+                    />
                   ) : null}
                 </span>
               </span>

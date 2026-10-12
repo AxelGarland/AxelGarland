@@ -37,7 +37,7 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
               src={thumb}
               alt={project.title}
               fill
-              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+              className={`object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] ${project.thumbnailBlend ? "mix-blend-multiply" : ""}`}
               sizes={slot.sizes}
             />
           ) : null}

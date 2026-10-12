@@ -217,7 +217,12 @@ export default function KindredPage() {
               </Link>
               .
             </p>
-            <SlideStackGallery images={POSTERS} aspect="aspect-[842/1191]" />
+            <SlideStackGallery
+              images={POSTERS}
+              aspect="aspect-[842/1191]"
+              maxWidth="max-w-[19rem] sm:max-w-[22rem]"
+              sizes="352px"
+            />
           </div>
         </section>
       </main>

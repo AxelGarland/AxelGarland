@@ -15,11 +15,17 @@ export type SlideStackImage = { file: string; alt: string; verse?: string };
 export function SlideStackGallery({
   images,
   aspect = "aspect-[8/5]",
+  maxWidth = "max-w-3xl",
+  sizes = "(max-width: 768px) 100vw, 768px",
 }: {
   images: SlideStackImage[];
   /** Tailwind aspect-ratio class for the image stack — defaults to the landscape ratio
    *  Jabberwocky's pages use; pass a portrait one (e.g. "aspect-[3/4]") for taller art. */
   aspect?: string;
+  /** Tailwind max-width class for the stack, so tall posters can sit smaller than wide spreads. */
+  maxWidth?: string;
+  /** `sizes` hint for the front image. */
+  sizes?: string;
 }) {
   const [index, setIndex] = useState(0);
   const hasVerse = images.some((img) => img.verse);
@@ -40,7 +46,7 @@ export function SlideStackGallery({
           hasVerse ? "md:grid-cols-[3fr_2fr] md:gap-12" : ""
         }`}
       >
-        <div className={`relative mx-auto ${aspect} w-full max-w-3xl`}>
+        <div className={`relative mx-auto ${aspect} w-full ${maxWidth}`}>
           {peek2 ? (
             <div
               aria-hidden
@@ -73,7 +79,7 @@ export function SlideStackGallery({
                 alt={current.alt}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 768px"
+                sizes={sizes}
               />
             </motion.div>
           </AnimatePresence>

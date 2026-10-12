@@ -1,5 +1,4 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
-import { ViewportVideo } from "@/components/projects/ViewportVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -43,14 +42,14 @@ export default function JabberwockyPage() {
         </div>
 
         {/* Book mockup — a plain white banner, no boxed border, before any text */}
-        <div className="bg-white py-10 sm:py-14">
+        <div className="py-10 sm:py-14">
           <div className="relative mx-auto aspect-[5145/3780] w-full max-w-3xl px-6 sm:px-10">
             <Image
-              src={pictureSrc("book mock up.jpg")}
+              src={pictureSrc("jabberwocky/book-mockup.jpg")}
               alt="Jabberwocky, printed book mockup"
               fill
               priority
-              className="object-contain"
+              className="object-contain mix-blend-multiply"
               sizes="(max-width: 768px) 100vw, 768px"
             />
           </div>
@@ -89,32 +88,15 @@ export default function JabberwockyPage() {
           </div>
         </section>
 
-        {/* Pages — cover through the latest page, swappable via the slide-and-stack switcher */}
+        {/* The book's own spreads, original lettering and illustration together */}
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <SlideStackGallery images={project.gallery} />
-          </div>
-        </section>
-
-        {/* The book itself — a silent page-turn through the finished spreads */}
-        <section className="bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto mb-8 max-w-[56ch] text-center md:mb-10">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
-                The book
-              </p>
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                Turning the pages
-              </h2>
-            </div>
-            <div className="mx-auto aspect-video w-full max-w-4xl overflow-hidden">
-              <ViewportVideo
-                src={pictureSrc("jabberwocky/book-flip.mp4")}
-                poster={pictureSrc("jabberwocky/book-flip-poster.jpg")}
-                label="The Jabberwocky book opening and turning through its illustrated spreads"
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <SlideStackGallery
+              images={project.gallery}
+              aspect="aspect-[2800/840]"
+              maxWidth="max-w-5xl"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+            />
           </div>
         </section>
       </main>

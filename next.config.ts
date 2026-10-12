@@ -12,7 +12,11 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [{ source: "/work/facettes", destination: "/work/kindred", permanent: true }];
+    return [
+      { source: "/work/facettes", destination: "/work/kindred", permanent: true },
+      { source: "/work/better-eater", destination: "/work", permanent: true },
+      { source: "/work/akko-fringe-festival", destination: "/work", permanent: true },
+    ];
   },
   outputFileTracingRoot: rootDir,
   turbopack: {

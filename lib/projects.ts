@@ -268,37 +268,21 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
-  {
-    slug: "better-eater",
-    title: "Better Eater",
-    section: "case-study",
-    summary: "A personalized meal-planning and recipe app.",
-    accentColor: "blue",
-    caseStudy: {
-      problem:
-        "Amit is driven and curious, and holds herself to her own deadlines. She's taken up yoga and meditation, and she's always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn't wanting to eat well. It's not knowing where to begin, and not having room in a busy week to work it out.",
-      role: "Co-designed with Yuval Sa'ar as a team project for a Shenkar course. We both worked across the persona, wireframes, visual design, branding, and the prototype.",
-      process:
-        "Better Eater is a helper for the transition itself. It supports whichever way of eating you want to try, whether that's vegan, vegetarian, keto, or something else, and makes cooking easy at any level, as part of your life.",
-      outcome:
-        "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
-    },
-    thumbnail: "bettereater/hero.png",
-    thumbnailFit: "contain",
-    hero: "bettereater/hero.png",
-    gallery: [
-      {
-        file: "bettereater/hero.png",
-        alt: "Better Eater: recommended meal plan, home screen, and recipe detail",
-      },
-    ],
-    upcomingImages: [
-      { label: "Meal-plan screen" },
-      { label: "Recipe-detail screen" },
-    ],
-  },
 
   // --- Selected Work ---
+  {
+    slug: "kindred",
+    title: "Kindred",
+    section: "selected-work",
+    summary:
+      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
+    reflection:
+      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+    liveUrl: "https://mask-facette-app.vercel.app/",
+    thumbnail: "kindred/thumbnail.jpg",
+    hero: "kindred/hero.jpg",
+    gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
+  },
   {
     slug: "mundos-mejores",
     title: "Mundos Mejores",
@@ -329,19 +313,6 @@ export const PROJECTS: Project[] = [
       { file: "mundos mejores/summer 3.jpg", alt: "Summer box, detail view" },
       { file: "mundos mejores/summer 4.jpg", alt: "Summer box, detail view" },
     ],
-  },
-  {
-    slug: "kindred",
-    title: "Kindred",
-    section: "selected-work",
-    summary:
-      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
-    reflection:
-      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
-    liveUrl: "https://mask-facette-app.vercel.app/",
-    thumbnail: "kindred/thumbnail.jpg",
-    hero: "kindred/hero.jpg",
-    gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
   },
   {
     slug: "afterlife",
@@ -448,24 +419,6 @@ export const PROJECTS: Project[] = [
         verse: "Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe:\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",
       },
     ],
-  },
-  {
-    slug: "akko-fringe-festival",
-    title: "Akko Fringe Festival",
-    section: "selected-work",
-    summary: "A fictional rebrand of a real theatre festival in Akko.",
-    accentColor: "indigo",
-    reflection:
-      "Akko Fringe Festival is a fictional rebrand of a real event, Akko's International Festival for Alternative Theatre, made solo for a Digital Illustration course at Shenkar. The brief was self-directed: build one full visual world, a cast of carnival-like characters set against Akko's own architecture and coastline, and carry it consistently across everything a real festival would actually need (key art, tickets, merch, an event page) rather than stopping at a single poster.",
-    thumbnail: "Akko festival hero web.png",
-    hero: "Akko festival hero web.png",
-    gallery: [
-      { file: "Akko festival hero web.png", alt: "Akko Fringe Festival hero artwork" },
-      { file: "Akko festival shirts.png", alt: "Akko Fringe Festival shirt mockup" },
-      { file: "Akko festival shirts 2.png", alt: "Akko Fringe Festival shirt mockup, alternate" },
-      { file: "Akko festival ticket.png", alt: "Akko Fringe Festival ticket mockup", wide: true },
-    ],
-    lightboxFeatured: ["Akko festival hero web.png"],
   },
 ];
 

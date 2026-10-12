@@ -56,14 +56,13 @@ const ACCENT_BACK_ARROW: Record<AccentColor, string> = {
   blue: "text-blue/60 hover:text-blue",
 };
 
-/** "alutit", "giuson", "jabberwocky", "kindred", "better-eater", and "mundos-mejores" have
+/** "alutit", "giuson", "jabberwocky", "kindred", and "mundos-mejores" have
  *  their own bespoke pages — excluded here so those routes don't collide with this dynamic one. */
 const BESPOKE_SLUGS = [
   "alutit",
   "giuson",
   "jabberwocky",
   "kindred",
-  "better-eater",
   "mundos-mejores",
   "interview-assistant",
   "afterlife",

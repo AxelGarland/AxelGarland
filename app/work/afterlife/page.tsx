@@ -86,23 +86,31 @@ export default function AfterLifePage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero */}
-        <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Your life, <em className="italic text-accent">wrapped</em>
-            </h1>
-            <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              A landing page and an app for AfterLife, an invented service that helps you
-              celebrate your life as you move into the afterlife.
-            </p>
-            <TagLine tags={TAGS} className="mb-12" />
-            <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
-              <HeroVideo
-                src={pictureSrc("afterlife/entrance animation.mp4")}
-                poster={pictureSrc("afterlife/entrance-poster.jpg")}
-                label="AfterLife's landing page entrance: two skeletons dance beside the logo"
-              />
+        {/* Hero — full-bleed, the entrance animation fills the width and fades into the black below */}
+        <header className="bg-black pt-[68px]">
+          <div className="relative aspect-video max-h-[calc(100svh-68px)] w-full overflow-hidden">
+            <HeroVideo
+              src={pictureSrc("afterlife/entrance animation.mp4")}
+              poster={pictureSrc("afterlife/entrance-poster.jpg")}
+              label="AfterLife's landing page entrance: two skeletons dance beside the logo"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent"
+            />
+          </div>
+          <div className="mx-auto max-w-content px-6 pb-16 pt-6 sm:px-10 sm:pb-20 md:px-14 lg:px-16">
+            <div className="grid grid-cols-1 items-end gap-x-16 gap-y-6 md:grid-cols-[1.1fr_1fr]">
+              <h1 className="font-display text-[clamp(2.75rem,6vw,5.5rem)] font-light leading-[1] tracking-tight text-surface">
+                Your life, <em className="italic text-accent">wrapped</em>
+              </h1>
+              <div>
+                <p className="mb-5 max-w-[48ch] text-lg leading-relaxed text-surface/75">
+                  A landing page and an app for AfterLife, an invented service that helps you
+                  celebrate your life as you move into the afterlife.
+                </p>
+                <TagLine tags={TAGS} tone="dark" />
+              </div>
             </div>
           </div>
         </header>

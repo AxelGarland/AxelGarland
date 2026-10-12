@@ -30,7 +30,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

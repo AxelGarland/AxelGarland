@@ -1,3 +1,4 @@
+import { ClosingBlock } from "@/components/sections/ClosingBlock";
 const links = [
   { label: "Email", href: "mailto:axelgrobman@gmail.com", external: false },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/axel-garland-138188292/", external: true },
@@ -9,8 +10,10 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export function SiteFooter() {
+export function SiteFooter({ closing = true }: { closing?: boolean }) {
   return (
+    <>
+    {closing ? <ClosingBlock /> : null}
     <footer className="bg-ink py-12 text-surface md:py-16">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <div className="flex flex-wrap items-center justify-between gap-6">
@@ -54,5 +57,6 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

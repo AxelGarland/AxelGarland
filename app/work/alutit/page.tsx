@@ -82,8 +82,8 @@ export default function AlutitPage() {
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Hero */}
-        <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-2 md:gap-16 md:px-14 lg:px-16">
+        <header className="relative overflow-hidden pb-12 pt-36 sm:pb-16 sm:pt-36 md:flex md:min-h-[100svh] md:items-center md:pb-10 md:pt-24">
+          <div className="relative mx-auto grid w-full max-w-content grid-cols-1 items-center gap-8 px-6 sm:px-10 md:grid-cols-[1fr_1.15fr] md:gap-10 md:px-14 lg:px-16">
             <div>
               <div className="mb-6 flex items-center gap-3">
                 <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
@@ -107,14 +107,19 @@ export default function AlutitPage() {
               <TagLine tags={TAGS} className="" />
             </div>
 
-            <div className="relative aspect-[9/11] w-full">
+            <div className="relative h-[64svh] min-h-[24rem] w-full md:h-[min(86svh,62rem)]">
+              {/* A soft lilac disc, picked from her sweater, echoes the yellow disc on the home page */}
+              <div
+                aria-hidden
+                className="absolute left-[8%] top-[12%] aspect-square w-[84%] rounded-full bg-[#E4E0F0]"
+              />
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Alutit in her branded sweater, holding up a rainbow"
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 45vw"
+                sizes="(max-width: 768px) 100vw, 55vw"
               />
             </div>
           </div>

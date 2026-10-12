@@ -1,3 +1,4 @@
+import { CardPreview } from "@/components/projects/CardPreview";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { pictureSrc } from "@/lib/pictures";
 import { projectThumbnailSrc, type Project } from "@/lib/projects";
@@ -41,6 +42,7 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
               sizes={slot.sizes}
             />
           ) : null}
+          {project.previewVideo ? <CardPreview src={project.previewVideo} /> : null}
           {project.clientLogo ? (
             <div className="absolute bottom-3 left-3 flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-sm sm:h-12 sm:w-12">
               <Image

@@ -83,6 +83,8 @@ export type Project = {
   thumbnail: string;
   /** Multiply the thumbnail into the card background, for photos on a near-white backdrop. */
   thumbnailBlend?: boolean;
+  /** A short silent clip that plays over the card on hover (desktop only). */
+  previewVideo?: string;
   /** Detail hero — exact filename */
   hero: string;
   /** Full gallery on the project page */
@@ -286,6 +288,7 @@ export const PROJECTS: Project[] = [
     reflection:
       "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
+    previewVideo: "kindred/showreel.mp4",
     discipline: "Generative design",
     thumbnail: "kindred/card.jpg",
     hero: "kindred/hero.jpg",
@@ -331,6 +334,7 @@ export const PROJECTS: Project[] = [
     accentColor: "indigo",
     reflection:
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
+    previewVideo: "afterlife/entrance animation.mp4",
     discipline: "Web & illustration",
     thumbnail: "afterlife/entrance-poster.jpg",
     hero: "afterlife/Frame 40.png",

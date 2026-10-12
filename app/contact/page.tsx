@@ -114,7 +114,7 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

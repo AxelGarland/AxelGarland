@@ -120,7 +120,7 @@ export default function AfterLifePage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -155,7 +155,7 @@ export default function AfterLifePage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-10 max-w-[56ch] md:mb-12">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The landing page
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -196,7 +196,7 @@ export default function AfterLifePage() {
         {/* Illustrations */}
         <section className="bg-black py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
               The illustrations
             </p>
             <h2 className="mb-6 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
@@ -227,7 +227,7 @@ export default function AfterLifePage() {
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The app
               </p>
               <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">

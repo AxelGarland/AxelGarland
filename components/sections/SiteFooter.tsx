@@ -21,12 +21,12 @@ export function SiteFooter({ closing = true }: { closing?: boolean }) {
             Axel<span className="text-pencil">.</span>Garland
           </p>
           <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-8">
+            <ul className="flex flex-wrap gap-x-8">
               {navLinks.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-sm uppercase tracking-[0.08em] text-surface/70 transition-colors duration-300 hover:text-surface"
+                    className="inline-block py-3 text-sm uppercase tracking-[0.08em] text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil"
                   >
                     {item.label}
                   </a>
@@ -37,13 +37,13 @@ export function SiteFooter({ closing = true }: { closing?: boolean }) {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-surface/10 pt-6">
-          <ul className="flex flex-wrap gap-6">
+          <ul className="flex flex-wrap gap-x-6">
             {links.map((item) => (
               <li key={item.label}>
                 <a
                   href={item.href}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-sm text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil"
+                  className="inline-block py-3 text-sm text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil"
                 >
                   {item.label}
                   {item.external ? <span className="sr-only"> (opens in a new tab)</span> : null}
@@ -51,7 +51,7 @@ export function SiteFooter({ closing = true }: { closing?: boolean }) {
               </li>
             ))}
           </ul>
-          <p className="text-xs text-surface/40">
+          <p className="text-xs text-surface/60">
             © {new Date().getFullYear()} Axel Garland. All rights reserved.
           </p>
         </div>

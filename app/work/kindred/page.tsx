@@ -110,7 +110,7 @@ export default function KindredPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The idea
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -141,7 +141,7 @@ export default function KindredPage() {
         {/* How it works */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
               How it works
             </p>
             <h2 className="mb-12 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-16">
@@ -178,7 +178,7 @@ export default function KindredPage() {
         {/* Posters */}
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
               Posters
             </p>
             <h2 className="mb-4 max-w-[24ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">

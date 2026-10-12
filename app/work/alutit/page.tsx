@@ -130,7 +130,7 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
                 <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -152,7 +152,7 @@ export default function AlutitPage() {
         {/* Deliverables — dark inverted, matching the footer's treatment */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
               Deliverables
             </p>
             <h2 className="mb-14 max-w-[20ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-16">
@@ -163,7 +163,7 @@ export default function AlutitPage() {
               {DELIVERABLES.map((item) => (
                 <div key={item.num} className="bg-surface/5 p-6 md:p-8">
                   <div className="mb-3 flex items-baseline gap-4">
-                    <span className="font-display text-lg leading-none text-surface/30">
+                    <span className="font-display text-lg leading-none text-surface/60">
                       {item.num}
                     </span>
                     <h3 className="font-display text-xl font-semibold text-surface">
@@ -209,7 +209,7 @@ export default function AlutitPage() {
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[70ch]">
-              <p className="text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The outcome
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">

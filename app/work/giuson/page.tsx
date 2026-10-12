@@ -100,7 +100,7 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The problem
                 </p>
                 <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink">
@@ -136,7 +136,7 @@ export default function GiusonPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-14">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The solution
               </p>
               <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -170,7 +170,7 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-20">
               <div className="md:sticky md:top-28 md:self-start">
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   Design decisions
                 </p>
                 <h2 className="max-w-[16ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -203,7 +203,7 @@ export default function GiusonPage() {
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto mb-10 max-w-[56ch] text-center md:mb-12">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 Preview
               </p>
               <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
@@ -224,7 +224,7 @@ export default function GiusonPage() {
         <section className="border-t border-line bg-ink py-24 md:py-32">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[64ch] text-center">
-              <p className="mb-6 text-sm font-medium tracking-[0.01em] text-accent">
+              <p className="mb-6 text-sm font-medium tracking-[0.01em] text-accent-light">
                 The outcome
               </p>
               <p className="font-display text-2xl font-light italic leading-snug text-surface sm:text-3xl">

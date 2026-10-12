@@ -61,7 +61,7 @@ export default function ContactPage() {
       <main id="main" className="flex min-h-[100dvh] flex-col bg-surface pb-24 pt-32 sm:pt-36">
         <div className="mx-auto grid w-full max-w-content grid-cols-1 gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20 md:px-14 lg:px-16">
           <div>
-            <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent">Contact</p>
+            <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent-ink">Contact</p>
             <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
               Let&rsquo;s talk about
               <br />
@@ -97,7 +97,7 @@ export default function ContactPage() {
                       {...(d.href.startsWith("http")
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="w-fit border-b border-line pb-px pl-8 text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent"
+                      className="w-fit border-b border-line pb-px pl-8 text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent-ink"
                     >
                       {d.value}
                     </a>

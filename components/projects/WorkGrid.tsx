@@ -104,9 +104,9 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
             {heading ? (
               <div className="border-t border-line pt-8 md:col-span-12">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2">
-                  <h3 className="font-display text-3xl font-light tracking-tight text-ink sm:text-4xl">
+                  <h2 className="font-display text-3xl font-light tracking-tight text-ink sm:text-4xl">
                     {heading.title}
-                  </h3>
+                  </h2>
                   <p className="max-w-[44ch] text-[0.95rem] leading-relaxed text-ink-muted">
                     {heading.note}
                   </p>

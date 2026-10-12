@@ -46,6 +46,10 @@ const config: Config = {
           hover: "#A03030",
           soft: "rgba(214, 64, 64, 0.14)",
           glow: "rgba(214, 64, 64, 0.35)",
+          /** Small red text on cream needs a deeper red to pass 4.5:1 contrast. */
+          ink: "#B83232",
+          /** The same role on the near-black sections: a lighter red, 5:1 or better. */
+          light: "#E55B5B",
         },
         /** Crisp warm-grey border — replaces opacity-based `border-ink/10` style borders where a
          *  solid hairline reads cleaner against the cream palette. */

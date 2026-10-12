@@ -23,8 +23,12 @@ const nextConfig: NextConfig = {
     root: rootDir,
   },
   images: {
-    /** Large source files in `/pictures` — skip optimization to avoid build timeouts. */
-    unoptimized: true,
+    // Optimised on request (resized, WebP/AVIF) rather than at build time, so the large
+    // source files in /pictures don't slow the build. Cards and phones get a small version
+    // instead of the original, which is what keeps the pages light.
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [480, 768, 1080, 1440, 1920],
+    imageSizes: [96, 192, 256, 384, 560],
   },
 };
 

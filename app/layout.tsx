@@ -27,10 +27,21 @@ const hebrewSans = Heebo({
   display: "swap",
 });
 
+const SITE_TITLE = "Axel Garland · Product & Visual Designer";
+const SITE_DESCRIPTION =
+  "Axel Garland, a product & visual designer working across UX/UI, branding, and illustration. Portfolio and case studies.";
+
 export const metadata: Metadata = {
-  title: "Axel Garland · Product & Visual Designer",
-  description:
-    "Axel Garland, a product & visual designer working across UX/UI, branding, and illustration. Portfolio and case studies.",
+  metadataBase: new URL("https://www.axelgarland.com"),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "Axel Garland",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: { card: "summary_large_image", title: SITE_TITLE, description: SITE_DESCRIPTION },
 };
 
 export default function RootLayout({

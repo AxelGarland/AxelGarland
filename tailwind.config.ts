@@ -23,7 +23,7 @@ const config: Config = {
         ink: {
           DEFAULT: "#1A1916",
           muted: "#5C5A54",
-          subtle: "#9C9A94",
+          subtle: "#6A6862",
         },
         /** Card/panel background — same family as `surface`, kept as a distinct name for spots that
          *  read better as a slightly-raised "card" than the bare page (contact form, case-study panels). */
@@ -36,7 +36,7 @@ const config: Config = {
         mist: {
           DEFAULT: "#1A1916",
           muted: "#5C5A54",
-          subtle: "#9C9A94",
+          subtle: "#6A6862",
         },
         /** The site's one accent color: eyebrows, links, focus rings, hover states. Same red as
          *  `blush` (2026-09-15, replacing the previous terracotta, which read too close to

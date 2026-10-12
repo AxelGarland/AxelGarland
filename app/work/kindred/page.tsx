@@ -1,4 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { BackLink } from "@/components/projects/BackLink";
+import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -66,57 +68,33 @@ export default function KindredPage() {
     <>
       <GrainOverlay />
       <main id="main" className="bg-surface">
-        {/* Hero */}
-        <header className="pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <Link
-              href="/work"
-              aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-ink-subtle transition-colors duration-300 hover:text-ink"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path
-                  d="M12.5 4.5 6 10l6.5 5.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
-              Selected work
-            </p>
-            <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Of the same kind. <em className="italic text-accent">Never the same.</em>
-            </h1>
-            <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              Kindred is a generative illustration system: hand-drawn tiles and coded rules of
-              symmetry that make an endless family of faces.
-            </p>
-            <div className="mb-8 flex flex-wrap gap-2.5">
-              {TAGS.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-line px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.06em] text-ink-muted"
+        <BackLink />
+        {/* Hero — the showreel sits beside the headline so it plays on the very first screen */}
+        <header className="pb-16 pt-36 sm:pb-20 sm:pt-36">
+          <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
+            <div className="order-2 md:order-1">
+              <h1 className="mb-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.02] tracking-tight text-ink">
+                Of the same kind. <em className="italic text-accent">Never the same.</em>
+              </h1>
+              <p className="mb-6 max-w-[40ch] text-lg leading-relaxed text-ink-muted">
+                Kindred is a generative illustration system: hand-drawn tiles and coded rules of
+                symmetry that make an endless family of faces.
+              </p>
+              <TagLine tags={TAGS} className="mb-8" />
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
                 >
-                  {tag}
-                </span>
-              ))}
+                  Try it yourself
+                  <span aria-hidden>&#8599;</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ) : null}
             </div>
-            {project.liveUrl ? (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mb-12 inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
-              >
-                Try it yourself
-                <span aria-hidden>&#8599;</span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            ) : null}
-            <div className="relative aspect-video w-full overflow-hidden bg-black">
+            <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2 md:-mr-4 lg:-mr-10">
               <HeroVideo
                 src={pictureSrc("kindred/showreel.mp4")}
                 poster={pictureSrc("kindred/showreel-poster.jpg")}

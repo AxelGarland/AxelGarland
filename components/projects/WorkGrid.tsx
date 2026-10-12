@@ -75,28 +75,46 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-export function WorkGrid({ projects }: { projects: Project[] }) {
-  const firstProduct = projects.findIndex((p) => p.discipline === "Product design");
+const GROUPS: Record<string, { title: string; note: string }> = {
+  "Product design": {
+    title: "Product design",
+    note: "Two tools for Alut\u2019s recruitment department, both in daily use.",
+  },
+  visual: {
+    title: "Illustration & visual work",
+    note: "Characters, books, sculpture and stories.",
+  },
+};
 
+function groupOf(project: Project): string {
+  return project.discipline === "Product design" ? "Product design" : "visual";
+}
+
+export function WorkGrid({ projects }: { projects: Project[] }) {
   return (
     <div className="grid grid-cols-1 items-end gap-x-8 gap-y-16 md:grid-cols-12 md:gap-x-10 md:gap-y-24">
-      {projects.map((project, i) => (
-        <div key={project.slug} className="contents">
-          {i === firstProduct ? (
-            <div className="border-t border-line pt-8 md:col-span-12">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2">
-                <h3 className="font-display text-3xl font-light tracking-tight text-ink sm:text-4xl">
-                  Product design
-                </h3>
-                <p className="max-w-[44ch] text-[0.95rem] leading-relaxed text-ink-muted">
-                  Two tools for Alut&rsquo;s recruitment department, both in daily use.
-                </p>
+      {projects.map((project, i) => {
+        const group = groupOf(project);
+        const startsGroup = i > 0 && group !== groupOf(projects[i - 1]);
+        const heading = startsGroup ? GROUPS[group] : null;
+        return (
+          <div key={project.slug} className="contents">
+            {heading ? (
+              <div className="border-t border-line pt-8 md:col-span-12">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2">
+                  <h3 className="font-display text-3xl font-light tracking-tight text-ink sm:text-4xl">
+                    {heading.title}
+                  </h3>
+                  <p className="max-w-[44ch] text-[0.95rem] leading-relaxed text-ink-muted">
+                    {heading.note}
+                  </p>
+                </div>
               </div>
-            </div>
-          ) : null}
-          <WorkCard project={project} index={i} />
-        </div>
-      ))}
+            ) : null}
+            <WorkCard project={project} index={i} />
+          </div>
+        );
+      })}
     </div>
   );
 }

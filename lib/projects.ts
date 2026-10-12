@@ -411,16 +411,16 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-/** The order projects appear in on the home page and the work index. Creative work leads,
- *  the two product tools for Alut follow as their own group. */
+/** The order projects appear in on the home page and the work index: the generative piece that
+ *  joins design and code first, then the product tools, then the illustration work. */
 export const WORK_ORDER = [
   "kindred",
+  "giuson",
+  "interview-assistant",
   "afterlife",
   "alutit",
   "mundos-mejores",
   "jabberwocky",
-  "giuson",
-  "interview-assistant",
 ] as const;
 
 export function getOrderedProjects(): Project[] {

@@ -1,11 +1,12 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { BackLink } from "@/components/projects/BackLink";
+import { TagLine } from "@/components/projects/TagLine";
 import { HoverCollage } from "@/components/projects/HoverCollage";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -79,28 +80,11 @@ export default function AlutitPage() {
     <>
       <GrainOverlay />
       <main id="main" className="bg-surface">
+        <BackLink />
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-2 md:gap-16 md:px-14 lg:px-16">
             <div>
-              <Link
-                href="/work"
-                aria-label="Back to Work"
-                className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
-              >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                  <path
-                    d="M12.5 4.5 6 10l6.5 5.5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
-                Case studies
-              </p>
               <div className="mb-6 flex items-center gap-3">
                 <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
                   Alutit
@@ -120,16 +104,7 @@ export default function AlutitPage() {
                 organization for people with autism, giving their recruitment office a warm,
                 recognizable face across social media, video, print, and merchandise.
               </p>
-              <div className="flex flex-wrap gap-2.5">
-                {TAGS.map((tag) => (
-                  <span
-                    key={tag}
-                    className="border border-line px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.06em] text-ink-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <TagLine tags={TAGS} className="" />
             </div>
 
             <div className="relative aspect-[9/11] w-full">

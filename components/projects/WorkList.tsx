@@ -21,7 +21,7 @@ export function WorkList({ projects }: { projects: Project[] }) {
               </span>
               <span className="col-start-2 text-sm text-ink-muted sm:col-start-auto">
                 {project.discipline}
-                <span className="mt-1 hidden max-w-[48ch] text-[0.9rem] leading-relaxed text-ink-subtle lg:line-clamp-2 lg:block">
+                <span className="mt-1 hidden max-w-[48ch] text-[0.9rem] leading-relaxed text-ink-muted lg:line-clamp-2 lg:block">
                   {project.summary}
                 </span>
               </span>

@@ -1,4 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { BackLink } from "@/components/projects/BackLink";
+import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -6,7 +8,6 @@ import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -84,27 +85,10 @@ export default function AfterLifePage() {
     <>
       <GrainOverlay />
       <main id="main" className="bg-surface">
+        <BackLink />
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <Link
-              href="/work"
-              aria-label="Back to Work"
-              className="mb-8 inline-flex h-10 w-10 items-center justify-center text-accent/60 transition-colors duration-300 hover:text-accent"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path
-                  d="M12.5 4.5 6 10l6.5 5.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent">
-              Selected work
-            </p>
             <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
               Your life, <em className="italic text-accent">wrapped</em>
             </h1>
@@ -112,16 +96,7 @@ export default function AfterLifePage() {
               A landing page and an app for AfterLife, an invented service that helps you
               celebrate your life as you move into the afterlife.
             </p>
-            <div className="mb-12 flex flex-wrap gap-2.5">
-              {TAGS.map((tag) => (
-                <span
-                  key={tag}
-                  className="border border-line px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.06em] text-ink-muted"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <TagLine tags={TAGS} className="mb-12" />
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
               <HeroVideo
                 src={pictureSrc("afterlife/entrance animation.mp4")}

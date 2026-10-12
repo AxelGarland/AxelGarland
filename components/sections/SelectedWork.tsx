@@ -20,7 +20,7 @@ export function SelectedWork() {
               </h2>
             </div>
             <p className="max-w-[36ch] text-base leading-relaxed text-ink-muted">
-              From generative faces to an illustrated brand mascot, each one made for a real
+              Generative design, product tools and illustration, each one made for a real
               purpose.
             </p>
           </div>

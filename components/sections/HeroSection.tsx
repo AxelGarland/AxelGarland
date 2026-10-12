@@ -41,11 +41,9 @@ export function HeroSection() {
             {...rise(0.22)}
             className="mb-10 max-w-[40ch] text-lg leading-relaxed text-ink-muted"
           >
-            I&rsquo;m a product &amp; visual designer working across UX/UI and AI-assisted
-            prototyping, recently graduated from Shenkar College. My work moves between
-            illustration, branding, and digital experiences, often combining hands-on making with
-            emerging technologies, drawn to storytelling, playful experimentation, and finding
-            unexpected ways to bring ideas to life.
+            I&rsquo;m a product &amp; visual designer, recently graduated from Shenkar College. I
+            design interfaces and prototypes, and I illustrate: from tools that teams use every day
+            to generative faces and illustrated worlds.
           </motion.p>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">

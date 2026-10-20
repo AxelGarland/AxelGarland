@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/next";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Heebo, Work_Sans } from "next/font/google";
 import "./globals.css";
@@ -64,7 +64,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <CursorDot />
-        <Analytics />
+        <AnalyticsTracker />
       </body>
     </html>
   );

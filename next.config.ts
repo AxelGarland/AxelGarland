@@ -13,6 +13,15 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // One address for the site: the old vercel.app address sends everyone to the real domain, so
+      // analytics and search results aren't split across two hostnames. Temporary (307) so it can
+      // be undone if the domain ever changes.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "axelgarlandportfolio.vercel.app" }],
+        destination: "https://www.axelgarland.com/:path*",
+        permanent: false,
+      },
       { source: "/work/facettes", destination: "/work/kindred", permanent: true },
       { source: "/work/better-eater", destination: "/work", permanent: true },
       { source: "/work/akko-fringe-festival", destination: "/work", permanent: true },

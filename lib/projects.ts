@@ -336,7 +336,7 @@ export const PROJECTS: Project[] = [
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
     previewVideo: "afterlife/entrance animation.mp4",
     discipline: "Web & illustration",
-    thumbnail: "afterlife/entrance-poster.jpg",
+    thumbnail: "afterlife/circle.jpg",
     hero: "afterlife/Frame 40.png",
     gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
   },
@@ -453,6 +453,7 @@ export const WORK_ORDER = [
   "mundos-mejores",
   "better-eater",
   "alutit",
+  "afterlife",
   "jabberwocky",
 ] as const;
 

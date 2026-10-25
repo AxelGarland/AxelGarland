@@ -1,5 +1,6 @@
 "use client";
 
+import { HalftoneLogo } from "@/components/sections/HalftoneLogo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -27,10 +28,10 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight text-ink transition-colors duration-300 hover:text-ink/80"
+          className="inline-flex items-center transition-opacity duration-300 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           onClick={() => setOpen(false)}
         >
-          Axel<span className="text-accent">.</span>Garland
+          <HalftoneLogo />
         </Link>
 
         <ul className="hidden list-none items-center gap-8 md:flex lg:gap-10">

@@ -2,7 +2,7 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
-import { HeroTagline } from "@/components/sections/HeroTagline";
+import { HalftoneName } from "@/components/sections/HalftoneName";
 import { OpenForWorkRing } from "@/components/sections/OpenForWorkRing";
 import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
@@ -26,20 +26,14 @@ export function HeroSection() {
     <header className="relative overflow-hidden bg-surface pt-[68px]">
       <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-14 md:py-14 lg:gap-16 lg:px-16">
         <div className="relative z-10 md:min-w-0 md:flex-1">
-          <motion.div {...rise(0.05)} className="mb-4 sm:mb-5">
-            <HeroTagline />
+          <motion.div {...rise(0.1)} className="mb-6 sm:mb-7">
+            <HalftoneName />
           </motion.div>
 
-          <motion.h1
-            {...rise(0.1)}
-            className="mb-10 font-display text-[clamp(4.75rem,12vw,10.5rem)] font-light leading-[0.86] tracking-[-0.03em] text-ink"
-          >
-            Axel
-            <br />
-            Garland
-          </motion.h1>
-
-
+          <motion.p {...rise(0.22)} className="mb-10 text-xl text-ink-muted sm:text-2xl">
+            designer<span aria-hidden className="mx-3 text-accent">&middot;</span>illustrator
+            <span aria-hidden className="mx-3 text-accent">&middot;</span>creator
+          </motion.p>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <motion.div

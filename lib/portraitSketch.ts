@@ -16,7 +16,8 @@ const PIXEL_STEPS: [number, number][] = [
 
 type RGB = [number, number, number];
 const INK: RGB = [26, 25, 22];
-const CREAM: RGB = [245, 243, 239];
+/** The page is white now, so the light tone of the illustration styles is white too. */
+const CREAM: RGB = [255, 255, 255];
 const GREY: RGB = [194, 192, 186];
 const YELLOW: RGB = [255, 182, 39];
 const RED: RGB = [214, 64, 64];

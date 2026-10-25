@@ -13,9 +13,9 @@ const config: Config = {
          *  a cream base with a slightly deeper "raised" tone for cards/panels and an "elevated" step
          *  for hover/placeholder states. Sourced from Axel's own Adobe Express mockup. */
         surface: {
-          DEFAULT: "#F5F3EF",
-          raised: "#EDEBE5",
-          elevated: "#E3DFD5",
+          DEFAULT: "#FFFFFF",
+          raised: "#F5F4F1",
+          elevated: "#ECEAE5",
         },
         /** Primary text color, everywhere — page bg and card bg are close enough in tone now that
          *  there's no separate "text on white card" vs "text on page" distinction like the old
@@ -28,8 +28,8 @@ const config: Config = {
         /** Card/panel background — same family as `surface`, kept as a distinct name for spots that
          *  read better as a slightly-raised "card" than the bare page (contact form, case-study panels). */
         paper: {
-          DEFAULT: "#EDEBE5",
-          raised: "#E3DFD5",
+          DEFAULT: "#F5F4F1",
+          raised: "#ECEAE5",
         },
         /** Same role `ink` always had under its old name `mist` (text directly on the page background) —
          *  aliased to identical values so nothing relying on the old name breaks mid-migration. */
@@ -54,7 +54,7 @@ const config: Config = {
         /** Crisp warm-grey border — replaces opacity-based `border-ink/10` style borders where a
          *  solid hairline reads cleaner against the cream palette. */
         line: {
-          DEFAULT: "#D8D5CE",
+          DEFAULT: "#E1DFDA",
         },
         /** Per-project accent tones — one assigned per case study/project, not a global accent.
          *  Brightened versus their original light-theme values so they read clearly on near-black. */

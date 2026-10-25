@@ -52,7 +52,7 @@ export function HeroPortrait() {
   }, []);
 
   return (
-    <div ref={hostRef} className="absolute inset-0 overflow-hidden rounded-full bg-white">
+    <div ref={hostRef} className="absolute inset-0 overflow-hidden rounded-full bg-white shadow-[0_0_0_1px_rgba(26,25,22,0.1)]">
       <Image
         src={pictureSrc(PHOTO)}
         alt="Portrait of Axel Garland, smiling, in a dark green polo shirt"

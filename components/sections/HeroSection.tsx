@@ -17,8 +17,8 @@ export function HeroSection() {
 
   return (
     <header className="relative overflow-hidden bg-surface pt-[68px]">
-      <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:justify-end md:px-14 md:pb-20 md:pt-14 lg:px-16 lg:pb-24">
-        <div className="relative z-10 md:max-w-[56%]">
+      <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-14 md:py-14 lg:gap-16 lg:px-16">
+        <div className="relative z-10 md:min-w-0 md:flex-1">
           <motion.p
             {...rise(0)}
             className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-ink-muted"
@@ -81,7 +81,7 @@ export function HeroSection() {
           initial={reduce ? undefined : { y: 28 }}
           animate={reduce ? undefined : { y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
-          className="relative mx-auto mt-12 aspect-square w-[78%] max-w-[22rem] md:absolute md:max-w-none md:bottom-[7%] md:right-14 md:mx-0 md:mt-0 md:h-[min(66svh,38rem)] md:w-[min(66svh,38rem)] lg:right-16"
+          className="relative mx-auto mt-12 aspect-square w-[78%] max-w-[22rem] md:mx-0 md:mt-0 md:h-[min(76svh,44vw,46rem)] md:w-[min(76svh,44vw,46rem)] md:max-w-none md:shrink-0"
         >
           <HeroPortrait />
         </motion.div>

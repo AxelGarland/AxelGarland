@@ -185,7 +185,7 @@ export default function AlutitPage() {
                         <div
                           key={img.file}
                           className={`relative aspect-[3/4] w-full overflow-hidden ${
-                            item.lightTiles ? "bg-[#E4E3DF]" : "bg-surface/10"
+                            item.lightTiles ? "bg-paper-raised" : "bg-surface/10"
                           }`}
                         >
                           <Image

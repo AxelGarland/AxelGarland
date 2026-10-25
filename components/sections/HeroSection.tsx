@@ -2,6 +2,7 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
+import { HeroTagline } from "@/components/sections/HeroTagline";
 import { OpenForWorkRing } from "@/components/sections/OpenForWorkRing";
 import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
@@ -27,13 +28,17 @@ export function HeroSection() {
         <div className="relative z-10 md:min-w-0 md:flex-1">
           <motion.h1
             {...rise(0.1)}
-            className="mb-10 font-display text-[clamp(4.75rem,12vw,10.5rem)] font-light leading-[0.86] tracking-[-0.03em] text-ink"
+            className="mb-6 font-display text-[clamp(4.75rem,12vw,10.5rem)] font-light leading-[0.86] tracking-[-0.03em] text-ink"
           >
             Axel
             <br />
             Garland
           </motion.h1>
 
+
+          <motion.div {...rise(0.2)} className="mb-10">
+            <HeroTagline />
+          </motion.div>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <motion.div

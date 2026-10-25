@@ -1,3 +1,4 @@
+import { heroClock } from "@/lib/heroClock";
 import type p5 from "p5";
 
 /** A looping p5 animation of Axel's photo: it pixelates, then re-draws itself in four different
@@ -26,10 +27,10 @@ const RED: RGB = [214, 64, 64];
 const STRIDE = 8;
 
 const lum = (r: number, g: number, b: number) => (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-const mix = (a: number, b: number, t: number) => a + (b - a) * t;
-const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
-const smooth = (t: number) => t * t * (3 - 2 * t);
-const hash = (i: number) => ((Math.imul(i + 1, 2654435761) >>> 0) % 100000) / 100000;
+export const mix = (a: number, b: number, t: number) => a + (b - a) * t;
+export const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+export const smooth = (t: number) => t * t * (3 - 2 * t);
+export const hash = (i: number) => ((Math.imul(i + 1, 2654435761) >>> 0) % 100000) / 100000;
 
 function setCell(
   out: Float32Array,
@@ -135,12 +136,12 @@ const HOLD_MOSAIC = 0.7;
 const MORPH = 1.15;
 const HOLD_STYLE = 1.9;
 
-type Segment =
+export type Segment =
   | { kind: "photo"; start: number; end: number }
   | { kind: "level"; level: number; start: number; end: number }
   | { kind: "cells"; from: number; to: number; sweep: number; start: number; end: number };
 
-function buildTimeline(): { segments: Segment[]; loop: number } {
+export function buildTimeline(): { segments: Segment[]; loop: number } {
   const segments: Segment[] = [];
   let t = 0;
   const photo = (dur: number) => {
@@ -238,6 +239,8 @@ export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
     p.draw = () => {
       if (!src) return;
       const t = nowSeconds();
+      heroClock.t = t;
+      heroClock.stamp = performance.now();
       const seg = segments.find((s) => t >= s.start && t < s.end) ?? segments[0];
       const w = p.width;
       const h = p.height;

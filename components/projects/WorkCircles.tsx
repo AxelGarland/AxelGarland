@@ -3,7 +3,7 @@
 import { CardPreview } from "@/components/projects/CardPreview";
 import { pictureSrc } from "@/lib/pictures";
 import { projectThumbnailSrc, type Project } from "@/lib/projects";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -20,20 +20,36 @@ const CROP: Record<string, { fit: "cover" | "contain"; position?: string; backdr
   jabberwocky: { fit: "contain", backdrop: "bg-surface-raised", scale: "scale-[1.04]" },
 };
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-/** Seconds the ring takes to close. The underline and the words start the moment it finishes. */
-const RING = 1.3;
+/** Each row is driven by how far it has travelled through the screen: 0 as it enters at the bottom,
+ *  1 as it leaves at the top. Scrolling down draws the ring, then the underline and title, then the
+ *  description; scrolling back up undoes them in reverse. They hold while the row is mid-screen. */
+const IN = { image: [0.04, 0.16], ring: [0.08, 0.32], title: [0.3, 0.4], description: [0.38, 0.47] } as const;
+const OUT = { description: [0.7, 0.76], title: [0.74, 0.8], ring: [0.72, 0.88], image: [0.86, 0.95] } as const;
 
-function Row({ project, index }: { project: Project; index: number }) {
+/** Rises from 0 to 1 across `inn`, holds at 1, then falls back to 0 across `out`. With reduced
+ *  motion it is simply 1 the whole way, so everything shows finished and nothing moves. */
+function useFade(p: MotionValue<number>, inn: readonly [number, number], out: readonly [number, number], reduce: boolean) {
+  return useTransform(p, [inn[0], inn[1], out[0], out[1]], reduce ? [1, 1, 1, 1] : [0, 1, 1, 0]);
+}
+
+function useShift(p: MotionValue<number>, inn: readonly [number, number], out: readonly [number, number], from: number, to: number, reduce: boolean) {
+  return useTransform(p, [inn[0], inn[1], out[0], out[1]], reduce ? [0, 0, 0, 0] : [from, 0, 0, to]);
+}
+
+function Row({ project, index, reduce }: { project: Project; index: number; reduce: boolean }) {
   const left = index % 2 === 0;
   const thumb = projectThumbnailSrc(project);
   const crop = CROP[project.slug] ?? { fit: "cover" as const };
   const ref = useRef<HTMLAnchorElement>(null);
-  const reduce = useReducedMotion();
-  const seen = useInView(ref, { once: true, amount: 0.45 });
-  // With reduced motion, everything is simply shown finished.
-  const go = reduce || seen;
-  const t = (delay: number, duration: number) => ({ duration: reduce ? 0 : duration, delay: reduce ? 0 : delay, ease: EASE });
+  const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  const image = useFade(p, IN.image, OUT.image, reduce);
+  const ring = useFade(p, IN.ring, OUT.ring, reduce);
+  const titleOpacity = useFade(p, IN.title, OUT.title, reduce);
+  const titleY = useShift(p, IN.title, OUT.title, 14, -10, reduce);
+  const underline = useFade(p, IN.title, OUT.title, reduce);
+  const descOpacity = useFade(p, IN.description, OUT.description, reduce);
+  const descY = useShift(p, IN.description, OUT.description, 10, -8, reduce);
 
   return (
     <Link
@@ -45,9 +61,7 @@ function Row({ project, index }: { project: Project; index: number }) {
     >
       <div className={`relative aspect-square w-[66%] shrink-0 md:w-[min(39vw,30.6rem)] ${left ? "self-start" : "self-end"}`}>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: go ? 1 : 0 }}
-          transition={t(0, 0.7)}
+          style={{ opacity: image }}
           className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}
         >
           {thumb ? (
@@ -76,7 +90,7 @@ function Row({ project, index }: { project: Project; index: number }) {
           ) : null}
         </motion.div>
 
-        {/* A fine red ring, just outside the picture, that draws itself clockwise from the top. */}
+        {/* A fine red ring, just outside the picture. Its length follows the scroll, clockwise from the top. */}
         <svg
           aria-hidden
           viewBox="0 0 100 100"
@@ -91,36 +105,26 @@ function Row({ project, index }: { project: Project; index: number }) {
             strokeWidth={0.4}
             strokeLinecap="round"
             transform="rotate(-90 50 50)"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: go ? 1 : 0 }}
-            transition={t(0.15, RING)}
+            style={{ pathLength: ring }}
           />
         </svg>
       </div>
 
       <div className={`min-w-0 flex-1 ${left ? "self-start text-left md:self-center" : "self-end text-left md:self-center md:text-right"}`}>
         <motion.h3
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: go ? 1 : 0, y: go ? 0 : 14 }}
-          transition={t(RING + 0.1, 0.6)}
+          style={{ opacity: titleOpacity, y: titleY }}
           className="mb-3 font-display text-[clamp(2.25rem,5vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink"
         >
           <span className="relative inline-block pb-2">
             {project.title}
             <motion.span
               aria-hidden
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: go ? 1 : 0 }}
-              transition={t(RING + 0.1, 0.6)}
+              style={{ scaleX: underline }}
               className="absolute bottom-0 left-0 h-px w-full origin-left bg-accent"
             />
           </span>
         </motion.h3>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: go ? 1 : 0, y: go ? 0 : 10 }}
-          transition={t(RING + 0.5, 0.7)}
-        >
+        <motion.div style={{ opacity: descOpacity, y: descY }}>
           {project.discipline ? <p className="mb-4 text-sm text-ink-muted">{project.discipline}</p> : null}
           <p className={`max-w-[38ch] text-base leading-relaxed text-ink-muted ${left ? "" : "md:ml-auto"}`}>
             {project.summary}
@@ -132,10 +136,12 @@ function Row({ project, index }: { project: Project; index: number }) {
 }
 
 export function WorkCircles({ projects }: { projects: Project[] }) {
+  // The reduced-motion preference is only known after hydration, so rows are rebuilt (keyed) once it is.
+  const reduce = Boolean(useReducedMotion());
   return (
     <div className="flex flex-col gap-20 md:gap-28">
       {projects.map((project, i) => (
-        <Row key={project.slug} project={project} index={i} />
+        <Row key={`${project.slug}-${reduce}`} project={project} index={i} reduce={reduce} />
       ))}
     </div>
   );

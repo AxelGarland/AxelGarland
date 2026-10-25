@@ -413,17 +413,46 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
+  {
+    slug: "better-eater",
+    title: "Better Eater",
+    section: "case-study",
+    discipline: "Product design",
+    summary: "A personalized meal-planning and recipe app.",
+    accentColor: "blue",
+    caseStudy: {
+      problem:
+        "Amit is driven and curious, and holds herself to her own deadlines. She's taken up yoga and meditation, and she's always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn't wanting to eat well. It's not knowing where to begin, and not having room in a busy week to work it out.",
+      role: "Co-designed with Yuval Sa'ar as a team project for a Shenkar course. We both worked across the persona, wireframes, visual design, branding, and the prototype.",
+      process:
+        "Better Eater is a helper for the transition itself. It supports whichever way of eating you want to try, whether that's vegan, vegetarian, keto, or something else, and makes cooking easy at any level, as part of your life.",
+      outcome:
+        "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
+    },
+    thumbnail: "bettereater/hero.png",
+    thumbnailFit: "contain",
+    hero: "bettereater/hero.png",
+    gallery: [
+      {
+        file: "bettereater/hero.png",
+        alt: "Better Eater: recommended meal plan, home screen, and recipe detail",
+      },
+    ],
+    upcomingImages: [
+      { label: "Meal-plan screen" },
+      { label: "Recipe-detail screen" },
+    ],
+  },
 ];
 
-/** The order projects appear in on the home page and the work index: the generative piece that
- *  joins design and code first, then the product tools, then the illustration work. */
+/** The order projects appear in on the home page and the work index, alternating left and right
+ *  down the page. Projects not listed here keep their pages but aren't shown in either place. */
 export const WORK_ORDER = [
   "kindred",
   "giuson",
-  "interview-assistant",
-  "afterlife",
-  "alutit",
   "mundos-mejores",
+  "better-eater",
+  "alutit",
   "jabberwocky",
 ] as const;
 

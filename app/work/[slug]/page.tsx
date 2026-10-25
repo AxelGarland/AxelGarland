@@ -65,6 +65,7 @@ const BESPOKE_SLUGS = [
   "kindred",
   "mundos-mejores",
   "interview-assistant",
+  "better-eater",
   "afterlife",
 ];
 export function generateStaticParams() {

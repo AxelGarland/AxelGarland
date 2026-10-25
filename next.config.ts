@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       { source: "/work/facettes", destination: "/work/kindred", permanent: true },
-      { source: "/work/better-eater", destination: "/work", permanent: true },
       { source: "/work/akko-fringe-festival", destination: "/work", permanent: true },
     ];
   },

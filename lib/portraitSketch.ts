@@ -1,4 +1,3 @@
-import { heroClock } from "@/lib/heroClock";
 import type p5 from "p5";
 
 /** A looping p5 animation of Axel's photo: it pixelates, then re-draws itself in four different
@@ -239,8 +238,6 @@ export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
     p.draw = () => {
       if (!src) return;
       const t = nowSeconds();
-      heroClock.t = t;
-      heroClock.stamp = performance.now();
       const seg = segments.find((s) => t >= s.start && t < s.end) ?? segments[0];
       const w = p.width;
       const h = p.height;

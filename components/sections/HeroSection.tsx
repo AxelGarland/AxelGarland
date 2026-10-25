@@ -25,31 +25,15 @@ export function HeroSection() {
     <header className="relative overflow-hidden bg-surface pt-[68px]">
       <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-14 md:py-14 lg:gap-16 lg:px-16">
         <div className="relative z-10 md:min-w-0 md:flex-1">
-          <motion.p
-            {...rise(0)}
-            className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-ink-muted"
-          >
-            <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            Product &amp; Visual Designer
-          </motion.p>
-
           <motion.h1
             {...rise(0.1)}
-            className="mb-9 font-display text-[clamp(4.75rem,12vw,10.5rem)] font-light leading-[0.86] tracking-[-0.03em] text-ink"
+            className="mb-10 font-display text-[clamp(4.75rem,12vw,10.5rem)] font-light leading-[0.86] tracking-[-0.03em] text-ink"
           >
             Axel
             <br />
             Garland
           </motion.h1>
 
-          <motion.p
-            {...rise(0.22)}
-            className="mb-10 max-w-[40ch] text-lg leading-relaxed text-ink-muted"
-          >
-            I&rsquo;m a product &amp; visual designer, recently graduated from Shenkar College. I
-            design interfaces and prototypes, and I illustrate: from tools that teams use every day
-            to generative faces and illustrated worlds.
-          </motion.p>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <motion.div

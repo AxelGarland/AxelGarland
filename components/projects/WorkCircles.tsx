@@ -10,8 +10,8 @@ import { useRef } from "react";
 
 /** How each project's picture sits inside its circle. `contain` shows a whole picture on a soft
  *  backdrop; `cover` fills the circle and crops the edges. */
-const CROP: Record<string, { fit: "cover" | "contain"; position?: string; backdrop?: string; scale?: string }> = {
-  kindred: { fit: "cover", position: "50% 50%" },
+const CROP: Record<string, { fit: "cover" | "contain"; position?: string; backdrop?: string; scale?: string; previewBg?: string }> = {
+  kindred: { fit: "cover", position: "50% 50%", previewBg: "#06090A" },
   giuson: { fit: "cover", position: "50% 55%" },
   "mundos-mejores": { fit: "cover", position: "50% 42%" },
   "better-eater": { fit: "contain", backdrop: "bg-surface-raised", scale: "scale-[1.12]" },
@@ -76,7 +76,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
               sizes="(max-width: 768px) 66vw, 31rem"
             />
           ) : null}
-          {project.previewVideo ? <CardPreview src={project.previewVideo} /> : null}
+          {project.previewVideo ? <CardPreview src={project.previewVideo} background={crop.previewBg} /> : null}
           {project.clientLogo ? (
             <div className="absolute bottom-[17%] left-[17%] flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-sm sm:h-12 sm:w-12">
               <Image

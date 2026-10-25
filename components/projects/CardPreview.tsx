@@ -5,9 +5,14 @@ import { useRef } from "react";
 
 /** A short clip that fades in over a work card's still image while the pointer is over it.
  *  Only for devices that can hover; on touch screens and with reduced motion it never loads or
- *  plays, so phones keep the plain image and don't download the video. */
-export function CardPreview({ src }: { src: string }) {
+ *  plays, so phones keep the plain image and don't download the video.
+ *
+ *  `scale` is the video's width as a share of the circle. Below 1 the whole frame sits inside the
+ *  circle instead of being cropped to its middle, so a centred title stays fully visible; `background`
+ *  fills the rest of the circle and should match the video's own backdrop. */
+export function CardPreview({ src, scale = 0.84, background = "#000" }: { src: string; scale?: number; background?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const fadeRef = useRef<HTMLDivElement>(null);
 
   const canPlay = () =>
     typeof window !== "undefined" &&
@@ -16,17 +21,19 @@ export function CardPreview({ src }: { src: string }) {
 
   const start = () => {
     const v = videoRef.current;
-    if (!v || !canPlay()) return;
-    v.style.opacity = "1";
+    const f = fadeRef.current;
+    if (!v || !f || !canPlay()) return;
+    f.style.opacity = "1";
     void v.play().catch(() => {});
   };
 
   const stop = () => {
     const v = videoRef.current;
-    if (!v) return;
-    v.style.opacity = "0";
+    const f = fadeRef.current;
+    if (!v || !f) return;
+    f.style.opacity = "0";
     window.setTimeout(() => {
-      if (v.style.opacity === "0") {
+      if (f.style.opacity === "0") {
         v.pause();
         v.currentTime = 0;
       }
@@ -36,20 +43,27 @@ export function CardPreview({ src }: { src: string }) {
   return (
     <div
       aria-hidden
-      className="absolute inset-0 z-10"
+      className="absolute inset-0 z-10 flex items-center justify-center opacity-100"
       onPointerEnter={start}
       onPointerLeave={stop}
     >
-      <video
-        ref={videoRef}
-        src={pictureSrc(src)}
-        muted
-        loop
-        playsInline
-        preload="none"
-        tabIndex={-1}
-        className="h-full w-full object-cover opacity-0 transition-opacity duration-500"
-      />
+      <div
+        ref={fadeRef}
+        className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500"
+        style={{ background }}
+      >
+        <video
+          ref={videoRef}
+          src={pictureSrc(src)}
+          muted
+          loop
+          playsInline
+          preload="none"
+          tabIndex={-1}
+          className="aspect-video h-auto object-cover"
+          style={{ width: `${scale * 100}%` }}
+        />
+      </div>
     </div>
   );
 }

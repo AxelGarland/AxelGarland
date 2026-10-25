@@ -1,9 +1,8 @@
 "use client";
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
-import { pictureSrc } from "@/lib/pictures";
+import { HeroPortrait } from "@/components/sections/HeroPortrait";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -19,7 +18,7 @@ export function HeroSection() {
   return (
     <header className="relative overflow-hidden bg-surface pt-[68px]">
       <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:justify-end md:px-14 md:pb-20 md:pt-14 lg:px-16 lg:pb-24">
-        <div className="relative z-10 md:max-w-[62%]">
+        <div className="relative z-10 md:max-w-[56%]">
           <motion.p
             {...rise(0)}
             className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.12em] text-ink-muted"
@@ -77,28 +76,16 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* The portrait sits on a flat yellow disc (the pencil's yellow) and runs off the bottom
-            edge of the page, so the illustration breaks out of its box instead of being framed. */}
-        <div className="relative mx-auto -mb-[9%] mt-12 aspect-square w-[92%] max-w-[30rem] md:absolute md:-bottom-[5%] md:right-[-5vw] md:mx-0 md:mb-0 md:mt-0 md:w-[min(56vw,54rem)] md:max-w-none">
-          {/* Only the disc animates: it grows out from its own centre behind the portrait. */}
-          <motion.div
-            aria-hidden
-            initial={reduce ? undefined : { scale: 0 }}
-            animate={reduce ? undefined : { scale: 1 }}
-            transition={{ duration: 1.1, ease: EASE, delay: 0.15 }}
-            className="absolute left-[9%] top-[8%] h-[82%] w-[82%] origin-center rounded-full bg-pencil"
-          />
-          <div className="absolute inset-0">
-            <Image
-              src={pictureSrc("Axel self illustration final.png")}
-              alt="Illustrated self-portrait of Axel Garland"
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 768px) 92vw, 56vw"
-            />
-          </div>
-        </div>
+        {/* The portrait: a photo that pixelates and redraws itself in a loop. It sits flush with the
+            bottom edge of the hero so the panel reads as part of the page, not a floating card. */}
+        <motion.div
+          initial={reduce ? undefined : { y: 28 }}
+          animate={reduce ? undefined : { y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
+          className="relative mx-auto mt-12 aspect-[3/4] w-[78%] max-w-[22rem] md:absolute md:bottom-0 md:right-14 md:mx-0 md:mt-0 md:aspect-auto md:h-[min(80svh,48rem)] md:w-[min(60svh,36rem)] lg:right-16"
+        >
+          <HeroPortrait />
+        </motion.div>
       </div>
     </header>
   );

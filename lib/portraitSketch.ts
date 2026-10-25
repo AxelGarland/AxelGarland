@@ -18,7 +18,6 @@ type RGB = [number, number, number];
 const INK: RGB = [26, 25, 22];
 /** The page is white now, so the light tone of the illustration styles is white too. */
 const CREAM: RGB = [255, 255, 255];
-const GREY: RGB = [194, 192, 186];
 const YELLOW: RGB = [255, 182, 39];
 const RED: RGB = [214, 64, 64];
 
@@ -86,13 +85,12 @@ function averageGrid(src: p5.Image, cols: number, rows: number): Uint8ClampedArr
   return out;
 }
 
-/** Four hand-tuned looks, each computed once from the averaged colours. */
+/** Three hand-tuned looks, each computed once from the averaged colours. */
 function buildStyles(base: Uint8ClampedArray): Float32Array[] {
   const n = COLS * ROWS;
   const trueColour = new Float32Array(n * STRIDE);
   const duotone = new Float32Array(n * STRIDE);
   const halftone = new Float32Array(n * STRIDE);
-  const tritone = new Float32Array(n * STRIDE);
   const pop = new Float32Array(n * STRIDE);
 
   const POP: RGB[] = [
@@ -123,18 +121,11 @@ function buildStyles(base: Uint8ClampedArray): Float32Array[] {
     const dot = l > 0.9 ? 0 : clamp01(0.18 + dark * 1.05);
     setCell(halftone, i, l < 0.4 ? INK : RED, dot, 0.5, CREAM);
 
-    // Tri-tone, close to the hand-drawn portrait: ink, grey, cream, with red on warm mid-tones.
-    const cx = (i % COLS) / COLS;
-    const cy = Math.floor(i / COLS) / ROWS;
-    const lips = r > g * 1.5 && r > 120 && l > 0.2 && l < 0.7 && Math.abs(cx - 0.47) < 0.13 && Math.abs(cy - 0.535) < 0.05;
-    const tone: RGB = lips ? RED : l < 0.3 ? INK : l < 0.63 ? GREY : CREAM;
-    setCell(tritone, i, tone, 1, 0, CREAM);
-
     // Pop: six flat colours stepped by brightness, like the faces in Kindred.
     const band = l < 0.22 ? 0 : l < 0.42 ? 1 : l < 0.6 ? 2 : l < 0.78 ? 3 : l < 0.92 ? 4 : 5;
     setCell(pop, i, POP[band], 1, 0, POP[5]);
   }
-  return [trueColour, duotone, halftone, tritone, pop];
+  return [trueColour, duotone, halftone, pop];
 }
 
 /** Segment lengths in seconds, in the order they play. */
@@ -169,11 +160,11 @@ function buildTimeline(): { segments: Segment[]; loop: number } {
   photo(HOLD_PHOTO);
   for (let i = 0; i < PIXEL_STEPS.length; i++) level(i, PIXEL_STEP);
   cells(0, 0, 0, HOLD_MOSAIC);
-  for (const style of [1, 2, 3, 4]) {
+  for (const style of [1, 2, 3]) {
     cells(style - 1, style, sweep++, MORPH);
     cells(style, style, 0, HOLD_STYLE);
   }
-  cells(4, 0, sweep++, MORPH);
+  cells(3, 0, sweep++, MORPH);
   cells(0, 0, 0, HOLD_MOSAIC);
   for (let i = PIXEL_STEPS.length - 1; i >= 0; i--) level(i, PIXEL_STEP);
   return { segments, loop: t };

@@ -2,20 +2,26 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
-import { motion } from "framer-motion";
+import { OpenForWorkRing } from "@/components/sections/OpenForWorkRing";
+import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function HeroSection() {
   const reduce = useHydrationSafeReducedMotion();
+  // The entrance always ends in the visible state. Reduced motion is handled by MotionConfig below,
+  // which drops the movement and keeps a plain fade, so the text can never be left hidden (the old
+  // version removed `animate` once reduced motion was detected, after the text had already been
+  // hidden by `initial`).
   const rise = (delay: number) => ({
-    initial: reduce ? undefined : { opacity: 0, y: 18 },
-    animate: reduce ? undefined : { opacity: 1, y: 0 },
+    initial: { opacity: 0, y: 18 },
+    animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, ease: EASE, delay },
   });
 
   return (
+    <MotionConfig reducedMotion="user">
     <header className="relative overflow-hidden bg-surface pt-[68px]">
       <div className="relative mx-auto flex max-w-content flex-col px-6 pt-14 sm:px-10 md:min-h-[calc(100svh-68px)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-14 md:py-14 lg:gap-16 lg:px-16">
         <div className="relative z-10 md:min-w-0 md:flex-1">
@@ -78,14 +84,16 @@ export function HeroSection() {
 
         {/* The portrait: a round crop of the photo that pixelates and redraws itself in a loop. */}
         <motion.div
-          initial={reduce ? undefined : { y: 28 }}
-          animate={reduce ? undefined : { y: 0 }}
+          initial={{ y: 28 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
-          className="relative mx-auto mt-12 aspect-square w-[78%] max-w-[22rem] md:mx-0 md:mt-0 md:h-[min(76svh,44vw,46rem)] md:w-[min(76svh,44vw,46rem)] md:max-w-none md:shrink-0"
+          className="relative mx-auto mb-16 mt-14 aspect-square w-[72%] max-w-[20rem] md:mx-0 md:mb-0 md:mt-0 md:h-[min(76svh,44vw,46rem)] md:w-[min(76svh,44vw,46rem)] md:max-w-none md:shrink-0"
         >
+          <OpenForWorkRing />
           <HeroPortrait />
         </motion.div>
       </div>
     </header>
+    </MotionConfig>
   );
 }

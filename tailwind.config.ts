@@ -118,6 +118,7 @@ const config: Config = {
         prose: "42ch",
       },
       animation: {
+        "ring-spin": "ring-spin 36s linear infinite",
         "grain-shift": "grain 8s steps(10) infinite",
         "drift-slow": "drift 32s ease-in-out infinite alternate",
         "drift-medium": "drift 48s ease-in-out infinite alternate-reverse",
@@ -125,6 +126,10 @@ const config: Config = {
         marquee: "marquee 80s linear infinite",
       },
       keyframes: {
+        "ring-spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
         grain: {
           "0%, 100%": { transform: "translate(0, 0)" },
           "10%": { transform: "translate(-5%, -10%)" },

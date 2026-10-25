@@ -2,9 +2,11 @@
 
 import { heroClock, heroClockIsLive } from "@/lib/heroClock";
 import { buildTimeline, clamp01, hash, smooth } from "@/lib/portraitSketch";
+import type p5 from "p5";
 import { useEffect, useRef, useState } from "react";
 
-/** "Designer · Illustrator · Creator" as a rectangle that changes style in step with the portrait.
+/** "Designer · Illustrator · Creator" as a rectangle drawn by a p5 sketch that changes style in step
+ *  with the portrait.
  *  It reads the portrait animation's clock, so the pixelation, the yellow duotone, the halftone dots
  *  and the pop colours all land on the same beat. Until the animation is running (and for visitors
  *  who prefer reduced motion) it simply shows the plain, readable line. */
@@ -150,136 +152,172 @@ function buildLayers(W: number, H: number, dpr: number, f: Fonts): Layers {
   return { crisp: [plain, duotone, halftone, pop], mosaic: pixelate(heavy, H / 12, dpr), levels };
 }
 
+const FONT_WAIT_MS = 2500;
+
+function readFonts(): Fonts {
+  const cs = getComputedStyle(document.body);
+  const body = cs.getPropertyValue("--font-body").trim() || "sans-serif";
+  const display = cs.getPropertyValue("--font-display").trim() || "serif";
+  return { body: `${body}, sans-serif`, display: `${display}, serif` };
+}
+
+/** Waits for the faces the sketch draws with, but never longer than a couple of seconds, so a
+ *  slow or failed font request can't keep the animation from starting. */
+async function waitForFonts(f: Fonts) {
+  const loads = Promise.all([
+    document.fonts.load(`500 20px ${f.body}`),
+    document.fonts.load(`700 20px ${f.body}`),
+    document.fonts.load(`800 20px ${f.body}`),
+    document.fonts.load(`italic 600 20px ${f.display}`),
+  ]).catch(() => undefined);
+  await Promise.race([loads, new Promise((resolve) => setTimeout(resolve, FONT_WAIT_MS))]);
+}
+
 export function HeroTagline() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const wrap = wrapRef.current;
-    const canvas = canvasRef.current;
-    if (!wrap || !canvas) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const host = hostRef.current;
+    if (!wrap || !host) return;
+    // Reduced motion keeps the plain rectangle and never loads p5.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const { segments } = buildTimeline();
-
-    let layers: Layers | null = null;
-    let W = 0;
-    let H = 0;
-    let dpr = 1;
-    let fonts: Fonts | null = null;
-    let raf = 0;
     let cancelled = false;
-    let lastKey = "";
+    let instance: p5 | null = null;
+    let observer: IntersectionObserver | null = null;
+    let resizer: ResizeObserver | null = null;
 
-    const readFonts = (): Fonts => {
-      const cs = getComputedStyle(document.body);
-      const body = cs.getPropertyValue("--font-body").trim() || "sans-serif";
-      const display = cs.getPropertyValue("--font-display").trim() || "serif";
-      return { body: `${body}, sans-serif`, display: `${display}, serif` };
-    };
-
-    const rebuild = () => {
-      if (!fonts) return;
-      const r = wrap.getBoundingClientRect();
-      W = Math.round(r.width);
-      H = Math.round(r.height);
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      if (W < 40 || H < 20) return;
-      canvas.width = Math.round(W * dpr);
-      canvas.height = Math.round(H * dpr);
-      layers = buildLayers(W, H, dpr, fonts);
-      lastKey = "";
-    };
-
-    const draw = () => {
-      if (!layers) return;
-      const ctx = canvas.getContext("2d")!;
-      const live = !reduce && heroClockIsLive();
-      const t = live ? heroClock.t : 0;
-      const key = `${W}x${H}:${live ? t.toFixed(3) : "rest"}`;
-      if (key === lastKey) return;
-      lastKey = key;
-      ctx.imageSmoothingEnabled = false;
-      const blit = (src: HTMLCanvasElement) => ctx.drawImage(src, 0, 0);
-      if (!live) {
-        blit(layers.crisp[0]);
-        return;
-      }
-      const seg = segments.find((s) => t >= s.start && t < s.end) ?? segments[0];
-      if (seg.kind === "photo") return blit(layers.crisp[0]);
-      if (seg.kind === "level") return blit(layers.levels[seg.level]);
-      const source = (style: number) => (style === 0 ? layers!.mosaic : layers!.crisp[style]);
-      if (seg.from === seg.to) return blit(source(seg.to));
-
-      // A morph: the rectangle is cut into blocks that flip from the old style to the new one,
-      // sweeping across in the same direction and on the same beat as the portrait.
-      const prog = (t - seg.start) / (seg.end - seg.start);
-      const cellCss = H / 6;
-      const cols = Math.max(1, Math.round(W / cellCss));
-      const rows = 6;
-      const cw = canvas.width / cols;
-      const ch = canvas.height / rows;
-      const spread = 0.55;
-      blit(source(seg.from));
-      const to = source(seg.to);
-      for (let cy = 0; cy < rows; cy++) {
-        for (let cx = 0; cx < cols; cx++) {
-          const along = seg.sweep % 2 === 0 ? cx / cols : 1 - cx / cols;
-          const d = clamp01(along * 0.82 + hash(cy * cols + cx) * 0.18);
-          if (smooth(clamp01(prog * (1 + spread) - d * spread)) > 0.5) {
-            const sx = Math.floor(cx * cw);
-            const sy = Math.floor(cy * ch);
-            const sw = Math.ceil((cx + 1) * cw) - sx;
-            const sh = Math.ceil((cy + 1) * ch) - sy;
-            ctx.drawImage(to, sx, sy, sw, sh, sx, sy, sw, sh);
-          }
-        }
-      }
-    };
-
-    const loop = () => {
-      draw();
-      raf = requestAnimationFrame(loop);
-    };
-
-    const ro = new ResizeObserver(() => {
-      rebuild();
-      draw();
-    });
-
-    void (async () => {
-      const f = readFonts();
+    const start = async () => {
       try {
-        await Promise.all([
-          document.fonts.load(`500 20px ${f.body}`),
-          document.fonts.load(`700 20px ${f.body}`),
-          document.fonts.load(`800 20px ${f.body}`),
-          document.fonts.load(`italic 600 20px ${f.display}`),
-        ]);
-      } catch {
-        // Fall back to whatever the browser has; the canvas still draws.
+        const { default: P5 } = await import("p5");
+        const fonts = readFonts();
+        await waitForFonts(fonts);
+        if (cancelled) return;
+
+        let layers: Layers | null = null;
+        let W = 0;
+        let H = 0;
+        let dpr = 1;
+        let lastKey = "";
+
+        const rebuild = (p: p5) => {
+          const r = wrap.getBoundingClientRect();
+          const nw = Math.round(r.width);
+          const nh = Math.round(r.height);
+          if (nw < 40 || nh < 20) return;
+          if (nw !== W || nh !== H) {
+            W = nw;
+            H = nh;
+            p.resizeCanvas(W, H);
+          }
+          dpr = p.pixelDensity();
+          layers = buildLayers(W, H, dpr, fonts);
+          lastKey = "";
+        };
+
+        instance = new P5((p: p5) => {
+          p.setup = () => {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            p.pixelDensity(dpr);
+            const r = wrap.getBoundingClientRect();
+            W = Math.max(40, Math.round(r.width));
+            H = Math.max(20, Math.round(r.height));
+            const canvas = p.createCanvas(W, H);
+            canvas.style("position", "absolute");
+            canvas.style("inset", "0");
+            canvas.style("width", "100%");
+            canvas.style("height", "100%");
+            p.frameRate(30);
+            layers = buildLayers(W, H, dpr, fonts);
+          };
+
+          p.draw = () => {
+            if (!layers) return;
+            const ctx = p.drawingContext as CanvasRenderingContext2D;
+            const live = heroClockIsLive();
+            const t = live ? heroClock.t : 0;
+            const key = `${W}x${H}:${live ? t.toFixed(3) : "rest"}`;
+            if (key === lastKey) return;
+            lastKey = key;
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.imageSmoothingEnabled = false;
+            const cw = ctx.canvas.width;
+            const chh = ctx.canvas.height;
+            const blit = (src: HTMLCanvasElement) => ctx.drawImage(src, 0, 0, cw, chh);
+
+            const seg = segments.find((s) => t >= s.start && t < s.end) ?? segments[0];
+            const source = (style: number) => (style === 0 ? layers!.mosaic : layers!.crisp[style]);
+            if (!live || seg.kind === "photo") blit(layers.crisp[0]);
+            else if (seg.kind === "level") blit(layers.levels[seg.level]);
+            else if (seg.from === seg.to) blit(source(seg.to));
+            else {
+              // A morph: the rectangle is cut into blocks that flip from the old style to the
+              // new one, sweeping across on the same beat as the portrait.
+              const prog = (t - seg.start) / (seg.end - seg.start);
+              const rows = 6;
+              const cols = Math.max(1, Math.round(W / (H / rows)));
+              const cellW = cw / cols;
+              const cellH = chh / rows;
+              const spread = 0.55;
+              blit(source(seg.from));
+              const to = source(seg.to);
+              for (let cy = 0; cy < rows; cy++) {
+                for (let cx = 0; cx < cols; cx++) {
+                  const along = seg.sweep % 2 === 0 ? cx / cols : 1 - cx / cols;
+                  const d = clamp01(along * 0.82 + hash(cy * cols + cx) * 0.18);
+                  if (smooth(clamp01(prog * (1 + spread) - d * spread)) > 0.5) {
+                    const sx = Math.floor(cx * cellW);
+                    const sy = Math.floor(cy * cellH);
+                    const sw = Math.ceil((cx + 1) * cellW) - sx;
+                    const sh = Math.ceil((cy + 1) * cellH) - sy;
+                    ctx.drawImage(to, sx, sy, sw, sh, sx, sy, sw, sh);
+                  }
+                }
+              }
+            }
+            ctx.restore();
+            setReady(true);
+          };
+        }, host);
+
+        // Rebuild when the rectangle changes size, and pause while it is off screen.
+        resizer = new ResizeObserver(() => instance && rebuild(instance));
+        resizer.observe(wrap);
+        observer = new IntersectionObserver(([entry]) => {
+          if (!instance) return;
+          if (entry.isIntersecting) instance.loop();
+          else instance.noLoop();
+        });
+        observer.observe(wrap);
+      } catch (error) {
+        // If anything goes wrong, the plain rectangle stays on screen.
+        console.error("Hero tagline animation failed to start", error);
       }
-      if (cancelled) return;
-      fonts = f;
-      rebuild();
-      if (!layers) return;
-      draw();
-      setReady(true);
-      ro.observe(wrap);
-      if (!reduce) raf = requestAnimationFrame(loop);
-    })();
+    };
+
+    const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
+      .requestIdleCallback;
+    const handle = idle ? idle(() => void start(), { timeout: 2000 }) : window.setTimeout(() => void start(), 600);
 
     return () => {
       cancelled = true;
-      cancelAnimationFrame(raf);
-      ro.disconnect();
+      resizer?.disconnect();
+      observer?.disconnect();
+      instance?.remove();
+      if (!idle) window.clearTimeout(handle);
+      else (window as unknown as { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback?.(handle);
     };
   }, []);
 
   return (
     <div ref={wrapRef} className="relative h-[4.5rem] w-full max-w-[27rem] sm:h-[5rem]">
-      {/* The readable line is always in the page; once the canvas is drawing it is hidden visually
-          but stays for screen readers and for anyone whose browser can't run the canvas. */}
+      {/* The readable line is always in the page. Once the sketch is drawing it is hidden visually
+          but stays for screen readers, and it is what shows if the sketch can't run. */}
       <p
         className={`absolute inset-0 flex items-center justify-center border border-line text-lg text-ink-muted transition-opacity duration-300 sm:text-xl ${
           ready ? "opacity-0" : "opacity-100"
@@ -287,10 +325,10 @@ export function HeroTagline() {
       >
         {PLAIN}
       </p>
-      <canvas
-        ref={canvasRef}
+      <div
+        ref={hostRef}
         aria-hidden
-        className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${ready ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 transition-opacity duration-300 ${ready ? "opacity-100" : "opacity-0"}`}
       />
     </div>
   );

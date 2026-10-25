@@ -59,14 +59,14 @@ export function HeroSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                View Selected Work
+                Let&rsquo;s see some work
               </Link>
             </motion.div>
             <Link
               href="/contact"
               className="inline-flex min-h-[44px] items-center border-b border-line text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
-              Open to opportunities
+              Let&rsquo;s work together
             </Link>
           </motion.div>
         </div>

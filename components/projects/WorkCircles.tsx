@@ -21,10 +21,11 @@ const CROP: Record<string, { fit: "cover" | "contain"; position?: string; backdr
 };
 
 /** Each row is driven by how far it has travelled through the screen: 0 as it enters at the bottom,
- *  1 as it leaves at the top. Scrolling down draws the ring, then the underline and title, then the
- *  description; scrolling back up undoes them in reverse. They hold while the row is mid-screen. */
-const IN = { image: [0.04, 0.16], ring: [0.08, 0.32], title: [0.3, 0.4], description: [0.38, 0.47] } as const;
-const OUT = { description: [0.7, 0.76], title: [0.74, 0.8], ring: [0.72, 0.88], image: [0.86, 0.95] } as const;
+ *  1 as it leaves at the top. Scrolling down fades in the picture, then the title with its underline,
+ *  then the description; scrolling back up undoes them in reverse. They hold while the row is
+ *  mid-screen. */
+const IN = { image: [0.04, 0.16], title: [0.2, 0.3], description: [0.28, 0.37] } as const;
+const OUT = { description: [0.7, 0.76], title: [0.74, 0.8], image: [0.86, 0.95] } as const;
 
 /** Rises from 0 to 1 across `inn`, holds at 1, then falls back to 0 across `out`. With reduced
  *  motion it is simply 1 the whole way, so everything shows finished and nothing moves. */
@@ -44,7 +45,6 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   const image = useFade(p, IN.image, OUT.image, reduce);
-  const ring = useFade(p, IN.ring, OUT.ring, reduce);
   const titleOpacity = useFade(p, IN.title, OUT.title, reduce);
   const titleY = useShift(p, IN.title, OUT.title, 14, -10, reduce);
   const underline = useFade(p, IN.title, OUT.title, reduce);
@@ -89,25 +89,6 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
             </div>
           ) : null}
         </motion.div>
-
-        {/* A fine red ring, just outside the picture. Its length follows the scroll, clockwise from the top. */}
-        <svg
-          aria-hidden
-          viewBox="0 0 100 100"
-          className="pointer-events-none absolute -inset-[3%] h-[106%] w-[106%] overflow-visible"
-        >
-          <motion.circle
-            cx={50}
-            cy={50}
-            r={49.6}
-            fill="none"
-            stroke="#D64040"
-            strokeWidth={0.4}
-            strokeLinecap="round"
-            transform="rotate(-90 50 50)"
-            style={{ pathLength: ring }}
-          />
-        </svg>
       </div>
 
       <div className={`min-w-0 flex-1 ${left ? "self-start text-left md:self-center" : "self-end text-left md:self-center md:text-right"}`}>

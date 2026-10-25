@@ -76,13 +76,12 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* The portrait: a photo that pixelates and redraws itself in a loop. It sits flush with the
-            bottom edge of the hero so the panel reads as part of the page, not a floating card. */}
+        {/* The portrait: a round crop of the photo that pixelates and redraws itself in a loop. */}
         <motion.div
           initial={reduce ? undefined : { y: 28 }}
           animate={reduce ? undefined : { y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
-          className="relative mx-auto mt-12 aspect-[3/4] w-[78%] max-w-[22rem] md:absolute md:bottom-0 md:right-14 md:mx-0 md:mt-0 md:aspect-auto md:h-[min(80svh,48rem)] md:w-[min(60svh,36rem)] lg:right-16"
+          className="relative mx-auto mt-12 aspect-square w-[78%] max-w-[22rem] md:absolute md:max-w-none md:bottom-[7%] md:right-14 md:mx-0 md:mt-0 md:h-[min(66svh,38rem)] md:w-[min(66svh,38rem)] lg:right-16"
         >
           <HeroPortrait />
         </motion.div>

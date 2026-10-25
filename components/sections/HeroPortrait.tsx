@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type p5 from "p5";
 
-const PHOTO = "portrait/axel-photo.jpg";
+const PHOTO = "portrait/axel-photo-square.jpg";
 
 /** The hero portrait. The server renders the plain photo, so the first paint is the photo itself.
  *  Once the page is idle, p5 loads and takes over the same frame with a looping pixel animation.
@@ -52,14 +52,14 @@ export function HeroPortrait() {
   }, []);
 
   return (
-    <div ref={hostRef} className="absolute inset-0 overflow-hidden bg-white">
+    <div ref={hostRef} className="absolute inset-0 overflow-hidden rounded-full bg-white">
       <Image
         src={pictureSrc(PHOTO)}
         alt="Portrait of Axel Garland, smiling, in a dark green polo shirt"
         fill
         priority
         className="object-cover"
-        sizes="(max-width: 768px) 78vw, 36rem"
+        sizes="(max-width: 768px) 78vw, 34rem"
       />
     </div>
   );

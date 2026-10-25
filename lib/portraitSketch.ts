@@ -2,16 +2,16 @@ import type p5 from "p5";
 
 /** A looping p5 animation of Axel's photo: it pixelates, then re-draws itself in four different
  *  styles (a duotone print, halftone dots, a grey-and-red illustration, pop colours), then
- *  resolves back to the photo. Every style is a function of the same 54 x 72 grid of averaged
+ *  resolves back to the photo. Every style is a function of the same 60 x 60 grid of averaged
  *  colours, so the transitions between styles are per-cell morphs rather than crossfades. */
 
-const COLS = 54;
-const ROWS = 72;
+const COLS = 60;
+const ROWS = 60;
 /** Finer grids shown in turn while the photo breaks into pixels (and back again). */
 const PIXEL_STEPS: [number, number][] = [
-  [216, 288],
-  [128, 171],
-  [80, 107],
+  [240, 240],
+  [144, 144],
+  [90, 90],
 ];
 
 type RGB = [number, number, number];
@@ -125,7 +125,7 @@ function buildStyles(base: Uint8ClampedArray): Float32Array[] {
     // Tri-tone, close to the hand-drawn portrait: ink, grey, cream, with red on warm mid-tones.
     const cx = (i % COLS) / COLS;
     const cy = Math.floor(i / COLS) / ROWS;
-    const lips = r > g * 1.5 && r > 120 && l > 0.2 && l < 0.7 && Math.abs(cx - 0.47) < 0.14 && Math.abs(cy - 0.46) < 0.05;
+    const lips = r > g * 1.5 && r > 120 && l > 0.2 && l < 0.7 && Math.abs(cx - 0.47) < 0.13 && Math.abs(cy - 0.535) < 0.05;
     const tone: RGB = lips ? RED : l < 0.3 ? INK : l < 0.63 ? GREY : CREAM;
     setCell(tritone, i, tone, 1, 0, CREAM);
 
@@ -221,9 +221,9 @@ export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
         // Morph order radiates out from the face, with a little noise so it never looks mechanical.
         for (let cy = 0; cy < ROWS; cy++) {
           for (let cx = 0; cx < COLS; cx++) {
-            const dx = cx / COLS - 0.5;
-            const dy = cy / ROWS - 0.4;
-            const d = Math.min(1, Math.hypot(dx, dy * 0.75) * 1.7);
+            const dx = cx / COLS - 0.47;
+            const dy = cy / ROWS - 0.44;
+            const d = Math.min(1, Math.hypot(dx, dy) * 1.55);
             delays[cy * COLS + cx] = clamp01(d * 0.82 + hash(cy * COLS + cx) * 0.18);
           }
         }

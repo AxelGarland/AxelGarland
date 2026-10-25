@@ -31,7 +31,7 @@ function Row({ project, index }: { project: Project; index: number }) {
         }`}
       >
         <div
-          className={`relative aspect-square w-[78%] shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(26,25,22,0.08)] md:w-[min(46vw,36rem)] ${
+          className={`relative aspect-square w-[66%] shrink-0 overflow-hidden rounded-full shadow-[0_0_0_1px_rgba(26,25,22,0.08)] md:w-[min(39vw,30.6rem)] ${
             left ? "self-start" : "self-end"
           } ${crop.backdrop ?? "bg-surface-raised"}`}
         >
@@ -44,12 +44,12 @@ function Row({ project, index }: { project: Project; index: number }) {
                 crop.fit === "cover" ? "object-cover" : `object-contain ${crop.scale ?? ""}`
               } ${project.thumbnailBlend ? "mix-blend-multiply" : ""}`}
               style={crop.position ? { objectPosition: crop.position } : undefined}
-              sizes="(max-width: 768px) 78vw, 36rem"
+              sizes="(max-width: 768px) 78vw, 31rem"
             />
           ) : null}
           {project.previewVideo ? <CardPreview src={project.previewVideo} /> : null}
           {project.clientLogo ? (
-            <div className="absolute bottom-[10%] left-[10%] flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-sm sm:h-12 sm:w-12">
+            <div className="absolute bottom-[17%] left-[17%] flex h-11 w-11 items-center justify-center rounded-md bg-surface/95 p-1.5 shadow-sm sm:h-12 sm:w-12">
               <Image
                 src={pictureSrc(project.clientLogo)}
                 alt={`${project.title}: real client work`}

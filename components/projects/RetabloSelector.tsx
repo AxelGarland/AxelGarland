@@ -29,6 +29,8 @@ export type RetabloBox = {
   title: string;
   /** Name painted on the retablo's lid. */
   lid: string;
+  /** A few lines on what the box shows and stands for. */
+  description?: string;
   /** Closed-box photo (tightly cropped, transparent) used as the clickable tile. */
   retablo: string;
   retabloWidth: number;

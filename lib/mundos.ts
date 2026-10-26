@@ -7,6 +7,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     slug: "familia",
     title: "Familia",
     lid: "Mundos Mejores",
+    description:
+      "A family gathered together, arms linked around the recurring figure, with framed memories hanging on the wall behind them. The box that holds the people who remember her.",
     retablo: "Retablo 1 web.webp",
     retabloWidth: 1200,
     retabloHeight: 456,
@@ -21,6 +23,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     slug: "between-the-stars",
     title: "Between the Stars",
     lid: "Entre las Estrellas",
+    description:
+      "The figure on a swing, reaching up toward painted stars that hang on chains. A night sky small enough to hold, and a moment of wonder at whatever lies beyond it.",
     retablo: "Retablo 2 web.webp",
     retabloWidth: 761,
     retabloHeight: 1200,
@@ -36,6 +40,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     slug: "summer",
     title: "Summer",
     lid: "Verano sin Fin",
+    description:
+      "An endless summer: the figure stands under a smiling sun, flowers blooming around her and hummingbirds flying across the doors. A warm moment held still, for as long as the box stays open.",
     retablo: "Retablo 3 web.webp",
     retabloWidth: 1075,
     retabloHeight: 1200,
@@ -51,6 +57,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     slug: "underwater",
     title: "Underwater",
     lid: "Bajo el Agua",
+    description:
+      "The figure in a swimsuit and flippers, hanging weightless in a tiled pool, one hand raised in a wave. A playful memory of floating, with nothing to carry.",
     retablo: "Retablo 4 web.webp",
     retabloWidth: 1107,
     retabloHeight: 1200,
@@ -65,6 +73,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     slug: "biblioteca",
     title: "Biblioteca",
     lid: "Biblioteca Infinita",
+    description:
+      "The figure reading among stacks of books beneath a chandelier, in a library that never ends. A box about curiosity, and about all the stories still left to read.",
     retablo: "Retablo 5 web.webp",
     retabloWidth: 771,
     retabloHeight: 1200,

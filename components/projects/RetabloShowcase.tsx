@@ -3,7 +3,7 @@
 import { RetabloPieces, retabloFrameStyle } from "@/components/projects/OpeningRetablo";
 import type { RetabloBox } from "@/components/projects/RetabloSelector";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Share of each box's stretch of the bar in which its doors swing; the rest it rests fully open. */
 const SWING = 0.75;
@@ -17,7 +17,16 @@ const smooth = (t: number) => t * t * (3 - 2 * t);
 /** One box on show, with a bar underneath that scrubs through all of them: dragging along it swings
  *  each box's doors open in turn, and carrying on past the end of one brings in the next. Clicking
  *  the box on show opens its page. */
-export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]; className?: string }) {
+export function RetabloShowcase({
+  boxes,
+  className = "",
+  onChange,
+}: {
+  boxes: RetabloBox[];
+  className?: string;
+  /** Called with the box now on show (its place in `boxes`), including once on mount. */
+  onChange?: (boxIndex: number) => void;
+}) {
   const items = boxes.map((box, i) => ({ box, number: i + 1 })).filter(({ box }) => box.open);
   const n = items.length;
   const [pos, setPos] = useState(START);
@@ -29,6 +38,10 @@ export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]
   const swung = Math.min(1, (pos - index) / SWING);
   const angle = 180 * smooth(swung);
   const current = items[index];
+
+  useEffect(() => {
+    onChange?.(current.number - 1);
+  }, [current.number, onChange]);
 
   const fromPointer = (clientX: number) => {
     const r = track.current?.getBoundingClientRect();

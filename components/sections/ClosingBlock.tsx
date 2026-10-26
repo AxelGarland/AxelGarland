@@ -11,8 +11,8 @@ export function ClosingBlock() {
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             Open to opportunities
           </p>
-          <h2 className="mb-12 max-w-[12ch] font-display text-[clamp(2.54rem,7.8vw,7.02rem)] font-light leading-[0.92] tracking-[-0.03em] text-ink">
-            Let&rsquo;s make <em className="italic text-accent">something.</em>
+          <h2 className="mb-12 max-w-[19ch] font-display text-[clamp(2.1rem,6.2vw,5.6rem)] font-light leading-[0.92] tracking-[-0.03em] text-ink">
+            Let&rsquo;s make <em className="italic text-accent">something great!</em>
           </h2>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <HalftoneButton href="/contact" label="Get in touch" />

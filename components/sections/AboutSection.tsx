@@ -9,12 +9,22 @@ export function AboutSection() {
             <h2 className="font-display text-[clamp(1.95rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink">
               About me
             </h2>
-            <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted md:pt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
+            <div className="md:pt-3">
+              <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted">
+                I&rsquo;m a multidisciplinary designer who loves making experiences people actually
+                want to explore. Websites, apps, illustration: I move between all of them, from a
+                pencil sketch to a Figma file to working code. I like the whole route, the
+                hand-drawn and the hand-coded, and I treat AI as one more tool in the kit, never a
+                shortcut around the thinking.
+              </p>
+              <p className="mt-8 text-sm text-ink-muted">
+                <span className="mr-3 text-ink">Tools</span>
+                Figma<span aria-hidden className="mx-2.5 text-accent">&middot;</span>Adobe Creative
+                Suite<span aria-hidden className="mx-2.5 text-accent">&middot;</span>WordPress
+                <span aria-hidden className="mx-2.5 text-accent">&middot;</span>Cursor
+                <span aria-hidden className="mx-2.5 text-accent">&middot;</span>Claude Code
+              </p>
+            </div>
           </div>
         </MotionReveal>
       </div>

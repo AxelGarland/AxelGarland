@@ -1,6 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
-import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
@@ -17,8 +16,6 @@ export const metadata: Metadata = {
   description:
     "Kindred, a generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
 };
-
-const TAGS = ["Generative Design", "Illustration", "Creative Coding", "Web App"];
 
 const POSTERS = Array.from({ length: 10 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
@@ -74,14 +71,9 @@ export default function KindredPage() {
         <header className="pb-16 pt-36 sm:pb-20 sm:pt-36">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div className="order-2 md:order-1">
-              <h1 className="mb-6 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
+              <h1 className="mb-8 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
-              <p className="mb-6 max-w-[40ch] text-lg leading-relaxed text-ink-muted">
-                Kindred is a generative illustration system: hand-drawn tiles and coded rules of
-                symmetry that make an endless family of faces.
-              </p>
-              <TagLine tags={TAGS} className="mb-8" />
               {project.liveUrl ? (
                 <HalftoneButton href={project.liveUrl} external label="Try it yourself" />
               ) : null}

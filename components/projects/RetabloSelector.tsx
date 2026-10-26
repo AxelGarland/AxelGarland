@@ -9,6 +9,9 @@ import { useRef } from "react";
 export type RetabloImage = {
   file: string;
   alt: string;
+  /** The photo's own size, so it can be shown whole at its true proportions. */
+  width?: number;
+  height?: number;
   /** Taller-than-wide photo — gets a tall, narrower frame so it isn't cropped to a thin band. */
   portrait?: boolean;
 };

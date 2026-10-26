@@ -2,6 +2,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { MundosExplorer } from "@/components/projects/MundosExplorer";
+import { PhotoGrid } from "@/components/projects/PhotoGrid";
 import { MUNDOS_BOXES } from "@/lib/mundos";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
@@ -25,6 +26,13 @@ export default function MundosMejoresPage() {
         <BackLink />
         {/* The text and the boxes you scrub through, and the section for the box on show */}
         <MundosExplorer title={project.title} intro={project.reflection ?? ""} boxes={MUNDOS_BOXES} />
+
+        {/* All the photos, whole, in a grid */}
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <PhotoGrid photos={MUNDOS_BOXES.flatMap((box) => box.images)} />
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </>

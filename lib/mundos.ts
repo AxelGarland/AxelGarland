@@ -14,9 +14,9 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 456,
     open: { prefix: "retablo-anim/1", width: 1316, height: 259, left: 318, right: 985, lid: 52 },
     images: [
-      { file: "mundos mejores/web/Familia 1.jpg", alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
-      { file: "mundos mejores/web/familia 2.jpg", alt: "Family box, detail view" },
-      { file: "mundos mejores/web/familia 3.jpg", alt: "Family box, detail view" },
+      { file: "mundos mejores/web/Familia 1.jpg", width: 2400, height: 925, alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
+      { file: "mundos mejores/web/familia 2.jpg", width: 2400, height: 1450, alt: "Family box, detail view" },
+      { file: "mundos mejores/web/familia 3.jpg", width: 2400, height: 1338, alt: "Family box, detail view" },
     ],
   },
   {
@@ -30,10 +30,10 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 1200,
     open: { prefix: "retablo-anim/2", width: 1080, height: 864, left: 262, right: 796, lid: 64 },
     images: [
-      { file: "mundos mejores/web/between the stars.jpg", alt: "A figure swinging among hanging painted stars" },
-      { file: "mundos mejores/web/between the stars1.jpg", alt: "Stars box, detail view" },
-      { file: "mundos mejores/web/between the stars2.jpg", alt: "Stars box, detail view", portrait: true },
-      { file: "mundos mejores/web/between stars 3.jpg", alt: "Stars box, detail view", portrait: true },
+      { file: "mundos mejores/web/between the stars.jpg", width: 2400, height: 1600, alt: "A figure swinging among hanging painted stars" },
+      { file: "mundos mejores/web/between the stars1.jpg", width: 2400, height: 1746, alt: "Stars box, detail view" },
+      { file: "mundos mejores/web/between the stars2.jpg", width: 1600, height: 2400, alt: "Stars box, detail view", portrait: true },
+      { file: "mundos mejores/web/between stars 3.jpg", width: 1600, height: 2400, alt: "Stars box, detail view", portrait: true },
     ],
   },
   {
@@ -47,10 +47,10 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 1200,
     open: { prefix: "retablo-anim/3", width: 966, height: 526, left: 251, right: 717, lid: 55 },
     images: [
-      { file: "mundos mejores/web/summer 1.jpg", alt: "A figure basking beneath a smiling sun and blooming flowers" },
-      { file: "mundos mejores/web/summer 2.jpg", alt: "Summer box, detail view" },
-      { file: "mundos mejores/web/summer 3.jpg", alt: "Summer box, detail view" },
-      { file: "mundos mejores/web/summer 4.jpg", alt: "Summer box, detail view", portrait: true },
+      { file: "mundos mejores/web/summer 1.jpg", width: 2400, height: 1665, alt: "A figure basking beneath a smiling sun and blooming flowers" },
+      { file: "mundos mejores/web/summer 2.jpg", width: 2400, height: 1368, alt: "Summer box, detail view" },
+      { file: "mundos mejores/web/summer 3.jpg", width: 2400, height: 2177, alt: "Summer box, detail view" },
+      { file: "mundos mejores/web/summer 4.jpg", width: 1600, height: 2400, alt: "Summer box, detail view", portrait: true },
     ],
   },
   {
@@ -64,9 +64,9 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 1200,
     open: { prefix: "retablo-anim/4", width: 1045, height: 571, left: 257, right: 777, lid: 70 },
     images: [
-      { file: "mundos mejores/web/underwater1.jpg", alt: "A figure in a swimsuit and flippers, suspended underwater", portrait: true },
-      { file: "mundos mejores/web/underwater 2.jpg", alt: "Underwater box, detail view" },
-      { file: "mundos mejores/web/underwater 3.jpg", alt: "Underwater box, detail view", portrait: true },
+      { file: "mundos mejores/web/underwater1.jpg", width: 1600, height: 2400, alt: "A figure in a swimsuit and flippers, suspended underwater", portrait: true },
+      { file: "mundos mejores/web/underwater 2.jpg", width: 2400, height: 1600, alt: "Underwater box, detail view" },
+      { file: "mundos mejores/web/underwater 3.jpg", width: 1736, height: 2400, alt: "Underwater box, detail view", portrait: true },
     ],
   },
   {
@@ -80,9 +80,9 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 1200,
     open: { prefix: "retablo-anim/5", width: 960, height: 772, left: 248, right: 722, lid: 66 },
     images: [
-      { file: "mundos mejores/web/biblioteca1.jpg", alt: "A figure reading among towering stacks of books" },
-      { file: "mundos mejores/web/biblioteca 2.jpg", alt: "Library box, detail view" },
-      { file: "mundos mejores/web/biblioteca 3.jpg", alt: "Library box, detail view" },
+      { file: "mundos mejores/web/biblioteca1.jpg", width: 2400, height: 1699, alt: "A figure reading among towering stacks of books" },
+      { file: "mundos mejores/web/biblioteca 2.jpg", width: 2400, height: 1925, alt: "Library box, detail view" },
+      { file: "mundos mejores/web/biblioteca 3.jpg", width: 2400, height: 1831, alt: "Library box, detail view" },
     ],
   },
 ];

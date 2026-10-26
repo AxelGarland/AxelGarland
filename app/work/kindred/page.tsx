@@ -105,17 +105,7 @@ export default function KindredPage() {
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   Kindred explores where the boundaries between code, algorithms, and illustration
                   meet, producing an endless family of graphic faces, each one generated
-                  automatically. The idea underneath it: how we&rsquo;re perceived from the outside
-                  is never one fixed image. It&rsquo;s built from many separate perceptions of
-                  others and of ourselves, combined.
-                </p>
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  Every face sits on the same 5 by 5 grid and is built from 27 hand-drawn tiles,
-                  turned and flipped. Ten words build each face: nine choose the tiles and the
-                  tenth chooses the colour. So every face is different, and every face is kin.
-                </p>
-                <p className="max-w-[64ch] text-base leading-relaxed text-ink-subtle">
-                  Tiles drawn in Illustrator, system coded in p5.js.
+                  automatically.
                 </p>
               </div>
             </div>

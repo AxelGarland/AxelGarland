@@ -10,6 +10,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retablo: "Retablo 1 web.webp",
     retabloWidth: 1200,
     retabloHeight: 456,
+    open: { prefix: "retablo-anim/1", width: 1316, height: 259, left: 318, right: 985, lid: 52 },
     images: [
       { file: "mundos mejores/web/Familia 1.jpg", alt: "The \"Mundos Mejores\" box: a family of figures standing arm in arm" },
       { file: "mundos mejores/web/familia 2.jpg", alt: "Family box, detail view" },

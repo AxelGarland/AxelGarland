@@ -13,25 +13,42 @@ export function LoadingLoop({
   frames,
   intervalMs = 1400,
   fill = false,
+  still,
 }: {
   frames: Frame[];
   intervalMs?: number;
+  /** With reduced motion and `fill`, the frame to hold on (default: the last). */
+  still?: number;
   /** Fill the parent (which sets the shape) instead of drawing its own 16:9 framed box. With reduced
    *  motion it then holds on the last frame rather than laying the frames side by side. */
   fill?: boolean;
 }) {
   const reduce = useHydrationSafeReducedMotion();
   const [active, setActive] = useState(0);
+  const [previous, setPrevious] = useState<number | null>(null);
 
   useEffect(() => {
     if (reduce) return;
-    const id = setInterval(() => setActive((i) => (i + 1) % frames.length), intervalMs);
+    const id = setInterval(() => {
+      setActive((current) => {
+        setPrevious(current);
+        return (current + 1) % frames.length;
+      });
+    }, intervalMs);
     return () => clearInterval(id);
   }, [reduce, frames.length, intervalMs]);
 
+  // The frame that was showing stays solid underneath until the next one has fully faded in, so
+  // the picture never dips through the backdrop between frames.
+  useEffect(() => {
+    if (previous === null) return;
+    const id = setTimeout(() => setPrevious(null), 600);
+    return () => clearTimeout(id);
+  }, [previous]);
+
   if (reduce && fill) {
-    const last = frames[frames.length - 1];
-    return <Image src={pictureSrc(last.file)} alt={last.alt} fill className="object-cover" sizes="(max-width: 768px) 66vw, 31rem" />;
+    const held = frames[still ?? frames.length - 1];
+    return <Image src={pictureSrc(held.file)} alt={held.alt} fill className="object-cover" sizes="(max-width: 768px) 66vw, 31rem" />;
   }
 
   if (reduce) {
@@ -55,7 +72,9 @@ export function LoadingLoop({
           alt={i === active ? frame.alt : ""}
           aria-hidden={i !== active}
           fill
-          className={`object-cover transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
+          className={`object-cover ${
+            i === active ? "z-10 opacity-100 transition-opacity duration-500" : i === previous ? "opacity-100" : "opacity-0"
+          }`}
           sizes={fill ? "(max-width: 768px) 66vw, 31rem" : "(max-width: 768px) 100vw, 400px"}
         />
       ))}

@@ -67,7 +67,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
           className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}
         >
           {project.circleLoop ? (
-            <LoadingLoop frames={project.circleLoop} fill />
+            <LoadingLoop frames={project.circleLoop} still={project.circleLoopStill} fill />
           ) : thumb ? (
             <Image
               src={thumb}

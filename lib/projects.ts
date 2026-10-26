@@ -89,6 +89,8 @@ export type Project = {
   previewVideo?: string;
   /** Stills that cycle inside the project's circle on the home page, in place of the thumbnail. */
   circleLoop?: { file: string; alt: string }[];
+  /** Which of those stills to hold on when the visitor prefers reduced motion (default: the last). */
+  circleLoopStill?: number;
   /** Detail hero — exact filename */
   hero: string;
   /** Full gallery on the project page */
@@ -364,6 +366,22 @@ export const PROJECTS: Project[] = [
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem. The illustrations that bring to life the fantastical world Carroll created were made with colored pencils. I wanted to tell the story behind the poem's nonsensical words, bring its characters to life, and build a world for them to live in.",
     discipline: "Illustrated book",
     tags: ["Illustration", "Illustrated Book", "Children's Books"],
+    circleLoopStill: 0,
+    circleLoop: [
+      { file: "jabberwocky/circle-01.jpg", alt: "Jabberwocky book cover: the Jabberwock's head above the title" },
+      { file: "jabberwocky/circle-02.jpg", alt: "A castle with smoking towers among grey hills under a pink sky" },
+      { file: "jabberwocky/circle-03.jpg", alt: "A bearded king in a crown lifting a boy: Beware of the Jabberwock, my son" },
+      { file: "jabberwocky/circle-04.jpg", alt: "The Jabberwock's open jaws, the jaws that bite" },
+      { file: "jabberwocky/circle-05.jpg", alt: "The Jub Jub bird lifting a tiny figure in its beak" },
+      { file: "jabberwocky/circle-06.jpg", alt: "The Bandersnatch, a spotted beast with a long tongue, facing a boy with a sword" },
+      { file: "jabberwocky/circle-07.jpg", alt: "The boy riding a striped horse, sword in hand" },
+      { file: "jabberwocky/circle-08.jpg", alt: "The boy resting under the Tumtum tree beside his horse" },
+      { file: "jabberwocky/circle-09.jpg", alt: "The Jabberwock with eyes of flame in a golden sky" },
+      { file: "jabberwocky/circle-10.jpg", alt: "The boy and the Jabberwock in a fiery battle" },
+      { file: "jabberwocky/circle-12.jpg", alt: "The king on his throne among his trophies" },
+      { file: "jabberwocky/circle-13.jpg", alt: "A celebration: the king embracing the boy under bunting" },
+      { file: "jabberwocky/circle-14.jpg", alt: "A dark creature with the Jabberwock's head under a purple sky" },
+    ],
     thumbnail: "jabberwocky/book-mockup.jpg",
     thumbnailBlend: true,
     hero: "book mock up.jpg",

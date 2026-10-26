@@ -75,7 +75,7 @@ export default function InterviewAssistantPage() {
               <span style={{ fontFamily: "var(--font-hebrew)" }}>(ראיון להצלחה)</span> &middot; Alut
               Recruitment Department
             </p>
-            <h1 className="mb-6 max-w-[20ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="mb-6 max-w-[20ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
               Anyone can run <em className="italic text-accent">a good interview</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
@@ -104,7 +104,7 @@ export default function InterviewAssistantPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Hiring, without a hiring background
                 </h2>
               </div>
@@ -127,7 +127,7 @@ export default function InterviewAssistantPage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The solution
               </p>
-              <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 Four tools, one interview
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
@@ -169,7 +169,7 @@ export default function InterviewAssistantPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
                   The outcome
                 </p>
-                <h2 className="max-w-[16ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
+                <h2 className="max-w-[16ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl">
                   A repeatable process, <em className="italic text-accent">not a personal skill</em>
                 </h2>
               </div>
@@ -180,7 +180,7 @@ export default function InterviewAssistantPage() {
                       aria-hidden
                       className="absolute -left-[2.3rem] top-2 h-2.5 w-2.5 rounded-full bg-accent sm:-left-[2.8rem]"
                     />
-                    <h3 className="mb-2 font-display text-2xl font-medium text-surface">
+                    <h3 className="mb-2 font-display text-xl font-medium text-surface">
                       {beat.title}
                     </h3>
                     <p className="max-w-[48ch] text-base leading-relaxed text-surface/70">

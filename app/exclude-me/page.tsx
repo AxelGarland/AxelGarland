@@ -20,7 +20,7 @@ export default function ExcludeMePage() {
   return (
     <main id="main" className="bg-surface">
       <div className="mx-auto flex min-h-[70svh] max-w-content flex-col justify-center px-6 pb-16 pt-32 sm:px-10 md:px-14 lg:px-16">
-        <h1 className="mb-4 font-display text-4xl font-light tracking-tight text-ink sm:text-5xl">
+        <h1 className="mb-4 font-display text-3xl font-light tracking-tight text-ink sm:text-3xl">
           {off === null ? "One moment." : off ? "This browser is excluded." : "Couldn’t save the setting."}
         </h1>
         <p className="mb-8 max-w-[48ch] text-lg leading-relaxed text-ink-muted">

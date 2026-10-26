@@ -77,7 +77,7 @@ export function HalftoneLogo() {
   return (
     <span className="relative inline-block align-middle" style={{ width: size?.w ?? 214, height: H }}>
       <span
-        className={`absolute inset-0 flex items-center whitespace-nowrap font-display text-xl font-semibold tracking-tight text-ink transition-opacity duration-300 ${
+        className={`absolute inset-0 flex items-center whitespace-nowrap font-display text-lg font-semibold tracking-tight text-ink transition-opacity duration-300 ${
           size ? "sr-only" : "opacity-100"
         }`}
       >

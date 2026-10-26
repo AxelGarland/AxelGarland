@@ -40,3 +40,15 @@
     @apply bg-line text-ink;
   }
 }
+
+/* The display face is the same heavy sans as the name in the hero, set in capitals. It is applied
+   to everything that used the old serif, regardless of the weight class on the element. */
+html .font-display {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+html .font-display em,
+html em.font-display {
+  font-style: normal;
+}

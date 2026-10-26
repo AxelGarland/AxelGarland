@@ -99,7 +99,7 @@ export default function BetterEaterPage() {
         {/* Hero */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
               Eating, made <em className="italic text-accent">better</em>
             </h1>
             <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
@@ -136,7 +136,7 @@ export default function BetterEaterPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Meet Amit, who we designed it for
                 </h2>
                 <div className="relative mt-8 aspect-square w-48 overflow-hidden rounded-full md:w-56">
@@ -171,7 +171,7 @@ export default function BetterEaterPage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 How it works
               </p>
-              <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 From plan to plate
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -236,7 +236,7 @@ export default function BetterEaterPage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
               Design decisions
             </p>
-            <h2 className="mb-6 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+            <h2 className="mb-6 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
               Why it works this way
             </h2>
             <p className="mb-10 max-w-[64ch] text-lg leading-relaxed text-ink-muted md:mb-12">
@@ -250,7 +250,7 @@ export default function BetterEaterPage() {
                   <span className="mb-3 block font-display text-lg leading-none text-accent-ink">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="mb-2 font-display text-xl font-semibold text-ink">{item.title}</p>
+                  <p className="mb-2 font-display text-lg font-semibold text-ink">{item.title}</p>
                   <p className="text-base leading-relaxed text-ink-muted">{item.body}</p>
                 </div>
               ))}
@@ -264,7 +264,7 @@ export default function BetterEaterPage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
               Reflection
             </p>
-            <h2 className="mb-10 max-w-[36ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-12">
+            <h2 className="mb-10 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-12">
               What I took from it
             </h2>
             <ol className="grid grid-cols-1 gap-5 sm:grid-cols-3">
@@ -273,7 +273,7 @@ export default function BetterEaterPage() {
                   <span className="mb-3 block font-display text-lg leading-none text-accent-light">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="mb-2 block font-display text-xl font-semibold text-surface">
+                  <span className="mb-2 block font-display text-lg font-semibold text-surface">
                     {item.title}
                   </span>
                   <span className="block text-base leading-relaxed text-surface/70">

@@ -94,7 +94,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
       <div className={`min-w-0 flex-1 ${left ? "self-start text-left md:self-center" : "self-end text-left md:self-center md:text-right"}`}>
         <motion.h3
           style={{ opacity: titleOpacity, y: titleY }}
-          className="mb-3 font-display text-[clamp(2.25rem,5vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink"
+          className="mb-3 font-display text-[clamp(1.76rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink"
         >
           <span className="relative inline-block pb-2">
             {project.title}

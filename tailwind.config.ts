@@ -106,7 +106,7 @@ const config: Config = {
          *  Work Sans and Cormorant Garamond) render in a neutral Hebrew sans instead of
          *  whatever serif-ish default the OS picks. */
         sans: ["var(--font-body)", "var(--font-hebrew)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "var(--font-hebrew)", "system-ui", "sans-serif"],
+        display: ["var(--font-body)", "var(--font-hebrew)", "system-ui", "sans-serif"],
       },
       spacing: {
         18: "4.5rem",

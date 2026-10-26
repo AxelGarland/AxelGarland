@@ -73,7 +73,7 @@ export default function KindredPage() {
         <header className="pb-16 pt-36 sm:pb-20 sm:pt-36">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div className="order-2 md:order-1">
-              <h1 className="mb-6 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.02] tracking-tight text-ink">
+              <h1 className="mb-6 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
               <p className="mb-6 max-w-[40ch] text-lg leading-relaxed text-ink-muted">
@@ -113,7 +113,7 @@ export default function KindredPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The idea
                 </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Where code, algorithms, and illustration meet
                 </h2>
               </div>
@@ -144,7 +144,7 @@ export default function KindredPage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
               How it works
             </p>
-            <h2 className="mb-12 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl md:mb-16">
+            <h2 className="mb-12 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-16">
               A few rules, and a family of faces
             </h2>
             <div className="mx-auto flex max-w-[60rem] flex-col gap-16 md:gap-20">
@@ -181,7 +181,7 @@ export default function KindredPage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
               Posters
             </p>
-            <h2 className="mb-4 max-w-[24ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+            <h2 className="mb-4 max-w-[24ch] font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
               Crowds for the wall
             </h2>
             <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-ink-muted md:mb-12">

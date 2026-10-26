@@ -152,7 +152,7 @@ export default async function ProjectPage({ params }: PageProps) {
             >
               {SECTION_LABELS[project.section]}
             </p>
-            <h1 className="mt-3 font-display text-[clamp(2rem,5vw,3.5rem)] font-medium tracking-tight text-mist">
+            <h1 className="mt-3 font-display text-[clamp(1.56rem,3.9vw,2.73rem)] font-medium tracking-tight text-mist">
               {project.title}
             </h1>
             {!project.caseStudy ? (
@@ -247,7 +247,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
             {!project.useMorphSlider && gridImages.length > 0 ? (
               <div className="mt-12 md:mt-16">
-                <h2 className="mb-6 font-display text-xl font-medium tracking-tight text-mist md:text-2xl">
+                <h2 className="mb-6 font-display text-lg font-medium tracking-tight text-mist md:text-xl">
                   Gallery
                 </h2>
                 <ProjectGallery
@@ -261,7 +261,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
             {project.upcomingImages && project.upcomingImages.length > 0 ? (
               <div className="mt-12 md:mt-16">
-                <h2 className="mb-6 font-display text-xl font-medium tracking-tight text-mist md:text-2xl">
+                <h2 className="mb-6 font-display text-lg font-medium tracking-tight text-mist md:text-xl">
                   Coming soon
                 </h2>
                 <ul className="grid list-none gap-4 sm:grid-cols-2">

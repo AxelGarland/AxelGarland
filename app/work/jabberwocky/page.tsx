@@ -58,7 +58,7 @@ export default function JabberwockyPage() {
               className="absolute right-6 -top-[20px] h-[100px] w-[100px] -scale-x-100 object-contain sm:right-10 sm:h-[124px] sm:w-[124px] md:right-14 md:h-[156px] md:w-[156px] lg:right-16"
             />
             <div className="mx-auto max-w-[68ch] text-center">
-              <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mb-6 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {project.title}
               </h1>
               <p className="text-lg leading-relaxed text-ink-muted">{project.reflection}</p>

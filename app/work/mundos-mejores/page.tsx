@@ -42,7 +42,7 @@ export default function MundosMejoresPage() {
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[68ch] text-center">
-              <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mb-6 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {project.title}
               </h1>
               <p className="text-lg leading-relaxed text-ink-muted">{project.reflection}</p>

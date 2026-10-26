@@ -94,7 +94,7 @@ export default function AlutitPage() {
                   Brand Character Design
                 </span>
               </div>
-              <h1 className="mb-6 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mb-6 font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
                 A character
                 <br />
                 with <em className="italic text-accent">purpose</em>
@@ -133,7 +133,7 @@ export default function AlutitPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Building presence through character
                 </h2>
               </div>
@@ -155,7 +155,7 @@ export default function AlutitPage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
               Deliverables
             </p>
-            <h2 className="mb-14 max-w-[20ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl md:mb-16">
+            <h2 className="mb-14 max-w-[20ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-16">
               Where Alutit appears
             </h2>
 
@@ -166,7 +166,7 @@ export default function AlutitPage() {
                     <span className="font-display text-lg leading-none text-surface/60">
                       {item.num}
                     </span>
-                    <h3 className="font-display text-xl font-semibold text-surface">
+                    <h3 className="font-display text-lg font-semibold text-surface">
                       {item.title}
                     </h3>
                   </div>
@@ -212,7 +212,7 @@ export default function AlutitPage() {
               <p className="text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The outcome
               </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="mt-3 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 A new channel, <em className="italic text-accent">and a character people recognize</em>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-muted">

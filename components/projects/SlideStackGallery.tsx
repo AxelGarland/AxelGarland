@@ -94,7 +94,7 @@ export function SlideStackGallery({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="whitespace-pre-line font-display text-lg leading-relaxed text-ink sm:text-xl"
+                className="whitespace-pre-line font-display text-lg leading-relaxed text-ink sm:text-lg"
               >
                 {current.verse}
               </motion.p>

@@ -62,7 +62,7 @@ export default function ContactPage() {
         <div className="mx-auto grid w-full max-w-content grid-cols-1 gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20 md:px-14 lg:px-16">
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.12em] text-accent-ink">Contact</p>
-            <h1 className="mb-6 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="mb-6 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
               Let&rsquo;s talk about
               <br />
               what&rsquo;s <em className="italic text-accent">next</em>

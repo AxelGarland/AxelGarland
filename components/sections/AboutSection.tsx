@@ -6,7 +6,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <MotionReveal>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.6fr] md:gap-20">
-            <h2 className="font-display text-[clamp(2.5rem,5vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink">
+            <h2 className="font-display text-[clamp(1.95rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink">
               About me
             </h2>
             <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted md:pt-3">

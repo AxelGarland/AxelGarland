@@ -70,7 +70,7 @@ export default function GiusonPage() {
             <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
               Giuson &middot; Alut Recruitment Department
             </p>
-            <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
               Everything a recruiter needs,
               <br />
               <em className="italic text-accent">in one place</em>
@@ -103,7 +103,7 @@ export default function GiusonPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The problem
                 </p>
-                <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Too much to know, and all of it changing
                 </h2>
                 <div className="flex max-w-[46ch] flex-col gap-4">
@@ -139,7 +139,7 @@ export default function GiusonPage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The solution
               </p>
-              <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 One tool, two ways in
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
@@ -173,7 +173,7 @@ export default function GiusonPage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   Design decisions
                 </p>
-                <h2 className="max-w-[16ch] font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+                <h2 className="max-w-[16ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                   Built around how recruiters actually work
                 </h2>
               </div>
@@ -186,7 +186,7 @@ export default function GiusonPage() {
                     <span className="pt-1.5 font-display text-sm tabular-nums text-ink-subtle">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-display text-2xl font-medium leading-tight text-ink">
+                    <h3 className="font-display text-xl font-medium leading-tight text-ink">
                       {item.title}
                     </h3>
                     <p className="col-start-2 text-base leading-relaxed text-ink-muted sm:col-start-3">
@@ -206,7 +206,7 @@ export default function GiusonPage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 Preview
               </p>
-              <h2 className="mb-4 font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 See it in context
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
@@ -227,7 +227,7 @@ export default function GiusonPage() {
               <p className="mb-6 text-sm font-medium tracking-[0.01em] text-accent-light">
                 The outcome
               </p>
-              <p className="font-display text-2xl font-light italic leading-snug text-surface sm:text-3xl">
+              <p className="font-display text-xl font-light italic leading-snug text-surface sm:text-2xl">
                 {outcomeQuote}
               </p>
               <p className="mt-8 text-base leading-relaxed text-surface/60">{outcomeLead}</p>

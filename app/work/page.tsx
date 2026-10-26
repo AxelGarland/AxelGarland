@@ -20,7 +20,7 @@ export default function WorkPage() {
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
               Work
             </p>
-            <h1 className="max-w-[16ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="max-w-[16ch] font-display text-[clamp(1.95rem,4.68vw,3.12rem)] font-light leading-[1.05] tracking-tight text-ink">
               All the work
             </h1>
           </div>

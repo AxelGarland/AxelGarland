@@ -14,7 +14,7 @@ export default function NotFound() {
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             Error 404
           </p>
-          <h1 className="mb-6 max-w-[14ch] font-display text-[clamp(3rem,9vw,7rem)] font-light leading-[0.95] tracking-tight text-ink">
+          <h1 className="mb-6 max-w-[14ch] font-display text-[clamp(2.34rem,7.02vw,5.46rem)] font-light leading-[0.95] tracking-tight text-ink">
             This page <em className="italic text-accent">wandered off.</em>
           </h1>
           <p className="mb-10 max-w-[44ch] text-lg leading-relaxed text-ink-muted">

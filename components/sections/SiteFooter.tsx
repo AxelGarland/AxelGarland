@@ -17,7 +17,7 @@ export function SiteFooter({ closing = true }: { closing?: boolean }) {
     <footer className="bg-ink py-12 text-surface md:py-16">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <div className="flex flex-wrap items-center justify-between gap-6">
-          <p className="font-display text-xl font-semibold tracking-tight text-surface">
+          <p className="font-display text-lg font-semibold tracking-tight text-surface">
             Axel<span className="text-pencil">.</span>Garland
           </p>
           <nav aria-label="Footer navigation">

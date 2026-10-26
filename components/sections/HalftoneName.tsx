@@ -113,7 +113,7 @@ export function HalftoneName() {
   return (
     <div ref={wrapRef} className="relative w-[90%] max-w-[36rem]" style={{ aspectRatio: `1 / ${ASPECT}` }}>
       <h1
-        className={`absolute inset-0 flex flex-col justify-center font-display text-[clamp(3.5rem,12vw,7.5rem)] font-light leading-[0.9] tracking-[-0.03em] text-ink transition-opacity duration-300 ${
+        className={`absolute inset-0 flex flex-col justify-center font-display text-[clamp(2.73rem,9.36vw,5.85rem)] font-light leading-[0.9] tracking-[-0.03em] text-ink transition-opacity duration-300 ${
           ready ? "opacity-0" : "opacity-100"
         }`}
       >

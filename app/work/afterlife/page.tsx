@@ -101,7 +101,7 @@ export default function AfterLifePage() {
           </div>
           <div className="mx-auto max-w-content px-6 pb-16 pt-6 sm:px-10 sm:pb-20 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-end gap-x-16 gap-y-6 md:grid-cols-[1.1fr_1fr]">
-              <h1 className="font-display text-[clamp(2.75rem,6vw,5.5rem)] font-light leading-[1] tracking-tight text-surface">
+              <h1 className="font-display text-[clamp(2.15rem,4.68vw,4.29rem)] font-light leading-[1] tracking-tight text-surface">
                 Your life, <em className="italic text-accent">wrapped</em>
               </h1>
               <div>
@@ -123,7 +123,7 @@ export default function AfterLifePage() {
                 <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                   The brief
                 </p>
-                <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Death, but positive
                 </h2>
               </div>
@@ -158,7 +158,7 @@ export default function AfterLifePage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The landing page
               </p>
-              <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 Selling the afterlife
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -199,7 +199,7 @@ export default function AfterLifePage() {
             <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
               The illustrations
             </p>
-            <h2 className="mb-6 max-w-[28ch] font-display text-3xl font-semibold leading-[1.15] text-surface sm:text-4xl">
+            <h2 className="mb-6 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl">
               A small cast, drawn in Illustrator
             </h2>
             <p className="mb-12 max-w-[60ch] text-lg leading-relaxed text-surface/70 md:mb-16">
@@ -230,7 +230,7 @@ export default function AfterLifePage() {
               <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
                 The app
               </p>
-              <h2 className="font-display text-3xl font-semibold leading-[1.15] text-ink sm:text-4xl">
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 A recap for a whole life
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">

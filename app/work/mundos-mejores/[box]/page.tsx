@@ -68,7 +68,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
               <p className="mb-3 mt-8 text-sm font-semibold uppercase tracking-[0.1em] text-accent-ink">
                 Box {boxNumber(index)} · {box.lid}
               </p>
-              <h1 className="font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {box.title}
               </h1>
             </div>

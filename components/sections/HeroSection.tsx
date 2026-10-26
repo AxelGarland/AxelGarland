@@ -62,20 +62,6 @@ export function HeroSection() {
         >
           <OpenForWorkRing />
           <HeroPortrait />
-          {/* Pointing at the portrait asks the question; clicking it answers. The same link sits
-              beside the buttons, so this one is left out of the tab order and the screen reader's. Touch
-              screens have no hover to ask the question, so there it does nothing. */}
-          <Link
-            href="/contact"
-            aria-hidden
-            tabIndex={-1}
-            className="group absolute inset-0 z-10 flex items-center justify-center rounded-full [@media(hover:none)]:pointer-events-none"
-          >
-            <span className="absolute inset-0 rounded-full bg-ink/60 opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100" />
-            <span className="relative px-[16%] text-center font-display text-[clamp(1.4rem,3vw,2.6rem)] leading-[1.05] tracking-tight text-white opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100">
-              Let&rsquo;s work together
-            </span>
-          </Link>
         </motion.div>
       </div>
     </header>

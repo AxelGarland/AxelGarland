@@ -3,7 +3,6 @@
 import { ImageCarousel } from "@/components/projects/ImageCarousel";
 import { RetabloShowcase } from "@/components/projects/RetabloShowcase";
 import type { RetabloBox } from "@/components/projects/RetabloSelector";
-import Link from "next/link";
 import { useState } from "react";
 
 /** The page's top: the project's text beside the boxes you can scrub through, and underneath it a
@@ -33,14 +32,8 @@ export function MundosExplorer({ title, intro, boxes }: { title: string; intro: 
               {box.lid}
             </h2>
             {box.description ? (
-              <p className="mb-7 max-w-[46ch] text-lg leading-relaxed text-ink-muted">{box.description}</p>
+              <p className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">{box.description}</p>
             ) : null}
-            <Link
-              href={`/work/mundos-mejores/${box.slug}`}
-              className="inline-block border-b border-accent pb-0.5 text-sm font-medium uppercase tracking-[0.08em] text-ink transition-colors duration-200 hover:text-accent-ink"
-            >
-              See the whole box
-            </Link>
           </div>
           <ImageCarousel key={box.slug} slides={box.images} label={`${box.lid}, photos`} />
         </div>

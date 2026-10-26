@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 /** Where each stage of one box's turn falls, in milliseconds from the moment it is picked. */
+const FADE = 150;
 const BLANK = 300;
 const OPEN_AT = BLANK + 80;
 const OPEN_FOR = 1500;
@@ -15,14 +16,15 @@ const NEXT_AT = OPEN_AT + OPEN_FOR + HOLD;
 
 type Stage = "hidden" | "shown" | "opened";
 
-/** The boxes one after another, with hard cuts: a box swings its doors open and holds, then it is
- *  gone and the page is blank for a beat, then the next one is there and opens straight away.
- *  Clicking the one on show opens its page. With reduced motion it stops on the first box, open. */
+/** The boxes one after another: a box swings its doors open and holds, then it fades out fast, the
+ *  page is blank for a beat, and the next one fades in fast and opens straight away. Clicking the one
+ *  on show opens its page. With reduced motion it stops on the first box, open. */
 export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]; className?: string }) {
   const reduce = useHydrationSafeReducedMotion();
   const items = boxes.map((box, i) => ({ box, number: i + 1 })).filter(({ box }) => box.open);
   const [index, setIndex] = useState(0);
   const [stage, setStage] = useState<Stage>("hidden");
+  const [leaving, setLeaving] = useState<number | null>(null);
   const [seen, setSeen] = useState<number[]>([0]);
 
   useEffect(() => {
@@ -32,9 +34,11 @@ export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]
     }
     setStage("hidden");
     const timers = [
+      setTimeout(() => setLeaving(null), FADE + 50),
       setTimeout(() => setStage("shown"), BLANK),
       setTimeout(() => setStage("opened"), OPEN_AT),
       setTimeout(() => {
+        setLeaving(index);
         setStage("hidden");
         setIndex((i) => (i + 1) % items.length);
       }, NEXT_AT),
@@ -56,11 +60,12 @@ export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]
         if (!seen.includes(i)) return null;
         const active = i === index;
         const visible = active && stage !== "hidden";
-        const opened = active && stage === "opened";
+        // The box going out keeps its doors open while it fades, then closes them unseen.
+        const opened = active ? stage === "opened" : i === leaving;
         return (
           <div
             key={box.slug}
-            className={`absolute inset-0 flex items-center justify-center ${
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-150 ${
               active ? "" : "pointer-events-none"
             } ${visible ? "opacity-100" : "opacity-0"}`}
           >

@@ -7,24 +7,22 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 /** Where each stage of one box's turn falls, in milliseconds from the moment it is picked. */
-const SHOW_AT = 80;
-const DISSOLVE = 900;
-const OPEN_AT = 1100;
+const BLANK = 300;
+const OPEN_AT = BLANK + 80;
 const OPEN_FOR = 1500;
 const HOLD = 2600;
 const NEXT_AT = OPEN_AT + OPEN_FOR + HOLD;
 
 type Stage = "hidden" | "shown" | "opened";
 
-/** The boxes one after another: each dissolves in over the last one, shut, then swings its doors
- *  open and holds before the next takes its place. Clicking the one on show opens its page. With
- *  reduced motion it stops on the first box, open. */
+/** The boxes one after another, with hard cuts: a box swings its doors open and holds, then it is
+ *  gone and the page is blank for a beat, then the next one is there and opens straight away.
+ *  Clicking the one on show opens its page. With reduced motion it stops on the first box, open. */
 export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]; className?: string }) {
   const reduce = useHydrationSafeReducedMotion();
   const items = boxes.map((box, i) => ({ box, number: i + 1 })).filter(({ box }) => box.open);
   const [index, setIndex] = useState(0);
   const [stage, setStage] = useState<Stage>("hidden");
-  const [leaving, setLeaving] = useState<number | null>(null);
   const [seen, setSeen] = useState<number[]>([0]);
 
   useEffect(() => {
@@ -34,11 +32,9 @@ export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]
     }
     setStage("hidden");
     const timers = [
-      setTimeout(() => setStage("shown"), SHOW_AT),
-      setTimeout(() => setLeaving(null), SHOW_AT + DISSOLVE + 50),
+      setTimeout(() => setStage("shown"), BLANK),
       setTimeout(() => setStage("opened"), OPEN_AT),
       setTimeout(() => {
-        setLeaving(index);
         setStage("hidden");
         setIndex((i) => (i + 1) % items.length);
       }, NEXT_AT),
@@ -59,15 +55,13 @@ export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]
       {items.map(({ box, number }, i) => {
         if (!seen.includes(i)) return null;
         const active = i === index;
-        const out = i === leaving;
-        // The box coming in dissolves over the one going out, which stays solid until it is covered.
-        const visible = active ? stage !== "hidden" : out;
-        const opened = active ? stage === "opened" : out;
+        const visible = active && stage !== "hidden";
+        const opened = active && stage === "opened";
         return (
           <div
             key={box.slug}
             className={`absolute inset-0 flex items-center justify-center ${
-              active ? "z-10 transition-opacity duration-[900ms]" : "pointer-events-none"
+              active ? "" : "pointer-events-none"
             } ${visible ? "opacity-100" : "opacity-0"}`}
           >
             <Link

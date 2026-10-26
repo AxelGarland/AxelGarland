@@ -12,6 +12,8 @@ export type RetabloImage = {
   /** The photo's own size, so it can be shown whole at its true proportions. */
   width?: number;
   height?: number;
+  /** Leave this photo out of the page's photo grid (it still shows in the carousel and on the box's own page). */
+  omitFromGrid?: boolean;
   /** Taller-than-wide photo — gets a tall, narrower frame so it isn't cropped to a thin band. */
   portrait?: boolean;
 };

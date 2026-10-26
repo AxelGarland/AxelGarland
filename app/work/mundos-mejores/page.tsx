@@ -30,7 +30,7 @@ export default function MundosMejoresPage() {
         {/* All the photos, whole, in a grid */}
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <PhotoGrid photos={MUNDOS_BOXES.flatMap((box) => box.images)} />
+            <PhotoGrid photos={MUNDOS_BOXES.flatMap((box) => box.images).filter((photo) => !photo.omitFromGrid)} />
           </div>
         </section>
       </main>

@@ -9,6 +9,7 @@ import { useState } from "react";
  *  section for whichever box is on show, with its name, what it stands for, and its photos. */
 export function MundosExplorer({ title, intro, boxes }: { title: string; intro: string; boxes: RetabloBox[] }) {
   const [selected, setSelected] = useState(0);
+  const [using, setUsing] = useState(false);
   const box = boxes[selected];
 
   return (
@@ -21,11 +22,18 @@ export function MundosExplorer({ title, intro, boxes }: { title: string; intro: 
             </h1>
             <p className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">{intro}</p>
           </div>
-          <RetabloShowcase boxes={boxes} onChange={setSelected} className="order-1 md:order-2" />
+          <RetabloShowcase boxes={boxes} onChange={setSelected} paused={using} className="order-1 md:order-2" />
         </div>
       </header>
 
-      <section className="border-t border-line bg-paper py-16 md:py-24">
+      {/* The boxes keep still while this is being looked at, so its photos can be browsed. */}
+      <section
+        onPointerEnter={() => setUsing(true)}
+        onPointerLeave={() => setUsing(false)}
+        onFocus={() => setUsing(true)}
+        onBlur={() => setUsing(false)}
+        className="border-t border-line bg-paper py-16 md:py-24"
+      >
         <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
           <div>
             <h2 className="mb-5 font-display text-[clamp(1.6rem,3vw,2.5rem)] font-light leading-[1.05] tracking-tight text-ink">

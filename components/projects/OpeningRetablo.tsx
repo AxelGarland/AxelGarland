@@ -24,17 +24,13 @@ export function retabloFrameStyle(open: RetabloOpen, fit = "62vh"): React.CSSPro
 export function RetabloPieces({
   open,
   lid,
-  opened = false,
-  angle,
+  opened,
   duration = 1500,
   priority = false,
 }: {
   open: RetabloOpen;
   lid: string;
-  opened?: boolean;
-  /** Where the doors stand, 0 (shut) to 180 (flat open). When given it replaces `opened`, and the
-   *  doors follow it with no stagger. */
-  angle?: number;
+  opened: boolean;
   /** Milliseconds the doors take to swing. */
   duration?: number;
   priority?: boolean;
@@ -46,7 +42,7 @@ export function RetabloPieces({
 
   const door = (side: "left" | "right") => {
     const isLeft = side === "left";
-    const turn = (angle !== undefined ? angle : opened ? 180 : 0) * (isLeft ? -1 : 1);
+    const turn = opened ? (isLeft ? -180 : 180) : 0;
     return (
       <div
         className="absolute"
@@ -58,7 +54,7 @@ export function RetabloPieces({
           transformOrigin: isLeft ? "0% 50%" : "100% 50%",
           transformStyle: "preserve-3d",
           transform: `rotateY(${turn}deg)`,
-          transition: `transform ${duration}ms ${angle !== undefined ? "linear" : ease} ${isLeft || duration === 0 || angle !== undefined ? 0 : 90}ms`,
+          transition: `transform ${duration}ms ${ease} ${isLeft || duration === 0 ? 0 : 90}ms`,
         }}
       >
         <div className="absolute inset-0" style={{ backfaceVisibility: "hidden" }}>

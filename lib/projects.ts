@@ -306,7 +306,7 @@ export const PROJECTS: Project[] = [
     slug: "mundos-mejores",
     title: "Mundos Mejores",
     section: "selected-work",
-    summary: "Retablo-inspired boxes, a Shenkar graduation project.",
+    summary: "Sculpted illustration, an immersive way to tell a story about death, mourning, and memory.",
     accentColor: "gold",
     heroFit: "contain",
     reflection:

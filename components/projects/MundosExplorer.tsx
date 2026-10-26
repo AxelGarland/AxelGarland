@@ -20,7 +20,13 @@ export function MundosExplorer({ title, intro, boxes }: { title: string; intro: 
             <h1 className="mb-6 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
               {title}
             </h1>
-            <p className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">{intro}</p>
+            <div className="flex max-w-[46ch] flex-col gap-4">
+              {intro.split("\n\n").map((para) => (
+                <p key={para.slice(0, 24)} className="text-lg leading-relaxed text-ink-muted">
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
           <RetabloShowcase boxes={boxes} onChange={setSelected} paused={using} className="order-1 md:order-2" />
         </div>

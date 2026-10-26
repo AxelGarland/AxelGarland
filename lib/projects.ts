@@ -310,7 +310,7 @@ export const PROJECTS: Project[] = [
     accentColor: "gold",
     heroFit: "contain",
     reflection:
-      "Mundos Mejores is my final project at Shenkar: a series of retablo-inspired boxes that combine traditional Peruvian illustrative and sculptural craft with my own illustration style. Each box holds a hand-sculpted scene built around the same recurring figure, moving through different remembered and imagined moments: an infinite library, underwater, swinging among the stars, a family gathered together. It's the largest and most worked-on body of work I've made so far, and the most personal.",
+      "Mundos Mejores is my final project at Shenkar, a Peruvian retablo installation about life after death.\n\nIt started with a recording of a conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds: places where you find the people you love.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
     thumbnail: "mundos mejores/between the stars2.jpg",

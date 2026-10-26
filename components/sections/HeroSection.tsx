@@ -2,6 +2,7 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
+import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { HalftoneName } from "@/components/sections/HalftoneName";
 import { OpenForWorkRing } from "@/components/sections/OpenForWorkRing";
 import { MotionConfig, motion } from "framer-motion";
@@ -41,21 +42,7 @@ export function HeroSection() {
               whileTap={reduce ? undefined : { scale: 0.97 }}
               transition={{ duration: 0.3, ease: EASE }}
             >
-              <Link
-                href="#work"
-                className="inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-              >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                  <path
-                    d="M2 7h10M8 3l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Let&rsquo;s see some work
-              </Link>
+              <HalftoneButton href="#work" label="Let&rsquo;s see some work" />
             </motion.div>
             <Link
               href="/contact"

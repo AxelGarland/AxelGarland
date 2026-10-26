@@ -23,6 +23,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retablo: "Retablo 2 web.webp",
     retabloWidth: 761,
     retabloHeight: 1200,
+    open: { file: "Retablo 2 open.webp", width: 1080, height: 864 },
     images: [
       { file: "mundos mejores/web/between the stars.jpg", alt: "A figure swinging among hanging painted stars" },
       { file: "mundos mejores/web/between the stars1.jpg", alt: "Stars box, detail view" },
@@ -37,6 +38,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retablo: "Retablo 3 web.webp",
     retabloWidth: 1075,
     retabloHeight: 1200,
+    open: { file: "Retablo 3 open.webp", width: 966, height: 526 },
     images: [
       { file: "mundos mejores/web/summer 1.jpg", alt: "A figure basking beneath a smiling sun and blooming flowers" },
       { file: "mundos mejores/web/summer 2.jpg", alt: "Summer box, detail view" },
@@ -51,6 +53,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retablo: "Retablo 4 web.webp",
     retabloWidth: 1107,
     retabloHeight: 1200,
+    open: { file: "Retablo 4 open.webp", width: 1045, height: 571 },
     images: [
       { file: "mundos mejores/web/underwater1.jpg", alt: "A figure in a swimsuit and flippers, suspended underwater", portrait: true },
       { file: "mundos mejores/web/underwater 2.jpg", alt: "Underwater box, detail view" },
@@ -64,6 +67,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retablo: "Retablo 5 web.webp",
     retabloWidth: 771,
     retabloHeight: 1200,
+    open: { file: "Retablo 5 open.webp", width: 960, height: 772 },
     images: [
       { file: "mundos mejores/web/biblioteca1.jpg", alt: "A figure reading among towering stacks of books" },
       { file: "mundos mejores/web/biblioteca 2.jpg", alt: "Library box, detail view" },

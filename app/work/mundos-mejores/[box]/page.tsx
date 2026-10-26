@@ -56,15 +56,34 @@ export default async function MundosBoxPage({ params }: PageProps) {
             </Link>
 
             <div className="flex flex-col items-center text-center">
-              <Image
-                src={pictureSrc(box.retablo)}
-                alt={`The closed “${box.lid}” retablo`}
-                width={box.retabloWidth}
-                height={box.retabloHeight}
-                priority
-                className={`h-auto drop-shadow-md ${box.retabloWidth > box.retabloHeight ? "w-64 sm:w-80" : "w-28 sm:w-36"}`}
-                sizes="320px"
-              />
+              {box.open ? (
+                <div
+                  className="relative w-full animate-[box-open_900ms_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+                  style={{
+                    aspectRatio: `${box.open.width} / ${box.open.height}`,
+                    maxWidth: `min(100%, calc(62vh * ${box.open.width / box.open.height}))`,
+                  }}
+                >
+                  <Image
+                    src={pictureSrc(box.open.file)}
+                    alt={`The “${box.lid}” retablo with its doors open`}
+                    fill
+                    priority
+                    className="object-contain drop-shadow-md"
+                    sizes="(max-width: 768px) 100vw, 900px"
+                  />
+                </div>
+              ) : (
+                <Image
+                  src={pictureSrc(box.retablo)}
+                  alt={`The closed “${box.lid}” retablo`}
+                  width={box.retabloWidth}
+                  height={box.retabloHeight}
+                  priority
+                  className={`h-auto drop-shadow-md ${box.retabloWidth > box.retabloHeight ? "w-64 sm:w-80" : "w-28 sm:w-36"}`}
+                  sizes="320px"
+                />
+              )}
               <p className="mb-3 mt-8 text-sm font-semibold uppercase tracking-[0.1em] text-accent-ink">
                 Box {boxNumber(index)} · {box.lid}
               </p>

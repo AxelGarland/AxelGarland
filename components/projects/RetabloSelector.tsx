@@ -24,6 +24,9 @@ export type RetabloBox = {
   retablo: string;
   retabloWidth: number;
   retabloHeight: number;
+  /** Photo of the box with its doors fully open (tightly cropped, transparent), shown at the top of
+   *  the box's own page. Boxes without one fall back to the closed photo. */
+  open?: { file: string; width: number; height: number };
   images: RetabloImage[];
 };
 

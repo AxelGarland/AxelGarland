@@ -4,24 +4,58 @@ import { useEffect, useRef } from "react";
 
 const INTERACTIVE = "a, button, [role='button'], input, textarea, select, label, summary";
 
-/** A small red dot that trails the mouse with a soft delay and swells over links and buttons.
+/** A halftone dot that trails the mouse with a soft delay and swells over links and buttons: black
+ *  dots in the middle that shrink and turn red toward the edge, like the name in the hero.
  *  Only for devices with a real pointer; touch screens never see it. With reduced motion on it
  *  follows the pointer exactly instead of easing behind it. */
+const SIZE = 56;
+const REST_SCALE = 0.5;
+const HOVER_SCALE = 0.85;
+const CELL = 4.4;
+
+/** Draws the halftone disc once, at full size; the page scales it down for its resting state. */
+function paintDot(canvas: HTMLCanvasElement) {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = SIZE * dpr;
+  canvas.height = SIZE * dpr;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const R = SIZE / 2;
+  // A faint white disc behind the dots keeps it readable over dark sections and images.
+  ctx.fillStyle = "rgba(255,255,255,0.9)";
+  ctx.beginPath();
+  ctx.arc(R, R, R - 1, 0, Math.PI * 2);
+  ctx.fill();
+  for (let y = CELL / 2; y < SIZE; y += CELL) {
+    for (let x = CELL / 2; x < SIZE; x += CELL) {
+      const t = Math.hypot(x - R, y - R) / (R - 2);
+      if (t > 1) continue;
+      const cov = 1 - 0.78 * Math.pow(t, 1.5);
+      ctx.fillStyle = cov > 0.55 ? "#1A1916" : "#D64040";
+      ctx.beginPath();
+      ctx.arc(x, y, (CELL / 2) * Math.sqrt(cov) * 1.1, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+}
+
 export function CursorDot() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    paintDot(el);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let tx = 0;
     let ty = 0;
     let x = 0;
     let y = 0;
-    let scale = 1;
-    let targetScale = 1;
+    let scale = REST_SCALE;
+    let targetScale = REST_SCALE;
     let raf = 0;
     let seen = false;
 
@@ -56,7 +90,7 @@ export function CursorDot() {
       }
       el.style.opacity = "1";
       const target = e.target as Element | null;
-      targetScale = target?.closest(INTERACTIVE) ? 2.4 : 1;
+      targetScale = target?.closest(INTERACTIVE) ? HOVER_SCALE : REST_SCALE;
       start();
     };
 
@@ -74,10 +108,11 @@ export function CursorDot() {
   }, []);
 
   return (
-    <div
+    <canvas
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[90] h-3.5 w-3.5 rounded-full bg-accent opacity-0 transition-opacity duration-300 will-change-transform"
+      style={{ width: SIZE, height: SIZE }}
+      className="pointer-events-none fixed left-0 top-0 z-[90] opacity-0 transition-opacity duration-300 will-change-transform"
     />
   );
 }

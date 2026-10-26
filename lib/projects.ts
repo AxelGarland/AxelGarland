@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
     slug: "giuson",
     title: "Giuson",
     section: "case-study",
-    summary: "A recruitment website for Alut: a live map of open positions and everything recruiters need to know, in one place.",
+    summary: "Mass recruitment made easier. A tool developed for the recruitment department of Alut, the national organization for children and adults with autism.",
     accentColor: "teal",
     clientLogo: "alutit/alut logo no background.png",
     prototype: {

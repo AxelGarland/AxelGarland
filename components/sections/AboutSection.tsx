@@ -25,7 +25,7 @@ export function AboutSection() {
                 .
               </p>
               <p className="mt-8 text-sm text-ink-muted">
-                <span className="mr-3 text-ink">Tools</span>
+                <span className="mr-3 text-accent-ink">Tools</span>
                 Figma<span aria-hidden className="mx-2.5 text-accent">&middot;</span>Adobe Creative
                 Suite<span aria-hidden className="mx-2.5 text-accent">&middot;</span>WordPress
                 <span aria-hidden className="mx-2.5 text-accent">&middot;</span>Cursor

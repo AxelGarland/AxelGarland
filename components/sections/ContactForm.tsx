@@ -1,7 +1,6 @@
 "use client";
 
-import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
-import { motion } from "framer-motion";
+import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { useState, type FormEvent } from "react";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdenpl";
@@ -10,7 +9,6 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const reduce = useHydrationSafeReducedMotion();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -86,16 +84,7 @@ export function ContactForm() {
         <p className="text-sm text-coral">Something went wrong, try again, or email me directly.</p>
       ) : null}
 
-      <motion.button
-        type="submit"
-        disabled={status === "submitting"}
-        whileHover={reduce ? undefined : { y: -2 }}
-        whileTap={reduce ? undefined : { scale: 0.96 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="inline-flex w-fit min-h-[44px] items-center bg-pencil px-7 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil disabled:opacity-50"
-      >
-        {status === "submitting" ? "Sending…" : "Send"}
-      </motion.button>
+      <HalftoneButton type="submit" disabled={status === "submitting"} label={status === "submitting" ? "Sending…" : "Send"} />
     </form>
   );
 }

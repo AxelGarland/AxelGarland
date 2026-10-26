@@ -1,5 +1,5 @@
+import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { MotionReveal } from "@/components/motion/MotionReveal";
-import Link from "next/link";
 
 /** The last thing on a page before the footer: one clear way to get in touch. */
 export function ClosingBlock() {
@@ -15,12 +15,7 @@ export function ClosingBlock() {
             Let&rsquo;s make <em className="italic text-accent">something.</em>
           </h2>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
-            <Link
-              href="/contact"
-              className="inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              Get in touch
-            </Link>
+            <HalftoneButton href="/contact" label="Get in touch" />
             <a
               href="mailto:axelgrobman@gmail.com"
               className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"

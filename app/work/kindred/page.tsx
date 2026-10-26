@@ -3,6 +3,7 @@ import { BackLink } from "@/components/projects/BackLink";
 import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
+import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -82,16 +83,7 @@ export default function KindredPage() {
               </p>
               <TagLine tags={TAGS} className="mb-8" />
               {project.liveUrl ? (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center gap-2.5 bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
-                >
-                  Try it yourself
-                  <span aria-hidden>&#8599;</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
+                <HalftoneButton href={project.liveUrl} external label="Try it yourself" />
               ) : null}
             </div>
             <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2 md:-mr-4 lg:-mr-10">

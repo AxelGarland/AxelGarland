@@ -1,6 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
-import Link from "next/link";
 
 export const metadata = { title: "Page not found · Axel Garland" };
 
@@ -21,12 +21,7 @@ export default function NotFound() {
             The link may be old, or the project may have moved. The work is all in one place.
           </p>
           <div>
-            <Link
-              href="/work"
-              className="inline-flex min-h-[44px] items-center bg-pencil px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-colors duration-300 hover:bg-ink hover:text-pencil"
-            >
-              See the work
-            </Link>
+            <HalftoneButton href="/work" label="See the work" />
           </div>
         </div>
       </main>

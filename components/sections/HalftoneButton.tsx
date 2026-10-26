@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-/** A call-to-action button drawn in halftone dots: black dots with red at the edges on white. On
+/** A call-to-action button drawn in halftone dots. It can be an in-site link, an external link (opens
+ *  in a new tab) or a form button: black dots with red at the edges on white. On
  *  hover or keyboard focus the colours invert (white dots on black, red stays red). The words are
  *  drawn once into two canvases, one per state, and the page fades between them.
  *  The real label stays in the page as hidden text so screen readers and the keyboard work as usual. */
@@ -51,7 +52,17 @@ function dots(canvas: HTMLCanvasElement, mask: ImageData, W: number, dpr: number
   }
 }
 
-export function HalftoneButton({ href, label }: { href: string; label: string }) {
+type Props = {
+  label: string;
+  /** In-site link, or an external one when `external` is set. Omit for a form button. */
+  href?: string;
+  external?: boolean;
+  type?: "button" | "submit";
+  disabled?: boolean;
+  onClick?: () => void;
+};
+
+export function HalftoneButton({ label, href, external = false, type = "button", disabled = false, onClick }: Props) {
   const restRef = useRef<HTMLCanvasElement>(null);
   const hoverRef = useRef<HTMLCanvasElement>(null);
   const [width, setWidth] = useState<number | null>(null);
@@ -101,33 +112,60 @@ export function HalftoneButton({ href, label }: { href: string; label: string })
   }, [label]);
 
   const ready = width !== null;
-  return (
-    <Link
-      href={href}
-      className="group relative inline-block border border-ink align-top focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-      style={{ width: (width ?? 270) + 2, height: H + 2 }}
-    >
+  const size = { width: (width ?? 270) + 2, height: H + 2 };
+  const base =
+    "group relative inline-block border border-ink align-top focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
+  const hoverOff = disabled ? "" : "group-hover:opacity-100 group-focus-visible:opacity-100";
+  const restHide = disabled ? "" : "group-hover:opacity-0 group-focus-visible:opacity-0";
+
+  const inner = (
+    <>
       <span
         className={`absolute inset-0 flex items-center justify-center text-sm font-semibold uppercase tracking-[0.1em] text-ink transition-opacity duration-300 ${
           ready ? "sr-only" : "opacity-100"
         }`}
       >
         {label}
+        {external ? <span className="sr-only"> (opens in a new tab)</span> : null}
       </span>
       <canvas
         ref={restRef}
         aria-hidden
         style={{ width: width ?? 0, height: H }}
-        className={`absolute inset-0 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0 ${
-          ready ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 transition-opacity duration-300 ${restHide} ${ready ? "opacity-100" : "opacity-0"}`}
       />
       <canvas
         ref={hoverRef}
         aria-hidden
         style={{ width: width ?? 0, height: H }}
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className={`absolute inset-0 opacity-0 transition-opacity duration-300 ${hoverOff}`}
       />
+    </>
+  );
+
+  if (!href) {
+    return (
+      <button
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+        className={`${base} ${disabled ? "cursor-wait opacity-60" : ""}`}
+        style={size}
+      >
+        {inner}
+      </button>
+    );
+  }
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={base} style={size}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={base} style={size}>
+      {inner}
     </Link>
   );
 }

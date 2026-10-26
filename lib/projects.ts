@@ -310,7 +310,7 @@ export const PROJECTS: Project[] = [
     accentColor: "gold",
     heroFit: "contain",
     reflection:
-      "Mundos Mejores is my final project at Shenkar, a Peruvian retablo installation about life after death.\n\nIt started with a recording of a conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds: places where you find the people you love.",
+      "My final project at Shenkar, a Peruvian retablo installation about life, death, and the places you can find and remember the ones you love.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds. These better worlds are the ones where she can do the things she loved, and where I can find her.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
     thumbnail: "mundos mejores/between the stars2.jpg",

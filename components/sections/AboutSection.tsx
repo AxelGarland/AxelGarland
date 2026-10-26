@@ -11,11 +11,11 @@ export function AboutSection() {
             </h2>
             <div className="md:pt-3">
               <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted">
-                I&rsquo;m a multidisciplinary designer who loves making experiences people actually
-                want to explore. Websites, apps, illustration: I move between all of them, from a
-                pencil sketch to a Figma file to working code. I like the whole route, the
-                hand-drawn and the hand-coded, and I treat AI as one more tool in the kit, never a
-                shortcut around the thinking.
+                I&rsquo;m a multidisciplinary designer with a thing for experiences people actually
+                want to explore. Websites, apps, illustration: I design all of it, starting with a
+                pencil and a Figma file. Then I build with AI, using tools like Cursor and Claude
+                Code to turn the idea into something you can click. The craft stays in my hands.
+                The AI just helps me take it further.
               </p>
               <p className="mt-8 text-sm text-ink-muted">
                 <span className="mr-3 text-ink">Tools</span>

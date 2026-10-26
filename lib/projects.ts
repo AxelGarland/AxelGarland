@@ -361,7 +361,7 @@ export const PROJECTS: Project[] = [
     summary: "A fully illustrated book of Lewis Carroll's nonsense poem.",
     accentColor: "coral",
     reflection:
-      "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
+      "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem. The illustrations that bring to life the fantastical world Carroll created were made with colored pencils. I wanted to tell the story behind the poem's nonsensical words, bring its characters to life, and build a world for them to live in.",
     discipline: "Illustrated book",
     tags: ["Illustration", "Illustrated Book", "Children's Books"],
     thumbnail: "jabberwocky/book-mockup.jpg",

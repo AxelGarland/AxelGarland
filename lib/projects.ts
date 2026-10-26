@@ -87,6 +87,8 @@ export type Project = {
   thumbnailBlend?: boolean;
   /** A short silent clip that plays over the card on hover (desktop only). */
   previewVideo?: string;
+  /** Stills that cycle inside the project's circle on the home page, in place of the thumbnail. */
+  circleLoop?: { file: string; alt: string }[];
   /** Detail hero — exact filename */
   hero: string;
   /** Full gallery on the project page */
@@ -341,7 +343,11 @@ export const PROJECTS: Project[] = [
     accentColor: "indigo",
     reflection:
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
-    previewVideo: "afterlife/entrance animation.mp4",
+    circleLoop: [
+      { file: "afterlife/Fold 38.png", alt: "AfterLife loading screen: a red heart between teal leaves, labeled Live" },
+      { file: "afterlife/Fold 33.png", alt: "AfterLife loading screen: a skull between violet leaves, labeled Die" },
+      { file: "afterlife/Fold 37.png", alt: "AfterLife loading screen: a teal flower between red leaves, labeled Celebrate" },
+    ],
     discipline: "Web & illustration",
     tags: ["Illustration", "Landing Page", "Web App"],
     thumbnail: "afterlife/circle.jpg",

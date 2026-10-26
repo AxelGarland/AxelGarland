@@ -1,6 +1,7 @@
 "use client";
 
 import { CardPreview } from "@/components/projects/CardPreview";
+import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { pictureSrc } from "@/lib/pictures";
 import { projectThumbnailSrc, type Project } from "@/lib/projects";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
@@ -65,7 +66,9 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
           style={{ opacity: image }}
           className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}
         >
-          {thumb ? (
+          {project.circleLoop ? (
+            <LoadingLoop frames={project.circleLoop} fill />
+          ) : thumb ? (
             <Image
               src={thumb}
               alt={project.title}

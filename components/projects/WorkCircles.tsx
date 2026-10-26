@@ -92,19 +92,35 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
       </div>
 
       <div className={`min-w-0 flex-1 ${left ? "self-start text-left md:self-center" : "self-end text-left md:self-center md:text-right"}`}>
-        <motion.h3
-          style={{ opacity: titleOpacity, y: titleY }}
-          className="mb-3 font-display text-[clamp(1.76rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink"
-        >
-          <span className="relative inline-block pb-2">
-            {project.title}
-            <motion.span
-              aria-hidden
-              style={{ scaleX: underline }}
-              className="absolute bottom-0 left-0 h-px w-full origin-left bg-accent"
-            />
-          </span>
-        </motion.h3>
+        <div className={`mb-3 flex items-center gap-5 ${left ? "" : "md:flex-row-reverse"}`}>
+          <motion.h3
+            style={{ opacity: titleOpacity, y: titleY }}
+            className="font-display text-[clamp(1.76rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink"
+          >
+            <span className="relative inline-block pb-2">
+              {project.title}
+              <motion.span
+                aria-hidden
+                style={{ scaleX: underline }}
+                className="absolute bottom-0 left-0 h-px w-full origin-left bg-accent"
+              />
+            </span>
+          </motion.h3>
+          {/* The mark that says "open this project". The whole row is the link; this is its visible cue. */}
+          <motion.span aria-hidden style={{ opacity: titleOpacity, y: titleY }} className="shrink-0">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-white transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                className="transition-transform duration-300 group-hover:translate-x-0.5"
+              >
+                <path d="M4 10h11M10.5 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </motion.span>
+        </div>
         <motion.div style={{ opacity: descOpacity, y: descY }}>
           {project.discipline ? <p className="mb-4 text-sm text-ink-muted">{project.discipline}</p> : null}
           <p className={`max-w-[38ch] text-base leading-relaxed text-ink-muted ${left ? "" : "md:ml-auto"}`}>

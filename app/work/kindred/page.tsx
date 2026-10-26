@@ -82,12 +82,6 @@ export default function KindredPage() {
         {/* How it works */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-              How it works
-            </p>
-            <h2 className="mb-12 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-16">
-              A few rules, and a family of faces
-            </h2>
             <KindredEmbed />
             <p className="mx-auto mt-4 max-w-[72rem] text-sm text-ink-muted">
               This is the live site. Turn a tile, swap a word, roll a new face.

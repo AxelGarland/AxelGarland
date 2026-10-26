@@ -14,6 +14,15 @@ export type RetabloImage = {
   portrait?: boolean;
 };
 
+export type RetabloOpen = {
+  prefix: string;
+  width: number;
+  height: number;
+  left: number;
+  right: number;
+  lid: number;
+};
+
 export type RetabloBox = {
   /** URL segment for the box's own page: /work/mundos-mejores/[slug]. */
   slug: string;
@@ -24,9 +33,11 @@ export type RetabloBox = {
   retablo: string;
   retabloWidth: number;
   retabloHeight: number;
-  /** Photo of the box with its doors fully open (tightly cropped, transparent), shown at the top of
-   *  the box's own page. Boxes without one fall back to the closed photo. */
-  open?: { file: string; width: number; height: number };
+  /** What the box's own page needs to play the doors-opening animation: the cut-out pieces under
+   *  `public/pictures/<prefix>-{center,left-front,left-back,right-front,right-back}.webp`, the open
+   *  photo's size, where the box's frame starts and ends across it (`left`, `right`) and the height of
+   *  the lid (`lid`), all in that photo's pixels. Boxes without one show the closed photo. */
+  open?: RetabloOpen;
   images: RetabloImage[];
 };
 

@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { OpeningRetablo } from "@/components/projects/OpeningRetablo";
 import { RetabloPhotos } from "@/components/projects/RetabloSelector";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { boxNumber, getBox, MUNDOS_BOXES } from "@/lib/mundos";
@@ -57,22 +58,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
 
             <div className="flex flex-col items-center text-center">
               {box.open ? (
-                <div
-                  className="relative w-full animate-[box-open_900ms_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
-                  style={{
-                    aspectRatio: `${box.open.width} / ${box.open.height}`,
-                    maxWidth: `min(100%, calc(62vh * ${box.open.width / box.open.height}))`,
-                  }}
-                >
-                  <Image
-                    src={pictureSrc(box.open.file)}
-                    alt={`The “${box.lid}” retablo with its doors open`}
-                    fill
-                    priority
-                    className="object-contain drop-shadow-md"
-                    sizes="(max-width: 768px) 100vw, 900px"
-                  />
-                </div>
+                <OpeningRetablo open={box.open} lid={box.lid} />
               ) : (
                 <Image
                   src={pictureSrc(box.retablo)}

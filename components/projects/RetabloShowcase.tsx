@@ -2,85 +2,138 @@
 
 import { RetabloPieces, retabloFrameStyle } from "@/components/projects/OpeningRetablo";
 import type { RetabloBox } from "@/components/projects/RetabloSelector";
-import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
-/** Where each stage of one box's turn falls, in milliseconds from the moment it is picked. */
-const FADE = 150;
-const BLANK = 300;
-const OPEN_AT = BLANK + 80;
-const OPEN_FOR = 1500;
-const HOLD = 2600;
-const NEXT_AT = OPEN_AT + OPEN_FOR + HOLD;
+/** Share of each box's stretch of the bar in which its doors swing; the rest it rests fully open. */
+const SWING = 0.75;
+/** Where the bar starts: the first box, open. */
+const START = 0.9;
+/** How far an arrow key moves the handle, as a share of one box's stretch. */
+const STEP = 0.08;
 
-type Stage = "hidden" | "shown" | "opened";
+const smooth = (t: number) => t * t * (3 - 2 * t);
 
-/** The boxes one after another: a box swings its doors open and holds, then it fades out fast, the
- *  page is blank for a beat, and the next one fades in fast and opens straight away. Clicking the one
- *  on show opens its page. With reduced motion it stops on the first box, open. */
+/** One box on show, with a bar underneath that scrubs through all of them: dragging along it swings
+ *  each box's doors open in turn, and carrying on past the end of one brings in the next. Clicking
+ *  the box on show opens its page. */
 export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]; className?: string }) {
-  const reduce = useHydrationSafeReducedMotion();
   const items = boxes.map((box, i) => ({ box, number: i + 1 })).filter(({ box }) => box.open);
-  const [index, setIndex] = useState(0);
-  const [stage, setStage] = useState<Stage>("hidden");
-  const [leaving, setLeaving] = useState<number | null>(null);
-  const [seen, setSeen] = useState<number[]>([0]);
+  const n = items.length;
+  const [pos, setPos] = useState(START);
+  const [dragging, setDragging] = useState(false);
+  const track = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (reduce) {
-      setStage("opened");
-      return;
+  const clamp = (v: number) => Math.min(n - 0.0001, Math.max(0, v));
+  const index = Math.min(n - 1, Math.floor(pos));
+  const swung = Math.min(1, (pos - index) / SWING);
+  const angle = 180 * smooth(swung);
+  const current = items[index];
+
+  const fromPointer = (clientX: number) => {
+    const r = track.current?.getBoundingClientRect();
+    if (!r) return;
+    setPos(clamp(((clientX - r.left) / r.width) * n));
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const jump = (k: number) => setPos(clamp(k + START));
+    switch (e.key) {
+      case "ArrowRight":
+      case "ArrowUp":
+        setPos((p) => clamp(p + STEP));
+        break;
+      case "ArrowLeft":
+      case "ArrowDown":
+        setPos((p) => clamp(p - STEP));
+        break;
+      case "PageDown":
+        jump(Math.min(n - 1, index + 1));
+        break;
+      case "PageUp":
+        jump(Math.max(0, index - 1));
+        break;
+      case "Home":
+        setPos(0);
+        break;
+      case "End":
+        setPos(clamp(n));
+        break;
+      default:
+        return;
     }
-    setStage("hidden");
-    const timers = [
-      setTimeout(() => setLeaving(null), FADE + 50),
-      setTimeout(() => setStage("shown"), BLANK),
-      setTimeout(() => setStage("opened"), OPEN_AT),
-      setTimeout(() => {
-        setLeaving(index);
-        setStage("hidden");
-        setIndex((i) => (i + 1) % items.length);
-      }, NEXT_AT),
-    ];
-    return () => timers.forEach(clearTimeout);
-  }, [index, reduce, items.length]);
-
-  // Keep the next box's pictures coming while this one plays, so each starts instantly.
-  useEffect(() => {
-    const next = (index + 1) % items.length;
-    setSeen((s) => (s.includes(index) && s.includes(next) ? s : [...new Set([...s, index, next])]));
-  }, [index, items.length]);
+    e.preventDefault();
+  };
 
   return (
-    <div
-      className={`relative h-[var(--stage-h)] w-full [--stage-h:16rem] sm:[--stage-h:21rem] md:[--stage-h:24rem] ${className}`}
-    >
-      {items.map(({ box, number }, i) => {
-        if (!seen.includes(i)) return null;
-        const active = i === index;
-        const visible = active && stage !== "hidden";
-        // The box going out keeps its doors open while it fades, then closes them unseen.
-        const opened = active ? stage === "opened" : i === leaving;
-        return (
-          <div
-            key={box.slug}
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-150 ${
-              active ? "" : "pointer-events-none"
-            } ${visible ? "opacity-100" : "opacity-0"}`}
-          >
-            <Link
-              href={`/work/mundos-mejores/${box.slug}`}
-              aria-label={`Box ${String(number).padStart(2, "0")}: ${box.title}. Open this box`}
-              tabIndex={active ? 0 : -1}
-              className="relative block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
-              style={retabloFrameStyle(box.open!, "var(--stage-h)")}
+    <div className={className}>
+      <div className="relative h-[var(--stage-h)] w-full [--stage-h:16rem] sm:[--stage-h:21rem] md:[--stage-h:24rem]">
+        {items.map(({ box, number }, i) => {
+          const active = i === index;
+          return (
+            <div
+              key={box.slug}
+              className={`absolute inset-0 flex items-center justify-center ${active ? "opacity-100" : "pointer-events-none opacity-0"}`}
             >
-              <RetabloPieces open={box.open!} lid={box.lid} opened={opened} duration={reduce ? 0 : OPEN_FOR} priority={i === 0} />
-            </Link>
-          </div>
-        );
-      })}
+              <Link
+                href={`/work/mundos-mejores/${box.slug}`}
+                aria-label={`Box ${String(number).padStart(2, "0")}: ${box.title}. Open this box`}
+                tabIndex={active ? 0 : -1}
+                className="relative block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
+                style={retabloFrameStyle(box.open!, "var(--stage-h)")}
+              >
+                <RetabloPieces
+                  open={box.open!}
+                  lid={box.lid}
+                  angle={active ? angle : i < index ? 180 : 0}
+                  duration={dragging ? 40 : 90}
+                  priority={i === 0}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* The bar: one stretch per box, a handle to drag, and a line that fills behind it. */}
+      <div
+        ref={track}
+        role="slider"
+        tabIndex={0}
+        aria-label="Scrub through the boxes opening"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round((pos / n) * 100)}
+        aria-valuetext={`Box ${String(current.number).padStart(2, "0")}: ${current.box.title}, ${Math.round(swung * 100)}% open`}
+        onKeyDown={onKeyDown}
+        onPointerDown={(e) => {
+          e.currentTarget.setPointerCapture(e.pointerId);
+          setDragging(true);
+          fromPointer(e.clientX);
+        }}
+        onPointerMove={(e) => {
+          if (dragging) fromPointer(e.clientX);
+        }}
+        onPointerUp={() => setDragging(false)}
+        onPointerCancel={() => setDragging(false)}
+        className="group relative mx-auto mt-6 h-11 w-full max-w-[34rem] cursor-pointer touch-none select-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+      >
+        <div className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 bg-ink/15" />
+        <div className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 bg-accent" style={{ width: `${(pos / n) * 100}%` }} />
+        {Array.from({ length: n + 1 }, (_, k) => (
+          <div
+            key={k}
+            className="absolute top-1/2 h-3 w-0.5 -translate-x-1/2 -translate-y-1/2 bg-ink/30"
+            style={{ left: `${(k / n) * 100}%` }}
+          />
+        ))}
+        <div
+          className={`absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-accent shadow transition-transform duration-150 ${
+            dragging ? "scale-125" : "group-hover:scale-110"
+          }`}
+          style={{ left: `${(pos / n) * 100}%` }}
+        />
+      </div>
     </div>
   );
 }

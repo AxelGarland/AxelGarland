@@ -148,13 +148,9 @@ export function RetabloShowcase({
         />
       </div>
 
-      <div aria-hidden className="mx-auto flex w-full max-w-[34rem] items-start justify-center gap-3 text-ink">
-        <span className="pt-4 text-sm font-semibold uppercase tracking-[0.1em]">Slide to open</span>
-        <svg width="88" height="44" viewBox="0 0 88 44" fill="none" className="mt-1">
-          <path d="M3 12C26 40 62 36 82 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-          <path d="M70 8l12-1 -2 12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
+      <p aria-hidden className="mx-auto mt-1 w-full max-w-[34rem] text-center text-sm font-semibold uppercase tracking-[0.1em] text-ink">
+        Slide to open
+      </p>
     </div>
   );
 }

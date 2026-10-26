@@ -4,6 +4,7 @@ import { CardPreview } from "@/components/projects/CardPreview";
 import { pictureSrc } from "@/lib/pictures";
 import { projectThumbnailSrc, type Project } from "@/lib/projects";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { TagLine } from "@/components/projects/TagLine";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -122,10 +123,10 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
           </motion.span>
         </div>
         <motion.div style={{ opacity: descOpacity, y: descY }}>
-          {project.discipline ? <p className="mb-4 text-sm text-ink-muted">{project.discipline}</p> : null}
           <p className={`max-w-[38ch] text-base leading-relaxed text-ink-muted ${left ? "" : "md:ml-auto"}`}>
             {project.summary}
           </p>
+          {project.tags ? <TagLine tags={project.tags} className="mt-5" /> : null}
         </motion.div>
       </div>
     </Link>

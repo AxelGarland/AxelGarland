@@ -65,6 +65,8 @@ export type Project = {
   summary: string;
   /** What kind of work it is, shown quietly beside the title on cards and in the index. */
   discipline?: string;
+  /** The disciplines shown under the description on the work cards. */
+  tags?: string[];
   /** Per-project accent tone, drives hero/divider/hover tint */
   accentColor?: AccentColor;
   /** Case-study section only: full Problem/Role/Process/Outcome breakdown */
@@ -135,6 +137,7 @@ export const PROJECTS: Project[] = [
         "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of Alut's recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That's a meaningful shift in the recruitment department's strategy, and a real branding success for Alut.",
     },
     discipline: "Illustration & branding",
+    tags: ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"],
     thumbnail: "alutit/card.jpg",
     hero: "alutit/Alutit rainbow.png",
     gallery: [
@@ -216,6 +219,7 @@ export const PROJECTS: Project[] = [
         "Throughout the summer, everyone on the recruiting team used it. It let five recruiters make these specialized calls instead of just one or two, and it became a necessary work tool, both for the recruitment office and for the managers in the field who hire on site. The success was big enough that we're now building a similar tool for the rest of the roles open at Alut.",
     },
     discipline: "Product design",
+    tags: ["Product Design", "Internal Tool", "Recruitment"],
     thumbnail: "giuson/giuson banner.jpg",
     hero: "giuson/giuson banner.jpg",
     gallery: [
@@ -256,6 +260,7 @@ export const PROJECTS: Project[] = [
         "We presented it in a meeting held for managers, and they were excited to have a tool that would help them. They use it, and they keep asking us to add more roles. The scores then became part of the intake process, so for certain intakes managers have to use it.",
     },
     discipline: "Product design",
+    tags: ["Product Design", "Internal Tool", "Recruitment"],
     thumbnail: "interview-assistant/hero.png",
     hero: "interview-assistant/hero.png",
     gallery: [
@@ -290,6 +295,7 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://mask-facette-app.vercel.app/",
     previewVideo: "kindred/showreel.mp4",
     discipline: "Generative design",
+    tags: ["Generative Design", "Illustration", "Creative Coding", "Web App"],
     thumbnail: "kindred/card.jpg",
     hero: "kindred/hero.jpg",
     gallery: [{ file: "kindred/hero.jpg", alt: "Kindred landing page" }],
@@ -304,6 +310,7 @@ export const PROJECTS: Project[] = [
     reflection:
       "Mundos Mejores is my final project at Shenkar: a series of retablo-inspired boxes that combine traditional Peruvian illustrative and sculptural craft with my own illustration style. Each box holds a hand-sculpted scene built around the same recurring figure, moving through different remembered and imagined moments: an infinite library, underwater, swinging among the stars, a family gathered together. It's the largest and most worked-on body of work I've made so far, and the most personal.",
     discipline: "Sculpture",
+    tags: ["Sculpture", "Illustration", "Graduation Project"],
     thumbnail: "mundos mejores/between the stars2.jpg",
     hero: "mundos mejores/Familia 1.jpg",
     gallery: [
@@ -336,6 +343,7 @@ export const PROJECTS: Project[] = [
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
     previewVideo: "afterlife/entrance animation.mp4",
     discipline: "Web & illustration",
+    tags: ["Illustration", "Landing Page", "Web App"],
     thumbnail: "afterlife/circle.jpg",
     hero: "afterlife/Frame 40.png",
     gallery: [{ file: "afterlife/Frame 40.png", alt: "AfterLife app welcome screen" }],
@@ -349,6 +357,7 @@ export const PROJECTS: Project[] = [
     reflection:
       "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem, a solo project for a Children's Books course at Shenkar. It let me push the visual style as far as it would go: bold color-blocking, confident silhouettes, a monster that's actually a little unsettling, carried consistently across a full set of spreads rather than a single image.",
     discipline: "Illustrated book",
+    tags: ["Illustration", "Illustrated Book", "Children's Books"],
     thumbnail: "jabberwocky/book-mockup.jpg",
     thumbnailBlend: true,
     hero: "book mock up.jpg",
@@ -418,6 +427,7 @@ export const PROJECTS: Project[] = [
     title: "Better Eater",
     section: "case-study",
     discipline: "Product design",
+    tags: ["Product Design", "Mobile App", "Interactive Course"],
     summary: "A personalized meal-planning and recipe app.",
     accentColor: "blue",
     caseStudy: {

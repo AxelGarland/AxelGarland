@@ -1,4 +1,4 @@
-/** The project's disciplines as one quiet line of text instead of a row of boxed chips. */
+/** The project's disciplines as one quiet line of text, separated by small red dots. */
 export function TagLine({
   tags,
   className = "",
@@ -10,7 +10,6 @@ export function TagLine({
   tone?: "light" | "dark";
 }) {
   const text = tone === "dark" ? "text-surface/70" : "text-ink-muted";
-  const slash = tone === "dark" ? "text-surface/35" : "text-ink-subtle";
   return (
     <p className={`text-sm ${text} ${className}`}>
       {tags.map((tag, i) => (
@@ -18,9 +17,7 @@ export function TagLine({
           <span className="whitespace-nowrap">
             {tag}
             {i < tags.length - 1 ? (
-              <span aria-hidden className={`ml-2.5 ${slash}`}>
-                /
-              </span>
+              <span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />
             ) : null}
           </span>
           {i < tags.length - 1 ? " " : null}

@@ -7,7 +7,7 @@ import Link from "next/link";
 export function WorkList({ projects }: { projects: Project[] }) {
   return (
     <ul className="border-t border-line">
-      {projects.map((project, i) => {
+      {projects.map((project) => {
         const thumb = projectThumbnailSrc(project);
         return (
           <li key={project.slug} className="border-b border-line">
@@ -15,7 +15,7 @@ export function WorkList({ projects }: { projects: Project[] }) {
               href={`/work/${project.slug}`}
               className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-4 gap-y-1 py-6 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent sm:grid-cols-[3.5rem_1.1fr_1fr_auto] sm:gap-x-8 sm:py-8"
             >
-              <span className="text-sm tabular-nums text-ink-subtle">{String(i + 1).padStart(2, "0")}</span>
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-accent" />
               <span className="font-display text-2xl font-medium leading-tight tracking-tight text-ink transition-transform duration-500 ease-out group-hover:translate-x-1 sm:text-3xl md:text-3xl">
                 {project.title}
               </span>

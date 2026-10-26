@@ -2,7 +2,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { KindredEmbed } from "@/components/projects/KindredEmbed";
-import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
+import { PosterGallery } from "@/components/projects/PosterGallery";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -95,32 +95,27 @@ export default function KindredPage() {
           </div>
         </section>
 
-        {/* Posters */}
+        {/* Posters — text on the left, the gallery on the right, like the opening */}
         <section className="border-t border-line bg-paper py-16 md:py-24">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-              Posters
-            </p>
-            <h2 className="mb-4 max-w-[24ch] font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
-              Crowds for the wall
-            </h2>
-            <p className="mb-10 max-w-[56ch] text-base leading-relaxed text-ink-muted md:mb-12">
-              Each poster is a crowd of twelve faces drawn from the same rules. Prints are
-              available on request:{" "}
-              <Link
-                href="/contact"
-                className="text-ink underline underline-offset-4 transition-colors duration-300 hover:text-accent"
-              >
-                get in touch
-              </Link>
-              .
-            </p>
-            <SlideStackGallery
-              images={POSTERS}
-              aspect="aspect-[842/1191]"
-              maxWidth="max-w-[19rem] sm:max-w-[22rem]"
-              sizes="352px"
-            />
+          <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
+            <div>
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">Posters</p>
+              <h2 className="mb-5 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
+                Crowds for the wall
+              </h2>
+              <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">
+                Each poster is a crowd of twelve faces drawn from the same rules. Prints are
+                available on request:{" "}
+                <Link
+                  href="/contact"
+                  className="text-ink underline underline-offset-4 transition-colors duration-300 hover:text-accent"
+                >
+                  get in touch
+                </Link>
+                .
+              </p>
+            </div>
+            <PosterGallery posters={POSTERS} label="Crowd" />
           </div>
         </section>
       </main>

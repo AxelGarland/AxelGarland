@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
     slug: "alutit",
     title: "Alutit",
     section: "case-study",
-    summary: "An illustrated recruitment avatar for Alut, Israel's national organization for people with autism.",
+    summary: "Illustrated branding project for the recruitment department of Alut, the Israeli Society for Children and Adults with Autism.",
     accentColor: "violet",
     heroFit: "contain",
     clientLogo: "alutit/alut logo no background.png",

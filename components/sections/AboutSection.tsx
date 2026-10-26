@@ -1,4 +1,5 @@
 import { MotionReveal } from "@/components/motion/MotionReveal";
+import Link from "next/link";
 
 export function AboutSection() {
   return (
@@ -11,11 +12,17 @@ export function AboutSection() {
             </h2>
             <div className="md:pt-3">
               <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted">
-                I&rsquo;m a multidisciplinary designer with a thing for experiences people actually
-                want to explore. Websites, apps, illustration: I design all of it, starting with a
-                pencil and a Figma file. Then I build with AI, using tools like Cursor and Claude
-                Code to turn the idea into something you can click. The craft stays in my hands.
-                The AI just helps me take it further.
+                I&rsquo;m curious by nature, with a real desire to create beautiful things, useful or
+                not. Hand me a task and I feel confident taking it on, whether it&rsquo;s a website,
+                an app, an illustration or a brand. If you have a project that needs a creative
+                perspective and great results,{" "}
+                <Link
+                  href="/contact"
+                  className="text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  let me know
+                </Link>
+                .
               </p>
               <p className="mt-8 text-sm text-ink-muted">
                 <span className="mr-3 text-ink">Tools</span>

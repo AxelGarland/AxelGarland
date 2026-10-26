@@ -1,13 +1,13 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { HeroVideo } from "@/components/projects/HeroVideo";
+import { KindredEmbed } from "@/components/projects/KindredEmbed";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -24,39 +24,6 @@ const POSTERS = Array.from({ length: 10 }, (_, i) => {
     alt: `Kindred poster, crowd ${i + 1}`,
   };
 });
-
-const STEPS = [
-  {
-    file: "kindred/grid.jpg",
-    alt: "Kindred's 5 by 5 grid, with each cell assigned to a part of the face",
-    title: "Twenty-five cells, nine jobs",
-    body: "Every face sits on the same 5 by 5 grid, and each cell belongs to one part of the face: frame, brow, eyes, nose, cheeks, jaw, chin corners, mouth, and chin.",
-  },
-  {
-    file: "kindred/tiles.jpg",
-    alt: "The sheet of twenty-seven hand-drawn tiles in orange and black, with a row of colour swatches",
-    title: "Twenty-seven tiles",
-    body: "Every shape in every face comes from one sheet. Turn a tile and flip it: one shape, up to eight positions.",
-  },
-  {
-    file: "kindred/symmetry.jpg",
-    alt: "Building a face step by step: the nose is drawn on one side and mirrored on the other",
-    title: "Draw half, mirror the rest",
-    body: "Ten words build each face, one part at a time. Nine choose tiles and the tenth chooses the colour. The rules draw half of each part and mirror the rest.",
-  },
-  {
-    file: "kindred/one-word-apart.jpg",
-    alt: "Two nearly identical faces, a parent and a relative, with the two tiles that changed outlined",
-    title: "One word apart",
-    body: "Swap a single word and only a few tiles change. The rest stays put, which is why the faces read as family.",
-  },
-  {
-    file: "kindred/add-a-relative.jpg",
-    alt: "A large face beside a row of colourful relatives, with a Roll button to add another",
-    title: "Add a relative",
-    body: "Roll ten words and a new face joins the line. The tiles are drawn by hand, the combinations are not.",
-  },
-];
 
 export default function KindredPage() {
   const project = getProject("kindred");
@@ -121,31 +88,10 @@ export default function KindredPage() {
             <h2 className="mb-12 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl md:mb-16">
               A few rules, and a family of faces
             </h2>
-            <div className="mx-auto flex max-w-[60rem] flex-col gap-16 md:gap-20">
-              {STEPS.map((step, i) => (
-                <div key={step.file}>
-                  <div className="relative w-full overflow-hidden border border-line bg-black">
-                    <Image
-                      src={pictureSrc(step.file)}
-                      alt={step.alt}
-                      width={2400}
-                      height={1600}
-                      className="h-auto w-full"
-                      sizes="(max-width: 960px) 100vw, 960px"
-                    />
-                  </div>
-                  <div className="mt-4 flex items-baseline gap-3">
-                    <span className="font-display text-sm leading-none text-ink-subtle">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-sm font-semibold text-ink">{step.title}</p>
-                  </div>
-                  <p className="mt-1.5 max-w-[60ch] text-sm leading-relaxed text-ink-muted">
-                    {step.body}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <KindredEmbed />
+            <p className="mx-auto mt-4 max-w-[72rem] text-sm text-ink-muted">
+              This is the live site. Turn a tile, swap a word, roll a new face.
+            </p>
           </div>
         </section>
 

@@ -289,7 +289,7 @@ export const PROJECTS: Project[] = [
     title: "Kindred",
     section: "selected-work",
     summary:
-      "A generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
+      "Where illustration meets generative coding. An experimental system that became an engine for creating posters, and for selling them.",
     reflection:
       "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",

@@ -2,6 +2,7 @@
 
 import { RetabloPieces, retabloFrameStyle } from "@/components/projects/OpeningRetablo";
 import type { RetabloBox } from "@/components/projects/RetabloSelector";
+import { HalftoneHint } from "@/components/sections/HalftoneHint";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -146,6 +147,10 @@ export function RetabloShowcase({
           }`}
           style={{ left: `${(pos / n) * 100}%` }}
         />
+      </div>
+
+      <div className="mx-auto flex w-full max-w-[34rem] justify-center">
+        <HalftoneHint label="Slide to open" />
       </div>
     </div>
   );

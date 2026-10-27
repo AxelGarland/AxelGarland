@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-/** The site's one arrow: a white box with a thin black frame holding an arrow drawn in halftone
+/** The site's one arrow: a white box with a thin black frame holding an arrowhead (a chevron, no shaft) drawn in halftone
  *  dots, black with red at the edges. When the link or button around it (the nearest `group`) is
  *  hovered or focused, the box turns black and the arrow white. The arrow is drawn once into two
  *  canvases, one per state, and the page fades between them. It is decoration: whatever it sits in
@@ -68,11 +68,9 @@ export function HalftoneArrowBox({
     m.lineCap = "round";
     m.lineJoin = "round";
     m.beginPath();
-    m.moveTo(12, 28);
-    m.lineTo(43, 28);
-    m.moveTo(28.5, 13.5);
-    m.lineTo(43, 28);
-    m.lineTo(28.5, 42.5);
+    m.moveTo(20.5, 13);
+    m.lineTo(35.5, 28);
+    m.lineTo(20.5, 43);
     m.stroke();
     const mask = m.getImageData(0, 0, SIZE, SIZE).data;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);

@@ -31,13 +31,13 @@ const FRICTION = [
 
 const SCREENS = [
   {
-    file: "giuson/new-map.jpg",
+    file: "giuson/smart-map.jpg",
     alt: "Recruitment search: open positions on a live map within the chosen radius, with a list of the nearest facilities",
     caption: "Open roles on a live map",
   },
   {
-    file: "giuson/new-info.jpg",
-    alt: "Information hub: the professional roles, grouped into general and professional roles",
+    file: "giuson/smart-info.jpg",
+    alt: "Information hub: professional roles, requirements and salary ladders, with tabs for each topic",
     caption: "Every role, in one place",
   },
   {

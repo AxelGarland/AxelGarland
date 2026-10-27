@@ -2,7 +2,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { OpeningRetablo } from "@/components/projects/OpeningRetablo";
 import { RetabloPhotos } from "@/components/projects/RetabloSelector";
 import { SiteFooter } from "@/components/sections/SiteFooter";
-import { boxNumber, getBox, MUNDOS_BOXES } from "@/lib/mundos";
+import { getBox, MUNDOS_BOXES } from "@/lib/mundos";
 import { pictureSrc } from "@/lib/pictures";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!found) return {};
   return {
     title: `${found.box.title} · Mundos Mejores · Axel Garland`,
-    description: `Box ${boxNumber(found.index)} of Mundos Mejores, “${found.box.lid}”: a retablo-inspired box by Axel Garland.`,
+    description: `${found.box.title}, from Mundos Mejores: a retablo-inspired box by Axel Garland.`,
   };
 }
 
@@ -70,10 +70,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
                   sizes="320px"
                 />
               )}
-              <p className="mb-3 mt-8 text-sm font-semibold uppercase tracking-[0.1em] text-accent-ink">
-                Box {boxNumber(index)} · {box.lid}
-              </p>
-              <h1 className="font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mt-8 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {box.title}
               </h1>
             </div>
@@ -96,11 +93,11 @@ export default async function MundosBoxPage({ params }: PageProps) {
               </Link>
             </div>
             <ul className="grid grid-cols-2 items-end gap-x-6 gap-y-10 sm:grid-cols-4 md:gap-x-10">
-              {others.map(({ box: other, index: i }) => (
+              {others.map(({ box: other }) => (
                 <li key={other.slug}>
                   <Link
                     href={`/work/mundos-mejores/${other.slug}`}
-                    aria-label={`Box ${boxNumber(i)}: ${other.title}`}
+                    aria-label={other.title}
                     className="group flex flex-col items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     <Image
@@ -111,10 +108,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
                       className="h-28 w-auto max-w-full object-contain object-bottom drop-shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-xl sm:h-36 md:h-44"
                       sizes="240px"
                     />
-                    <span className="mt-3 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-accent">
-                      Box {boxNumber(i)}
-                    </span>
-                    <span className="font-display text-base leading-tight text-ink decoration-accent underline-offset-4 group-hover:underline sm:text-lg">
+                    <span className="mt-3 font-display text-base leading-tight text-ink decoration-accent underline-offset-4 group-hover:underline sm:text-lg">
                       {other.title}
                     </span>
                   </Link>

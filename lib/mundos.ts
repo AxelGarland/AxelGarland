@@ -9,6 +9,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     lid: "Mundos Mejores",
     description:
       "A family gathered together, arms linked around the recurring figure, with framed memories hanging on the wall behind them. The box that holds the people who remember her.",
+    verse: ["Better worlds where we are all still together,", "that's where you'll be."],
     retablo: "Retablo 1 web.webp",
     retabloWidth: 1200,
     retabloHeight: 456,

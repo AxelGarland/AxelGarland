@@ -48,7 +48,7 @@ export function PhotoCarousel({ photos, label }: { photos: Photo[]; label: strin
           start.current = null;
           if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1));
         }}
-        className="relative h-[min(30rem,62vh)] w-full touch-pan-y select-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="relative h-[min(21rem,56vh)] w-full sm:h-[min(30rem,62vh)] touch-pan-y select-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         {photos.map((photo, i) => (
           <Image

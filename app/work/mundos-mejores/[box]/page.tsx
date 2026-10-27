@@ -1,4 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { OpeningRetablo } from "@/components/projects/OpeningRetablo";
 import { PhotoCarousel } from "@/components/projects/PhotoCarousel";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -42,17 +43,9 @@ export default async function MundosBoxPage({ params }: PageProps) {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
               href="/work/mundos-mejores"
-              className="mb-10 inline-flex items-center gap-2 text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:text-ink"
+              className="group mb-10 inline-flex items-center gap-3 text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:text-ink"
             >
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path
-                  d="M12.5 4.5 6 10l6.5 5.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <HalftoneArrowBox dir="left" className="!h-9 !w-9" />
               All boxes
             </Link>
 

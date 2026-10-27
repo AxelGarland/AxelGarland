@@ -1,5 +1,6 @@
 "use client";
 
+import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -19,13 +20,11 @@ export function PhotoCarousel({ photos, label }: { photos: Photo[]; label: strin
       type="button"
       onClick={() => go(index + dir)}
       aria-label={dir === 1 ? "Next photo" : "Previous photo"}
-      className={`absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 text-ink shadow-sm transition-colors duration-200 hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:h-12 lg:w-12 ${
-        dir === 1 ? "right-2 lg:-right-16" : "left-2 lg:-left-16"
+      className={`group absolute top-1/2 z-10 -translate-y-1/2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+        dir === 1 ? "right-2 lg:-right-20" : "left-2 lg:-left-20"
       }`}
     >
-      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden className={dir === -1 ? "rotate-180" : ""}>
-        <path d="M4 10h11M10.5 5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <HalftoneArrowBox dir={dir === 1 ? "right" : "left"} />
     </button>
   );
 

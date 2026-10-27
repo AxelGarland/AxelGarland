@@ -1,5 +1,6 @@
 "use client";
 
+import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 import { useRef, useState, type KeyboardEvent } from "react";
@@ -94,18 +95,14 @@ export function PosterGallery({ posters, label = "Poster" }: { posters: Poster[]
             type="button"
             onClick={() => setPage(last ? 0 : page + 1)}
             aria-label={last ? "Show the first previews again" : "Show the next previews"}
-            className="flex h-10 w-10 shrink-0 items-center justify-center self-center rounded-full border border-line bg-surface text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:mt-1"
+            className="group shrink-0 self-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:mt-1"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden
-              className={`transition-transform duration-300 ${last ? "rotate-90 md:rotate-180" : "-rotate-90 md:rotate-0"}`}
-            >
-              <path d="M5 7.5 10 12.5 15 7.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <span className="md:hidden">
+              <HalftoneArrowBox dir={last ? "left" : "right"} className="!h-11 !w-11" />
+            </span>
+            <span className="hidden md:block">
+              <HalftoneArrowBox dir={last ? "up" : "down"} />
+            </span>
           </button>
         ) : null}
       </div>

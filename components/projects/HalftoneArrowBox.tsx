@@ -2,11 +2,14 @@
 
 import { useEffect, useRef } from "react";
 
-/** The "open this project" mark: a tall white box with a thin black frame, as high as the text beside it, holding an arrow drawn in
- *  halftone dots, black with red at the edges. When the row it sits in (the nearest `group`) is
+/** The site's one arrow: a white box with a thin black frame holding an arrow drawn in halftone
+ *  dots, black with red at the edges. When the link or button around it (the nearest `group`) is
  *  hovered or focused, the box turns black and the arrow white. The arrow is drawn once into two
- *  canvases, one per state, and the page fades between them. It is decoration: the link around it
- *  carries the name. */
+ *  canvases, one per state, and the page fades between them. It is decoration: whatever it sits in
+ *  carries the name.
+ *
+ *  `shape="square"` is a button-sized box (give it a size with `className` to change it);
+ *  `shape="tall"` stretches to the height of whatever is beside it, with the arrow centred. */
 
 const INK = "#1A1916";
 const RED = "#D64040";
@@ -40,7 +43,17 @@ function paint(canvas: HTMLCanvasElement, mask: Uint8ClampedArray, fg: string, d
   }
 }
 
-export function HalftoneArrowBox({ className = "w-12 sm:w-[3.75rem]" }: { className?: string }) {
+const ROTATE = { right: 0, down: 90, left: 180, up: 270 } as const;
+
+export function HalftoneArrowBox({
+  dir = "right",
+  shape = "square",
+  className,
+}: {
+  dir?: keyof typeof ROTATE;
+  shape?: "square" | "tall";
+  className?: string;
+}) {
   const rest = useRef<HTMLCanvasElement>(null);
   const hover = useRef<HTMLCanvasElement>(null);
 
@@ -67,18 +80,27 @@ export function HalftoneArrowBox({ className = "w-12 sm:w-[3.75rem]" }: { classN
     paint(hover.current, mask, WHITE, dpr);
   }, []);
 
+  const tall = shape === "tall";
+  const box = tall ? "w-12 self-stretch sm:w-[3.75rem]" : "h-12 w-12 sm:h-14 sm:w-14";
+  const canvas = tall
+    ? "absolute left-1/2 top-1/2 h-12 w-12 sm:h-14 sm:w-14"
+    : "absolute inset-0 h-full w-full";
+  const turn = { transform: `${tall ? "translate(-50%, -50%) " : ""}rotate(${ROTATE[dir]}deg)` };
+
   return (
     <span
       aria-hidden
-      className={`relative block shrink-0 self-stretch border border-ink bg-white transition-colors duration-300 group-hover:bg-ink group-focus-visible:bg-ink ${className}`}
+      className={`relative block shrink-0 border border-ink bg-white transition-colors duration-300 group-hover:bg-ink group-focus-visible:bg-ink ${box} ${className ?? ""}`}
     >
       <canvas
         ref={rest}
-        className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0 sm:h-14 sm:w-14"
+        style={turn}
+        className={`${canvas} transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0`}
       />
       <canvas
         ref={hover}
-        className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 sm:h-14 sm:w-14"
+        style={turn}
+        className={`${canvas} opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100`}
       />
     </span>
   );

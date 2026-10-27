@@ -110,7 +110,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
           </div>
           {/* The mark that says "open this project": a tall box the height of the text. The whole row is the link; this is its visible cue. */}
           <motion.div aria-hidden style={{ opacity: titleOpacity }} className="flex shrink-0 self-stretch">
-            <HalftoneArrowBox />
+            <HalftoneArrowBox shape="tall" />
           </motion.div>
         </div>
       </div>

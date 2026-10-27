@@ -1,6 +1,6 @@
 "use client";
 
-import { HalftoneArrowDot } from "@/components/projects/HalftoneArrowDot";
+import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { pictureSrc } from "@/lib/pictures";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -109,9 +109,9 @@ export function SlideStackGallery({
           type="button"
           aria-label="Previous page"
           onClick={prev}
-          className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <HalftoneArrowDot tone="ink" className="h-full w-full" flip />
+          <HalftoneArrowBox dir="left" />
         </button>
         <span className="min-w-[4ch] text-center text-sm text-ink-subtle">
           {index + 1} / {images.length}
@@ -120,9 +120,9 @@ export function SlideStackGallery({
           type="button"
           aria-label="Next page"
           onClick={next}
-          className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <HalftoneArrowDot tone="ink" className="h-full w-full" />
+          <HalftoneArrowBox />
         </button>
       </div>
     </div>

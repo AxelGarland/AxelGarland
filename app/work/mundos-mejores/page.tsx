@@ -1,8 +1,9 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { SiteFooter } from "@/components/sections/SiteFooter";
-import { MundosExplorer } from "@/components/projects/MundosExplorer";
+import { MundosHeader } from "@/components/projects/MundosHeader";
 import { PhotoGrid } from "@/components/projects/PhotoGrid";
+import { RetabloSelector } from "@/components/projects/RetabloSelector";
 import { MUNDOS_BOXES } from "@/lib/mundos";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
@@ -24,8 +25,15 @@ export default function MundosMejoresPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* The text and the boxes you scrub through, and the section for the box on show */}
-        <MundosExplorer title={project.title} intro={project.reflection ?? ""} boxes={MUNDOS_BOXES} />
+        {/* The text, and the boxes opening one after another */}
+        <MundosHeader title={project.title} intro={project.reflection ?? ""} boxes={MUNDOS_BOXES} />
+
+        {/* The five closed boxes: one on top, two on each side. Each opens its own page. */}
+        <section className="border-t border-line pb-4 pt-16 md:pt-24">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <RetabloSelector boxes={MUNDOS_BOXES} />
+          </div>
+        </section>
 
         {/* All the photos, whole, in a grid */}
         <section className="py-16 md:py-24">

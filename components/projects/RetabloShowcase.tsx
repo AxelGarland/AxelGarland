@@ -4,7 +4,7 @@ import { RetabloPieces, retabloFrameStyle } from "@/components/projects/OpeningR
 import type { RetabloBox } from "@/components/projects/RetabloSelector";
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 /** Where each stage of one box's turn falls, in milliseconds from the moment it is picked. */
 const DISSOLVE = 200;
@@ -18,28 +18,15 @@ type Stage = "hidden" | "shown" | "opened";
 
 /** The boxes one after another: a box swings its doors open and holds, then it dissolves away and,
  *  the moment it has gone, the next one dissolves in, shut, and starts opening. The two are never on
- *  screen together. Clicking the one on show opens its page. While `paused` the box on show stays open instead of moving on. With
- *  reduced motion it stops on the first box, open. */
-export function RetabloShowcase({
-  boxes,
-  className = "",
-  paused = false,
-  onChange,
-}: {
-  boxes: RetabloBox[];
-  className?: string;
-  paused?: boolean;
-  /** Called with the box now on show (its place in `boxes`), including once on mount. */
-  onChange?: (boxIndex: number) => void;
-}) {
+ *  screen together. Clicking the one on show opens its page. With reduced motion it stops on the
+ *  first box, open. */
+export function RetabloShowcase({ boxes, className = "" }: { boxes: RetabloBox[]; className?: string }) {
   const reduce = useHydrationSafeReducedMotion();
   const items = boxes.map((box, i) => ({ box, number: i + 1 })).filter(({ box }) => box.open);
   const [index, setIndex] = useState(0);
   const [stage, setStage] = useState<Stage>("hidden");
   const [leaving, setLeaving] = useState<number | null>(null);
   const [seen, setSeen] = useState<number[]>([0]);
-  const pausedRef = useRef(paused);
-  pausedRef.current = paused;
 
   useEffect(() => {
     if (reduce) {
@@ -47,12 +34,7 @@ export function RetabloShowcase({
       return;
     }
     setStage("hidden");
-    let waiting: ReturnType<typeof setTimeout> | undefined;
     const advance = () => {
-      if (pausedRef.current) {
-        waiting = setTimeout(advance, 200);
-        return;
-      }
       setLeaving(index);
       setStage("hidden");
       setIndex((i) => (i + 1) % items.length);
@@ -63,16 +45,8 @@ export function RetabloShowcase({
       setTimeout(() => setStage("opened"), OPEN_AT),
       setTimeout(advance, NEXT_AT),
     ];
-    return () => {
-      timers.forEach(clearTimeout);
-      clearTimeout(waiting);
-    };
+    return () => timers.forEach(clearTimeout);
   }, [index, reduce, items.length]);
-
-  const onShow = items[index].number - 1;
-  useEffect(() => {
-    onChange?.(onShow);
-  }, [onShow, onChange]);
 
   // Keep the next box's pictures coming while this one plays, so each starts instantly.
   useEffect(() => {

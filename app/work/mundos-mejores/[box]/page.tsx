@@ -73,6 +73,16 @@ export default async function MundosBoxPage({ params }: PageProps) {
               <h1 className="mt-8 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
                 {box.title}
               </h1>
+              {box.verse ? (
+                <p className="mt-5 max-w-[48ch] text-[0.9rem] italic sm:text-lg leading-relaxed text-ink-muted">
+                  {box.verse.map((line, i) => (
+                    <span key={line}>
+                      {i > 0 ? <br /> : null}
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              ) : null}
             </div>
           </div>
         </section>

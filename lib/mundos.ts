@@ -41,6 +41,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     lid: "Verano sin Fin",
     description:
       "An endless summer: the figure stands under a smiling sun, flowers blooming around her and hummingbirds flying across the doors. A warm moment held still, for as long as the box stays open.",
+    verse: ["Maybe I'll find you where the sun never sets,", "and the scent of jasmine fills the air."],
     retablo: "Retablo 3 web.webp",
     retabloWidth: 1075,
     retabloHeight: 1200,

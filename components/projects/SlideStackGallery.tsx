@@ -111,7 +111,7 @@ export function SlideStackGallery({
           onClick={prev}
           className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <HalftoneArrowDot className="h-full w-full" flip />
+          <HalftoneArrowDot tone="ink" className="h-full w-full" flip />
         </button>
         <span className="min-w-[4ch] text-center text-sm text-ink-subtle">
           {index + 1} / {images.length}
@@ -122,7 +122,7 @@ export function SlideStackGallery({
           onClick={next}
           className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <HalftoneArrowDot className="h-full w-full" />
+          <HalftoneArrowDot tone="ink" className="h-full w-full" />
         </button>
       </div>
     </div>

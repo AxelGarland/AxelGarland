@@ -7,11 +7,12 @@ import { useEffect, useRef } from "react";
  *  same way. Drawn once. It is decoration, so the link it sits in carries the name. */
 
 const RED = "#D64040";
+const INK = "#1A1916";
 const SIZE = 48;
 const CELL = 2.4;
 const DOT = 0.86;
 
-export function HalftoneArrowDot({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+export function HalftoneArrowDot({ className = "", flip = false, tone = "red" }: { className?: string; flip?: boolean; tone?: "red" | "ink" }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -65,20 +66,20 @@ export function HalftoneArrowDot({ className = "", flip = false }: { className?:
       return n ? sum / n / 255 : 0;
     };
 
-    ctx.fillStyle = RED;
+    ctx.fillStyle = tone === "ink" ? INK : RED;
     for (let y = 0; y < SIZE; y += CELL) {
       for (let x = 0; x < SIZE; x += CELL) {
         const d = cover(disc, x, y);
         if (d < 0.1) continue;
         const a = cover(arrow, x, y);
-        const tone = d * (1 - a);
-        if (tone < 0.08) continue;
+        const density = d * (1 - a);
+        if (density < 0.08) continue;
         ctx.beginPath();
-        ctx.arc(x + CELL / 2, y + CELL / 2, (CELL / 2) * Math.sqrt(tone) * DOT * 1.15, 0, Math.PI * 2);
+        ctx.arc(x + CELL / 2, y + CELL / 2, (CELL / 2) * Math.sqrt(density) * DOT * 1.15, 0, Math.PI * 2);
         ctx.fill();
       }
     }
-  }, []);
+  }, [tone]);
 
   return <canvas ref={ref} aria-hidden style={{ width: SIZE, height: SIZE, transform: flip ? "scaleX(-1)" : undefined }} className={className} />;
 }

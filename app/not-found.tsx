@@ -21,7 +21,7 @@ export default function NotFound() {
             The link may be old, or the project may have moved. The work is all in one place.
           </p>
           <div>
-            <HalftoneButton href="/work" label="See the work" />
+            <HalftoneButton href="/#work" label="See the work" />
           </div>
         </div>
       </main>

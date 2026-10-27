@@ -23,7 +23,9 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       { source: "/work/facettes", destination: "/work/kindred", permanent: true },
-      { source: "/work/akko-fringe-festival", destination: "/work", permanent: true },
+      { source: "/work/akko-fringe-festival", destination: "/#work", permanent: true },
+      // The work lives in the home page's work section now; the old index page sends people there.
+      { source: "/work", destination: "/#work", permanent: false },
     ];
   },
   outputFileTracingRoot: rootDir,

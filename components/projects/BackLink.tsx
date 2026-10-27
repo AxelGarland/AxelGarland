@@ -8,7 +8,7 @@ export function BackLink() {
     <div className="sticky top-[84px] z-40 h-0">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <Link
-          href="/work"
+          href="/#work"
           aria-label="Back to Work"
           className="group inline-flex h-11 items-center rounded-full border border-ink/15 bg-surface text-ink shadow-[0_8px_22px_-12px_rgba(26,25,22,0.45)] transition-colors duration-300 hover:bg-ink hover:text-surface focus-visible:bg-ink focus-visible:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >

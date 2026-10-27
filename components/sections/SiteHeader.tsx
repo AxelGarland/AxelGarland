@@ -5,15 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const NAV_ITEMS = [
+const NAV_ITEMS: readonly { label: string; href: string; section?: string }[] = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/work" },
+  { label: "Work", href: "/#work", section: "/work" },
   { label: "Contact", href: "/contact" },
-] as const;
+];
 
-function isActive(pathname: string, href: string): boolean {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
+/** Work sends people to the work section of the home page, so on the home page "Home" is the one
+ *  marked; "Work" is marked while a project's own page is open. */
+function isActive(pathname: string, item: { href: string; section?: string }): boolean {
+  if (item.section) return pathname === item.section || pathname.startsWith(`${item.section}/`);
+  if (item.href === "/") return pathname === "/";
+  return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
 export function SiteHeader() {
@@ -36,7 +39,7 @@ export function SiteHeader() {
 
         <ul className="hidden list-none items-center gap-8 md:flex lg:gap-10">
           {NAV_ITEMS.map((item) => {
-            const active = isActive(pathname, item.href);
+            const active = isActive(pathname, item);
             if (active) {
               return (
                 <li key={item.label}>
@@ -93,11 +96,11 @@ export function SiteHeader() {
               href={item.href}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-2 border-b border-line py-3 text-sm font-medium uppercase tracking-[0.12em] ${
-                isActive(pathname, item.href) ? "text-ink" : "text-ink-muted"
+                isActive(pathname, item) ? "text-ink" : "text-ink-muted"
               }`}
             >
               {item.label}
-              {isActive(pathname, item.href) ? (
+              {isActive(pathname, item) ? (
                 <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
               ) : null}
             </Link>

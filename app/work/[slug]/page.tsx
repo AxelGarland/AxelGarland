@@ -128,7 +128,7 @@ export default async function ProjectPage({ params }: PageProps) {
         <article className="pb-16 pt-24 sm:pb-20 sm:pt-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <Link
-              href="/work"
+              href="/#work"
               aria-label="Back to Work"
               className={`inline-flex h-10 w-10 items-center justify-center transition-colors duration-300 ${
                 accent ? ACCENT_BACK_ARROW[accent] : "text-mist-subtle hover:text-mist"

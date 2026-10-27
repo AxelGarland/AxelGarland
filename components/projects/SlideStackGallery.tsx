@@ -103,7 +103,7 @@ export function SlideStackGallery({
         ) : null}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-6">
+      <div className="mt-16 flex items-center justify-center gap-6">
         <button
           type="button"
           aria-label="Previous page"

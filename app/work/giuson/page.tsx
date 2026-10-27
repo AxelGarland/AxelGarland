@@ -108,8 +108,8 @@ export default function GiusonPage() {
               alt="Alut, the Israeli Society for Children and Adults with Autism: 50 years of professional care and love"
               width={900}
               height={341}
-              className="h-auto w-[15rem] md:w-[20rem]"
-              sizes="320px"
+              className="h-auto w-[13.5rem] md:w-[18rem]"
+              sizes="288px"
             />
           </div>
         </div>

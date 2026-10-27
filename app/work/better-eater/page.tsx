@@ -96,33 +96,34 @@ export default function BetterEaterPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero */}
+        {/* Hero: the app's wordmark as the title with the text beneath it, the screens on the right */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h1 className="mb-6 max-w-[18ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Eating, made <em className="italic text-accent">better</em>
-            </h1>
-            <p className="mb-8 max-w-[52ch] text-lg leading-relaxed text-ink-muted">
-              {project.summary} Built to help you move toward the way of eating you want to try.
-            </p>
-            <TagLine tags={TAGS} className="mb-12" />
-
-            <Image
-              src={pictureSrc("bettereater/wordmark.png")}
-              alt="Better Eater, the app"
-              width={1231}
-              height={315}
-              className="mx-auto mb-10 h-auto w-full max-w-[26rem] md:mb-14 md:max-w-[32rem]"
-            />
-
-            <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[42rem] overflow-hidden">
+          <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
+            <div>
+              <h1 className="mb-8 -ml-[2%] w-full max-w-[26rem] md:max-w-[30rem]">
+                <Image
+                  src={pictureSrc("bettereater/wordmark.png")}
+                  alt="Better Eater, the app"
+                  width={1231}
+                  height={315}
+                  priority
+                  className="h-auto w-full"
+                  sizes="(max-width: 768px) 90vw, 480px"
+                />
+              </h1>
+              <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                {project.summary} Built to help you move toward the way of eating you want to try.
+              </p>
+              <TagLine tags={TAGS} />
+            </div>
+            <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[34rem] overflow-hidden md:max-w-none">
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Better Eater: recommended meal plan, home screen, and recipe detail"
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 672px"
+                sizes="(max-width: 768px) 100vw, 560px"
               />
             </div>
           </div>

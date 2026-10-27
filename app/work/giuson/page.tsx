@@ -101,7 +101,7 @@ export default function GiusonPage() {
         </header>
 
         {/* A strip with the client's logo */}
-        <div className="border-t border-line bg-surface py-8 md:py-10">
+        <div className="bg-surface py-8 md:py-10">
           <div className="mx-auto flex max-w-content items-center justify-center px-6">
             <Image
               src={pictureSrc("giuson/alut-logo-strip.png")}
@@ -115,7 +115,7 @@ export default function GiusonPage() {
         </div>
 
         {/* Problem: the scattered-sources sum on the left, the text on the right */}
-        <section className="border-t border-line bg-paper py-20 md:py-28">
+        <section className="bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
               <div className="order-2 md:order-1">

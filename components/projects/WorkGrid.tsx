@@ -24,9 +24,9 @@ function Tile({ project }: { project: Project }) {
       onPointerLeave={() => setSharp(false)}
       onFocus={() => setSharp(true)}
       onBlur={() => setSharp(false)}
-      className="group relative z-0 block aspect-[3/2] w-full focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent [@media(hover:hover)]:hover:z-10 md:w-[calc((100%-4rem)/3)]"
+      className="group relative z-0 block aspect-[3/2] w-full focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent [@media(hover:hover)]:hover:z-10 md:w-[calc((100%-1.5rem)/3)]"
     >
-      <span className="absolute inset-0 transition-transform duration-500 ease-out group-focus-visible:scale-[1.06] [@media(hover:hover)]:group-hover:scale-[1.06]">
+      <span className="absolute inset-0 transition-transform duration-500 ease-out group-focus-visible:scale-[1.04] [@media(hover:hover)]:group-hover:scale-[1.04]">
         <span className="absolute inset-0 overflow-hidden bg-surface-raised" style={image.backdrop ? { background: image.backdrop } : undefined}>
           <Image
             src={pictureSrc(image.file)}
@@ -63,15 +63,15 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
     return row;
   });
   return (
-    <div className="grid grid-cols-2 gap-x-5 gap-y-9 md:flex md:flex-col md:gap-y-14">
+    <div className="grid grid-cols-2 gap-3 md:flex md:flex-col">
       {rows.map((row, r) => (
-        <div key={r} className="contents md:flex md:justify-center md:gap-8">
+        <div key={r} className="contents md:flex md:justify-center md:gap-3">
           {row.map((project, i) => (
             <div
               key={project.slug}
               className={
                 r === rows.length - 1 && i === row.length - 1
-                  ? "max-md:col-span-2 max-md:flex max-md:justify-center [&>a]:max-md:w-[calc(50%-0.625rem)] md:contents"
+                  ? "max-md:col-span-2 max-md:flex max-md:justify-center [&>a]:max-md:w-[calc(50%-0.375rem)] md:contents"
                   : "contents"
               }
             >

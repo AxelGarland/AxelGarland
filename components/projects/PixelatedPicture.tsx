@@ -4,22 +4,16 @@ import { useEffect, useRef } from "react";
 
 /** A canvas laid over a picture that shows it as the halftone of the hero portrait: round dots on
  *  white, bigger where the picture is darker, ink-black in the shadows and red in the mid-tones. When
- *  `sharp` turns true the dots grow into square cells of the picture's own colours, and the mosaic
- *  then dissolves into the real picture; when it turns false the picture breaks back into dots.
- *  It does nothing on touch screens or with reduced motion: there is no hover to reveal the picture,
- *  so it stays clear. `src` is loaded at the size the page already fetches for this grid, and the
- *  picture is fitted into the box the way `object-fit` would. */
+ *  `sharp` turns true the dots give way straight to the real picture underneath, and they come back
+ *  when it turns false. It does nothing on touch screens or with reduced motion: there is no hover to
+ *  reveal the picture, so it stays clear. `src` is loaded at the size the page already fetches for
+ *  this grid, and the picture is fitted into the box the way `object-fit` would. */
 
 const CELL = 6;
-const DURATION = 700;
-/** Share of the animation spent turning dots into colour cells; the rest dissolves them away. */
-const MORPH_SHARE = 0.62;
 
 const INK = [26, 25, 22] as const;
 const RED = [214, 64, 64] as const;
-const mix = (a: number, b: number, t: number) => a + (b - a) * t;
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
-const smooth = (t: number) => t * t * (3 - 2 * t);
 
 type Fit = "cover" | "contain";
 type Cell = { r: number; g: number; b: number; dot: number; ink: boolean };
@@ -86,7 +80,7 @@ export function PixelatedPicture({
     s.current.rows = rows;
   };
 
-  const draw = (p: number) => {
+  const draw = () => {
     const canvas = canvasRef.current;
     const { cells, cols, rows } = s.current;
     if (!canvas || !cells.length) return;
@@ -95,33 +89,20 @@ export function PixelatedPicture({
     const H = canvas.height;
     const cw = W / cols;
     const ch = H / rows;
-    const m = smooth(clamp01(p / MORPH_SHARE));
-    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, W, H);
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         const c = cells[y * cols + x];
+        const radius = (c.dot * cw * 1.08) / 2;
+        if (radius < 0.2) continue;
         const base = c.ink ? INK : RED;
-        // Cell background goes from white to the cell's own colour; the dot goes from its halftone
-        // colour and size to a full square of that colour.
-        ctx.fillStyle = `rgb(${Math.round(mix(255, c.r, m))},${Math.round(mix(255, c.g, m))},${Math.round(mix(255, c.b, m))})`;
-        ctx.fillRect(x * cw, y * ch, cw + 0.6, ch + 0.6);
-        const size = mix(c.dot * cw * 1.08, cw, m);
-        if (size < 0.4) continue;
-        ctx.fillStyle = `rgb(${Math.round(mix(base[0], c.r, m))},${Math.round(mix(base[1], c.g, m))},${Math.round(mix(base[2], c.b, m))})`;
-        const cx = x * cw + cw / 2;
-        const cy = y * ch + ch / 2;
-        const radius = mix(size / 2, 0, m);
-        if (radius > 0.3) {
-          ctx.beginPath();
-          ctx.arc(cx, cy, size / 2, 0, Math.PI * 2);
-          ctx.fill();
-        } else {
-          ctx.fillRect(cx - size / 2, cy - (size * ch) / cw / 2, size, (size * ch) / cw);
-        }
+        ctx.fillStyle = `rgb(${base[0]},${base[1]},${base[2]})`;
+        ctx.beginPath();
+        ctx.arc(x * cw + cw / 2, y * ch + ch / 2, radius, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
-    // The mosaic dissolves into the real picture underneath.
-    canvas.style.opacity = String(1 - smooth(clamp01((p - MORPH_SHARE) / (1 - MORPH_SHARE))));
   };
 
   useEffect(() => {
@@ -140,7 +121,7 @@ export function PixelatedPicture({
       canvas.width = Math.max(1, Math.round(r.width * dpr));
       canvas.height = Math.max(1, Math.round(r.height * dpr));
       sample(Math.max(1, Math.round(r.width / CELL)), Math.max(1, Math.round(r.height / CELL)));
-      draw(st.p);
+      draw();
     };
     const img = new Image();
     img.onload = () => {
@@ -157,23 +138,13 @@ export function PixelatedPicture({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
-  useEffect(() => {
-    const st = s.current;
-    if (!st.enabled) return;
-    const from = st.p;
-    const to = sharp ? 1 : 0;
-    if (from === to) return;
-    cancelAnimationFrame(st.raf);
-    const t0 = performance.now();
-    const len = DURATION * Math.abs(to - from);
-    const step = (now: number) => {
-      const t = len ? Math.min(1, (now - t0) / len) : 1;
-      st.p = mix(from, to, t);
-      draw(st.p);
-      if (t < 1) st.raf = requestAnimationFrame(step);
-    };
-    st.raf = requestAnimationFrame(step);
-  }, [sharp]);
-
-  return <canvas ref={canvasRef} aria-hidden className="pointer-events-none absolute inset-0 h-full w-full" />;
+  // The dots go away straight to the picture on hover, and come back when it ends.
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden
+      style={{ opacity: sharp ? 0 : 1 }}
+      className="pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-200 ease-out"
+    />
+  );
 }

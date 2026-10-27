@@ -21,7 +21,7 @@ export default function WorkPage() {
         </header>
 
         <div className="pb-24 pt-10 md:pb-32 md:pt-16">
-          <div className="mx-auto max-w-[90rem] px-6 md:px-8">
+          <div className="mx-auto max-w-[96rem] px-3">
             <WorkGrid projects={getOrderedProjects()} />
           </div>
         </div>

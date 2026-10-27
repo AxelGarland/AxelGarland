@@ -30,7 +30,6 @@ const APP_FRAMES = [
   {
     file: "afterlife/Frame 40.png",
     alt: "AfterLife app welcome screen: a skeleton with open arms and a Let's start button",
-    wide: true,
   },
   {
     file: "afterlife/Frame 43.png",
@@ -106,35 +105,44 @@ export default function AfterLifePage() {
           </div>
         </header>
 
-        {/* App */}
+        {/* App — the text on the left and the first screen on the right, then the other screens */}
         <section className="bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                The app
-              </p>
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                A recap for a whole life
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                The app walks you through your life in four stages: Video, Memories, Statistics,
-                and Ready to move on. At the center is a flower-shaped statistics chart, and each
-                leaf opens into a screen about one part of your life, told gently and with a little humor.
-              </p>
+            <div className="mb-14 grid grid-cols-1 items-center gap-x-16 gap-y-10 md:mb-20 md:grid-cols-[1fr_1.1fr]">
+              <div className="order-2 md:order-1">
+                <h2 className="font-display text-[clamp(1.75rem,3.2vw,2.9rem)] font-light leading-[1.02] tracking-tight text-ink">
+                  A recap for a whole life
+                </h2>
+                <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                  The app walks you through your life in four stages: Video, Memories, Statistics,
+                  and Ready to move on. At the center is a flower-shaped statistics chart, and each
+                  leaf opens into a screen about one part of your life, told gently and with a little humor.
+                </p>
+              </div>
+              <div className="order-1 md:order-2">
+                <TabletFrame>
+                  <Image
+                    src={pictureSrc(APP_FRAMES[0].file)}
+                    alt={APP_FRAMES[0].alt}
+                    fill
+                    priority
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 640px"
+                  />
+                </TabletFrame>
+              </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
-              {APP_FRAMES.map((frame) => (
-                <div key={frame.file} className={frame.wide ? "mx-auto w-full max-w-[44rem] md:col-span-2" : ""}>
-                  <TabletFrame>
-                    <Image
-                      src={pictureSrc(frame.file)}
-                      alt={frame.alt}
-                      fill
-                      className="object-contain"
-                      sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
-                    />
-                  </TabletFrame>
-                </div>
+              {APP_FRAMES.slice(1).map((frame) => (
+                <TabletFrame key={frame.file}>
+                  <Image
+                    src={pictureSrc(frame.file)}
+                    alt={frame.alt}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 560px"
+                  />
+                </TabletFrame>
               ))}
             </div>
           </div>

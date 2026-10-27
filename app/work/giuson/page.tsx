@@ -31,9 +31,9 @@ const FRICTION = [
 
 const SCREENS = [
   {
-    file: "giuson/new-recruit.jpg",
-    alt: "Candidate profile: home area, search radius, age, education, military service and work experience",
-    caption: "Build a candidate profile",
+    file: "giuson/new-map.jpg",
+    alt: "Recruitment search: open positions on a live map within the chosen radius, with a list of the nearest facilities",
+    caption: "Open roles on a live map",
   },
   {
     file: "giuson/new-info.jpg",

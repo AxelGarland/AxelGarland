@@ -2,16 +2,27 @@
 
 import { useEffect, useRef } from "react";
 
-/** A canvas laid over a picture that shows it in coarse blocks, and sharpens it to the real picture
- *  when `sharp` turns true (and blocks it up again when it turns false). The blocks shrink and grow
- *  over a few hundred milliseconds. It does nothing on touch screens or with reduced motion: there
- *  is no hover to reveal the picture, so it stays clear. `src` is loaded at the size the page already
- *  fetches for this grid, and the picture is fitted into the box the same way `object-fit` would. */
+/** A canvas laid over a picture that shows it as the halftone of the hero portrait: round dots on
+ *  white, bigger where the picture is darker, ink-black in the shadows and red in the mid-tones. When
+ *  `sharp` turns true the dots grow into square cells of the picture's own colours, and the mosaic
+ *  then dissolves into the real picture; when it turns false the picture breaks back into dots.
+ *  It does nothing on touch screens or with reduced motion: there is no hover to reveal the picture,
+ *  so it stays clear. `src` is loaded at the size the page already fetches for this grid, and the
+ *  picture is fitted into the box the way `object-fit` would. */
 
-const REST_BLOCK = 6;
-const DURATION = 520;
+const CELL = 6;
+const DURATION = 700;
+/** Share of the animation spent turning dots into colour cells; the rest dissolves them away. */
+const MORPH_SHARE = 0.62;
+
+const INK = [26, 25, 22] as const;
+const RED = [214, 64, 64] as const;
+const mix = (a: number, b: number, t: number) => a + (b - a) * t;
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const smooth = (t: number) => t * t * (3 - 2 * t);
 
 type Fit = "cover" | "contain";
+type Cell = { r: number; g: number; b: number; dot: number; ink: boolean };
 
 export function PixelatedPicture({
   src,
@@ -27,19 +38,18 @@ export function PixelatedPicture({
   sharp: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const state = useRef({ block: REST_BLOCK, to: REST_BLOCK, raf: 0, img: null as HTMLImageElement | null, enabled: false });
+  const s = useRef({ p: 0, raf: 0, enabled: false, cells: [] as Cell[], cols: 0, rows: 0, img: null as HTMLImageElement | null });
 
-  const draw = (block: number) => {
+  /** Average the picture into a grid of cells, one per CELL pixels of the box. */
+  const sample = (cols: number, rows: number) => {
+    const { img } = s.current;
     const canvas = canvasRef.current;
-    const { img } = state.current;
-    if (!canvas || !img) return;
-    const W = canvas.width;
-    const H = canvas.height;
-    const ctx = canvas.getContext("2d")!;
+    if (!img || !canvas) return;
+    const W = cols;
+    const H = rows;
     const [px, py] = position.split(" ").map((v) => parseFloat(v) / 100);
     const ir = img.naturalWidth / img.naturalHeight;
     const br = W / H;
-    // The rectangle of the box the picture occupies, and the part of the picture shown in it.
     let dx = 0, dy = 0, dw = W, dh = H, sx = 0, sy = 0, sw = img.naturalWidth, sh = img.naturalHeight;
     if (fit === "cover") {
       if (ir > br) {
@@ -56,79 +66,114 @@ export function PixelatedPicture({
       dw = H * ir;
       dx = (W - dw) * px;
     }
-    ctx.clearRect(0, 0, W, H);
-    if (backdrop) {
-      ctx.fillStyle = backdrop;
-      ctx.fillRect(0, 0, W, H);
-    }
-    const cw = Math.max(1, Math.round(dw / block));
-    const ch = Math.max(1, Math.round(dh / block));
     const small = document.createElement("canvas");
-    small.width = cw;
-    small.height = ch;
-    small.getContext("2d")!.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(small, 0, 0, cw, ch, dx, dy, dw, dh);
+    small.width = cols;
+    small.height = rows;
+    const c = small.getContext("2d", { willReadFrequently: true })!;
+    c.fillStyle = backdrop ?? "#fff";
+    c.fillRect(0, 0, cols, rows);
+    c.imageSmoothingQuality = "high";
+    c.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+    const d = c.getImageData(0, 0, cols, rows).data;
+    const cells: Cell[] = [];
+    for (let i = 0; i < cols * rows; i++) {
+      const r = d[i * 4], g = d[i * 4 + 1], b = d[i * 4 + 2];
+      const l = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+      cells.push({ r, g, b, dot: l > 0.9 ? 0 : clamp01(0.18 + (1 - l) * 1.05), ink: l < 0.4 });
+    }
+    s.current.cells = cells;
+    s.current.cols = cols;
+    s.current.rows = rows;
   };
 
-  // Set up: only where hovering exists and motion is allowed.
+  const draw = (p: number) => {
+    const canvas = canvasRef.current;
+    const { cells, cols, rows } = s.current;
+    if (!canvas || !cells.length) return;
+    const ctx = canvas.getContext("2d")!;
+    const W = canvas.width;
+    const H = canvas.height;
+    const cw = W / cols;
+    const ch = H / rows;
+    const m = smooth(clamp01(p / MORPH_SHARE));
+    ctx.clearRect(0, 0, W, H);
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const c = cells[y * cols + x];
+        const base = c.ink ? INK : RED;
+        // Cell background goes from white to the cell's own colour; the dot goes from its halftone
+        // colour and size to a full square of that colour.
+        ctx.fillStyle = `rgb(${Math.round(mix(255, c.r, m))},${Math.round(mix(255, c.g, m))},${Math.round(mix(255, c.b, m))})`;
+        ctx.fillRect(x * cw, y * ch, cw + 0.6, ch + 0.6);
+        const size = mix(c.dot * cw * 1.08, cw, m);
+        if (size < 0.4) continue;
+        ctx.fillStyle = `rgb(${Math.round(mix(base[0], c.r, m))},${Math.round(mix(base[1], c.g, m))},${Math.round(mix(base[2], c.b, m))})`;
+        const cx = x * cw + cw / 2;
+        const cy = y * ch + ch / 2;
+        const radius = mix(size / 2, 0, m);
+        if (radius > 0.3) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.fillRect(cx - size / 2, cy - (size * ch) / cw / 2, size, (size * ch) / cw);
+        }
+      }
+    }
+    // The mosaic dissolves into the real picture underneath.
+    canvas.style.opacity = String(1 - smooth(clamp01((p - MORPH_SHARE) / (1 - MORPH_SHARE))));
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const s = state.current;
-    s.enabled =
+    const st = s.current;
+    st.enabled =
       window.matchMedia("(hover: hover) and (pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!s.enabled) return;
-
-    const fitSize = () => {
+    if (!st.enabled) {
+      canvas.style.display = "none";
+      return;
+    }
+    const layout = () => {
       const r = canvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.max(1, Math.round(r.width * dpr));
       canvas.height = Math.max(1, Math.round(r.height * dpr));
-      draw(s.block * dpr);
+      sample(Math.max(1, Math.round(r.width / CELL)), Math.max(1, Math.round(r.height / CELL)));
+      draw(st.p);
     };
     const img = new Image();
     img.onload = () => {
-      s.img = img;
-      fitSize();
-      canvas.style.opacity = s.block <= 1 ? "0" : "1";
+      st.img = img;
+      layout();
     };
     img.src = src;
-    const ro = new ResizeObserver(() => s.img && fitSize());
+    const ro = new ResizeObserver(() => st.img && layout());
     ro.observe(canvas);
     return () => {
       ro.disconnect();
-      cancelAnimationFrame(s.raf);
+      cancelAnimationFrame(st.raf);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);
 
-  // Sharpen or block up when `sharp` changes.
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const s = state.current;
-    if (!canvas || !s.enabled) return;
-    const from = s.block;
-    const to = sharp ? 1 : REST_BLOCK;
-    s.to = to;
+    const st = s.current;
+    if (!st.enabled) return;
+    const from = st.p;
+    const to = sharp ? 1 : 0;
     if (from === to) return;
-    cancelAnimationFrame(s.raf);
+    cancelAnimationFrame(st.raf);
     const t0 = performance.now();
+    const len = DURATION * Math.abs(to - from);
     const step = (now: number) => {
-      const t = Math.min(1, (now - t0) / DURATION);
-      const e = 1 - (1 - t) ** 3;
-      // Interpolate the block size geometrically, so it changes evenly to the eye.
-      s.block = from * (to / from) ** e;
-      const dpr = canvas.width / Math.max(1, canvas.getBoundingClientRect().width);
-      draw(s.block * dpr);
-      canvas.style.opacity = s.block <= 1.05 && to === 1 ? "0" : "1";
-      if (t < 1) s.raf = requestAnimationFrame(step);
-      else s.block = to;
+      const t = len ? Math.min(1, (now - t0) / len) : 1;
+      st.p = mix(from, to, t);
+      draw(st.p);
+      if (t < 1) st.raf = requestAnimationFrame(step);
     };
-    canvas.style.opacity = "1";
-    s.raf = requestAnimationFrame(step);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    st.raf = requestAnimationFrame(step);
   }, [sharp]);
 
-  return <canvas ref={canvasRef} aria-hidden className="pointer-events-none absolute inset-0 h-full w-full transition-none" />;
+  return <canvas ref={canvasRef} aria-hidden className="pointer-events-none absolute inset-0 h-full w-full" />;
 }

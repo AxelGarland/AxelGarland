@@ -134,9 +134,6 @@ export default function BetterEaterPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                  The brief
-                </p>
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Meet Amit, who we designed it for
                 </h2>
@@ -169,9 +166,6 @@ export default function BetterEaterPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                How it works
-              </p>
               <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 From plan to plate
               </h2>
@@ -234,9 +228,6 @@ export default function BetterEaterPage() {
         {/* Design decisions */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-              Design decisions
-            </p>
             <h2 className="mb-6 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
               Why it works this way
             </h2>
@@ -262,9 +253,6 @@ export default function BetterEaterPage() {
         {/* Reflection */}
         <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
-              Reflection
-            </p>
             <h2 className="mb-10 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-12">
               What I took from it
             </h2>

@@ -130,9 +130,6 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                  The brief
-                </p>
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Building presence through character
                 </h2>
@@ -152,9 +149,6 @@ export default function AlutitPage() {
         {/* Deliverables — dark inverted, matching the footer's treatment */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
-              Deliverables
-            </p>
             <h2 className="mb-14 max-w-[20ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-16">
               Where Alutit appears
             </h2>
@@ -209,10 +203,7 @@ export default function AlutitPage() {
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mx-auto max-w-[70ch]">
-              <p className="text-sm font-medium tracking-[0.01em] text-accent-ink">
-                The outcome
-              </p>
-              <h2 className="mt-3 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 A new channel, <em className="italic text-accent">and a character people recognize</em>
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-muted">

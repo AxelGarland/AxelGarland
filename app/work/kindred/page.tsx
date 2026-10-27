@@ -61,9 +61,6 @@ export default function KindredPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                  The idea
-                </p>
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Where code, algorithms, and illustration meet
                 </h2>
@@ -90,7 +87,6 @@ export default function KindredPage() {
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">Posters</p>
               <h2 className="mb-5 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
                 Crowds for the wall
               </h2>

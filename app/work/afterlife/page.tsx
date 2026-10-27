@@ -173,9 +173,6 @@ export default function AfterLifePage() {
         {/* Illustrations */}
         <section className="bg-black py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
-              The illustrations
-            </p>
             <h2 className="mb-6 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl">
               A small cast, drawn in Illustrator
             </h2>

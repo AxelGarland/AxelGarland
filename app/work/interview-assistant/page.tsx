@@ -101,9 +101,6 @@ export default function InterviewAssistantPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                  The brief
-                </p>
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Hiring, without a hiring background
                 </h2>
@@ -124,9 +121,6 @@ export default function InterviewAssistantPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[64ch] md:mb-14">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                The solution
-              </p>
               <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 Four tools, one interview
               </h2>
@@ -166,9 +160,6 @@ export default function InterviewAssistantPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.2fr] md:gap-20">
               <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-light">
-                  The outcome
-                </p>
                 <h2 className="max-w-[16ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl">
                   A repeatable process, <em className="italic text-accent">not a personal skill</em>
                 </h2>

@@ -66,7 +66,7 @@ export default function GiusonPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero: the text on the left, the monitor mockup (cut out of the banner) on the right */}
+        {/* Hero: the text on the left, the monitor mockup (cut out of the banner, with its own screen) on the right */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
@@ -88,8 +88,8 @@ export default function GiusonPage() {
 
             <div className="flex items-center justify-center">
               <Image
-                src={pictureSrc("giuson/computer-mockup-2.png")}
-                alt="Giuson on a desktop monitor: the recruitment search map with a list of open positions"
+                src={pictureSrc("giuson/computer-mockup-3.png")}
+                alt="Giuson on a desktop monitor: the home screen of the graduate recruitment tool, with four entry points: recruiting, information, learning and salary calculator"
                 width={673}
                 height={541}
                 priority

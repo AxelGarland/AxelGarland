@@ -123,7 +123,9 @@ export default function GiusonPage() {
               </div>
               <div className="order-1 md:order-2">
                 <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink">
-                  Too much to know, and all of it changing
+                  Too much to know,
+                  <br />
+                  constantly changing
                 </h2>
                 <div className="flex max-w-[46ch] flex-col gap-4">
                   {project.caseStudy?.problem.split("\n\n").map((para) => (

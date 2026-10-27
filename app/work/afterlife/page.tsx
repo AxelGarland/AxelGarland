@@ -127,7 +127,7 @@ export default function AfterLifePage() {
               <LoadingLoop frames={OPENERS} />
               <div>
                 <h2 className="mb-4 font-display text-[clamp(1.75rem,3.2vw,2.9rem)] font-light leading-[1.02] tracking-tight text-ink">
-                  Loading page animation
+                  Loading page animation and <em className="italic text-accent">landing page</em>
                 </h2>
                 <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
               </div>

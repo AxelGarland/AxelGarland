@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -55,6 +56,7 @@ export default function JabberwockyPage() {
             />
           </div>
         </section>
+        <MoreProjects current="jabberwocky" />
       </main>
       <SiteFooter />
     </>

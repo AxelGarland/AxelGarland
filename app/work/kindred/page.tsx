@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { KindredEmbed } from "@/components/projects/KindredEmbed";
 import { PosterGallery } from "@/components/projects/PosterGallery";
@@ -105,6 +106,7 @@ export default function KindredPage() {
             <PosterGallery posters={POSTERS} label="Crowd" />
           </div>
         </section>
+        <MoreProjects current="kindred" />
       </main>
       <SiteFooter />
     </>

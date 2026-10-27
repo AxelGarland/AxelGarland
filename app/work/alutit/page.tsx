@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { HoverCollage } from "@/components/projects/HoverCollage";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -212,6 +213,7 @@ export default function AlutitPage() {
             </div>
           </div>
         </section>
+        <MoreProjects current="alutit" />
       </main>
       <SiteFooter />
     </>

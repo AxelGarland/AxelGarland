@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { MundosHeader } from "@/components/projects/MundosHeader";
 import { RetabloSelector } from "@/components/projects/RetabloSelector";
@@ -33,6 +34,7 @@ export default function MundosMejoresPage() {
             <RetabloSelector boxes={MUNDOS_BOXES} />
           </div>
         </section>
+        <MoreProjects current="mundos-mejores" />
       </main>
       <SiteFooter />
     </>

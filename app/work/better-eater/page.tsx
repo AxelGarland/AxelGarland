@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -273,6 +274,7 @@ export default function BetterEaterPage() {
             </ol>
           </div>
         </section>
+        <MoreProjects current="better-eater" />
       </main>
       <SiteFooter />
     </>

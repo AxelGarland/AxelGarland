@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { LandingPageViewer } from "@/components/projects/LandingPageViewer";
@@ -196,6 +197,7 @@ export default function AfterLifePage() {
             </div>
           </div>
         </section>
+        <MoreProjects current="afterlife" />
       </main>
       <SiteFooter />
     </>

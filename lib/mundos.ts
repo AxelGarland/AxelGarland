@@ -37,7 +37,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
   },
   {
     slug: "summer",
-    title: "Summer",
+    title: "Never-Ending Summer",
     lid: "Verano sin Fin",
     description:
       "An endless summer: the figure stands under a smiling sun, flowers blooming around her and hummingbirds flying across the doors. A warm moment held still, for as long as the box stays open.",
@@ -47,9 +47,9 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     open: { prefix: "retablo-anim/3", width: 966, height: 526, left: 251, right: 717, lid: 55 },
     images: [
       { file: "mundos mejores/web/summer 1.jpg", width: 2400, height: 1665, alt: "A figure basking beneath a smiling sun and blooming flowers" },
-      { file: "mundos mejores/web/summer 2.jpg", width: 2400, height: 1368, alt: "Summer box, detail view" },
-      { file: "mundos mejores/web/summer 3.jpg", width: 2400, height: 2177, alt: "Summer box, detail view" },
-      { file: "mundos mejores/web/summer 4.jpg", width: 1600, height: 2400, alt: "Summer box, detail view" },
+      { file: "mundos mejores/web/summer 2.jpg", width: 2400, height: 1368, alt: "Never-Ending Summer box, detail view" },
+      { file: "mundos mejores/web/summer 3.jpg", width: 2400, height: 2177, alt: "Never-Ending Summer box, detail view" },
+      { file: "mundos mejores/web/summer 4.jpg", width: 1600, height: 2400, alt: "Never-Ending Summer box, detail view" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
   },
   {
     slug: "biblioteca",
-    title: "Biblioteca",
+    title: "Endless Library",
     lid: "Biblioteca Infinita",
     description:
       "The figure reading among stacks of books beneath a chandelier, in a library that never ends. A box about curiosity, and about all the stories still left to read.",
@@ -80,7 +80,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     open: { prefix: "retablo-anim/5", width: 960, height: 772, left: 248, right: 722, lid: 66 },
     images: [
       { file: "mundos mejores/web/biblioteca1.jpg", width: 2400, height: 1699, alt: "A figure reading among towering stacks of books" },
-      { file: "mundos mejores/web/biblioteca 2.jpg", width: 2400, height: 1925, alt: "Library box, detail view" },
+      { file: "mundos mejores/web/biblioteca 2.jpg", width: 2400, height: 1925, alt: "Endless Library box, detail view" },
     ],
   },
 ];

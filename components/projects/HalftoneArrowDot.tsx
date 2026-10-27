@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-/** The red "open this project" mark: a circle with a right-pointing arrow, drawn in halftone dots.
+/** The red arrow mark: a circle with a right-pointing arrow (left-pointing with `flip`), drawn in halftone dots.
  *  Red dots fill the circle and thin out at its edge; the arrow is left clear, its edges thinning the
  *  same way. Drawn once. It is decoration, so the link it sits in carries the name. */
 
@@ -11,7 +11,7 @@ const SIZE = 48;
 const CELL = 2.4;
 const DOT = 0.86;
 
-export function HalftoneArrowDot({ className = "" }: { className?: string }) {
+export function HalftoneArrowDot({ className = "", flip = false }: { className?: string; flip?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -80,5 +80,5 @@ export function HalftoneArrowDot({ className = "" }: { className?: string }) {
     }
   }, []);
 
-  return <canvas ref={ref} aria-hidden style={{ width: SIZE, height: SIZE }} className={className} />;
+  return <canvas ref={ref} aria-hidden style={{ width: SIZE, height: SIZE, transform: flip ? "scaleX(-1)" : undefined }} className={className} />;
 }

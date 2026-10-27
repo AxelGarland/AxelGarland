@@ -1,5 +1,6 @@
 "use client";
 
+import { HalftoneArrowDot } from "@/components/projects/HalftoneArrowDot";
 import { pictureSrc } from "@/lib/pictures";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -108,11 +109,9 @@ export function SlideStackGallery({
           type="button"
           aria-label="Previous page"
           onClick={prev}
-          className="flex h-10 w-10 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
+          className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path d="M9 2 4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <HalftoneArrowDot className="h-full w-full" flip />
         </button>
         <span className="min-w-[4ch] text-center text-sm text-ink-subtle">
           {index + 1} / {images.length}
@@ -121,11 +120,9 @@ export function SlideStackGallery({
           type="button"
           aria-label="Next page"
           onClick={next}
-          className="flex h-10 w-10 items-center justify-center border border-line text-ink transition-colors duration-300 hover:border-ink"
+          className="flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden>
-            <path d="m5 2 5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <HalftoneArrowDot className="h-full w-full" />
         </button>
       </div>
     </div>

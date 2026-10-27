@@ -132,12 +132,8 @@ export default function AfterLifePage() {
                 <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
               </div>
             </div>
-            <div
-              tabIndex={0}
-              role="region"
-              aria-label="AfterLife landing page, scrollable"
-              className="mx-auto max-h-[38rem] max-w-[60rem] overflow-y-auto border border-line bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
-            >
+            {/* The whole landing page as one image, so the page itself does the scrolling */}
+            <div className="mx-auto max-w-[60rem] border border-line bg-black">
               <Image
                 src={pictureSrc("afterlife/landing page.png")}
                 alt="The full AfterLife landing page: the pitch, stats, and FAQs"

@@ -1,6 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { OpeningRetablo } from "@/components/projects/OpeningRetablo";
-import { RetabloPhotos } from "@/components/projects/RetabloSelector";
+import { PhotoCarousel } from "@/components/projects/PhotoCarousel";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { getBox, MUNDOS_BOXES } from "@/lib/mundos";
 import { pictureSrc } from "@/lib/pictures";
@@ -78,7 +78,9 @@ export default async function MundosBoxPage({ params }: PageProps) {
         </section>
 
         {/* The box's own scroll */}
-        <RetabloPhotos images={box.images} />
+        <div className="px-6 sm:px-10 md:px-14 lg:px-16">
+          <PhotoCarousel photos={box.images} label={`${box.title}, photos`} />
+        </div>
 
         {/* The other boxes, as a strip of retablos */}
         <nav aria-label="Other boxes" className="mt-20 border-t border-line py-12 md:mt-28 md:py-16">

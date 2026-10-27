@@ -78,31 +78,3 @@ export function RetabloSelector({ boxes }: { boxes: RetabloBox[] }) {
     </div>
   );
 }
-
-/** A box's photos, each one whole at its own proportions (nothing cropped) and kept modest in
- *  size, stacked and centred: the scroll on each box's own page. */
-export function RetabloPhotos({ images }: { images: RetabloImage[] }) {
-  return (
-    <div className="mx-auto flex max-w-content flex-col items-center gap-8 px-6 sm:px-10 md:gap-12 md:px-14 lg:px-16">
-      {images.map((image) => {
-        const w = image.width ?? 2400;
-        const h = image.height ?? 1600;
-        return (
-          <div
-            key={image.file}
-            className="relative w-full"
-            style={{ aspectRatio: `${w} / ${h}`, maxWidth: `min(100%, calc(58vh * ${w / h}), 40rem)` }}
-          >
-            <Image
-              src={pictureSrc(image.file)}
-              alt={image.alt}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 640px"
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-}

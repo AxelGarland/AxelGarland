@@ -100,20 +100,6 @@ export default function GiusonPage() {
           </div>
         </header>
 
-        {/* A strip with the client's logo */}
-        <div className="bg-surface py-8 md:py-10">
-          <div className="mx-auto flex max-w-content items-center justify-center px-6">
-            <Image
-              src={pictureSrc("giuson/alut-logo-full.png")}
-              alt="Alut, the Israeli Society for Children and Adults with Autism: 50 years of professional care and love"
-              width={900}
-              height={341}
-              className="h-auto w-[13.5rem] md:w-[18rem]"
-              sizes="288px"
-            />
-          </div>
-        </div>
-
         {/* Problem: the scattered-sources sum on the left, the text on the right */}
         <section className="bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">

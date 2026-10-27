@@ -9,11 +9,11 @@ import { useRef, useState } from "react";
 import { PixelatedPicture } from "@/components/projects/PixelatedPicture";
 
 /** The work as 3:2 pictures, two on the first row, three on the second, two on the third. On a phone
- *  they fall into two columns with the last one centred. Pointing at one grows it a little, shows the
- *  project's name over it, and turns all the others into halftone dots until the pointer leaves. */
+ *  they fall into two columns with the last one centred. Pointing at one makes it bigger, with no
+ *  overlay, while all the others shrink and sink under a dark, blocky veil until the pointer leaves. */
 const ROWS = [2, 3, 2];
 
-function Tile({ project, halftone, onEnter, onLeave }: { project: Project; halftone: boolean; onEnter: () => void; onLeave: () => void }) {
+function Tile({ project, dimmed, hovered, onEnter, onLeave }: { project: Project; dimmed: boolean; hovered: boolean; onEnter: () => void; onLeave: () => void }) {
   const image = WORK_IMAGES[project.slug];
   return (
     <Link
@@ -23,9 +23,9 @@ function Tile({ project, halftone, onEnter, onLeave }: { project: Project; halft
       onPointerLeave={onLeave}
       onFocus={onEnter}
       onBlur={onLeave}
-      className="group relative z-0 block aspect-[3/2] w-full focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent [@media(hover:hover)]:hover:z-10 md:w-[calc((100%-1.5rem)/3)]"
+      className={`group relative block aspect-[3/2] w-full focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent md:w-[calc((100%-1.5rem)/3)] ${hovered ? "z-10" : "z-0"}`}
     >
-      <span className="absolute inset-0 transition-transform duration-500 ease-out group-focus-visible:scale-[1.04] [@media(hover:hover)]:group-hover:scale-[1.04]">
+      <span className={`absolute inset-0 transition-transform duration-500 ease-out ${hovered ? "scale-[1.08]" : dimmed ? "scale-[0.93]" : ""}`}>
         <span className="absolute inset-0 overflow-hidden bg-surface-raised" style={image.backdrop ? { background: image.backdrop } : undefined}>
           <Image
             src={pictureSrc(image.file)}
@@ -40,14 +40,8 @@ function Tile({ project, halftone, onEnter, onLeave }: { project: Project; halft
             fit={image.fit}
             position={image.position}
             backdrop={image.backdrop}
-            halftone={halftone}
+            dimmed={dimmed}
           />
-          <span
-            aria-hidden
-            className="absolute inset-0 flex items-center justify-center bg-black/0 px-[10%] text-center opacity-0 transition duration-300 group-focus-visible:bg-black/55 group-focus-visible:opacity-100 [@media(hover:hover)]:group-hover:bg-black/55 [@media(hover:hover)]:group-hover:opacity-100"
-          >
-            <span className="font-display text-[clamp(1.1rem,2.1vw,1.9rem)] leading-[1.05] tracking-tight text-white">{project.title}</span>
-          </span>
         </span>
       </span>
     </Link>
@@ -86,7 +80,7 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
                   : "contents"
               }
             >
-              <Tile project={project} halftone={active !== null && active !== project.slug} onEnter={() => enter(project.slug)} onLeave={leave} />
+              <Tile project={project} dimmed={active !== null && active !== project.slug} hovered={active === project.slug} onEnter={() => enter(project.slug)} onLeave={leave} />
             </div>
           ))}
         </div>

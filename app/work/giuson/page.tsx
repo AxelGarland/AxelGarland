@@ -19,21 +19,6 @@ export const metadata: Metadata = {
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
-const DECISIONS = [
-  {
-    title: "Everything in one flow",
-    body: "The map, the role explanations, the salary ladders, and the grants and perks live in one place, in the order a recruiter needs them during a call.",
-  },
-  {
-    title: "A radius, not a fixed distance",
-    body: "Some candidates in the periphery of Israel are willing to commute farther, depending on the area. So the search takes a radius the recruiter can set, instead of a single fixed distance.",
-  },
-  {
-    title: "A library for the field",
-    body: "Managers who hire on site get constant access to the same information as the recruitment office, instead of relying on whoever remembers it.",
-  },
-];
-
 const SCREENS = [
   {
     file: "giuson/giuson recruitment map.png",
@@ -151,37 +136,6 @@ export default function GiusonPage() {
                   <p className="mt-3 text-sm font-medium text-ink">{screen.caption}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Design decisions */}
-        <section className="border-t border-line bg-surface py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-20">
-              <div className="md:sticky md:top-28 md:self-start">
-                <h2 className="max-w-[16ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                  Built around how recruiters actually work
-                </h2>
-              </div>
-              <ol className="border-t border-line">
-                {DECISIONS.map((item, i) => (
-                  <li
-                    key={item.title}
-                    className="grid grid-cols-[2.5rem_1fr] gap-x-4 gap-y-2 border-b border-line py-8 sm:grid-cols-[3rem_1fr_1.25fr] sm:gap-x-8"
-                  >
-                    <span className="pt-1.5 font-display text-sm tabular-nums text-ink-subtle">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-display text-xl font-medium leading-tight text-ink">
-                      {item.title}
-                    </h3>
-                    <p className="col-start-2 text-base leading-relaxed text-ink-muted sm:col-start-3">
-                      {item.body}
-                    </p>
-                  </li>
-                ))}
-              </ol>
             </div>
           </div>
         </section>

@@ -85,15 +85,6 @@ export default async function MundosBoxPage({ params }: PageProps) {
         {/* The other boxes, as a strip of retablos */}
         <nav aria-label="Other boxes" className="mt-20 border-t border-line py-12 md:mt-28 md:py-16">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-10 flex items-baseline justify-between gap-6">
-              <p className="text-sm font-medium tracking-[0.01em] text-accent-ink">Other boxes</p>
-              <Link
-                href="/work/mundos-mejores"
-                className="border-b border-line pb-0.5 text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-ink hover:text-ink"
-              >
-                All boxes
-              </Link>
-            </div>
             <ul className="grid grid-cols-2 items-end gap-x-6 gap-y-10 sm:grid-cols-4 md:gap-x-10">
               {others.map(({ box: other }) => (
                 <li key={other.slug}>

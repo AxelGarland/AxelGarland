@@ -65,7 +65,7 @@ export default function GiusonPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero: the text on the left, the banner on the right */}
+        {/* Hero: the text on the left, the Alut logo on the right */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
@@ -85,14 +85,15 @@ export default function GiusonPage() {
               <TagLine tags={TAGS} />
             </div>
 
-            <div className="relative aspect-[1682/935] w-full overflow-hidden border border-line bg-paper shadow-[0_32px_70px_-34px_rgba(26,25,22,0.28)]">
+            <div className="flex items-center justify-center">
               <Image
-                src={pictureSrc("giuson/giuson banner.jpg")}
-                alt="Giuson shown across a laptop and two monitors: the recruitment search map and the information hub"
-                fill
+                src={pictureSrc("giuson/alut-logo.png")}
+                alt="Alut, the Israeli Society for Children and Adults with Autism: the 50th anniversary logo"
+                width={662}
+                height={610}
                 priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 560px"
+                className="h-auto w-full max-w-[17rem] md:max-w-[26rem]"
+                sizes="(max-width: 768px) 272px, 416px"
               />
             </div>
           </div>

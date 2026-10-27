@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { InfoSources } from "@/components/projects/InfoSources";
+import { ExpandableScreen } from "@/components/projects/ExpandableScreen";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -31,18 +32,27 @@ const FRICTION = [
 const SCREENS = [
   {
     file: "giuson/smart-map.jpg",
+    large: "giuson/smart-map-large.jpg",
+    width: 2400,
+    height: 1800,
     alt: "Recruitment search: open positions on a live map within the chosen radius, with a list of the nearest facilities",
     title: "Recruitment",
     body: "Type a location, pick a radius and, if needed, a role. The map shows every facility with open positions nearby, with the closest first, so a recruiter can answer a candidate in seconds.",
   },
   {
     file: "giuson/smart-info.jpg",
+    large: "giuson/smart-info-large.jpg",
+    width: 2400,
+    height: 1755,
     alt: "Information hub: professional roles, requirements and salary ladders, with tabs for each topic",
     title: "Information",
     body: "Everything a recruiter needs to know about each role, in one place: requirements, salary ladders, grants and scholarships, training and more, in the order a conversation needs it.",
   },
   {
     file: "giuson/new-salary.jpg",
+    large: "giuson/new-salary-large.jpg",
+    width: 2400,
+    height: 1800,
     alt: "Salary calculator: hourly rates, overtime percentages and a shift planner for each day of the week",
     title: "Salary calculator",
     body: "A way to explain pay clearly while the candidate is on the line: set the shifts for each day and see the different salaries add up, overtime and weekend rates included.",
@@ -159,19 +169,15 @@ export default function GiusonPage() {
                       </h3>
                       <p className="text-base leading-relaxed text-ink-muted">{screen.body}</p>
                     </div>
-                    <div
-                      className={`relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_24px_50px_-34px_rgba(26,25,22,0.28)] ${
-                        imageRight ? "md:order-2" : "md:order-1"
-                      }`}
-                    >
-                      <Image
-                        src={pictureSrc(screen.file)}
-                        alt={screen.alt}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, 60vw"
-                      />
-                    </div>
+                    <ExpandableScreen
+                      file={screen.file}
+                      large={screen.large}
+                      alt={screen.alt}
+                      width={screen.width}
+                      height={screen.height}
+                      sizes="(max-width: 768px) 100vw, 60vw"
+                      className={imageRight ? "md:order-2" : "md:order-1"}
+                    />
                   </div>
                 );
               })}

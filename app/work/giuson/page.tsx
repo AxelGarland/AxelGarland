@@ -31,19 +31,19 @@ const FRICTION = [
 
 const SCREENS = [
   {
-    file: "giuson/giuson recruitment map.png",
-    alt: "Recruitment search: open positions by location and distance",
-    caption: "Location & Radius Search",
+    file: "giuson/new-recruit.jpg",
+    alt: "Candidate profile: home area, search radius, age, education, military service and work experience",
+    caption: "Build a candidate profile",
   },
   {
-    file: "giuson/giuson role detail.png",
-    alt: "Role detail: requirements, licensing, and staffing model",
-    caption: "Role & Info Hub",
+    file: "giuson/new-info.jpg",
+    alt: "Information hub: the professional roles, grouped into general and professional roles",
+    caption: "Every role, in one place",
   },
   {
-    file: "giuson/giuson hours table.png",
-    alt: "Weekly staffing hours by classroom size, consolidated into one table",
-    caption: "Reference Tables, Instant",
+    file: "giuson/new-salary.jpg",
+    alt: "Salary calculator: hourly rates, overtime percentages and a shift planner for each day of the week",
+    caption: "Salary calculator",
   },
 ];
 
@@ -144,13 +144,13 @@ export default function GiusonPage() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
               {SCREENS.map((screen) => (
                 <div key={screen.file}>
-                  <div className="relative aspect-[3/4] w-full overflow-hidden border border-line bg-paper">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-paper">
                     <Image
                       src={pictureSrc(screen.file)}
                       alt={screen.alt}
                       fill
-                      className="object-contain p-3"
-                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 100vw, 30vw"
                     />
                   </div>
                   <p className="mt-3 text-sm font-medium text-ink">{screen.caption}</p>

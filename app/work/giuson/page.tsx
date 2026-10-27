@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { InfoSources } from "@/components/projects/InfoSources";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
@@ -99,19 +100,12 @@ export default function GiusonPage() {
           </div>
         </header>
 
-        {/* Problem: the Alut logo on the left, the text on the right */}
+        {/* Problem: the scattered-sources sum on the left, the text on the right */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-              <div className="order-2 flex items-center justify-center md:order-1">
-                <Image
-                  src={pictureSrc("giuson/alut-logo-2.png")}
-                  alt="Alut, the Israeli Society for Children and Adults with Autism: the 50th anniversary logo"
-                  width={670}
-                  height={618}
-                  className="h-auto w-full max-w-[12rem] md:max-w-[18.2rem]"
-                  sizes="(max-width: 768px) 192px, 292px"
-                />
+              <div className="order-2 md:order-1">
+                <InfoSources />
               </div>
               <div className="order-1 md:order-2">
                 <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink">

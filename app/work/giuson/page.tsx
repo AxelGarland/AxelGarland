@@ -1,7 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { InfoSources } from "@/components/projects/InfoSources";
-import { MonitorMockup } from "@/components/projects/MonitorMockup";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
 import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
@@ -151,7 +150,9 @@ export default function GiusonPage() {
                 return (
                   <div
                     key={screen.file}
-                    className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-14 lg:gap-20"
+                    className={`grid grid-cols-1 items-center gap-8 md:gap-14 lg:gap-16 ${
+                      imageRight ? "md:grid-cols-[5fr_8fr]" : "md:grid-cols-[8fr_5fr]"
+                    }`}
                   >
                     <div className={`${imageRight ? "md:order-1" : "md:order-2"} max-w-[40ch]`}>
                       <h3 className="mb-3 font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
@@ -159,8 +160,18 @@ export default function GiusonPage() {
                       </h3>
                       <p className="text-base leading-relaxed text-ink-muted">{screen.body}</p>
                     </div>
-                    <div className={imageRight ? "md:order-2" : "md:order-1"}>
-                      <MonitorMockup src={screen.file} alt={screen.alt} sizes="(max-width: 768px) 352px, 480px" />
+                    <div
+                      className={`relative aspect-[16/10] w-full overflow-hidden border border-line bg-white shadow-[0_24px_50px_-34px_rgba(26,25,22,0.28)] ${
+                        imageRight ? "md:order-2" : "md:order-1"
+                      }`}
+                    >
+                      <Image
+                        src={pictureSrc(screen.file)}
+                        alt={screen.alt}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 60vw"
+                      />
                     </div>
                   </div>
                 );

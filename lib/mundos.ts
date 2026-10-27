@@ -82,7 +82,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     images: [
       { file: "mundos mejores/web/biblioteca1.jpg", width: 2400, height: 1699, alt: "A figure reading among towering stacks of books" },
       { file: "mundos mejores/web/biblioteca 2.jpg", width: 2400, height: 1925, alt: "Library box, detail view" },
-      { file: "mundos mejores/web/biblioteca 3.jpg", width: 2400, height: 1831, omitFromGrid: true, alt: "Library box, detail view" },
+      { file: "mundos mejores/web/biblioteca 3.jpg", width: 2400, height: 1831, alt: "Library box, detail view" },
     ],
   },
 ];

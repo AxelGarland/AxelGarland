@@ -36,7 +36,7 @@ export function PosterGallery({ posters, label = "Poster" }: { posters: Poster[]
   return (
     <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-end md:gap-6">
       {/* The large poster */}
-      <div className="w-full md:w-[min(27rem,32vw)] md:shrink-0">
+      <div className="w-full md:w-[min(24rem,30vw,calc((100svh-14rem)*0.707))] md:shrink-0">
         <div className="relative mx-auto aspect-[842/1191] w-full max-w-[22rem] bg-white shadow-[0_28px_60px_-34px_rgba(26,25,22,0.45)] md:mx-0 md:max-w-none">
           {posters.map((p, i) => (
             <Image
@@ -46,7 +46,7 @@ export function PosterGallery({ posters, label = "Poster" }: { posters: Poster[]
               aria-hidden={i !== active}
               fill
               className={`object-contain transition-opacity duration-300 ${i === active ? "opacity-100" : "opacity-0"}`}
-              sizes="(max-width: 768px) 352px, 480px"
+              sizes="(max-width: 768px) 352px, 384px"
               priority={i === 0}
             />
           ))}
@@ -57,7 +57,7 @@ export function PosterGallery({ posters, label = "Poster" }: { posters: Poster[]
       </div>
 
       {/* The previews, with the arrow underneath (or at the end of the row on phones) */}
-      <div className="flex items-start gap-2.5 md:w-[4.25rem] md:shrink-0 md:flex-col md:items-stretch lg:w-[4.75rem]">
+      <div className="flex items-start gap-2.5 md:w-[min(4.75rem,calc((100svh-19.6rem)*0.1414))] md:shrink-0 md:flex-col md:items-stretch">
         <div
           role="listbox"
           aria-label={`${label} previews`}

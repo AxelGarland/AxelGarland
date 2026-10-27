@@ -15,9 +15,9 @@ export default function WorkPage() {
     <>
       <GrainOverlay />
       <main id="main" className="bg-black">
-        {/* A black banner with the page's name in white halftone */}
-        <header className="bg-black pb-14 pt-[calc(68px+3.5rem)] sm:pb-20 sm:pt-[calc(68px+4.5rem)]">
-          <HalftoneTitle text="Work" />
+        {/* A white banner with the page's name, small, in black and red halftone */}
+        <header className="bg-surface pb-10 pt-[calc(68px+2.5rem)] sm:pb-12 sm:pt-[calc(68px+3rem)]">
+          <HalftoneTitle text="Work" maxWidth="17rem" />
         </header>
 
         <div className="pb-24 pt-6 md:pb-32 md:pt-10">

@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** A single word set in white halftone dots, for use on black. Drawn once, once the font has loaded. The real heading stays in the page: it is
+/** A single word set in halftone dots, black where the letters are solid and red at their edges, for
+ *  use on white. `maxWidth` is a CSS length that caps how wide it is drawn. Drawn once, once the font has loaded. The real heading stays in the page: it is
  *  what shows before the font loads and what screen readers read. */
 
-const WHITE = "#FFFFFF";
+const INK = "#1A1916";
+const RED = "#D64040";
 const FONT_WAIT_MS = 2500;
 const H = 150;
 const SIZE = 150;
@@ -15,7 +17,7 @@ function readFamily(): string {
   return `${body}, sans-serif`;
 }
 
-export function HalftoneTitle({ text, className = "" }: { text: string; className?: string }) {
+export function HalftoneTitle({ text, maxWidth = "100%", className = "" }: { text: string; maxWidth?: string; className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [size, setSize] = useState<{ w: number } | null>(null);
 
@@ -62,7 +64,7 @@ export function HalftoneTitle({ text, className = "" }: { text: string; classNam
           }
           const cov = n ? sum / n / 255 : 0;
           if (cov < 0.1) continue;
-          ctx.fillStyle = WHITE;
+          ctx.fillStyle = cov > 0.55 ? INK : RED;
           ctx.beginPath();
           ctx.arc(x + cell / 2, y + cell / 2, (cell / 2) * Math.sqrt(cov) * 1.08, 0, Math.PI * 2);
           ctx.fill();
@@ -77,9 +79,9 @@ export function HalftoneTitle({ text, className = "" }: { text: string; classNam
 
   const ready = size !== null;
   return (
-    <div className={`relative mx-auto ${className}`} style={{ width: size?.w ?? 360, maxWidth: "88%", aspectRatio: `${size?.w ?? 360} / ${H}` }}>
+    <div className={`relative mx-auto ${className}`} style={{ width: size?.w ?? 360, maxWidth: `min(88%, ${maxWidth})`, aspectRatio: `${size?.w ?? 360} / ${H}` }}>
       <h1
-        className={`absolute inset-0 flex items-center justify-center font-display text-[clamp(3rem,10vw,6.5rem)] font-light leading-none tracking-tight text-white transition-opacity duration-300 ${
+        className={`absolute inset-0 flex items-center justify-center font-display text-[clamp(3rem,10vw,6.5rem)] font-light leading-none tracking-tight text-ink transition-opacity duration-300 ${
           ready ? "opacity-0" : "opacity-100"
         }`}
       >

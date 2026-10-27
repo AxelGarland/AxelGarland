@@ -130,7 +130,7 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-14">
               <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                One tool, two ways in
+                A tool tailored to their needs
               </h2>
               <p className="text-base leading-relaxed text-ink-muted">
                 {project.caseStudy?.process}

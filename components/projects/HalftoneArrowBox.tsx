@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-/** The site's one arrow: a white box with a thin black frame holding an arrowhead (a chevron, no shaft) drawn in halftone
- *  dots, black with red at the edges. When the link or button around it (the nearest `group`) is
- *  hovered or focused, the box turns black and the arrow white. The arrow is drawn once into two
+/** The site's one arrow: an arrowhead (a chevron, no shaft) drawn in halftone dots, black with red at
+ *  the edges, with nothing around it at rest. When the link or button around it (the nearest `group`)
+ *  is hovered or focused, a black box appears behind it and the arrow turns white. The arrow is drawn once into two
  *  canvases, one per state, and the page fades between them. It is decoration: whatever it sits in
  *  carries the name.
  *
@@ -88,7 +88,7 @@ export function HalftoneArrowBox({
   return (
     <span
       aria-hidden
-      className={`relative block shrink-0 border border-ink bg-white transition-colors duration-300 group-hover:bg-ink group-focus-visible:bg-ink ${box} ${className ?? ""}`}
+      className={`relative block shrink-0 border border-transparent bg-transparent transition-colors duration-300 group-hover:border-ink group-hover:bg-ink group-focus-visible:border-ink group-focus-visible:bg-ink ${box} ${className ?? ""}`}
     >
       <canvas
         ref={rest}

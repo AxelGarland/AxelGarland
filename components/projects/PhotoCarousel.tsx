@@ -24,7 +24,8 @@ export function PhotoCarousel({ photos, label }: { photos: Photo[]; label: strin
         dir === 1 ? "right-2 lg:-right-20" : "left-2 lg:-left-20"
       }`}
     >
-      <HalftoneArrowBox dir={dir === 1 ? "right" : "left"} />
+      {/* Below lg the arrows sit on the photo, so they keep a white box behind them to stay readable. */}
+      <HalftoneArrowBox dir={dir === 1 ? "right" : "left"} className="max-lg:border-ink max-lg:bg-white" />
     </button>
   );
 

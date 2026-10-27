@@ -60,6 +60,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     lid: "Bajo el Agua",
     description:
       "The figure in a swimsuit and flippers, hanging weightless in a tiled pool, one hand raised in a wave. A playful memory of floating, with nothing to carry.",
+    verse: ["I know you'll be doing what you love most,", "swimming underwater without a care."],
     retablo: "Retablo 4 web.webp",
     retabloWidth: 1107,
     retabloHeight: 1200,

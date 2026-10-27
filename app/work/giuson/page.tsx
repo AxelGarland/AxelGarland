@@ -104,12 +104,12 @@ export default function GiusonPage() {
         <div className="bg-surface py-8 md:py-10">
           <div className="mx-auto flex max-w-content items-center justify-center px-6">
             <Image
-              src={pictureSrc("giuson/alut-logo-strip.png")}
-              alt="Alut, the Israeli Society for Children and Adults with Autism"
-              width={260}
-              height={240}
-              className="h-16 w-auto md:h-20"
-              sizes="80px"
+              src={pictureSrc("giuson/alut-logo-full.png")}
+              alt="Alut, the Israeli Society for Children and Adults with Autism: 50 years of professional care and love"
+              width={900}
+              height={341}
+              className="h-auto w-[15rem] md:w-[20rem]"
+              sizes="320px"
             />
           </div>
         </div>

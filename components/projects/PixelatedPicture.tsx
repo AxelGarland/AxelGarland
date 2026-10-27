@@ -16,7 +16,7 @@ const RED = [214, 64, 64] as const;
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 type Fit = "cover" | "contain";
-type Cell = { r: number; g: number; b: number; dot: number; ink: boolean };
+type Cell = { dot: number; l: number };
 
 export function PixelatedPicture({
   src,
@@ -32,7 +32,9 @@ export function PixelatedPicture({
   sharp: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const s = useRef({ p: 0, raf: 0, enabled: false, cells: [] as Cell[], cols: 0, rows: 0, img: null as HTMLImageElement | null });
+  const hover = useRef(false);
+  hover.current = sharp;
+  const s = useRef({ raf: 0, enabled: false, cells: [] as Cell[], cols: 0, rows: 0, img: null as HTMLImageElement | null });
 
   /** Average the picture into a grid of cells, one per CELL pixels of the box. */
   const sample = (cols: number, rows: number) => {
@@ -71,16 +73,18 @@ export function PixelatedPicture({
     const d = c.getImageData(0, 0, cols, rows).data;
     const cells: Cell[] = [];
     for (let i = 0; i < cols * rows; i++) {
-      const r = d[i * 4], g = d[i * 4 + 1], b = d[i * 4 + 2];
-      const l = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-      cells.push({ r, g, b, dot: l > 0.9 ? 0 : clamp01(0.18 + (1 - l) * 1.05), ink: l < 0.4 });
+      const l = (0.2126 * d[i * 4] + 0.7152 * d[i * 4 + 1] + 0.0722 * d[i * 4 + 2]) / 255;
+      cells.push({ dot: l > 0.9 ? 0 : clamp01(0.18 + (1 - l) * 1.05), l });
     }
     s.current.cells = cells;
     s.current.cols = cols;
     s.current.rows = rows;
   };
 
-  const draw = () => {
+  /** One frame of the halftone at time `t` (seconds). The dots breathe in size in a slow wave that
+   *  travels across the picture, drift a fraction of a cell, and the ones near the ink/red boundary
+   *  swap colour as the wave passes, so the picture shimmers without ever changing shape. */
+  const draw = (t = 0) => {
     const canvas = canvasRef.current;
     const { cells, cols, rows } = s.current;
     if (!canvas || !cells.length) return;
@@ -91,18 +95,26 @@ export function PixelatedPicture({
     const ch = H / rows;
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, W, H);
+    const ink = new Path2D();
+    const red = new Path2D();
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         const c = cells[y * cols + x];
-        const radius = (c.dot * cw * 1.08) / 2;
+        if (c.dot === 0) continue;
+        const wave = Math.sin(t * 1.5 + x * 0.32 + y * 0.24);
+        const radius = (c.dot * cw * 1.08 * (1 + 0.16 * wave)) / 2;
         if (radius < 0.2) continue;
-        const base = c.ink ? INK : RED;
-        ctx.fillStyle = `rgb(${base[0]},${base[1]},${base[2]})`;
-        ctx.beginPath();
-        ctx.arc(x * cw + cw / 2, y * ch + ch / 2, radius, 0, Math.PI * 2);
-        ctx.fill();
+        const cx = x * cw + cw / 2 + Math.sin(t * 0.9 + y * 0.5) * cw * 0.12;
+        const cy = y * ch + ch / 2 + Math.cos(t * 0.8 + x * 0.45) * ch * 0.12;
+        const path = c.l < 0.4 + 0.045 * wave ? ink : red;
+        path.moveTo(cx + radius, cy);
+        path.arc(cx, cy, radius, 0, Math.PI * 2);
       }
     }
+    ctx.fillStyle = `rgb(${INK[0]},${INK[1]},${INK[2]})`;
+    ctx.fill(ink);
+    ctx.fillStyle = `rgb(${RED[0]},${RED[1]},${RED[2]})`;
+    ctx.fill(red);
   };
 
   useEffect(() => {
@@ -123,17 +135,41 @@ export function PixelatedPicture({
       sample(Math.max(1, Math.round(r.width / CELL)), Math.max(1, Math.round(r.height / CELL)));
       draw();
     };
+    // Redraw at about 20 frames a second, only while the picture is on screen and the dots are showing.
+    let visible = false;
+    let last = 0;
+    const loop = (now: number) => {
+      st.raf = requestAnimationFrame(loop);
+      if (now - last < 48) return;
+      last = now;
+      if (!hover.current) draw(now / 1000);
+    };
+    const play = () => {
+      if (visible && st.img && !st.raf) st.raf = requestAnimationFrame(loop);
+    };
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) play();
+      else {
+        cancelAnimationFrame(st.raf);
+        st.raf = 0;
+      }
+    });
+    io.observe(canvas);
     const img = new Image();
     img.onload = () => {
       st.img = img;
       layout();
+      play();
     };
     img.src = src;
     const ro = new ResizeObserver(() => st.img && layout());
     ro.observe(canvas);
     return () => {
       ro.disconnect();
+      io.disconnect();
       cancelAnimationFrame(st.raf);
+      st.raf = 0;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src]);

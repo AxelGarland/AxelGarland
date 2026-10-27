@@ -26,6 +26,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     lid: "Entre las Estrellas",
     description:
       "The figure on a swing, reaching up toward painted stars that hang on chains. A night sky small enough to hold, and a moment of wonder at whatever lies beyond it.",
+    verse: ["You'll be in the night sky,", "shining between the stars."],
     retablo: "Retablo 2 web.webp",
     retabloWidth: 761,
     retabloHeight: 1200,

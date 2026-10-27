@@ -2,7 +2,7 @@
 
 import { CROP } from "@/lib/workCrops";
 import { CardPreview } from "@/components/projects/CardPreview";
-import { HalftoneArrowDot } from "@/components/projects/HalftoneArrowDot";
+import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { pictureSrc } from "@/lib/pictures";
 import { projectThumbnailSrc, type Project } from "@/lib/projects";
@@ -102,7 +102,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
           </motion.h3>
           {/* The mark that says "open this project". The whole row is the link; this is its visible cue. */}
           <motion.span aria-hidden style={{ opacity: titleOpacity, y: titleY }} className="shrink-0">
-            <HalftoneArrowDot className="h-11 w-11 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12" />
+            <HalftoneArrowBox />
           </motion.span>
         </div>
         <motion.div style={{ opacity: descOpacity, y: descY }}>

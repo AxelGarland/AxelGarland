@@ -31,8 +31,8 @@ const FRICTION = [
 
 const SCREENS = [
   {
-    file: "giuson/screen-recruit.jpg",
-    large: "giuson/screen-recruit-long.jpg",
+    file: "giuson/shot-recruit.jpg",
+    large: "giuson/shot-recruit-long.jpg",
     width: 1600,
     height: 5690,
     alt: "Recruitment search: open positions on a live map within the chosen radius, with a list of the nearest facilities",
@@ -49,8 +49,8 @@ const SCREENS = [
     body: "Everything a recruiter needs to know about each role, in one place: requirements, salary ladders, grants and scholarships, training and more, in the order a conversation needs it.",
   },
   {
-    file: "giuson/screen-salary.jpg",
-    large: "giuson/screen-salary-long.jpg",
+    file: "giuson/shot-salary.jpg",
+    large: "giuson/shot-salary-long.jpg",
     width: 1600,
     height: 2525,
     alt: "Salary calculator: hourly rates, overtime percentages and a shift planner for each day of the week",
@@ -132,10 +132,10 @@ export default function GiusonPage() {
           </div>
         </section>
 
-        {/* Solution — the real screens, not icon cards */}
+        {/* Solution intro */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-24 grid grid-cols-1 items-start gap-10 md:mb-40 md:grid-cols-2 md:gap-16">
+            <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-16">
               <div className="max-w-[56ch]">
                 <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                   A tool tailored to their needs
@@ -153,37 +153,40 @@ export default function GiusonPage() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-20 md:gap-32">
-              {SCREENS.map((screen, i) => {
-                const imageRight = i % 2 === 0;
-                return (
-                  <div
-                    key={screen.file}
-                    className={`grid grid-cols-1 items-center gap-8 md:gap-14 lg:gap-16 ${
-                      imageRight ? "md:grid-cols-[5fr_8fr]" : "md:grid-cols-[8fr_5fr]"
-                    }`}
-                  >
-                    <div className={`${imageRight ? "md:order-1" : "md:order-2"} max-w-[40ch]`}>
-                      <h3 className="mb-3 font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
-                        {screen.title}
-                      </h3>
-                      <p className="text-base leading-relaxed text-ink-muted">{screen.body}</p>
-                    </div>
-                    <ExpandableScreen
-                      file={screen.file}
-                      large={screen.large}
-                      alt={screen.alt}
-                      width={screen.width}
-                      height={screen.height}
-                      sizes="(max-width: 768px) 100vw, 60vw"
-                      className={imageRight ? "md:order-2" : "md:order-1"}
-                    />
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </section>
+
+        {/* The three screens: one band each, alternating beige and white, text and screen side by side */}
+        {SCREENS.map((screen, i) => {
+          const imageRight = i % 2 === 0;
+          return (
+            <section key={screen.file} className={`py-20 md:py-28 ${imageRight ? "bg-paper" : "bg-surface"}`}>
+              <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+                <div
+                  className={`grid grid-cols-1 items-center gap-8 md:gap-14 lg:gap-16 ${
+                    imageRight ? "md:grid-cols-[5fr_8fr]" : "md:grid-cols-[8fr_5fr]"
+                  }`}
+                >
+                  <div className={`${imageRight ? "md:order-1" : "md:order-2"} max-w-[40ch]`}>
+                    <h3 className="mb-3 font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
+                      {screen.title}
+                    </h3>
+                    <p className="text-base leading-relaxed text-ink-muted">{screen.body}</p>
+                  </div>
+                  <ExpandableScreen
+                    file={screen.file}
+                    large={screen.large}
+                    alt={screen.alt}
+                    width={screen.width}
+                    height={screen.height}
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    className={imageRight ? "md:order-2" : "md:order-1"}
+                  />
+                </div>
+              </div>
+            </section>
+          );
+        })}
 
         {/* Outcome — pull-quote instead of a paragraph in a box */}
         <section className="border-t border-line bg-ink py-24 md:py-32">

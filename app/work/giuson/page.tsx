@@ -1,6 +1,5 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
-import { HalftoneIcon } from "@/components/projects/HalftoneIcon";
 import { InfoSources } from "@/components/projects/InfoSources";
 import { ExpandableScreen } from "@/components/projects/ExpandableScreen";
 import { MoreProjects } from "@/components/projects/MoreProjects";
@@ -206,7 +205,22 @@ export default function GiusonPage() {
             <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
               {OUTCOMES.map((item) => (
                 <li key={item.text} className="flex flex-col items-center gap-6 text-center">
-                  <HalftoneIcon paths={item.icon} />
+                  <svg
+                    width="72"
+                    height="72"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="text-accent"
+                  >
+                    {item.icon.map((d) => (
+                      <path key={d} d={d} />
+                    ))}
+                  </svg>
                   <p className="max-w-[26ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
                     {item.text}
                   </p>

@@ -3,7 +3,7 @@
 import { HalftoneLogo } from "@/components/sections/HalftoneLogo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NAV_ITEMS: readonly { label: string; href: string; section?: string }[] = [
   { label: "Home", href: "/" },
@@ -11,17 +11,45 @@ const NAV_ITEMS: readonly { label: string; href: string; section?: string }[] = 
   { label: "Contact", href: "/contact" },
 ];
 
-/** Work sends people to the work section of the home page, so on the home page "Home" is the one
- *  marked; "Work" is marked while a project's own page is open. */
-function isActive(pathname: string, item: { href: string; section?: string }): boolean {
-  if (item.section) return pathname === item.section || pathname.startsWith(`${item.section}/`);
-  if (item.href === "/") return pathname === "/";
+/** Work leads to the work section of the home page. On the home page the marked item follows the
+ *  scroll: "Home" above the work section, "Work" once it reaches the middle of the screen. "Work" is
+ *  also marked while a project's own page is open. */
+function isActive(pathname: string, item: { href: string; section?: string }, inWork: boolean): boolean {
+  if (item.section) return pathname === item.section || pathname.startsWith(`${item.section}/`) || (pathname === "/" && inWork);
+  if (item.href === "/") return pathname === "/" && !inWork;
   return pathname === item.href || pathname.startsWith(`${item.href}/`);
 }
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [inWork, setInWork] = useState(false);
+
+  // On the home page, watch where the work section is and mark "Work" once it is under the middle of
+  // the screen. Reading its position on scroll is cheap and works for links that jump straight to it.
+  useEffect(() => {
+    if (pathname !== "/") {
+      setInWork(false);
+      return;
+    }
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = document.getElementById("work");
+      setInWork(!!el && el.getBoundingClientRect().top < window.innerHeight * 0.5);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-[60] flex min-h-[68px] w-full items-center border-b border-line bg-surface/90 backdrop-blur-[12px]">
@@ -39,7 +67,7 @@ export function SiteHeader() {
 
         <ul className="hidden list-none items-center gap-8 md:flex lg:gap-10">
           {NAV_ITEMS.map((item) => {
-            const active = isActive(pathname, item);
+            const active = isActive(pathname, item, inWork);
             if (active) {
               return (
                 <li key={item.label}>
@@ -96,11 +124,11 @@ export function SiteHeader() {
               href={item.href}
               onClick={() => setOpen(false)}
               className={`flex items-center gap-2 border-b border-line py-3 text-sm font-medium uppercase tracking-[0.12em] ${
-                isActive(pathname, item) ? "text-ink" : "text-ink-muted"
+                isActive(pathname, item, inWork) ? "text-ink" : "text-ink-muted"
               }`}
             >
               {item.label}
-              {isActive(pathname, item) ? (
+              {isActive(pathname, item, inWork) ? (
                 <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
               ) : null}
             </Link>

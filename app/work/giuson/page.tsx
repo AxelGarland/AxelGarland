@@ -65,7 +65,7 @@ export default function GiusonPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero: the text on the left, the computer mockup (cut out of the banner) on the right */}
+        {/* Hero: the text on the left, the monitor mockup (cut out of the banner) on the right */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
@@ -87,10 +87,10 @@ export default function GiusonPage() {
 
             <div className="flex items-center justify-center">
               <Image
-                src={pictureSrc("giuson/computer-mockup.png")}
-                alt="Giuson on a desktop computer: the recruitment search map with a list of open positions"
-                width={738}
-                height={618}
+                src={pictureSrc("giuson/computer-mockup-2.png")}
+                alt="Giuson on a desktop monitor: the recruitment search map with a list of open positions"
+                width={673}
+                height={541}
                 priority
                 className="h-auto w-full max-w-[22rem] drop-shadow-[0_24px_30px_rgba(26,25,22,0.18)] md:max-w-[30rem]"
                 sizes="(max-width: 768px) 352px, 480px"

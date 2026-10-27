@@ -77,6 +77,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     lid: "Biblioteca Infinita",
     description:
       "The figure reading among stacks of books beneath a chandelier, in a library that never ends. A box about curiosity, and about all the stories still left to read.",
+    verse: ["You'll be somewhere you can read all day,", "and the shelves never run out."],
     retablo: "Retablo 5 web.webp",
     retabloWidth: 771,
     retabloHeight: 1200,

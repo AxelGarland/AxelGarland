@@ -14,7 +14,7 @@ export function ClosingBlock() {
             <HalftoneButton href="/contact" label="Get in touch" />
             <a
               href="mailto:axelgrobman@gmail.com"
-              className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
               axelgrobman@gmail.com
             </a>
@@ -22,7 +22,7 @@ export function ClosingBlock() {
               href="https://www.linkedin.com/in/axel-garland-138188292/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink-muted transition-colors duration-300 hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink-muted transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
             >
               LinkedIn
               <span className="sr-only"> (opens in a new tab)</span>

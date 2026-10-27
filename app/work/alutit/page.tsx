@@ -109,11 +109,6 @@ export default function AlutitPage() {
             </div>
 
             <div className="relative h-[64svh] min-h-[24rem] w-full md:h-[min(86svh,62rem)]">
-              {/* A soft lilac disc, picked from her sweater, echoes the yellow disc on the home page */}
-              <div
-                aria-hidden
-                className="absolute left-[8%] top-[12%] aspect-square w-[84%] rounded-full bg-[#E4E0F0]"
-              />
               <Image
                 src={pictureSrc(project.hero)}
                 alt="Alutit in her branded sweater, holding up a rainbow"

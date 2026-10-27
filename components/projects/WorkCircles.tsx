@@ -1,5 +1,6 @@
 "use client";
 
+import { CROP } from "@/lib/workCrops";
 import { CardPreview } from "@/components/projects/CardPreview";
 import { HalftoneArrowDot } from "@/components/projects/HalftoneArrowDot";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
@@ -10,18 +11,6 @@ import { TagLine } from "@/components/projects/TagLine";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-
-/** How each project's picture sits inside its circle. `contain` shows a whole picture on a soft
- *  backdrop; `cover` fills the circle and crops the edges. */
-const CROP: Record<string, { fit: "cover" | "contain"; position?: string; backdrop?: string; scale?: string; previewBg?: string }> = {
-  kindred: { fit: "cover", position: "50% 50%", previewBg: "#06090A" },
-  giuson: { fit: "cover", position: "50% 55%" },
-  "mundos-mejores": { fit: "cover", position: "50% 42%" },
-  "better-eater": { fit: "contain", backdrop: "bg-surface-raised", scale: "scale-[1.12]" },
-  alutit: { fit: "cover", position: "50% 38%" },
-  afterlife: { fit: "cover", position: "50% 50%", backdrop: "bg-black" },
-  jabberwocky: { fit: "contain", backdrop: "bg-surface-raised", scale: "scale-[1.04]" },
-};
 
 /** Each row is driven by how far it has travelled through the screen: 0 as it enters at the bottom,
  *  1 as it leaves at the top. Scrolling down fades in the picture, then the title with its underline,

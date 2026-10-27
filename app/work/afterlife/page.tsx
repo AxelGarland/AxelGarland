@@ -13,7 +13,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "AfterLife · Axel Garland",
   description:
-    "AfterLife, a landing page and app for an invented service that helps you celebrate your life as you move into the afterlife.",
+    "AfterLife, a conceptual landing page and app for a service that gives you a wrap-up of your life, so you can celebrate it and move on.",
 };
 
 const TAGS = ["Illustration", "Landing Page", "Web App"];
@@ -110,8 +110,8 @@ export default function AfterLifePage() {
               </h1>
               <div>
                 <p className="mb-5 max-w-[48ch] text-lg leading-relaxed text-surface/75">
-                  A landing page and an app for AfterLife, an invented service that helps you
-                  celebrate your life as you move into the afterlife.
+                  A conceptual landing page and app for AfterLife, a service that gives you a
+                  wrap-up of your life. You celebrate it, and your soul is ready to move on.
                 </p>
                 <TagLine tags={TAGS} tone="dark" />
               </div>

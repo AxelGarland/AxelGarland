@@ -341,7 +341,7 @@ export const PROJECTS: Project[] = [
     slug: "afterlife",
     title: "AfterLife",
     section: "selected-work",
-    summary: "A landing page and an app for a service that helps you celebrate your life as you move on.",
+    summary: "A conceptual landing page and app for a service that gives you a wrap-up of your life, so you can celebrate it and move on.",
     accentColor: "indigo",
     reflection:
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",

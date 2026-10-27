@@ -15,7 +15,7 @@ export function InfoSources() {
   return (
     <div
       role="img"
-      aria-label="A spreadsheet, a PDF and a map: one tool that holds all the information needed for recruiting"
+      aria-label="A spreadsheet, a PDF and a map: one tool: Giuson"
       className="flex flex-col items-center gap-5 text-center md:gap-6"
     >
       <div aria-hidden className="flex h-14 items-center gap-4 md:h-20 md:gap-6">
@@ -38,8 +38,8 @@ export function InfoSources() {
       <span aria-hidden className="font-display text-4xl font-light leading-none text-accent md:text-5xl">
         =
       </span>
-      <p aria-hidden className="max-w-[20ch] font-display text-2xl font-semibold leading-[1.15] text-ink md:text-3xl">
-        One tool that holds all the information needed for recruiting
+      <p aria-hidden className="font-display text-2xl font-semibold leading-[1.15] text-ink md:text-3xl">
+        One tool: <span className="text-accent">Giuson</span>
       </p>
     </div>
   );

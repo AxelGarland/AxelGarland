@@ -2,6 +2,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
+import { LandingPageViewer } from "@/components/projects/LandingPageViewer";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
 import { TabletFrame } from "@/components/projects/TabletFrame";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -161,17 +162,11 @@ export default function AfterLifePage() {
                 <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
               </div>
             </div>
-            {/* The whole landing page as one image, so the page itself does the scrolling */}
-            <div className="mx-auto max-w-[60rem] border border-line bg-black">
-              <Image
-                src={pictureSrc("afterlife/landing page.png")}
-                alt="The full AfterLife landing page: the pitch, stats, and FAQs"
-                width={1920}
-                height={7728}
-                className="h-auto w-full"
-                sizes="(max-width: 960px) 100vw, 960px"
-              />
-            </div>
+            {/* A preview of the landing page's first screen; clicking opens the whole page full screen */}
+            <LandingPageViewer
+              alt="The full AfterLife landing page: the pitch, stats, and FAQs"
+              className="mx-auto max-w-[60rem]"
+            />
           </div>
         </section>
 

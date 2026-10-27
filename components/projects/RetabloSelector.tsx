@@ -1,6 +1,11 @@
+"use client";
+
+import { RetabloPieces } from "@/components/projects/OpeningRetablo";
+import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export type RetabloImage = {
   file: string;
@@ -53,29 +58,74 @@ const PLACEMENT = [
   { cell: "col-start-1 row-start-3 md:col-start-1 md:row-start-2", width: "w-[82%]" },
 ];
 
+/** How far the doors swing when the pointer is over a box: enough to start opening and show the
+ *  inside between them, not so far that they reach into the next box. */
+const PEEK_ANGLE = 68;
+
+/** One closed retablo. Pointing at it (with a mouse) or focusing it with the keyboard starts its doors
+ *  opening; moving away closes them. Boxes without opening pieces just show the closed photo. */
+function RetabloTile({ box, width }: { box: RetabloBox; width: string }) {
+  const reduce = useHydrationSafeReducedMotion();
+  const [peek, setPeek] = useState(false);
+  const open = box.open;
+  const canPeek = !!open && !reduce;
+
+  const frame = open ? (
+    <div className={`relative ${width} transition duration-300 group-hover:-translate-y-1`} style={{ aspectRatio: `${box.retabloWidth} / ${box.retabloHeight}` }}>
+      {/* The scene is wider than the shut box, because the doors swing out past it. It is placed so
+          the shut box lines up with the tile. */}
+      <div
+        className="absolute top-0 h-full"
+        style={{
+          width: `${(open.width / (open.right - open.left)) * 100}%`,
+          left: `${(-open.left / (open.right - open.left)) * 100}%`,
+          perspective: "1800px",
+        }}
+      >
+        <RetabloPieces open={open} lid={box.lid} opened={canPeek && peek} openAngle={PEEK_ANGLE} duration={reduce ? 0 : 750} />
+      </div>
+    </div>
+  ) : (
+    <Image
+      src={pictureSrc(box.retablo)}
+      alt={`The closed “${box.lid}” retablo`}
+      width={box.retabloWidth}
+      height={box.retabloHeight}
+      className={`${width} h-auto drop-shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-xl`}
+      sizes="(max-width: 768px) 50vw, 360px"
+    />
+  );
+
+  return (
+    <Link
+      href={`/work/mundos-mejores/${box.slug}`}
+      aria-label={`${box.title}. Open this box`}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setPeek(true);
+      }}
+      onPointerLeave={() => setPeek(false)}
+      onFocus={() => setPeek(true)}
+      onBlur={() => setPeek(false)}
+      className="group flex w-full flex-col items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+    >
+      {frame}
+      <span className="mt-3 font-display text-base leading-tight text-ink decoration-accent underline-offset-4 group-hover:underline sm:text-lg">
+        {box.title}
+      </span>
+    </Link>
+  );
+}
+
 /** The five closed retablos. Each one opens that box's own page. */
 export function RetabloSelector({ boxes }: { boxes: RetabloBox[] }) {
   return (
     <div className="mx-auto grid max-w-4xl grid-cols-2 items-end gap-x-6 gap-y-10 md:grid-cols-[1fr_1.5fr_1fr] md:gap-x-10 md:gap-y-12">
       {boxes.map((box, i) => (
-        <Link
-          key={box.slug}
-          href={`/work/mundos-mejores/${box.slug}`}
-          aria-label={`${box.title}. Open this box`}
-          className={`group flex flex-col items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${PLACEMENT[i].cell}`}
-        >
-          <Image
-            src={pictureSrc(box.retablo)}
-            alt={`The closed “${box.lid}” retablo`}
-            width={box.retabloWidth}
-            height={box.retabloHeight}
-            className={`${PLACEMENT[i].width} h-auto drop-shadow-md transition duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-xl`}
-            sizes="(max-width: 768px) 50vw, 360px"
-          />
-          <span className="mt-3 font-display text-base leading-tight text-ink decoration-accent underline-offset-4 group-hover:underline sm:text-lg">
-            {box.title}
-          </span>
-        </Link>
+        <div key={box.slug} className={`flex ${PLACEMENT[i].cell}`}>
+          <div className="flex w-full flex-col items-center">
+            <RetabloTile box={box} width={PLACEMENT[i].width} />
+          </div>
+        </div>
       ))}
     </div>
   );

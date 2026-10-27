@@ -25,12 +25,16 @@ export function RetabloPieces({
   open,
   lid,
   opened,
+  openAngle = 180,
   duration = 1500,
   priority = false,
 }: {
   open: RetabloOpen;
   lid: string;
   opened: boolean;
+  /** How far the doors swing when `opened`, in degrees: 180 lays them flat like the open photo, less
+   *  only starts them opening. */
+  openAngle?: number;
   /** Milliseconds the doors take to swing. */
   duration?: number;
   priority?: boolean;
@@ -42,7 +46,7 @@ export function RetabloPieces({
 
   const door = (side: "left" | "right") => {
     const isLeft = side === "left";
-    const turn = opened ? (isLeft ? -180 : 180) : 0;
+    const turn = opened ? (isLeft ? -openAngle : openAngle) : 0;
     return (
       <div
         className="absolute"

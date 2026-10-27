@@ -1,8 +1,8 @@
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
 
-/** "A spreadsheet + a PDF + a map = too many places to look": the tools recruiters had to juggle,
- *  with the sum underneath. Decoration plus one line of text; the whole thing is read as a single
+/** "A spreadsheet + a PDF + a map = one tool": the places recruiters had to look, with the
+ *  one tool that replaces them underneath. Decoration plus one line of text; the whole thing is read as a single
  *  sentence. */
 
 const SOURCES = [
@@ -15,7 +15,7 @@ export function InfoSources() {
   return (
     <div
       role="img"
-      aria-label="A spreadsheet, a PDF and a map: too many places to look"
+      aria-label="A spreadsheet, a PDF and a map: one tool that holds all the information needed for recruiting"
       className="flex flex-col items-center gap-5 text-center md:gap-6"
     >
       <div aria-hidden className="flex h-14 items-center gap-4 md:h-20 md:gap-6">
@@ -38,8 +38,8 @@ export function InfoSources() {
       <span aria-hidden className="font-display text-4xl font-light leading-none text-accent md:text-5xl">
         =
       </span>
-      <p aria-hidden className="font-display text-2xl font-semibold leading-[1.15] text-ink md:text-3xl">
-        Too many places to look
+      <p aria-hidden className="max-w-[20ch] font-display text-2xl font-semibold leading-[1.15] text-ink md:text-3xl">
+        One tool that holds all the information needed for recruiting
       </p>
     </div>
   );

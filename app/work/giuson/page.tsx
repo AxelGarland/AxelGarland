@@ -19,6 +19,16 @@ export const metadata: Metadata = {
 
 const TAGS = ["Product Design", "Internal Tool", "Recruitment"];
 
+/** The friction points the recruitment team described, which the tool was built around. */
+const FRICTION = [
+  "Information spread across a PDF, a spreadsheet, personal notes and Google Maps",
+  "Open positions that change constantly, in places all over the country",
+  "Salaries that differ by profession and seniority, hard to explain mid-conversation",
+  "Grants, scholarships and perks buried in different documents",
+  "Candidates in the periphery willing to commute farther, with no easy way to search by radius",
+  "Field managers without the same information as the recruitment office",
+];
+
 const SCREENS = [
   {
     file: "giuson/giuson recruitment map.png",
@@ -113,13 +123,23 @@ export default function GiusonPage() {
         {/* Solution — the real screens, not icon cards */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-12 max-w-[56ch] md:mb-14">
-              <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                A tool tailored to their needs
-              </h2>
-              <p className="text-base leading-relaxed text-ink-muted">
-                {project.caseStudy?.process}
-              </p>
+            <div className="mb-12 grid grid-cols-1 items-start gap-10 md:mb-14 md:grid-cols-2 md:gap-16">
+              <div className="max-w-[56ch]">
+                <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+                  A tool tailored to their needs
+                </h2>
+                <p className="text-base leading-relaxed text-ink-muted">
+                  {project.caseStudy?.process}
+                </p>
+              </div>
+              <ul className="flex flex-col gap-4 md:pt-2">
+                {FRICTION.map((point) => (
+                  <li key={point} className="flex items-start gap-4 text-base leading-snug text-ink">
+                    <span aria-hidden className="mt-[0.5em] h-2 w-2 shrink-0 rounded-full bg-accent" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
               {SCREENS.map((screen) => (

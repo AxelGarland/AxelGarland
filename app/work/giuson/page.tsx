@@ -127,7 +127,7 @@ export default function GiusonPage() {
         {/* Solution — the real screens, not icon cards */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-12 grid grid-cols-1 items-start gap-10 md:mb-14 md:grid-cols-2 md:gap-16">
+            <div className="mb-24 grid grid-cols-1 items-start gap-10 md:mb-40 md:grid-cols-2 md:gap-16">
               <div className="max-w-[56ch]">
                 <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                   A tool tailored to their needs
@@ -145,7 +145,7 @@ export default function GiusonPage() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-16 md:gap-24">
+            <div className="flex flex-col gap-20 md:gap-32">
               {SCREENS.map((screen, i) => {
                 const imageRight = i % 2 === 0;
                 return (

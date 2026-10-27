@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { HalftoneIcon } from "@/components/projects/HalftoneIcon";
 import { InfoSources } from "@/components/projects/InfoSources";
 import { ExpandableScreen } from "@/components/projects/ExpandableScreen";
 import { MoreProjects } from "@/components/projects/MoreProjects";
@@ -29,38 +30,19 @@ const FRICTION = [
   "Field managers without the same information as the recruitment office",
 ];
 
-/** What the tool changed, in three lines. */
+/** What the tool changed, in three lines. Icons are SVG path data on a 24 x 24 grid. */
 const OUTCOMES = [
   {
     text: "Improved the quality of the recruitment calls",
-    icon: (
-      <>
-        <path d="M5 14v-2a7 7 0 0 1 14 0v2" />
-        <path d="M5 14h2v4H5zM17 14h2v4h-2z" />
-        <path d="M19 18c0 2-2 3-5 3" />
-      </>
-    ),
+    icon: ["M5 14v-2a7 7 0 0 1 14 0v2", "M5 14h2v4H5z", "M17 14h2v4h-2z", "M19 18c0 2-2 3-5 3"],
   },
   {
     text: "More recruitment coordinators able to run specialized calls for paramedical roles",
-    icon: (
-      <>
-        <circle cx="9" cy="8" r="3" />
-        <path d="M3 20a6 6 0 0 1 12 0" />
-        <circle cx="17" cy="9" r="2.5" />
-        <path d="M16 14a5 5 0 0 1 5 5" />
-      </>
-    ),
+    icon: ["M6 8a3 3 0 1 0 6 0a3 3 0 1 0 -6 0", "M3 20a6 6 0 0 1 12 0", "M14.5 9a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0", "M16 14a5 5 0 0 1 5 5"],
   },
   {
     text: "Now also used by the facility managers in the field",
-    icon: (
-      <>
-        <path d="M4 20V9l8-5 8 5v11" />
-        <path d="M3 20h18" />
-        <path d="M10 20v-5h4v5" />
-      </>
-    ),
+    icon: ["M4 20V9l8-5 8 5v11", "M3 20h18", "M10 20v-5h4v5"],
   },
 ];
 
@@ -223,21 +205,8 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
               {OUTCOMES.map((item) => (
-                <li key={item.text} className="flex flex-col items-start gap-6 border-t border-surface/15 pt-8">
-                  <svg
-                    width="44"
-                    height="44"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                    className="text-accent-light"
-                  >
-                    {item.icon}
-                  </svg>
+                <li key={item.text} className="flex flex-col items-start gap-6">
+                  <HalftoneIcon paths={item.icon} className="-ml-3" />
                   <p className="max-w-[28ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
                     {item.text}
                   </p>

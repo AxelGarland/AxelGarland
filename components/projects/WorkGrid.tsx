@@ -1,20 +1,29 @@
+"use client";
+
 import { pictureSrc } from "@/lib/pictures";
 import type { Project } from "@/lib/projects";
 import { WORK_IMAGES } from "@/lib/workCrops";
 import Image from "next/image";
+import { useState } from "react";
+import { PixelatedPicture } from "@/components/projects/PixelatedPicture";
 import Link from "next/link";
 
 /** The work as 3:2 pictures, two on the first row, three on the second, two on the third. On a phone
- *  they fall into two columns with the last one centred. Pointing at one makes it grow a little and
- *  shows the project's name over it. */
+ *  they fall into two columns with the last one centred. Each picture rests in coarse blocks; pointing at
+ *  it sharpens it, grows it a little and shows the project's name over it. */
 const ROWS = [2, 3, 2];
 
 function Tile({ project }: { project: Project }) {
   const image = WORK_IMAGES[project.slug];
+  const [sharp, setSharp] = useState(false);
   return (
     <Link
       href={`/work/${project.slug}`}
       aria-label={`${project.title}. ${project.discipline}`}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setSharp(true)}
+      onPointerLeave={() => setSharp(false)}
+      onFocus={() => setSharp(true)}
+      onBlur={() => setSharp(false)}
       className="group relative z-0 block aspect-[3/2] w-full focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent [@media(hover:hover)]:hover:z-10 md:w-[calc((100%-4rem)/3)]"
     >
       <span className="absolute inset-0 transition-transform duration-500 ease-out group-focus-visible:scale-[1.06] [@media(hover:hover)]:group-hover:scale-[1.06]">
@@ -26,6 +35,13 @@ function Tile({ project }: { project: Project }) {
             className={image.fit === "contain" ? "object-contain" : "object-cover"}
             style={image.position ? { objectPosition: image.position } : undefined}
             sizes="(max-width: 768px) 46vw, 380px"
+          />
+          <PixelatedPicture
+            src={`/_next/image?url=${encodeURIComponent(pictureSrc(image.file))}&w=768&q=75`}
+            fit={image.fit}
+            position={image.position}
+            backdrop={image.backdrop}
+            sharp={sharp}
           />
           <span
             aria-hidden
@@ -55,8 +71,8 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
               key={project.slug}
               className={
                 r === rows.length - 1 && i === row.length - 1
-                  ? "max-md:col-span-2 max-md:flex max-md:justify-center [&>a]:max-md:w-[calc(50%-0.625rem)]"
-                  : "contents md:block md:contents"
+                  ? "max-md:col-span-2 max-md:flex max-md:justify-center [&>a]:max-md:w-[calc(50%-0.625rem)] md:contents"
+                  : "contents"
               }
             >
               <Tile project={project} />

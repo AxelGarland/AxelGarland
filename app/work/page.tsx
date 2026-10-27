@@ -1,4 +1,3 @@
-import { HalftoneField } from "@/components/projects/HalftoneField";
 import { WorkGrid } from "@/components/projects/WorkGrid";
 import { HalftoneTitle } from "@/components/sections/HalftoneTitle";
 import { getOrderedProjects } from "@/lib/projects";
@@ -21,10 +20,8 @@ export default function WorkPage() {
           <HalftoneTitle text="Work" maxWidth="17rem" />
         </header>
 
-        <div className="relative overflow-hidden pb-24 pt-10 md:pb-32 md:pt-16">
-          {/* Halftone dots behind the pictures that swell and turn red where the pointer is */}
-          <HalftoneField />
-          <div className="relative mx-auto max-w-[90rem] px-6 md:px-8">
+        <div className="pb-24 pt-10 md:pb-32 md:pt-16">
+          <div className="mx-auto max-w-[90rem] px-6 md:px-8">
             <WorkGrid projects={getOrderedProjects()} />
           </div>
         </div>

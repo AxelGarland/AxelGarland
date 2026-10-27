@@ -109,8 +109,8 @@ export default function GiusonPage() {
                   alt="Alut, the Israeli Society for Children and Adults with Autism: the 50th anniversary logo"
                   width={670}
                   height={618}
-                  className="h-auto w-full max-w-[17rem] md:max-w-[26rem]"
-                  sizes="(max-width: 768px) 272px, 416px"
+                  className="h-auto w-full max-w-[12rem] md:max-w-[18.2rem]"
+                  sizes="(max-width: 768px) 192px, 292px"
                 />
               </div>
               <div className="order-1 md:order-2">

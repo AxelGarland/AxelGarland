@@ -205,9 +205,9 @@ export default function GiusonPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
               {OUTCOMES.map((item) => (
-                <li key={item.text} className="flex flex-col items-start gap-6">
-                  <HalftoneIcon paths={item.icon} className="-ml-3" />
-                  <p className="max-w-[28ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
+                <li key={item.text} className="flex flex-col items-center gap-6 text-center">
+                  <HalftoneIcon paths={item.icon} />
+                  <p className="max-w-[26ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
                     {item.text}
                   </p>
                 </li>

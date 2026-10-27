@@ -5,7 +5,7 @@ import type { RetabloBox } from "@/components/projects/RetabloSelector";
 export const MUNDOS_BOXES: RetabloBox[] = [
   {
     slug: "familia",
-    title: "Familia",
+    title: "Mundos Mejores",
     lid: "Mundos Mejores",
     description:
       "A family gathered together, arms linked around the recurring figure, with framed memories hanging on the wall behind them. The box that holds the people who remember her.",

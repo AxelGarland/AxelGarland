@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const found = getBox((await params).box);
   if (!found) return {};
   return {
-    title: `${found.box.title} · Mundos Mejores · Axel Garland`,
+    title: found.box.title === "Mundos Mejores" ? "Mundos Mejores, the family box · Axel Garland" : `${found.box.title} · Mundos Mejores · Axel Garland`,
     description: `${found.box.title}, from Mundos Mejores: a retablo-inspired box by Axel Garland.`,
   };
 }

@@ -106,7 +106,41 @@ export default function AfterLifePage() {
           </div>
         </header>
 
-        {/* Landing page */}
+        {/* App */}
+        <section className="bg-paper py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <div className="mb-12 max-w-[56ch] md:mb-16">
+              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
+                The app
+              </p>
+              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+                A recap for a whole life
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+                The app walks you through your life in four stages: Video, Memories, Statistics,
+                and Ready to move on. At the center is a flower-shaped statistics chart, and each
+                leaf opens into a screen about one part of your life, told gently and with a little humor.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
+              {APP_FRAMES.map((frame) => (
+                <div key={frame.file} className={frame.wide ? "mx-auto w-full max-w-[44rem] md:col-span-2" : ""}>
+                  <TabletFrame>
+                    <Image
+                      src={pictureSrc(frame.file)}
+                      alt={frame.alt}
+                      fill
+                      className="object-contain"
+                      sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
+                    />
+                  </TabletFrame>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Loading animation, then the landing page */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             {/* Same two columns as the header above: the animation in the wide one, the words in the other */}
@@ -157,40 +191,6 @@ export default function AfterLifePage() {
                     className="object-contain"
                     sizes="(max-width: 640px) 45vw, 25vw"
                   />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* App */}
-        <section className="border-t border-line bg-paper py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-12 max-w-[56ch] md:mb-16">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                The app
-              </p>
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                A recap for a whole life
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                The app walks you through your life in four stages: Video, Memories, Statistics,
-                and Ready to move on. At the center is a flower-shaped statistics chart, and each
-                leaf opens into a screen about one part of your life, told gently and with a little humor.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
-              {APP_FRAMES.map((frame) => (
-                <div key={frame.file} className={frame.wide ? "mx-auto w-full max-w-[44rem] md:col-span-2" : ""}>
-                  <TabletFrame>
-                    <Image
-                      src={pictureSrc(frame.file)}
-                      alt={frame.alt}
-                      fill
-                      className="object-contain"
-                      sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
-                    />
-                  </TabletFrame>
                 </div>
               ))}
             </div>

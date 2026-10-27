@@ -7,10 +7,6 @@ export function ClosingBlock() {
     <section className="border-t border-line bg-surface py-24 md:py-36">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <MotionReveal>
-          <p className="mb-6 flex items-center gap-3 text-sm text-ink-muted">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Open to opportunities
-          </p>
           <h2 className="mb-12 max-w-[19ch] font-display text-[clamp(2.1rem,6.2vw,5.6rem)] font-light leading-[0.92] tracking-[-0.03em] text-ink">
             Let&rsquo;s make <em className="italic text-accent">something great!</em>
           </h2>

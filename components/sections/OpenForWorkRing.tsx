@@ -1,8 +1,7 @@
 /** A ring of text that circles the hero portrait and turns slowly. The words are set on a circular
  *  path, so they stay sharp at any size. Three "OPEN FOR WORK" phrases each sit centred in their
  *  own third of the ring, with a dot exactly on each boundary, so the gaps are all equal. Purely
- *  decorative: the "Open to opportunities" link beside the buttons carries the same message for
- *  screen readers. With reduced motion the ring holds still. */
+ *  decorative, so it is hidden from screen readers. With reduced motion the ring holds still. */
 const RADIUS = 45;
 const PHRASES = 3;
 /** Radius of the dots: they sit at the visual middle of the letters, not on the baseline. */

@@ -100,12 +100,12 @@ export default function BetterEaterPage() {
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
           <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
-              <h1 className="mb-8 -ml-[2%] w-full max-w-[26rem] md:max-w-[30rem]">
+              <h1 className="mb-8 w-full max-w-[26rem] md:max-w-[30rem]">
                 <Image
-                  src={pictureSrc("bettereater/wordmark.png")}
-                  alt="Better Eater, the app"
-                  width={1231}
-                  height={315}
+                  src={pictureSrc("bettereater/wordmark-title.png")}
+                  alt="Better Eater"
+                  width={1191}
+                  height={164}
                   priority
                   className="h-auto w-full"
                   sizes="(max-width: 768px) 90vw, 480px"

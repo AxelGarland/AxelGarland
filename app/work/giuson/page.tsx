@@ -29,6 +29,41 @@ const FRICTION = [
   "Field managers without the same information as the recruitment office",
 ];
 
+/** What the tool changed, in three lines. */
+const OUTCOMES = [
+  {
+    text: "Improved the quality of the recruitment calls",
+    icon: (
+      <>
+        <path d="M5 14v-2a7 7 0 0 1 14 0v2" />
+        <path d="M5 14h2v4H5zM17 14h2v4h-2z" />
+        <path d="M19 18c0 2-2 3-5 3" />
+      </>
+    ),
+  },
+  {
+    text: "More recruitment coordinators able to run specialized calls for paramedical roles",
+    icon: (
+      <>
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 20a6 6 0 0 1 12 0" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M16 14a5 5 0 0 1 5 5" />
+      </>
+    ),
+  },
+  {
+    text: "Now also used by the facility managers in the field",
+    icon: (
+      <>
+        <path d="M4 20V9l8-5 8 5v11" />
+        <path d="M3 20h18" />
+        <path d="M10 20v-5h4v5" />
+      </>
+    ),
+  },
+];
+
 const SCREENS = [
   {
     file: "giuson/shot-recruit.jpg",
@@ -62,11 +97,6 @@ const SCREENS = [
 export default function GiusonPage() {
   const project = getProject("giuson");
   if (!project || !project.prototype) notFound();
-
-  const outcomeSentences = (project.caseStudy?.outcome ?? "").split(". ");
-  const outcomeQuote = outcomeSentences[outcomeSentences.length - 1];
-  const outcomeLead =
-    outcomeSentences.slice(0, -1).join(". ") + (outcomeSentences.length > 1 ? "." : "");
 
   return (
     <>
@@ -188,15 +218,32 @@ export default function GiusonPage() {
           );
         })}
 
-        {/* Outcome — pull-quote instead of a paragraph in a box */}
-        <section className="border-t border-line bg-ink py-24 md:py-32">
+        {/* Outcome: three results in a row, each with an icon */}
+        <section className="border-t border-line bg-ink py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto max-w-[64ch] text-center">
-              <p className="font-display text-xl font-light italic leading-snug text-surface sm:text-2xl">
-                {outcomeQuote}
-              </p>
-              <p className="mt-8 text-base leading-relaxed text-surface/60">{outcomeLead}</p>
-            </div>
+            <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
+              {OUTCOMES.map((item) => (
+                <li key={item.text} className="flex flex-col items-start gap-6 border-t border-surface/15 pt-8">
+                  <svg
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="text-accent-light"
+                  >
+                    {item.icon}
+                  </svg>
+                  <p className="max-w-[28ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
+                    {item.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

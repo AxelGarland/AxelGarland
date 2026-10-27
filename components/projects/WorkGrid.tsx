@@ -6,11 +6,10 @@ import { WORK_IMAGES } from "@/lib/workCrops";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { PixelatedPicture } from "@/components/projects/PixelatedPicture";
 
 /** The work as 3:2 pictures, two on the first row, three on the second, two on the third. On a phone
  *  they fall into two columns with the last one centred. Pointing at one makes it bigger, with no
- *  overlay, while all the others shrink and sink under a dark, blocky veil until the pointer leaves. */
+ *  overlay, while all the others shrink and take a light dark veil until the pointer leaves. */
 const ROWS = [2, 3, 2];
 
 function Tile({ project, dimmed, hovered, onEnter, onLeave }: { project: Project; dimmed: boolean; hovered: boolean; onEnter: () => void; onLeave: () => void }) {
@@ -35,12 +34,9 @@ function Tile({ project, dimmed, hovered, onEnter, onLeave }: { project: Project
             style={image.position ? { objectPosition: image.position } : undefined}
             sizes="(max-width: 768px) 46vw, 380px"
           />
-          <PixelatedPicture
-            src={`/_next/image?url=${encodeURIComponent(pictureSrc(image.file))}&w=768&q=75`}
-            fit={image.fit}
-            position={image.position}
-            backdrop={image.backdrop}
-            dimmed={dimmed}
+          <span
+            aria-hidden
+            className={`pointer-events-none absolute inset-0 bg-black transition-opacity duration-300 ease-out ${dimmed ? "opacity-40" : "opacity-0"}`}
           />
         </span>
       </span>

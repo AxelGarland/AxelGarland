@@ -88,7 +88,9 @@ export default function AfterLifePage() {
         <BackLink />
         {/* Hero — full-bleed, the entrance animation fills the width and fades into the black below */}
         <header className="bg-black pt-[68px]">
-          <div className="relative aspect-video max-h-[calc(100svh-68px)] w-full overflow-hidden">
+          {/* Never wider than the screen's height allows, so the whole frame fits instead of being
+              cropped top and bottom on wide windows; the black page fills either side. */}
+          <div className="relative mx-auto aspect-video w-full max-w-[calc((100svh-68px)*16/9)] overflow-hidden">
             <HeroVideo
               src={pictureSrc("afterlife/entrance animation.mp4")}
               poster={pictureSrc("afterlife/entrance-poster.jpg")}
@@ -98,6 +100,8 @@ export default function AfterLifePage() {
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black to-transparent"
             />
+            <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent" />
+            <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
           </div>
           <div className="mx-auto max-w-content px-6 pb-16 pt-6 sm:px-10 sm:pb-20 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-end gap-x-16 gap-y-6 md:grid-cols-[1.1fr_1fr]">

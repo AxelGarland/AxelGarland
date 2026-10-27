@@ -122,18 +122,6 @@ export default function AfterLifePage() {
         {/* Landing page */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mb-10 max-w-[56ch] md:mb-12">
-              <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                The landing page
-              </p>
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                Selling the afterlife
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                One long page that explains the service, backs it up with big numbers, and ends in
-                a set of FAQs, all with a straight face. Scroll inside the frame to see all of it.
-              </p>
-            </div>
             <div className="mx-auto mb-10 flex max-w-[60rem] flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
               <div className="w-full max-w-[24rem] shrink-0">
                 <LoadingLoop frames={OPENERS} />

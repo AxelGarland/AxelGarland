@@ -3,6 +3,7 @@ import { BackLink } from "@/components/projects/BackLink";
 import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
+import { TabletFrame } from "@/components/projects/TabletFrame";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -194,16 +195,16 @@ export default function AfterLifePage() {
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
               {APP_FRAMES.map((frame) => (
-                <div key={frame.file} className={frame.wide ? "md:col-span-2" : ""}>
-                  <div className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-black">
+                <div key={frame.file} className={frame.wide ? "mx-auto w-full max-w-[44rem] md:col-span-2" : ""}>
+                  <TabletFrame>
                     <Image
                       src={pictureSrc(frame.file)}
                       alt={frame.alt}
                       fill
                       className="object-cover"
-                      sizes={frame.wide ? "(max-width: 768px) 100vw, 1152px" : "(max-width: 768px) 100vw, 560px"}
+                      sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
                     />
-                  </div>
+                  </TabletFrame>
                   <p className="mt-4 text-sm font-semibold text-ink">{frame.title}</p>
                   <p className="mt-1.5 max-w-[56ch] text-sm leading-relaxed text-ink-muted">
                     {frame.body}

@@ -122,15 +122,14 @@ export default function AfterLifePage() {
         {/* Landing page */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto mb-10 flex max-w-[60rem] flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
-              <div className="w-full max-w-[24rem] shrink-0">
-                <LoadingLoop frames={OPENERS} />
-              </div>
-              <div className="max-w-[40ch]">
-                <p className="mb-2 font-display text-xl font-semibold leading-tight text-ink">
+            {/* Same two columns as the header above: the animation in the wide one, the words in the other */}
+            <div className="mb-12 grid grid-cols-1 items-center gap-x-16 gap-y-8 md:mb-16 md:grid-cols-[1.1fr_1fr]">
+              <LoadingLoop frames={OPENERS} />
+              <div>
+                <h2 className="mb-4 font-display text-[clamp(1.75rem,3.2vw,2.9rem)] font-light leading-[1.02] tracking-tight text-ink">
                   Loading page animation
-                </p>
-                <p className="text-base leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
+                </h2>
+                <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
               </div>
             </div>
             <div

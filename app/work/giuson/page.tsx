@@ -99,11 +99,21 @@ export default function GiusonPage() {
           </div>
         </header>
 
-        {/* Problem — one short paragraph, one screenshot, instead of three text cards */}
+        {/* Problem: the Alut logo on the left, the text on the right */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-              <div>
+              <div className="order-2 flex items-center justify-center md:order-1">
+                <Image
+                  src={pictureSrc("giuson/alut-logo-2.png")}
+                  alt="Alut, the Israeli Society for Children and Adults with Autism: the 50th anniversary logo"
+                  width={670}
+                  height={618}
+                  className="h-auto w-full max-w-[17rem] md:max-w-[26rem]"
+                  sizes="(max-width: 768px) 272px, 416px"
+                />
+              </div>
+              <div className="order-1 md:order-2">
                 <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Too much to know, and all of it changing
                 </h2>
@@ -114,20 +124,6 @@ export default function GiusonPage() {
                     </p>
                   ))}
                 </div>
-              </div>
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-surface">
-                  <Image
-                    src={pictureSrc("giuson/giuson home.png")}
-                    alt="Giuson home: two entry points, recruitment search and the information hub"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
-                </div>
-                <p className="mt-3 text-sm text-ink-subtle">
-                  Two entry points: recruitment search and the information hub
-                </p>
               </div>
             </div>
           </div>

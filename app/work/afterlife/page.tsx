@@ -138,10 +138,12 @@ export default function AfterLifePage() {
               <div className="w-full max-w-[24rem] shrink-0">
                 <LoadingLoop frames={OPENERS} />
               </div>
-              <p className="max-w-[40ch] text-base leading-relaxed text-ink-muted">
-                Before the page opens, a short loading animation runs through three words: Live,
-                Die, Celebrate. It sets the tone before a single line of copy.
-              </p>
+              <div className="max-w-[40ch]">
+                <p className="mb-2 font-display text-xl font-semibold leading-tight text-ink">
+                  Loading page animation
+                </p>
+                <p className="text-base leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
+              </div>
             </div>
             <div
               tabIndex={0}

@@ -315,6 +315,15 @@ export const PROJECTS: Project[] = [
       "My final project at Shenkar, a Peruvian retablo installation about life, death, and the places you can find and remember the ones you love.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds. These better worlds are the ones where she can do the things she loved, and where I can find her.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
+    // One picture from each of the five boxes, in box order, each cut so its figure is centred.
+    circleLoopStill: 1,
+    circleLoop: [
+      { file: "mundos mejores/circle-1.jpg", alt: "The grandmother figure among her family in the Mundos Mejores box" },
+      { file: "mundos mejores/circle-2.jpg", alt: "A figure on a swing reaching toward painted stars" },
+      { file: "mundos mejores/circle-3.jpg", alt: "A figure under a smiling sun among blooming flowers" },
+      { file: "mundos mejores/circle-4.jpg", alt: "A figure in a swimsuit and goggles, suspended underwater" },
+      { file: "mundos mejores/circle-5.jpg", alt: "A figure reading among stacks of books" },
+    ],
     thumbnail: "mundos mejores/between the stars2.jpg",
     hero: "mundos mejores/Familia 1.jpg",
     gallery: [

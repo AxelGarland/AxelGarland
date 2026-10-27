@@ -31,7 +31,6 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     open: { prefix: "retablo-anim/2", width: 1080, height: 864, left: 262, right: 796, lid: 64 },
     images: [
       { file: "mundos mejores/web/between the stars.jpg", width: 2400, height: 1600, alt: "A figure swinging among hanging painted stars" },
-      { file: "mundos mejores/web/between the stars1.jpg", width: 2400, height: 1746, alt: "Stars box, detail view" },
       { file: "mundos mejores/web/between the stars2.jpg", width: 1600, height: 2400, alt: "Stars box, detail view" },
       { file: "mundos mejores/web/between stars 3.jpg", width: 1600, height: 2400, alt: "Stars box, detail view" },
     ],

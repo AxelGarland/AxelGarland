@@ -2,12 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** A single word set in halftone dots, white where the letters are solid and red at their edges,
- *  for use on black. Drawn once, once the font has loaded. The real heading stays in the page: it is
+/** A single word set in white halftone dots, for use on black. Drawn once, once the font has loaded. The real heading stays in the page: it is
  *  what shows before the font loads and what screen readers read. */
 
 const WHITE = "#FFFFFF";
-const RED = "#D64040";
 const FONT_WAIT_MS = 2500;
 const H = 150;
 const SIZE = 150;
@@ -64,7 +62,7 @@ export function HalftoneTitle({ text, className = "" }: { text: string; classNam
           }
           const cov = n ? sum / n / 255 : 0;
           if (cov < 0.1) continue;
-          ctx.fillStyle = cov > 0.55 ? WHITE : RED;
+          ctx.fillStyle = WHITE;
           ctx.beginPath();
           ctx.arc(x + cell / 2, y + cell / 2, (cell / 2) * Math.sqrt(cov) * 1.08, 0, Math.PI * 2);
           ctx.fill();

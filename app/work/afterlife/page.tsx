@@ -201,7 +201,7 @@ export default function AfterLifePage() {
                       src={pictureSrc(frame.file)}
                       alt={frame.alt}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
                     />
                   </TabletFrame>

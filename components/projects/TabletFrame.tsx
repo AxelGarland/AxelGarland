@@ -1,17 +1,40 @@
+import { pictureSrc } from "@/lib/pictures";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
-/** A landscape tablet drawn in CSS around whatever fills its screen: a dark bezel with rounded
- *  corners, a front camera on the left edge, and a soft shadow. The screen is 16:9, the shape the
- *  AfterLife screens were designed in, so nothing in them is cropped. */
+/** The photographed iPad (`afterlife/ipad-frame.webp`, cut out with a clear screen) laid over
+ *  whatever fills its screen. The frame is 1157 × 837 px and its screen opening is 1070 × 749 px,
+ *  46 px in from the left and 45 from the top. The content box is 8 px larger than the opening on
+ *  every side, so no gap shows at the edge, and the frame sits on top of it, which also gives the
+ *  screen its rounded corners. */
+const FRAME = { w: 1157, h: 837, sx: 38, sy: 37, sw: 1086, sh: 765 };
+const pct = (v: number, of: number) => `${(v / of) * 100}%`;
+
 export function TabletFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`relative rounded-[1.6rem] bg-[#1b1b1d] p-[2.8%] shadow-[0_28px_60px_-28px_rgba(26,25,22,0.55),inset_0_0_0_1.5px_rgba(255,255,255,0.12)] sm:rounded-[2rem] ${className}`}
+      className={`relative w-full drop-shadow-[0_24px_36px_rgba(26,25,22,0.28)] ${className}`}
+      style={{ aspectRatio: `${FRAME.w} / ${FRAME.h}` }}
     >
-      <div className="relative aspect-video w-full overflow-hidden rounded-[0.7rem] bg-black sm:rounded-[0.9rem]">{children}</div>
-      <span
+      <div
+        className="absolute overflow-hidden bg-black"
+        style={{
+          left: pct(FRAME.sx, FRAME.w),
+          top: pct(FRAME.sy, FRAME.h),
+          width: pct(FRAME.sw, FRAME.w),
+          height: pct(FRAME.sh, FRAME.h),
+        }}
+      >
+        {children}
+      </div>
+      <Image
+        src={pictureSrc("afterlife/ipad-frame.webp")}
+        alt=""
         aria-hidden
-        className="absolute left-[1.1%] top-1/2 h-[1.1%] min-h-[3px] w-[0.6%] min-w-[3px] -translate-y-1/2 rounded-full bg-[#3a3a3f]"
+        width={1600}
+        height={1157}
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        sizes="(max-width: 768px) 100vw, 704px"
       />
     </div>
   );

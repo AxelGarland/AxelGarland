@@ -83,9 +83,6 @@ export default function KindredPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <KindredEmbed />
-            <p className="mx-auto mt-4 max-w-[72rem] text-sm text-ink-muted">
-              This is the live site. Turn a tile, swap a word, roll a new face.
-            </p>
           </div>
         </section>
 

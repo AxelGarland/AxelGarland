@@ -65,23 +65,25 @@ export default function GiusonPage() {
       <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
-        {/* Hero */}
+        {/* Hero: the text on the left, the banner on the right */}
         <header className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36">
-          <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
-              Giuson &middot; Alut Recruitment Department
-            </p>
-            <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
-              Everything a recruiter needs,
-              <br />
-              <em className="italic text-accent">in one place</em>
-            </h1>
-            <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-              Giuson is a recruitment website for Alut: a live map of open positions, plus
-              everything recruiters need to know about each role, built for the recruitment
-              department.
-            </p>
-            <TagLine tags={TAGS} className="mb-12" />
+          <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
+            <div>
+              <p className="mb-6 text-sm uppercase tracking-[0.06em] text-ink-subtle">
+                Giuson &middot; Alut Recruitment Department
+              </p>
+              <h1 className="mb-6 max-w-[16ch] font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
+                Everything a recruiter needs,
+                <br />
+                <em className="italic text-accent">in one place</em>
+              </h1>
+              <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                Giuson is a recruitment website for Alut: a live map of open positions, plus
+                everything recruiters need to know about each role, built for the recruitment
+                department.
+              </p>
+              <TagLine tags={TAGS} />
+            </div>
 
             <div className="relative aspect-[1682/935] w-full overflow-hidden border border-line bg-paper shadow-[0_32px_70px_-34px_rgba(26,25,22,0.28)]">
               <Image
@@ -90,7 +92,7 @@ export default function GiusonPage() {
                 fill
                 priority
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1152px"
+                sizes="(max-width: 768px) 100vw, 560px"
               />
             </div>
           </div>

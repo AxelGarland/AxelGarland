@@ -119,42 +119,6 @@ export default function AfterLifePage() {
           </div>
         </header>
 
-        {/* Brief */}
-        <section className="border-t border-line bg-paper py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
-              <div>
-                <p className="mb-3 text-sm font-medium tracking-[0.01em] text-accent-ink">
-                  The brief
-                </p>
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
-                  Death, but positive
-                </h2>
-              </div>
-              <div className="flex flex-col gap-6">
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  The assignment was to design a landing page, then an app for it. I worked on it
-                  solo, and I wanted a subject that could be heavy and warm at once. So I chose
-                  death, and made it a celebration.
-                </p>
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  AfterLife is an invented service that helps you move to the other side. Its
-                  centerpiece is a recap, like Spotify Wrapped, but for your whole life: a look
-                  back at your memories and your statistics before you move on.
-                </p>
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  The tone is deadpan on purpose. The copy talks like an upbeat startup (&ldquo;Yes
-                  you are dead&rdquo;), while the illustrations bring the color and warmth of
-                  Day-of-the-Dead imagery.
-                </p>
-                <p className="max-w-[64ch] text-base leading-relaxed text-ink-subtle">
-                  A solo school project. Concept, copy, illustration, and UI design.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Landing page */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">

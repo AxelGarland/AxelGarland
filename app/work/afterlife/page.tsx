@@ -30,45 +30,31 @@ const APP_FRAMES = [
   {
     file: "afterlife/Frame 40.png",
     alt: "AfterLife app welcome screen: a skeleton with open arms and a Let's start button",
-    title: "Welcome",
-    body: "The app opens with a friendly skeleton who tells you that yes, you just died, but don't worry, and offers to help you celebrate your life.",
     wide: true,
   },
   {
     file: "afterlife/Frame 43.png",
     alt: "AfterLife app statistics screen: a flower-shaped chart with leaves labeled friends, love, dreams, and more",
-    title: "Your statistics",
-    body: "The numbers of a life drawn as a flower, with a leaf for each part: friends, love, dreams, achievements, laughter, and more. Each leaf leads to its own screen.",
   },
   {
     file: "afterlife/Frame 33.png",
     alt: "AfterLife app screen: You were a dreamer, with illustrated flowers",
-    title: "Dreams",
-    body: "One leaf opens into a screen about the dreamer you were, who spent nights creating fantasy lands in your head.",
   },
   {
     file: "afterlife/Frame 41.png",
     alt: "AfterLife app screen: Your heart was full of love, with hearts connected like a constellation",
-    title: "Love",
-    body: "Another leaf becomes hearts joined like a constellation, standing in for the people you loved.",
   },
   {
     file: "afterlife/Frame 44.png",
     alt: "AfterLife app screen: It's okay to cry, with tear drops showing 8 liters of tears, 50% of joy",
-    title: "Tears",
-    body: "Even the sad numbers get gentle treatment: 8 liters of tears, half of them from joy.",
   },
   {
     file: "afterlife/Frame 27.png",
     alt: "AfterLife app final screen: You made it, with two dancing skeletons and an I'm ready button",
-    title: "You made it",
-    body: "The last stage, Ready to move on, ends with a celebration and a single button: I'm ready.",
   },
   {
     file: "afterlife/Frame 37.png",
     alt: "AfterLife app help screen: Need help? Ask death anything you want, with a skeleton and a microphone",
-    title: "Ask death anything",
-    body: "A helper you can talk to whenever you're unsure, in the same deadpan voice as the rest of the app.",
   },
 ];
 
@@ -193,7 +179,7 @@ export default function AfterLifePage() {
                 leaf opens into a screen about one part of your life, told gently and with a little humor.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2">
               {APP_FRAMES.map((frame) => (
                 <div key={frame.file} className={frame.wide ? "mx-auto w-full max-w-[44rem] md:col-span-2" : ""}>
                   <TabletFrame>
@@ -205,10 +191,6 @@ export default function AfterLifePage() {
                       sizes={frame.wide ? "(max-width: 768px) 100vw, 704px" : "(max-width: 768px) 100vw, 560px"}
                     />
                   </TabletFrame>
-                  <p className="mt-4 text-sm font-semibold text-ink">{frame.title}</p>
-                  <p className="mt-1.5 max-w-[56ch] text-sm leading-relaxed text-ink-muted">
-                    {frame.body}
-                  </p>
                 </div>
               ))}
             </div>

@@ -32,8 +32,8 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     images: [
       { file: "mundos mejores/web/between the stars.jpg", width: 2400, height: 1600, alt: "A figure swinging among hanging painted stars" },
       { file: "mundos mejores/web/between the stars1.jpg", width: 2400, height: 1746, alt: "Stars box, detail view" },
-      { file: "mundos mejores/web/between the stars2.jpg", width: 1600, height: 2400, alt: "Stars box, detail view", portrait: true },
-      { file: "mundos mejores/web/between stars 3.jpg", width: 1600, height: 2400, alt: "Stars box, detail view", portrait: true },
+      { file: "mundos mejores/web/between the stars2.jpg", width: 1600, height: 2400, alt: "Stars box, detail view" },
+      { file: "mundos mejores/web/between stars 3.jpg", width: 1600, height: 2400, alt: "Stars box, detail view" },
     ],
   },
   {
@@ -50,7 +50,7 @@ export const MUNDOS_BOXES: RetabloBox[] = [
       { file: "mundos mejores/web/summer 1.jpg", width: 2400, height: 1665, alt: "A figure basking beneath a smiling sun and blooming flowers" },
       { file: "mundos mejores/web/summer 2.jpg", width: 2400, height: 1368, alt: "Summer box, detail view" },
       { file: "mundos mejores/web/summer 3.jpg", width: 2400, height: 2177, alt: "Summer box, detail view" },
-      { file: "mundos mejores/web/summer 4.jpg", width: 1600, height: 2400, alt: "Summer box, detail view", portrait: true },
+      { file: "mundos mejores/web/summer 4.jpg", width: 1600, height: 2400, alt: "Summer box, detail view" },
     ],
   },
   {
@@ -64,9 +64,9 @@ export const MUNDOS_BOXES: RetabloBox[] = [
     retabloHeight: 1200,
     open: { prefix: "retablo-anim/4", width: 1045, height: 571, left: 257, right: 777, lid: 70 },
     images: [
-      { file: "mundos mejores/web/underwater1.jpg", width: 1600, height: 2400, alt: "A figure in a swimsuit and flippers, suspended underwater", portrait: true },
+      { file: "mundos mejores/web/underwater1.jpg", width: 1600, height: 2400, alt: "A figure in a swimsuit and flippers, suspended underwater" },
       { file: "mundos mejores/web/underwater 2.jpg", width: 2400, height: 1600, alt: "Underwater box, detail view" },
-      { file: "mundos mejores/web/underwater 3.jpg", width: 1736, height: 2400, alt: "Underwater box, detail view", portrait: true },
+      { file: "mundos mejores/web/underwater 3.jpg", width: 1736, height: 2400, alt: "Underwater box, detail view" },
     ],
   },
   {

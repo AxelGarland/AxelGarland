@@ -33,17 +33,20 @@ const SCREENS = [
   {
     file: "giuson/smart-map.jpg",
     alt: "Recruitment search: open positions on a live map within the chosen radius, with a list of the nearest facilities",
-    caption: "Open roles on a live map",
+    title: "Recruitment",
+    body: "Type a location, pick a radius and, if needed, a role. The map shows every facility with open positions nearby, with the closest first, so a recruiter can answer a candidate in seconds.",
   },
   {
     file: "giuson/smart-info.jpg",
     alt: "Information hub: professional roles, requirements and salary ladders, with tabs for each topic",
-    caption: "Every role, in one place",
+    title: "Information",
+    body: "Everything a recruiter needs to know about each role, in one place: requirements, salary ladders, grants and scholarships, training and more, in the order a conversation needs it.",
   },
   {
     file: "giuson/new-salary.jpg",
     alt: "Salary calculator: hourly rates, overtime percentages and a shift planner for each day of the week",
-    caption: "Salary calculator",
+    title: "Salary calculator",
+    body: "A way to explain pay clearly while the candidate is on the line: set the shifts for each day and see the different salaries add up, overtime and weekend rates included.",
   },
 ];
 
@@ -141,21 +144,38 @@ export default function GiusonPage() {
                 ))}
               </ul>
             </div>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {SCREENS.map((screen) => (
-                <div key={screen.file}>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden border border-line bg-paper">
-                    <Image
-                      src={pictureSrc(screen.file)}
-                      alt={screen.alt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 640px) 100vw, 30vw"
-                    />
+            <div className="flex flex-col gap-16 md:gap-24">
+              {SCREENS.map((screen, i) => {
+                const imageRight = i % 2 === 0;
+                return (
+                  <div
+                    key={screen.file}
+                    className={`grid grid-cols-1 items-center gap-8 md:gap-14 lg:gap-20 ${
+                      i === 0 ? "md:grid-cols-[5fr_7fr]" : "md:grid-cols-2"
+                    }`}
+                  >
+                    <div className={`${imageRight ? "md:order-1" : "md:order-2"} max-w-[40ch]`}>
+                      <h3 className="mb-3 font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
+                        {screen.title}
+                      </h3>
+                      <p className="text-base leading-relaxed text-ink-muted">{screen.body}</p>
+                    </div>
+                    <div
+                      className={`relative aspect-[4/3] w-full overflow-hidden border border-line bg-paper shadow-[0_24px_50px_-34px_rgba(26,25,22,0.28)] ${
+                        imageRight ? "md:order-2" : "md:order-1"
+                      }`}
+                    >
+                      <Image
+                        src={pictureSrc(screen.file)}
+                        alt={screen.alt}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 55vw"
+                      />
+                    </div>
                   </div>
-                  <p className="mt-3 text-sm font-medium text-ink">{screen.caption}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

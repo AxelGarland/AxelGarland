@@ -3,7 +3,6 @@ import { BackLink } from "@/components/projects/BackLink";
 import { InfoSources } from "@/components/projects/InfoSources";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { TagLine } from "@/components/projects/TagLine";
-import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -180,24 +179,6 @@ export default function GiusonPage() {
           </div>
         </section>
 
-        {/* Prototype — the visual centerpiece */}
-        <section className="border-t border-line bg-paper py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto mb-10 max-w-[56ch] text-center md:mb-12">
-              <h2 className="mb-4 font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                See it in context
-              </h2>
-              <p className="text-base leading-relaxed text-ink-muted">
-                A quick clickthrough, not the live tool: pick a path on the home screen to see
-                where it leads. Built for the recruitment department.
-              </p>
-            </div>
-            <div className="mx-auto max-w-3xl">
-              <PrototypeMockup prototype={project.prototype} title="Giuson prototype" />
-            </div>
-          </div>
-        </section>
-
         {/* Outcome — pull-quote instead of a paragraph in a box */}
         <section className="border-t border-line bg-ink py-24 md:py-32">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
@@ -209,6 +190,7 @@ export default function GiusonPage() {
             </div>
           </div>
         </section>
+
         <MoreProjects current="giuson" />
       </main>
       <SiteFooter />

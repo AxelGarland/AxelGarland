@@ -9,6 +9,7 @@ import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -33,54 +34,21 @@ const REELS = [
 
 const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
 
-type Deliverable = {
-  num: string;
-  title: string;
-  body: string;
-  /** Use a light tile background instead of the default dark one — for images (like flyer
-   *  mockups) whose own drop shadows were composed against a light backdrop. */
-  lightTiles?: boolean;
-  images: { file: string; alt: string; caption: string }[];
-};
-
 /** The character in her different roles, cut out as die-cut stickers (the white border and soft
  *  shadow are part of each file). A row of three above a row of four, all the same size. */
 const STICKERS = [
   [
-    { file: "alutit/stickers/grad-unicorn-2.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
-    { file: "alutit/stickers/clipboard-2.webp", alt: "Alutit in a lilac sweater, holding a clipboard" },
-    { file: "alutit/stickers/summer-2.webp", alt: "Alutit in sunglasses and an Alutit t-shirt, with a tote bag" },
+    { file: "alutit/stickers/grad-unicorn-3.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
+    { file: "alutit/stickers/clipboard-3.webp", alt: "Alutit in a lilac sweater, holding a clipboard" },
+    { file: "alutit/stickers/summer-3.webp", alt: "Alutit in sunglasses and an Alutit t-shirt, with a tote bag" },
   ],
   [
-    { file: "alutit/stickers/handyman-2.webp", alt: "Alutit dressed as a maintenance worker with a hard hat, wrench and drill" },
-    { file: "alutit/stickers/nurse-2.webp", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
-    { file: "alutit/stickers/sweater-2.webp", alt: "Alutit in a lilac star sweater" },
-    { file: "alutit/stickers/onesie-2.webp", alt: "Alutit in a unicorn onesie" },
+    { file: "alutit/stickers/handyman-3.webp", alt: "Alutit dressed as a maintenance worker with a hard hat, wrench and drill" },
+    { file: "alutit/stickers/nurse-3.webp", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
+    { file: "alutit/stickers/sweater-3.webp", alt: "Alutit in a lilac star sweater" },
+    { file: "alutit/stickers/onesie-3.webp", alt: "Alutit in a unicorn onesie" },
   ],
 ] as const;
-
-const DELIVERABLES: Deliverable[] = [
-  {
-    num: "01",
-    title: "Recruitment Materials",
-    body: "Alutit carries the same character system into printed, campus-facing recruitment materials.",
-    lightTiles: true,
-    images: [
-      { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn", caption: "Social Workers Flyer" },
-      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut, the perfect job for students\"", caption: "Student Flyer" },
-      { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events", caption: "Tote Bag" },
-    ],
-  },
-];
-
-/** Column count per deliverable's image row — a literal lookup (not computed) so Tailwind's
- *  scanner can see every class name in the source file. */
-const IMAGE_GRID_COLS: Record<number, string> = {
-  1: "grid-cols-1",
-  2: "grid-cols-2",
-  3: "grid-cols-2 sm:grid-cols-3",
-  4: "grid-cols-2 sm:grid-cols-4",
-};
 
 export default function AlutitPage() {
   const project = getProject("alutit");
@@ -173,22 +141,33 @@ export default function AlutitPage() {
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
             <div className="flex flex-col gap-y-10 md:gap-y-14">
-              {STICKERS.map((row) => (
-                <ul key={row[0].file} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
-                  {row.map((img) => (
-                    <li key={img.file} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]">
-                      <div className="relative aspect-[4/5]">
-                        <Image
-                          src={pictureSrc(img.file)}
-                          alt={img.alt}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 768px) 45vw, 380px"
-                        />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              {STICKERS.map((row, rowIndex) => (
+                <Fragment key={row[0].file}>
+                  {rowIndex === 1 ? (
+                    <p className="mx-auto max-w-[30ch] text-center font-display text-xl font-light leading-snug text-surface sm:text-2xl md:text-3xl">
+                      Alutit appears in{" "}
+                      <em className="italic text-accent-light">
+                        recruitment flyers, social media, merch
+                      </em>{" "}
+                      and internal messaging
+                    </p>
+                  ) : null}
+                  <ul className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
+                    {row.map((img) => (
+                      <li key={img.file} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]">
+                        <div className="relative aspect-[4/5]">
+                          <Image
+                            src={pictureSrc(img.file)}
+                            alt={img.alt}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 45vw, 380px"
+                          />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </Fragment>
               ))}
             </div>
           </div>
@@ -197,35 +176,26 @@ export default function AlutitPage() {
         {/* Printed materials */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="flex flex-col gap-14 md:gap-20">
-              {DELIVERABLES.map((item, index) => (
-                <div key={item.num} className="bg-paper p-6 md:p-8">
-                  <div className="mb-3 flex items-baseline gap-4">
-                    <span className="font-display text-lg leading-none text-ink-subtle">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
-                  </div>
-                  <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-ink-muted">{item.body}</p>
-                  <div
-                    className={`grid gap-3 ${
-                      IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
-                    } ${item.images.length === 1 ? "max-w-xs" : ""}`}
-                  >
-                    {item.images.map((img) => (
-                      <div key={img.file} className="relative aspect-[3/4] w-full overflow-hidden bg-paper-raised">
-                        <Image
-                          src={pictureSrc(img.file)}
-                          alt={img.alt}
-                          fill
-                          className="object-contain p-3"
-                          sizes="(max-width: 640px) 45vw, 25vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+              <div>
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+                  Recruitment materials
+                </h2>
+                <p className="mt-6 max-w-[40ch] text-lg leading-relaxed text-ink-muted">
+                  Alutit carries the same character system into printed, campus-facing recruitment
+                  materials.
+                </p>
+              </div>
+              {/* The photo's own backdrop is a hair off white, so its edges fade out into the page */}
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[26rem] [mask-image:linear-gradient(to_right,transparent,#000_14%,#000_86%,transparent),linear-gradient(to_bottom,transparent,#000_14%,#000_86%,transparent)] [mask-composite:intersect] [-webkit-mask-composite:source-in]">
+                <Image
+                  src={pictureSrc("alutit/אלוטית תיק.png")}
+                  alt="The Alutit tote bag handed out at campus recruitment events"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 90vw, 416px"
+                />
+              </div>
             </div>
           </div>
         </section>

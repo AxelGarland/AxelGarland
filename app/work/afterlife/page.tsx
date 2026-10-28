@@ -21,13 +21,6 @@ export const metadata: Metadata = {
 
 const TAGS = ["Illustration", "Landing Page", "Web App"];
 
-const ILLUSTRATIONS = [
-  { file: "afterlife/Group 38.png", alt: "A dancing skeleton wearing a blue flower crown" },
-  { file: "afterlife/Group 48.png", alt: "A dancing skeleton wearing an orange flower crown" },
-  { file: "afterlife/Group 19.png", alt: "A skeleton dancing with teal joints" },
-  { file: "afterlife/Group 24.png", alt: "A red heart with a skull and violet wings" },
-];
-
 const APP_FRAMES = [
   {
     file: "afterlife/Frame 40.png",
@@ -171,32 +164,6 @@ export default function AfterLifePage() {
           </div>
         </section>
 
-        {/* Illustrations */}
-        <section className="bg-black py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-6 max-w-[28ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl">
-              A small cast, drawn in Illustrator
-            </h2>
-            <p className="mb-12 max-w-[60ch] text-lg leading-relaxed text-surface/70 md:mb-16">
-              Dancing skeletons, winged skull-hearts, flowers, and leaves, in a palette of black,
-              teal, violet, and yellow. They work as characters and as framing, so every screen
-              feels like part of the same world.
-            </p>
-            <div className="grid grid-cols-2 items-center gap-8 sm:grid-cols-4">
-              {ILLUSTRATIONS.map((art) => (
-                <div key={art.file} className="relative h-56 sm:h-64">
-                  <Image
-                    src={pictureSrc(art.file)}
-                    alt={art.alt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 45vw, 25vw"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         <MoreProjects current="afterlife" />
       </main>
       <SiteFooter />

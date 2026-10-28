@@ -40,27 +40,28 @@ type Deliverable = {
   /** Use a light tile background instead of the default dark one — for images (like flyer
    *  mockups) whose own drop shadows were composed against a light backdrop. */
   lightTiles?: boolean;
-  /** Just the pictures on a white panel, with no number, title or text above them. */
-  bare?: boolean;
   images: { file: string; alt: string; caption: string }[];
 };
+
+/** The character in her different roles, cut out as die-cut stickers (the white border and soft
+ *  shadow are part of each file). A row of three above a row of four. */
+const STICKERS = [
+  [
+    { file: "alutit/stickers/grad-unicorn.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
+    { file: "alutit/stickers/clipboard.webp", alt: "Alutit in a lilac sweater, holding a clipboard" },
+    { file: "alutit/stickers/summer.webp", alt: "Alutit in sunglasses and an Alutit t-shirt, with a tote bag" },
+  ],
+  [
+    { file: "alutit/stickers/handyman.webp", alt: "Alutit dressed as a maintenance worker with a hard hat, wrench and drill" },
+    { file: "alutit/stickers/nurse.webp", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
+    { file: "alutit/stickers/sweater.webp", alt: "Alutit in a lilac star sweater" },
+    { file: "alutit/stickers/onesie.webp", alt: "Alutit in a unicorn onesie" },
+  ],
+] as const;
 
 const DELIVERABLES: Deliverable[] = [
   {
     num: "01",
-    bare: true,
-    title: "Character Illustrations",
-    body: "The same base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
-    images: [
-      { file: "alutit/alutit handyman.png", alt: "Alutit dressed as a maintenance worker with a tool belt and hard hat", caption: "Maintenance" },
-      { file: "alutit/alutit nurse.png", alt: "Alutit dressed as a care worker in scrubs with a stethoscope", caption: "Care Staff" },
-      { file: "alutit/Alutit physiotherapist.png", alt: "Alutit as a physiotherapist working with a client", caption: "Physiotherapy" },
-      { file: "alutit/alutit speech therapist.png", alt: "Alutit as a speech therapist using a communication board with a client", caption: "Speech Therapy" },
-      { file: "alutit/alutit on unicorn.png", alt: "Alutit in a graduation cap, riding a unicorn across a rainbow", caption: "Milestones" },
-    ],
-  },
-  {
-    num: "02",
     title: "Recruitment Materials",
     body: "Alutit carries the same character system into printed, campus-facing recruitment materials.",
     lightTiles: true,
@@ -172,57 +173,62 @@ export default function AlutitPage() {
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
 
-            <div className="flex flex-col gap-10 md:gap-14">
-              {DELIVERABLES.map((item, index) =>
-                item.bare ? (
-                  <ul key={item.num} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
-                    {item.images.map((img) => (
-                      <li key={img.file} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-3rem)/3)]">
-                        {/* Chained white drop-shadows trace the figure's outline like a sticker's die-cut edge; the soft grey one lifts it off the page. */}
-                        <div className="relative aspect-square">
+            <div className="flex flex-col gap-14 md:gap-20">
+              <div className="flex flex-col gap-y-10 md:gap-y-14">
+                {STICKERS.map((row) => (
+                  <ul key={row[0].file} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
+                    {row.map((img) => (
+                      <li
+                        key={img.file}
+                        className={
+                          row.length === 3
+                            ? "w-[calc(50%-0.5rem)] md:w-[calc((100%-3rem)/3)]"
+                            : "w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]"
+                        }
+                      >
+                        <div className="relative aspect-[4/5]">
                           <Image
                             src={pictureSrc(img.file)}
                             alt={img.alt}
                             fill
-                            className="object-contain [filter:drop-shadow(3px_0_0_#fff)_drop-shadow(-3px_0_0_#fff)_drop-shadow(0_3px_0_#fff)_drop-shadow(0_-3px_0_#fff)_drop-shadow(0_6px_10px_rgba(26,25,22,0.22))]"
+                            className="object-contain"
                             sizes="(max-width: 768px) 45vw, 380px"
                           />
                         </div>
-                        <span className="mt-3 block text-center text-xs uppercase tracking-[0.08em] text-ink-muted">
-                          {img.caption}
-                        </span>
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <div key={item.num} className="bg-paper p-6 md:p-8">
-                    <div className="mb-3 flex items-baseline gap-4">
-                      <span className="font-display text-lg leading-none text-ink-subtle">
-                        {String(index - DELIVERABLES.filter((d, i) => d.bare && i < index).length + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
-                    </div>
-                    <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-ink-muted">{item.body}</p>
-                    <div
-                      className={`grid gap-3 ${
-                        IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
-                      } ${item.images.length === 1 ? "max-w-xs" : ""}`}
-                    >
-                      {item.images.map((img) => (
-                        <div key={img.file} className="relative aspect-[3/4] w-full overflow-hidden bg-paper-raised">
-                          <Image
-                            src={pictureSrc(img.file)}
-                            alt={img.alt}
-                            fill
-                            className="object-contain p-3"
-                            sizes="(max-width: 640px) 45vw, 25vw"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                ))}
+              </div>
+
+              {DELIVERABLES.map((item, index) => (
+                <div key={item.num} className="bg-paper p-6 md:p-8">
+                  <div className="mb-3 flex items-baseline gap-4">
+                    <span className="font-display text-lg leading-none text-ink-subtle">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
                   </div>
-                ),
-              )}
+                  <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-ink-muted">{item.body}</p>
+                  <div
+                    className={`grid gap-3 ${
+                      IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
+                    } ${item.images.length === 1 ? "max-w-xs" : ""}`}
+                  >
+                    {item.images.map((img) => (
+                      <div key={img.file} className="relative aspect-[3/4] w-full overflow-hidden bg-paper-raised">
+                        <Image
+                          src={pictureSrc(img.file)}
+                          alt={img.alt}
+                          fill
+                          className="object-contain p-3"
+                          sizes="(max-width: 640px) 45vw, 25vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

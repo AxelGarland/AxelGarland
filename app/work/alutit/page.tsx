@@ -188,13 +188,13 @@ export default function AlutitPage() {
                   more than 43 hires coming directly from the Alutit page.
                 </p>
               </div>
-              <div className="relative mx-auto aspect-[581/784] w-full max-w-[19rem] md:mx-0 md:ml-auto md:max-w-[22rem]">
+              <div className="relative mx-auto aspect-[581/784] w-full max-w-[15.2rem] md:mx-0 md:ml-auto md:max-w-[17.6rem]">
                 <Image
                   src={pictureSrc("alutit/alutit-phone-crop.webp")}
                   alt="Alutit smiling as she looks at her phone"
                   fill
                   className="object-contain object-bottom"
-                  sizes="(max-width: 768px) 70vw, 352px"
+                  sizes="(max-width: 768px) 60vw, 282px"
                 />
               </div>
             </div>

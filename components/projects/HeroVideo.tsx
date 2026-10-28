@@ -6,9 +6,8 @@ import { useEffect, useRef, useState } from "react";
 /** A muted, looping clip that plays like an animated hero. With reduced motion on, it doesn't
  *  autoplay and shows native controls instead. `soundToggle` adds a small button to unmute clips
  *  that carry a soundtrack (browsers only allow autoplay while muted); it is hidden on touch screens.
- *  `expandOnMobile` makes the clip tappable on touch screens: it opens in a full-screen viewer, with
- *  sound and the player's own controls. Held upright, the viewer turns the video a quarter so it runs
- *  along the screen's long edge; once the phone is on its side it sits as it is. `playOnce` plays the
+ *  `expandOnMobile` makes the clip tappable on touch screens: it opens larger, edge to edge on black,
+ *  with sound and the player's own controls, and is never forced into full screen or turned. `playOnce` plays the
  *  clip a single time and stops on its last frame; clicking the clip then plays it again. */
 export function HeroVideo({
   src,
@@ -136,10 +135,10 @@ export function HeroVideo({
               <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
           </button>
-          <div className="fixed left-1/2 top-1/2 h-[100dvw] w-[100dvh] -translate-x-1/2 -translate-y-1/2 rotate-90 landscape:h-[100dvh] landscape:w-[100dvw] landscape:rotate-0">
+          <div className="flex h-full w-full items-center justify-center">
             <video
               ref={big}
-              className="h-full w-full object-contain"
+              className="max-h-full w-full object-contain"
               src={src}
               poster={poster}
               aria-label={label}

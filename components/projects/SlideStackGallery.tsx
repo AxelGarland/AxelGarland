@@ -28,12 +28,13 @@ export function SlideStackGallery({
   maxWidth?: string;
   /** `sizes` hint for the front image. */
   sizes?: string;
-  /** On touch screens, tapping the front image opens it full screen, turned sideways so a wide spread
-   *  fills the screen's long edge. */
+  /** On touch screens, tapping the front image opens every image larger than the screen in a
+   *  full-screen viewer: scroll down through them, and sideways along a spread to see all of it. */
   expandOnMobile?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
+  const items = useRef<(HTMLDivElement | null)[]>([]);
   const hasVerse = images.some((img) => img.verse);
 
   const current = images[index];
@@ -57,6 +58,8 @@ export function SlideStackGallery({
   const openFull = () => {
     document.body.style.overflow = "hidden";
     dialog.current?.showModal();
+    // Open on the image that was tapped.
+    requestAnimationFrame(() => items.current[index]?.scrollIntoView({ block: "center" }));
   };
   const closeFull = () => dialog.current?.close();
 
@@ -162,8 +165,7 @@ export function SlideStackGallery({
       {expandOnMobile ? (
         <dialog
           ref={dialog}
-          aria-label={current.alt}
-          onClick={closeFull}
+          aria-label="All pages"
           className="m-0 h-full max-h-none w-full max-w-none bg-black p-0 backdrop:bg-black"
         >
           <button
@@ -176,18 +178,29 @@ export function SlideStackGallery({
               <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
           </button>
-          {/* Held upright the page is turned a quarter, to run along the screen's long edge; once the
-              phone is turned sideways it sits as it is. */}
-          <div className="fixed left-1/2 top-1/2 h-[100dvw] w-[100dvh] -translate-x-1/2 -translate-y-1/2 rotate-90 landscape:h-[100dvh] landscape:w-[100dvw] landscape:rotate-0">
-            <div className="relative h-full w-full">
-              <Image
-                src={pictureSrc(current.file)}
-                alt={current.alt}
-                fill
-                className="object-contain"
-                sizes="100vh"
-              />
-            </div>
+          {/* Each page is wider than the screen: scroll down for the next one, sideways along it. */}
+          <div className="h-full overflow-y-auto overscroll-contain py-20">
+            <ul className="flex flex-col gap-10">
+              {images.map((img, i) => (
+                <li
+                  key={img.file}
+                  ref={(el) => {
+                    items.current[i] = el as unknown as HTMLDivElement | null;
+                  }}
+                  className="overflow-x-auto overscroll-x-contain"
+                >
+                  <div className={`relative ${aspect} w-[250vw] landscape:w-[140vw]`}>
+                    <Image
+                      src={pictureSrc(img.file)}
+                      alt={img.alt}
+                      fill
+                      className="object-contain"
+                      sizes="250vw"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </dialog>
       ) : null}

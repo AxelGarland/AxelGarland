@@ -155,7 +155,7 @@ export default function AlutitPage() {
         <section className="overflow-x-clip border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto mb-14 max-w-content px-6 sm:px-10 md:mb-20 md:px-14 lg:px-16">
             <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-              Alutit, <em className="italic text-accent">in motion</em>
+              Recruitment videos for <em className="italic text-accent">social media</em>
             </h2>
           </div>
           <ReelPhones reels={REELS} />

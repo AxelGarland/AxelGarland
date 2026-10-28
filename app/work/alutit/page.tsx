@@ -116,13 +116,24 @@ export default function AlutitPage() {
         {/* Brief */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
-              <div>
+            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
+              {/* The animation sits as a transparent loop; with reduced motion the still frame shows */}
+              <picture className="mx-auto block w-full max-w-[24rem] md:max-w-none">
+                <source media="(prefers-reduced-motion: reduce)" srcSet={pictureSrc("alutit/alutit-phone.png")} />
+                <img
+                  src={pictureSrc("alutit/alutit-phone.webp")}
+                  alt="Alutit talking on the phone"
+                  width={388}
+                  height={422}
+                  className="mx-auto h-auto w-full md:max-w-[26rem]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div className="flex flex-col gap-6">
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Building presence through character
                 </h2>
-              </div>
-              <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy?.problem}
                 </p>

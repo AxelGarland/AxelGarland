@@ -9,7 +9,7 @@ type CollageImage = { file: string; alt: string; caption: string };
 /** A row of small thumbnails on the left, one large preview on the right — hovering (or
  *  focusing, for keyboard users) a thumbnail swaps the big preview instead of navigating
  *  anywhere. Defaults to the first image. */
-export function HoverCollage({ images }: { images: CollageImage[] }) {
+export function HoverCollage({ images, light = false }: { images: CollageImage[]; light?: boolean }) {
   const [active, setActive] = useState(0);
   const current = images[active];
 
@@ -22,8 +22,14 @@ export function HoverCollage({ images }: { images: CollageImage[] }) {
             type="button"
             onMouseEnter={() => setActive(i)}
             onFocus={() => setActive(i)}
-            className={`relative aspect-square w-full overflow-hidden bg-surface/10 transition-colors duration-300 ${
-              i === active ? "ring-2 ring-indigo" : "ring-1 ring-surface/15 hover:ring-surface/40"
+            className={`relative aspect-square w-full overflow-hidden transition-colors duration-300 ${
+              light ? "bg-surface" : "bg-surface/10"
+            } ${
+              i === active
+                ? "ring-2 ring-indigo"
+                : light
+                  ? "ring-1 ring-line hover:ring-ink/40"
+                  : "ring-1 ring-surface/15 hover:ring-surface/40"
             }`}
             aria-label={img.caption}
             aria-pressed={i === active}
@@ -39,7 +45,11 @@ export function HoverCollage({ images }: { images: CollageImage[] }) {
         ))}
       </div>
 
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface/10 md:aspect-[3/2]">
+      <div
+        className={`relative aspect-[4/3] w-full overflow-hidden md:aspect-[3/2] ${
+          light ? "bg-surface ring-1 ring-line" : "bg-surface/10"
+        }`}
+      >
         <Image
           key={current.file}
           src={pictureSrc(current.file)}
@@ -48,7 +58,11 @@ export function HoverCollage({ images }: { images: CollageImage[] }) {
           className="object-contain p-6"
           sizes="(max-width: 768px) 90vw, 45vw"
         />
-        <span className="absolute bottom-3 left-3 text-xs uppercase tracking-[0.08em] text-surface/60">
+        <span
+          className={`absolute bottom-3 left-3 text-xs uppercase tracking-[0.08em] ${
+            light ? "text-ink-muted" : "text-surface/60"
+          }`}
+        >
           {current.caption}
         </span>
       </div>

@@ -35,12 +35,15 @@ type Deliverable = {
   /** Use a light tile background instead of the default dark one — for images (like flyer
    *  mockups) whose own drop shadows were composed against a light backdrop. */
   lightTiles?: boolean;
+  /** Just the pictures on a white panel, with no number, title or text above them. */
+  bare?: boolean;
   images: { file: string; alt: string; caption: string }[];
 };
 
 const DELIVERABLES: Deliverable[] = [
   {
     num: "01",
+    bare: true,
     title: "Character Illustrations",
     body: "The same base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
     images: [
@@ -165,21 +168,25 @@ export default function AlutitPage() {
             <h2 className="sr-only">Where Alutit appears</h2>
 
             <div className="flex flex-col gap-10">
-              {DELIVERABLES.map((item) => (
-                <div key={item.num} className="bg-surface/5 p-6 md:p-8">
-                  <div className="mb-3 flex items-baseline gap-4">
-                    <span className="font-display text-lg leading-none text-surface/60">
-                      {item.num}
-                    </span>
-                    <h3 className="font-display text-lg font-semibold text-surface">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-surface/70">
-                    {item.body}
-                  </p>
+              {DELIVERABLES.map((item, index) => (
+                <div key={item.num} className={item.bare ? "bg-surface p-6 md:p-8" : "bg-surface/5 p-6 md:p-8"}>
+                  {item.bare ? null : (
+                    <>
+                      <div className="mb-3 flex items-baseline gap-4">
+                        <span className="font-display text-lg leading-none text-surface/60">
+                          {String(index - DELIVERABLES.filter((d, i) => d.bare && i < index).length + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="font-display text-lg font-semibold text-surface">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-surface/70">
+                        {item.body}
+                      </p>
+                    </>
+                  )}
                   {item.num === "01" ? (
-                    <HoverCollage images={item.images} />
+                    <HoverCollage images={item.images} light />
                   ) : (
                     <div
                       className={`grid gap-3 ${

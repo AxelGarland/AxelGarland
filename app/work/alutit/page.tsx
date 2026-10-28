@@ -41,16 +41,6 @@ type Deliverable = {
 const DELIVERABLES: Deliverable[] = [
   {
     num: "01",
-    title: "Social & Video",
-    body: "Alutit fronts the recruitment account's ongoing social content and short-form video, the consistent face behind an otherwise rotating set of postings.",
-    images: [
-      { file: "alutit/social media.png", alt: "Alutit at her desk, shown as a social media post", caption: "At Her Desk" },
-      { file: "alutit/social media 1.png", alt: "Alutit in a garden, shown as a social media post", caption: "In the Garden" },
-      { file: "alutit/social media 3.png", alt: "Alutit in front of the Eiffel Tower, shown as an Instagram Reels-style post", caption: "Reels Style" },
-    ],
-  },
-  {
-    num: "02",
     title: "Character Illustrations",
     body: "The same base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. A visual way to explain the actual range of jobs at Alut that a standard listing can't.",
     images: [
@@ -62,7 +52,7 @@ const DELIVERABLES: Deliverable[] = [
     ],
   },
   {
-    num: "03",
+    num: "02",
     title: "Recruitment Materials",
     body: "Alutit carries the same character system into printed, campus-facing recruitment materials.",
     lightTiles: true,
@@ -183,7 +173,7 @@ export default function AlutitPage() {
                   <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-surface/70">
                     {item.body}
                   </p>
-                  {item.num === "02" ? (
+                  {item.num === "01" ? (
                     <HoverCollage images={item.images} />
                   ) : (
                     <div

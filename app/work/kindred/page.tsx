@@ -53,6 +53,7 @@ export default function KindredPage() {
                 label="Kindred showreel: crowds of colourful geometric faces that keep changing"
                 soundToggle
                 expandOnMobile
+                playOnce
               />
             </div>
           </div>

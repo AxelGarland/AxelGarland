@@ -7,19 +7,22 @@ import { useEffect, useRef, useState } from "react";
  *  autoplay and shows native controls instead. `soundToggle` adds a small button to unmute clips
  *  that carry a soundtrack (browsers only allow autoplay while muted); it is hidden on touch screens.
  *  `expandOnMobile` makes the clip tappable on touch screens: it opens in the browser's own full-screen
- *  player, with sound and controls, and goes back to a muted loop when closed. */
+ *  player, with sound and controls, and goes back to muted when closed. `playOnce` plays the clip a
+ *  single time and stops on its last frame; tapping the clip then plays it again. */
 export function HeroVideo({
   src,
   poster,
   label,
   soundToggle = false,
   expandOnMobile = false,
+  playOnce = false,
 }: {
   src: string;
   poster: string;
   label: string;
   soundToggle?: boolean;
   expandOnMobile?: boolean;
+  playOnce?: boolean;
 }) {
   const reduce = useHydrationSafeReducedMotion();
   const ref = useRef<HTMLVideoElement>(null);
@@ -44,13 +47,23 @@ export function HeroVideo({
     v.muted = false;
     v.controls = true;
     setMuted(false);
+    if (v.ended || v.currentTime > v.duration - 0.3) v.currentTime = 0;
     if (v.paused) void v.play();
     if (v.requestFullscreen) void v.requestFullscreen().catch(() => {});
     else if (v.webkitRequestFullscreen) void v.webkitRequestFullscreen();
     else v.webkitEnterFullscreen?.();
   };
 
-  // Back to a silent loop, without controls, once the full-screen player is closed.
+  // With playOnce the clip rests on its last frame; a click plays it again.
+  const replay = () => {
+    const v = ref.current;
+    if (playOnce && v?.ended) {
+      v.currentTime = 0;
+      void v.play();
+    }
+  };
+
+  // Back to muted, without controls, once the full-screen player is closed.
   useEffect(() => {
     if (!expandOnMobile) return;
     const v = ref.current;
@@ -80,7 +93,8 @@ export function HeroVideo({
         poster={poster}
         aria-label={label}
         muted
-        loop
+        loop={!playOnce}
+        onClick={replay}
         playsInline
         preload="auto"
         autoPlay={!reduce}

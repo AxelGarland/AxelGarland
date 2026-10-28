@@ -180,10 +180,11 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="max-w-[70ch]">
               <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                A new channel, <em className="italic text-accent">and a character people recognize</em>
+                And the <em className="italic text-accent">success</em> of it all
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-                {project.caseStudy?.outcome}
+                A constant weekly influx of applicants comes through our social media presence, with
+                more than 43 hires coming directly from the Alutit page.
               </p>
             </div>
           </div>

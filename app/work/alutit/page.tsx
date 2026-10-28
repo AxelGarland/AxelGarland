@@ -175,17 +175,28 @@ export default function AlutitPage() {
           </div>
         </section>
 
-        {/* Impact */}
-        <section className="border-t border-line bg-surface py-20 md:py-28">
+        {/* Impact — the figure stands on the bottom edge, cropped at the waist */}
+        <section className="overflow-hidden border-t border-line bg-surface pt-20 md:pt-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="max-w-[70ch]">
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                And the <em className="italic text-accent">success</em> of it all
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-                A constant weekly influx of applicants comes through our social media presence, with
-                more than 43 hires coming directly from the Alutit page.
-              </p>
+            <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[1.25fr_1fr] md:gap-16">
+              <div className="max-w-[70ch] md:self-center md:pb-28">
+                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+                  And the <em className="italic text-accent">success</em> of it all
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+                  A constant weekly influx of applicants comes through our social media presence, with
+                  more than 43 hires coming directly from the Alutit page.
+                </p>
+              </div>
+              <div className="relative mx-auto aspect-[581/784] w-full max-w-[19rem] md:mx-0 md:ml-auto md:max-w-[22rem]">
+                <Image
+                  src={pictureSrc("alutit/alutit-phone-crop.webp")}
+                  alt="Alutit smiling as she looks at her phone"
+                  fill
+                  className="object-contain object-bottom"
+                  sizes="(max-width: 768px) 70vw, 352px"
+                />
+              </div>
             </div>
           </div>
         </section>

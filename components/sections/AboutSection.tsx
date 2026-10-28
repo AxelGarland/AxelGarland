@@ -26,10 +26,10 @@ export function AboutSection() {
               </p>
               <p className="mt-8 text-sm text-ink-muted">
                 <span className="mr-3 text-accent-ink">Tools</span>
-                Figma<span aria-hidden className="mx-2.5 text-accent">&middot;</span>Adobe Creative
-                Suite<span aria-hidden className="mx-2.5 text-accent">&middot;</span>WordPress
-                <span aria-hidden className="mx-2.5 text-accent">&middot;</span>Cursor
-                <span aria-hidden className="mx-2.5 text-accent">&middot;</span>Claude Code
+                Figma<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
+                Adobe Creative Suite<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
+                Cursor<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
+                Claude Code
               </p>
             </div>
           </div>

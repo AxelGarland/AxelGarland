@@ -28,13 +28,13 @@ export function SlideStackGallery({
   maxWidth?: string;
   /** `sizes` hint for the front image. */
   sizes?: string;
-  /** On touch screens, tapping the front image opens every image larger than the screen in a
-   *  full-screen viewer: scroll down through them, and sideways along a spread to see all of it. */
+  /** On touch screens, tapping the front image opens it in a full-screen viewer with arrows
+   *  underneath to page through the rest. Held upright, the page is turned a quarter so a wide
+   *  spread runs along the screen's long edge; with the phone on its side it sits as it is. */
   expandOnMobile?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
-  const items = useRef<(HTMLDivElement | null)[]>([]);
   const hasVerse = images.some((img) => img.verse);
 
   const current = images[index];
@@ -58,8 +58,6 @@ export function SlideStackGallery({
   const openFull = () => {
     document.body.style.overflow = "hidden";
     dialog.current?.showModal();
-    // Open on the image that was tapped.
-    requestAnimationFrame(() => items.current[index]?.scrollIntoView({ block: "center" }));
   };
   const closeFull = () => dialog.current?.close();
 
@@ -178,29 +176,45 @@ export function SlideStackGallery({
               <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
           </button>
-          {/* Each page is wider than the screen: scroll down for the next one, sideways along it. */}
-          <div className="h-full overflow-y-auto overscroll-contain py-20">
-            <ul className="flex flex-col gap-10">
-              {images.map((img, i) => (
-                <li
-                  key={img.file}
-                  ref={(el) => {
-                    items.current[i] = el as unknown as HTMLDivElement | null;
-                  }}
-                  className="overflow-x-auto overscroll-x-contain"
+          {/* Held upright the viewer is turned a quarter, so the spread and the arrows under it run along
+              the screen's long edge; tilt the phone to read it. On its side it sits as it is. */}
+          <div className="fixed left-1/2 top-1/2 h-[100dvw] w-[100dvh] -translate-x-1/2 -translate-y-1/2 rotate-90 landscape:h-[100dvh] landscape:w-[100dvw] landscape:rotate-0">
+            <div className="flex h-full w-full flex-col">
+              <div className="relative min-h-0 flex-1">
+                <Image
+                  src={pictureSrc(current.file)}
+                  alt={current.alt}
+                  fill
+                  className="object-contain"
+                  sizes="100vh"
+                />
+              </div>
+              <div className="flex shrink-0 items-center justify-center gap-6 py-3">
+                <button
+                  type="button"
+                  aria-label="Previous page"
+                  onClick={prev}
+                  className="group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
-                  <div className={`relative ${aspect} w-[250vw] landscape:w-[140vw]`}>
-                    <Image
-                      src={pictureSrc(img.file)}
-                      alt={img.alt}
-                      fill
-                      className="object-contain"
-                      sizes="250vw"
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  <span className="inline-block brightness-0 invert">
+                    <HalftoneArrowBox dir="left" />
+                  </span>
+                </button>
+                <span className="min-w-[4ch] text-center text-sm text-surface/70">
+                  {index + 1} / {images.length}
+                </span>
+                <button
+                  type="button"
+                  aria-label="Next page"
+                  onClick={next}
+                  className="group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  <span className="inline-block brightness-0 invert">
+                    <HalftoneArrowBox />
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </dialog>
       ) : null}

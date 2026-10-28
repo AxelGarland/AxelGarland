@@ -22,9 +22,9 @@ const REELS = [
     { file: "reel-playground", label: "Alutit in front of a preschool playground, talking to the camera" },
     { file: "reel-paris", label: "Alutit in Paris with a baguette, in front of the Eiffel Tower" },
     { file: "reel-garden", label: "Alutit in a sun hat in a garden, talking to the camera" },
-    { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
   ],
   [
+    { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
     { file: "reel-unicorn", label: "Alutit in a unicorn onesie against a rainbow background" },
     { file: "reel-chef", label: "Alutit in a chef's uniform in a kitchen, talking to the camera" },
     { file: "reel-graduate", label: "Alutit in a graduation gown in front of a university building, with Hebrew captions" },

@@ -4,7 +4,7 @@ import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { pictureSrc } from "@/lib/pictures";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type SlideStackImage = { file: string; alt: string; verse?: string };
 
@@ -18,6 +18,7 @@ export function SlideStackGallery({
   aspect = "aspect-[8/5]",
   maxWidth = "max-w-3xl",
   sizes = "(max-width: 768px) 100vw, 768px",
+  expandOnMobile = false,
 }: {
   images: SlideStackImage[];
   /** Tailwind aspect-ratio class for the image stack — defaults to the landscape ratio
@@ -27,15 +28,39 @@ export function SlideStackGallery({
   maxWidth?: string;
   /** `sizes` hint for the front image. */
   sizes?: string;
+  /** On touch screens, tapping the front image opens it full screen, turned sideways so a wide spread
+   *  fills the screen's long edge. */
+  expandOnMobile?: boolean;
 }) {
   const [index, setIndex] = useState(0);
+  const dialog = useRef<HTMLDialogElement>(null);
   const hasVerse = images.some((img) => img.verse);
-
-  if (images.length === 0) return null;
 
   const current = images[index];
   const peek1 = images.length > 1 ? images[(index + 1) % images.length] : null;
   const peek2 = images.length > 2 ? images[(index + 2) % images.length] : null;
+
+  // The page behind must not scroll while the full-screen view is open.
+  useEffect(() => {
+    const d = dialog.current;
+    if (!d) return;
+    const restore = () => {
+      document.body.style.overflow = "";
+    };
+    d.addEventListener("close", restore);
+    return () => {
+      d.removeEventListener("close", restore);
+      restore();
+    };
+  }, []);
+
+  const openFull = () => {
+    document.body.style.overflow = "hidden";
+    dialog.current?.showModal();
+  };
+  const closeFull = () => dialog.current?.close();
+
+  if (images.length === 0 || !current) return null;
 
   const next = () => setIndex((i) => (i + 1) % images.length);
   const prev = () => setIndex((i) => (i - 1 + images.length) % images.length);
@@ -84,6 +109,14 @@ export function SlideStackGallery({
               />
             </motion.div>
           </AnimatePresence>
+          {expandOnMobile ? (
+            <button
+              type="button"
+              onClick={openFull}
+              aria-label={`Open full screen: ${current.alt}`}
+              className="absolute inset-0 z-40 hidden [@media(pointer:coarse)]:block"
+            />
+          ) : null}
         </div>
 
         {current.verse ? (
@@ -125,6 +158,39 @@ export function SlideStackGallery({
           <HalftoneArrowBox />
         </button>
       </div>
+
+      {expandOnMobile ? (
+        <dialog
+          ref={dialog}
+          aria-label={current.alt}
+          onClick={closeFull}
+          className="m-0 h-full max-h-none w-full max-w-none bg-black p-0 backdrop:bg-black"
+        >
+          <button
+            type="button"
+            onClick={closeFull}
+            aria-label="Close"
+            className="fixed right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-md"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+          </button>
+          {/* Held upright the page is turned a quarter, to run along the screen's long edge; once the
+              phone is turned sideways it sits as it is. */}
+          <div className="fixed left-1/2 top-1/2 h-[100dvw] w-[100dvh] -translate-x-1/2 -translate-y-1/2 rotate-90 landscape:h-[100dvh] landscape:w-[100dvw] landscape:rotate-0">
+            <div className="relative h-full w-full">
+              <Image
+                src={pictureSrc(current.file)}
+                alt={current.alt}
+                fill
+                className="object-contain"
+                sizes="100vh"
+              />
+            </div>
+          </div>
+        </dialog>
+      ) : null}
     </div>
   );
 }

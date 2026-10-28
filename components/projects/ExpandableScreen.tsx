@@ -91,7 +91,7 @@ export function ExpandableScreen({
               <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
           </button>
-          <div className="mx-auto w-[900px] md:w-full md:max-w-[64rem]">
+          <div className="mx-auto w-full max-w-[64rem]">
             <Image
               src={pictureSrc(large)}
               alt={alt}

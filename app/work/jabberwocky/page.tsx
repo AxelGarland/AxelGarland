@@ -53,6 +53,7 @@ export default function JabberwockyPage() {
               aspect="aspect-[2800/840]"
               maxWidth="max-w-5xl"
               sizes="(max-width: 1024px) 100vw, 1024px"
+              expandOnMobile
             />
           </div>
         </section>

@@ -52,6 +52,7 @@ export default function KindredPage() {
                 poster={pictureSrc("kindred/showreel-poster.jpg")}
                 label="Kindred showreel: crowds of colourful geometric faces that keep changing"
                 soundToggle
+                expandOnMobile
               />
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { DriftingStrip } from "@/components/projects/DriftingStrip";
 import { HalftoneText } from "@/components/projects/HalftoneText";
 import { LoadingLoop } from "@/components/projects/LoadingLoop";
+import { StripViewport } from "@/components/projects/StripViewport";
 import { CROP } from "@/lib/workCrops";
 import { getOrderedProjects, projectThumbnailSrc } from "@/lib/projects";
 import Image from "next/image";
@@ -9,7 +10,8 @@ import Link from "next/link";
 /** The strip of project circles at the bottom of every case study: the other projects, starting with
  *  the one after this, on black, drifting slowly from right to left, easing down to a crawl under the pointer, with a red dot above the circle being pointed at.
  *  The list is laid out twice, back to back, and the strip slides by exactly one copy, so it never
- *  ends. Only the first copy is reachable by keyboard and screen readers. With reduced motion it
+ *  ends. Only the first copy is reachable by keyboard and screen readers. On a touch screen it is a
+ *  row you swipe, which also keeps drifting by itself (see StripViewport). With reduced motion it
  *  holds still and scrolls by hand instead. */
 export function MoreProjects({ current }: { current: string }) {
   const all = getOrderedProjects();
@@ -19,8 +21,11 @@ export function MoreProjects({ current }: { current: string }) {
   const half = [...others, ...others];
 
   return (
-    <section aria-label="More projects" className="overflow-hidden bg-black py-16 motion-reduce:overflow-x-auto md:py-24">
-      <DriftingStrip className="flex w-max animate-marquee motion-reduce:animate-none">
+    <StripViewport
+      label="More projects"
+      className="overflow-hidden bg-black py-16 motion-reduce:overflow-x-auto md:py-24 [@media(pointer:coarse)]:overflow-x-auto [@media(pointer:coarse)]:overscroll-x-contain [@media(pointer:coarse)]:[scrollbar-width:none] [@media(pointer:coarse)]:[&::-webkit-scrollbar]:hidden"
+    >
+      <DriftingStrip className="flex w-max animate-marquee motion-reduce:animate-none [@media(pointer:coarse)]:animate-none">
         {[0, 1].map((copy) => (
           <div key={copy} className="flex shrink-0 gap-10 pr-10 md:gap-14 md:pr-14">
             {half.map((project, i) => {
@@ -66,6 +71,6 @@ export function MoreProjects({ current }: { current: string }) {
           </div>
         ))}
       </DriftingStrip>
-    </section>
+    </StripViewport>
   );
 }

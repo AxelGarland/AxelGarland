@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { FloatingLikes } from "@/components/projects/FloatingLikes";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { ReelPhones } from "@/components/projects/ReelPhones";
 import { TagLine } from "@/components/projects/TagLine";
@@ -152,14 +153,14 @@ export default function AlutitPage() {
         </section>
 
         {/* Reels — five muted clips in phones that open out into a row as they scroll into view */}
-        <section className="overflow-x-clip border-t border-line bg-surface py-20 md:py-28">
+        <FloatingLikes className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto mb-14 max-w-content px-6 sm:px-10 md:mb-20 md:px-14 lg:px-16">
             <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
               Recruitment videos for <em className="italic text-accent">social media</em>
             </h2>
           </div>
           <ReelPhones reels={REELS} />
-        </section>
+        </FloatingLikes>
 
         {/* Deliverables — dark inverted, matching the footer's treatment */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">

@@ -47,15 +47,15 @@ type Deliverable = {
  *  shadow are part of each file). A row of three above a row of four. */
 const STICKERS = [
   [
-    { file: "alutit/stickers/grad-unicorn.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
-    { file: "alutit/stickers/clipboard.webp", alt: "Alutit in a lilac sweater, holding a clipboard" },
-    { file: "alutit/stickers/summer.webp", alt: "Alutit in sunglasses and an Alutit t-shirt, with a tote bag" },
+    { file: "alutit/stickers/grad-unicorn-2.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
+    { file: "alutit/stickers/clipboard-2.webp", alt: "Alutit in a lilac sweater, holding a clipboard" },
+    { file: "alutit/stickers/summer-2.webp", alt: "Alutit in sunglasses and an Alutit t-shirt, with a tote bag" },
   ],
   [
-    { file: "alutit/stickers/handyman.webp", alt: "Alutit dressed as a maintenance worker with a hard hat, wrench and drill" },
-    { file: "alutit/stickers/nurse.webp", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
-    { file: "alutit/stickers/sweater.webp", alt: "Alutit in a lilac star sweater" },
-    { file: "alutit/stickers/onesie.webp", alt: "Alutit in a unicorn onesie" },
+    { file: "alutit/stickers/handyman-2.webp", alt: "Alutit dressed as a maintenance worker with a hard hat, wrench and drill" },
+    { file: "alutit/stickers/nurse-2.webp", alt: "Alutit dressed as a care worker in scrubs with a stethoscope and clipboard" },
+    { file: "alutit/stickers/sweater-2.webp", alt: "Alutit in a lilac star sweater" },
+    { file: "alutit/stickers/onesie-2.webp", alt: "Alutit in a unicorn onesie" },
   ],
 ] as const;
 

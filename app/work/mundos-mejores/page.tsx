@@ -29,7 +29,7 @@ export default function MundosMejoresPage() {
         <MundosHeader title={project.title} intro={project.reflection ?? ""} boxes={MUNDOS_BOXES} />
 
         {/* The five closed boxes: one on top, two on each side. Each opens its own page. */}
-        <section className="border-t border-line pb-16 pt-16 md:pb-24 md:pt-24">
+        <section className="overflow-x-clip border-t border-line pb-16 pt-16 md:pb-24 md:pt-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <RetabloSelector boxes={MUNDOS_BOXES} />
           </div>

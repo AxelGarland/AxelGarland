@@ -4,7 +4,6 @@ import { FloatingLikes } from "@/components/projects/FloatingLikes";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { ReelPhones } from "@/components/projects/ReelPhones";
 import { TagLine } from "@/components/projects/TagLine";
-import { HoverCollage } from "@/components/projects/HoverCollage";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -162,44 +161,46 @@ export default function AlutitPage() {
           </div>
         </FloatingLikes>
 
-        {/* Deliverables — dark inverted, matching the footer's treatment */}
-        <section className="relative overflow-hidden bg-ink py-20 md:py-28">
+        {/* Deliverables — the illustrations as an even grid on white, then the printed materials */}
+        <section className="relative overflow-hidden bg-surface pb-20 md:pb-28">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
 
-            <div className="flex flex-col gap-10">
-              {DELIVERABLES.map((item, index) => (
-                <div key={item.num} className={item.bare ? "bg-surface p-6 md:p-8" : "bg-surface/5 p-6 md:p-8"}>
-                  {item.bare ? null : (
-                    <>
-                      <div className="mb-3 flex items-baseline gap-4">
-                        <span className="font-display text-lg leading-none text-surface/60">
-                          {String(index - DELIVERABLES.filter((d, i) => d.bare && i < index).length + 1).padStart(2, "0")}
+            <div className="flex flex-col gap-10 md:gap-14">
+              {DELIVERABLES.map((item, index) =>
+                item.bare ? (
+                  <ul key={item.num} className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-5">
+                    {item.images.map((img) => (
+                      <li key={img.file} className="relative aspect-square overflow-hidden bg-surface ring-1 ring-line">
+                        <Image
+                          src={pictureSrc(img.file)}
+                          alt={img.alt}
+                          fill
+                          className="object-contain p-4 pb-9"
+                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
+                        />
+                        <span className="absolute bottom-3 left-3 text-xs uppercase tracking-[0.08em] text-ink-muted">
+                          {img.caption}
                         </span>
-                        <h3 className="font-display text-lg font-semibold text-surface">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-surface/70">
-                        {item.body}
-                      </p>
-                    </>
-                  )}
-                  {item.num === "01" ? (
-                    <HoverCollage images={item.images} light />
-                  ) : (
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div key={item.num} className="bg-paper p-6 md:p-8">
+                    <div className="mb-3 flex items-baseline gap-4">
+                      <span className="font-display text-lg leading-none text-ink-subtle">
+                        {String(index - DELIVERABLES.filter((d, i) => d.bare && i < index).length + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
+                    </div>
+                    <p className="mb-6 max-w-[64ch] text-sm leading-relaxed text-ink-muted">{item.body}</p>
                     <div
                       className={`grid gap-3 ${
                         IMAGE_GRID_COLS[item.images.length] ?? "grid-cols-2 sm:grid-cols-4"
                       } ${item.images.length === 1 ? "max-w-xs" : ""}`}
                     >
                       {item.images.map((img) => (
-                        <div
-                          key={img.file}
-                          className={`relative aspect-[3/4] w-full overflow-hidden ${
-                            item.lightTiles ? "bg-paper-raised" : "bg-surface/10"
-                          }`}
-                        >
+                        <div key={img.file} className="relative aspect-[3/4] w-full overflow-hidden bg-paper-raised">
                           <Image
                             src={pictureSrc(img.file)}
                             alt={img.alt}
@@ -210,9 +211,9 @@ export default function AlutitPage() {
                         </div>
                       ))}
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </section>

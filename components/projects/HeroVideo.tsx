@@ -6,9 +6,10 @@ import { useEffect, useRef, useState } from "react";
 /** A muted, looping clip that plays like an animated hero. With reduced motion on, it doesn't
  *  autoplay and shows native controls instead. `soundToggle` adds a small button to unmute clips
  *  that carry a soundtrack (browsers only allow autoplay while muted); it is hidden on touch screens.
- *  `expandOnMobile` makes the clip tappable on touch screens: it opens in the browser's own full-screen
- *  player, with sound and controls, and goes back to muted when closed. `playOnce` plays the clip a
- *  single time and stops on its last frame; tapping the clip then plays it again. */
+ *  `expandOnMobile` makes the clip tappable on touch screens: it opens in a full-screen viewer, with
+ *  sound and the player's own controls. Held upright, the viewer turns the video a quarter so it runs
+ *  along the screen's long edge; once the phone is on its side it sits as it is. `playOnce` plays the
+ *  clip a single time and stops on its last frame; clicking the clip then plays it again. */
 export function HeroVideo({
   src,
   poster,
@@ -26,6 +27,8 @@ export function HeroVideo({
 }) {
   const reduce = useHydrationSafeReducedMotion();
   const ref = useRef<HTMLVideoElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const big = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
   const toggle = () => {
@@ -34,24 +37,6 @@ export function HeroVideo({
     v.muted = !v.muted;
     setMuted(v.muted);
     if (!v.muted && v.paused) void v.play();
-  };
-
-  type FullscreenVideo = HTMLVideoElement & {
-    webkitRequestFullscreen?: () => Promise<void> | void;
-    webkitEnterFullscreen?: () => void;
-  };
-
-  const expand = () => {
-    const v = ref.current as FullscreenVideo | null;
-    if (!v) return;
-    v.muted = false;
-    v.controls = true;
-    setMuted(false);
-    if (v.ended || v.currentTime > v.duration - 0.3) v.currentTime = 0;
-    if (v.paused) void v.play();
-    if (v.requestFullscreen) void v.requestFullscreen().catch(() => {});
-    else if (v.webkitRequestFullscreen) void v.webkitRequestFullscreen();
-    else v.webkitEnterFullscreen?.();
   };
 
   // With playOnce the clip rests on its last frame; a click plays it again.
@@ -63,26 +48,35 @@ export function HeroVideo({
     }
   };
 
-  // Back to muted, without controls, once the full-screen player is closed.
+  const open = () => {
+    ref.current?.pause();
+    document.body.style.overflow = "hidden";
+    dialog.current?.showModal();
+    const v = big.current;
+    if (v) {
+      v.currentTime = 0;
+      void v.play().catch(() => {});
+    }
+  };
+  const close = () => dialog.current?.close();
+
+  // The page behind must not scroll while the viewer is open; closing stops its sound and lets the
+  // clip on the page carry on from where it was.
   useEffect(() => {
-    if (!expandOnMobile) return;
-    const v = ref.current;
-    if (!v) return;
-    const back = () => {
-      v.muted = true;
-      v.controls = reduce;
-      setMuted(true);
+    const d = dialog.current;
+    if (!d) return;
+    const onClose = () => {
+      document.body.style.overflow = "";
+      big.current?.pause();
+      const inline = ref.current;
+      if (inline && !inline.ended) void inline.play().catch(() => {});
     };
-    const onChange = () => {
-      if (document.fullscreenElement !== v) back();
-    };
-    document.addEventListener("fullscreenchange", onChange);
-    v.addEventListener("webkitendfullscreen", back);
+    d.addEventListener("close", onClose);
     return () => {
-      document.removeEventListener("fullscreenchange", onChange);
-      v.removeEventListener("webkitendfullscreen", back);
+      d.removeEventListener("close", onClose);
+      document.body.style.overflow = "";
     };
-  }, [expandOnMobile, reduce]);
+  }, []);
 
   return (
     <>
@@ -103,7 +97,7 @@ export function HeroVideo({
       {expandOnMobile && !reduce ? (
         <button
           type="button"
-          onClick={expand}
+          onClick={open}
           aria-label={`Open full screen: ${label}`}
           className="absolute inset-0 z-10 hidden [@media(pointer:coarse)]:block"
         />
@@ -125,6 +119,36 @@ export function HeroVideo({
           </svg>
           {muted ? "Sound on" : "Sound off"}
         </button>
+      ) : null}
+      {expandOnMobile ? (
+        <dialog
+          ref={dialog}
+          aria-label={label}
+          className="m-0 h-full max-h-none w-full max-w-none bg-black p-0 backdrop:bg-black"
+        >
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close"
+            className="fixed right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-ink shadow-md"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+              <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+          </button>
+          <div className="fixed left-1/2 top-1/2 h-[100dvw] w-[100dvh] -translate-x-1/2 -translate-y-1/2 rotate-90 landscape:h-[100dvh] landscape:w-[100dvw] landscape:rotate-0">
+            <video
+              ref={big}
+              className="h-full w-full object-contain"
+              src={src}
+              poster={poster}
+              aria-label={label}
+              controls
+              playsInline
+              preload="none"
+            />
+          </div>
+        </dialog>
       ) : null}
     </>
   );

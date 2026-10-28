@@ -175,17 +175,20 @@ export default function AlutitPage() {
             <div className="flex flex-col gap-10 md:gap-14">
               {DELIVERABLES.map((item, index) =>
                 item.bare ? (
-                  <ul key={item.num} className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-5">
+                  <ul key={item.num} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
                     {item.images.map((img) => (
-                      <li key={img.file} className="relative aspect-square overflow-hidden bg-surface ring-1 ring-line">
-                        <Image
-                          src={pictureSrc(img.file)}
-                          alt={img.alt}
-                          fill
-                          className="object-contain p-4 pb-9"
-                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
-                        />
-                        <span className="absolute bottom-3 left-3 text-xs uppercase tracking-[0.08em] text-ink-muted">
+                      <li key={img.file} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-3rem)/3)]">
+                        {/* Chained white drop-shadows trace the figure's outline like a sticker's die-cut edge; the soft grey one lifts it off the page. */}
+                        <div className="relative aspect-square">
+                          <Image
+                            src={pictureSrc(img.file)}
+                            alt={img.alt}
+                            fill
+                            className="object-contain [filter:drop-shadow(3px_0_0_#fff)_drop-shadow(-3px_0_0_#fff)_drop-shadow(0_3px_0_#fff)_drop-shadow(0_-3px_0_#fff)_drop-shadow(0_6px_10px_rgba(26,25,22,0.22))]"
+                            sizes="(max-width: 768px) 45vw, 380px"
+                          />
+                        </div>
+                        <span className="mt-3 block text-center text-xs uppercase tracking-[0.08em] text-ink-muted">
                           {img.caption}
                         </span>
                       </li>

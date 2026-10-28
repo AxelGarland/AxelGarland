@@ -15,7 +15,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Alutit · Axel Garland",
   description:
-    "Alutit, an illustrated recruitment character designed for Alut, Israel's national organization for people with autism.",
+    "Alutit, an illustrated recruitment character designed for Alut, The Israeli Society for Children and Adults with autism.",
 };
 
 const REELS = [
@@ -101,9 +101,10 @@ export default function AlutitPage() {
                 with <em className="italic text-accent">purpose</em>
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                Alutit is an illustrated character designed for Alut, Israel&rsquo;s national
-                organization for people with autism, giving their recruitment office a warm,
-                recognizable face across social media, video, print, and merchandise.
+                Alutit is an illustrated character designed for Alut, The Israeli Society for Children
+                and Adults with autism. The character was designed for the recruitment department, to
+                give a warm, colorful, and recognizable face across social media, video, print and
+                merchandise.
               </p>
               <TagLine tags={TAGS} className="" />
             </div>

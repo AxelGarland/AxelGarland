@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { FloatingLikes } from "@/components/projects/FloatingLikes";
+import { HalftoneStars } from "@/components/projects/HalftoneStars";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { ReelPhones } from "@/components/projects/ReelPhones";
 import { TagLine } from "@/components/projects/TagLine";
@@ -138,6 +139,7 @@ export default function AlutitPage() {
 
         {/* Stickers — on black, so each white die-cut border stands out */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
+          <HalftoneStars />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
             <div className="flex flex-col gap-y-10 md:gap-y-14">
@@ -169,33 +171,6 @@ export default function AlutitPage() {
                   </ul>
                 </Fragment>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Printed materials */}
-        <section className="bg-surface py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-              <div>
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                  Recruitment materials
-                </h2>
-                <p className="mt-6 max-w-[40ch] text-lg leading-relaxed text-ink-muted">
-                  Alutit carries the same character system into printed, campus-facing recruitment
-                  materials.
-                </p>
-              </div>
-              {/* The photo's own backdrop is a hair off white, so its edges fade out into the page */}
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[26rem] [mask-image:linear-gradient(to_right,transparent,#000_14%,#000_86%,transparent),linear-gradient(to_bottom,transparent,#000_14%,#000_86%,transparent)] [mask-composite:intersect] [-webkit-mask-composite:source-in]">
-                <Image
-                  src={pictureSrc("alutit/אלוטית תיק.png")}
-                  alt="The Alutit tote bag handed out at campus recruitment events"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 90vw, 416px"
-                />
-              </div>
             </div>
           </div>
         </section>

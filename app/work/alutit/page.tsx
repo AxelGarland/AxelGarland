@@ -18,11 +18,17 @@ export const metadata: Metadata = {
 };
 
 const REELS = [
-  { file: "reel-playground", label: "Alutit in front of a preschool playground, talking to the camera" },
-  { file: "reel-paris", label: "Alutit in Paris with a baguette, in front of the Eiffel Tower" },
-  { file: "reel-garden", label: "Alutit in a sun hat in a garden, talking to the camera" },
-  { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
-  { file: "reel-unicorn", label: "Alutit in a unicorn onesie against a rainbow background" },
+  [
+    { file: "reel-playground", label: "Alutit in front of a preschool playground, talking to the camera" },
+    { file: "reel-paris", label: "Alutit in Paris with a baguette, in front of the Eiffel Tower" },
+    { file: "reel-garden", label: "Alutit in a sun hat in a garden, talking to the camera" },
+    { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
+  ],
+  [
+    { file: "reel-unicorn", label: "Alutit in a unicorn onesie against a rainbow background" },
+    { file: "reel-chef", label: "Alutit in a chef's uniform in a kitchen, talking to the camera" },
+    { file: "reel-graduate", label: "Alutit in a graduation gown in front of a university building, with Hebrew captions" },
+  ],
 ] as const;
 
 const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
@@ -150,7 +156,7 @@ export default function AlutitPage() {
               Recruitment videos for <em className="italic text-accent">social media</em>
             </h2>
           </div>
-          <ReelPhones reels={REELS} />
+          <ReelPhones rows={REELS} />
           <div className="mx-auto mt-16 max-w-content px-6 sm:px-10 md:mt-24 md:px-14 lg:px-16">
             <p className="max-w-[40ch] font-display text-xl font-light leading-snug text-ink sm:text-2xl md:text-3xl">
               Before I took over the page&rsquo;s content, our reels reached around{" "}

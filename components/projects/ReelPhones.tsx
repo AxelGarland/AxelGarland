@@ -7,7 +7,11 @@ import { useEffect, useRef, useState } from "react";
 type Reel = { file: string; label: string };
 
 /** Alternate phones sit lower on wide screens so the row reads as a rhythm, not a line. */
-const DROP = ["md:mt-0", "max-md:mt-10 md:mt-16", "md:mt-0", "max-md:mt-10 md:mt-16", "md:mt-0"];
+const DROP = ["md:mt-0", "max-md:mt-10 md:mt-16"];
+
+/** Phone width on wide screens is fixed by the widest row (four phones and three gaps of 2rem), so
+ *  a row of three has the same size phones, centred. */
+const ROW_MAX = 4;
 
 /** A muted, looping clip inside a phone. It only plays while it is on screen. With reduced
  *  motion it stays on its first frame. */
@@ -68,7 +72,7 @@ function Phone({
 
   return (
     <motion.div
-      className={`relative w-full md:w-[calc((100%-8rem)/5)] ${DROP[index % DROP.length]} ${
+      className={`relative w-full md:w-[calc((100%-6rem)/4)] ${DROP[index % DROP.length]} ${
         index === count - 1 && count % 2 === 1 ? "max-md:col-span-2 max-md:mx-auto max-md:w-[calc(50%-0.5rem)]" : ""
       }`}
       style={{ x, y, rotate, scale, zIndex: count - Math.round(Math.abs(d)) }}
@@ -89,14 +93,36 @@ function Phone({
   );
 }
 
-/** Five phones, each playing a muted clip. As the row scrolls into view the phones open out from a
+function Row({ reels, spread, still }: { reels: readonly Reel[]; spread: boolean; still: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "center 58%"] });
+
+  return (
+    <div
+      ref={ref}
+      className="grid grid-cols-2 items-start gap-x-4 gap-y-8 md:flex md:justify-center md:gap-x-8 md:gap-y-0"
+    >
+      {reels.map((reel, i) => (
+        <Phone
+          key={reel.file}
+          reel={reel}
+          index={i}
+          count={reels.length}
+          progress={scrollYProgress}
+          spread={spread}
+          still={still}
+        />
+      ))}
+    </div>
+  );
+}
+
+/** Phones in rows, each playing a muted clip. As a row scrolls into view its phones open out from a
  *  fanned pile into an evenly spaced row. On narrow screens they sit in a two-column grid and
  *  simply rise into place. */
-export function ReelPhones({ reels }: { reels: readonly Reel[] }) {
+export function ReelPhones({ rows }: { rows: readonly (readonly Reel[])[] }) {
   const reduce = useHydrationSafeReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
   const [wide, setWide] = useState(false);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "center 58%"] });
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -107,20 +133,9 @@ export function ReelPhones({ reels }: { reels: readonly Reel[] }) {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="mx-auto grid w-full max-w-[88rem] grid-cols-2 items-start gap-x-4 gap-y-8 px-6 sm:px-10 md:flex md:justify-center md:gap-x-8 md:gap-y-0 md:px-14 lg:px-16"
-    >
-      {reels.map((reel, i) => (
-        <Phone
-          key={reel.file}
-          reel={reel}
-          index={i}
-          count={reels.length}
-          progress={scrollYProgress}
-          spread={wide}
-          still={reduce}
-        />
+    <div className="mx-auto flex w-full max-w-[76rem] flex-col gap-y-8 px-6 sm:px-10 md:gap-y-28 md:px-14 lg:px-16">
+      {rows.map((reels) => (
+        <Row key={reels[0].file} reels={reels.slice(0, ROW_MAX)} spread={wide} still={reduce} />
       ))}
     </div>
   );

@@ -168,35 +168,36 @@ export default function AlutitPage() {
           </div>
         </FloatingLikes>
 
-        {/* Deliverables — the illustrations as an even grid on white, then the printed materials */}
-        <section className="relative overflow-hidden bg-surface pb-20 md:pb-28">
+        {/* Stickers — on black, so each white die-cut border stands out */}
+        <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
+            <div className="flex flex-col gap-y-10 md:gap-y-14">
+              {STICKERS.map((row) => (
+                <ul key={row[0].file} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
+                  {row.map((img) => (
+                    <li key={img.file} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]">
+                      <div className="relative aspect-[4/5]">
+                        <Image
+                          src={pictureSrc(img.file)}
+                          alt={img.alt}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 45vw, 380px"
+                        />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </div>
+        </section>
 
+        {/* Printed materials */}
+        <section className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="flex flex-col gap-14 md:gap-20">
-              <div className="flex flex-col gap-y-10 md:gap-y-14">
-                {STICKERS.map((row) => (
-                  <ul key={row[0].file} className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
-                    {row.map((img) => (
-                      <li
-                        key={img.file}
-                        className="w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]"
-                      >
-                        <div className="relative aspect-[4/5]">
-                          <Image
-                            src={pictureSrc(img.file)}
-                            alt={img.alt}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 45vw, 380px"
-                          />
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                ))}
-              </div>
-
               {DELIVERABLES.map((item, index) => (
                 <div key={item.num} className="bg-paper p-6 md:p-8">
                   <div className="mb-3 flex items-baseline gap-4">

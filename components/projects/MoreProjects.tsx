@@ -12,7 +12,8 @@ import Link from "next/link";
  *  The list is laid out twice, back to back, and the strip slides by exactly one copy, so it never
  *  ends. Only the first copy is reachable by keyboard and screen readers. On a touch screen it is a
  *  row you swipe, which also keeps drifting by itself (see StripViewport). With reduced motion it
- *  holds still and scrolls by hand instead. */
+ *  holds still and scrolls by hand instead. Each item is as wide as its name when that is wider than
+ *  its circle, so long names (Mundos Mejores) never run into their neighbours. */
 export function MoreProjects({ current }: { current: string }) {
   const all = getOrderedProjects();
   const at = all.findIndex((p) => p.slug === current);
@@ -38,9 +39,9 @@ export function MoreProjects({ current }: { current: string }) {
                   href={`/work/${project.slug}`}
                   aria-hidden={first ? undefined : true}
                   tabIndex={first ? undefined : -1}
-                  className="group flex w-[10.5rem] shrink-0 flex-col items-center sm:w-[12.5rem] lg:w-[14rem]"
+                  className="group flex shrink-0 flex-col items-center"
                 >
-                  <div className="relative aspect-square w-full">
+                  <div className="relative aspect-square w-[10.5rem] sm:w-[12.5rem] lg:w-[14rem]">
                     <div className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}>
                       {project.circleLoop ? (
                         <LoadingLoop frames={project.circleLoop} still={project.circleLoopStill} fill />

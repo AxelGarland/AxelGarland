@@ -44,7 +44,7 @@ type Deliverable = {
 };
 
 /** The character in her different roles, cut out as die-cut stickers (the white border and soft
- *  shadow are part of each file). A row of three above a row of four. */
+ *  shadow are part of each file). A row of three above a row of four, all the same size. */
 const STICKERS = [
   [
     { file: "alutit/stickers/grad-unicorn-2.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
@@ -180,11 +180,7 @@ export default function AlutitPage() {
                     {row.map((img) => (
                       <li
                         key={img.file}
-                        className={
-                          row.length === 3
-                            ? "w-[calc(50%-0.5rem)] md:w-[calc((100%-3rem)/3)]"
-                            : "w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]"
-                        }
+                        className="w-[calc(50%-0.5rem)] md:w-[calc((100%-4.5rem)/4)]"
                       >
                         <div className="relative aspect-[4/5]">
                           <Image

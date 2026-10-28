@@ -149,6 +149,14 @@ export default function AlutitPage() {
             </h2>
           </div>
           <ReelPhones reels={REELS} />
+          <div className="mx-auto mt-16 max-w-content px-6 sm:px-10 md:mt-24 md:px-14 lg:px-16">
+            <p className="max-w-[40ch] font-display text-xl font-light leading-snug text-ink sm:text-2xl md:text-3xl">
+              Before I took over the page&rsquo;s content, our reels reached around{" "}
+              <em className="italic text-accent">73 views</em>. Now they regularly reach{" "}
+              <em className="italic text-accent">1,500</em>, and up to{" "}
+              <em className="italic text-accent">3,500</em>.
+            </p>
+          </div>
         </FloatingLikes>
 
         {/* Deliverables — dark inverted, matching the footer's treatment */}

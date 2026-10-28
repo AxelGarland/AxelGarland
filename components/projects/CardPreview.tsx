@@ -3,10 +3,9 @@
 import { pictureSrc } from "@/lib/pictures";
 import { useEffect, useRef } from "react";
 
-/** A short clip that fades in over a work card's still image while the pointer is over the card: the
- *  picture or the text beside it (it listens on the whole link the card sits in).
- *  Only for devices that can hover; on touch screens and with reduced motion it never loads or
- *  plays, so phones keep the plain image and don't download the video.
+/** A short clip that fades in over a work card's still image once the circle has scrolled into view,
+ *  and fades out again when it leaves. It is a small file (a few hundred kB), and it only starts
+ *  loading when the circle is on screen. With reduced motion it never loads or plays.
  *
  *  `scale` is the video's width as a share of the circle. Below 1 the whole frame sits inside the
  *  circle instead of being cropped to its middle, so a centred title stays fully visible; `background`
@@ -17,9 +16,7 @@ export function CardPreview({ src, scale = 0.84, background = "#000" }: { src: s
   const fadeRef = useRef<HTMLDivElement>(null);
 
   const canPlay = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== "undefined" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const start = () => {
     const v = videoRef.current;
@@ -42,23 +39,19 @@ export function CardPreview({ src, scale = 0.84, background = "#000" }: { src: s
     }, 450);
   };
 
-  // Listen on the whole row (the link this sits in), so pointing at the title or text plays it too.
+  // Play while the circle is mostly on screen; fade out and rewind when it has gone.
   useEffect(() => {
-    const row = rootRef.current?.closest("a");
-    if (!row) return;
-    const enter = (e: PointerEvent) => {
-      if (e.pointerType === "mouse") start();
-    };
-    row.addEventListener("pointerenter", enter);
-    row.addEventListener("pointerleave", stop);
-    row.addEventListener("focus", start);
-    row.addEventListener("blur", stop);
-    return () => {
-      row.removeEventListener("pointerenter", enter);
-      row.removeEventListener("pointerleave", stop);
-      row.removeEventListener("focus", start);
-      row.removeEventListener("blur", stop);
-    };
+    const root = rootRef.current;
+    if (!root) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) start();
+        else stop();
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(root);
+    return () => io.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

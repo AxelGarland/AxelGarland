@@ -51,7 +51,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
         left ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      <div className={`relative aspect-square w-[66%] shrink-0 md:w-[min(39vw,30.6rem)] ${left ? "self-start" : "self-end"}`}>
+      <div className={`relative aspect-square w-[66%] shrink-0 max-md:self-center md:w-[min(39vw,30.6rem)] ${left ? "md:self-start" : "md:self-end"}`}>
         <motion.div
           style={{ opacity: image }}
           className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}
@@ -85,7 +85,7 @@ function Row({ project, index, reduce }: { project: Project; index: number; redu
         </motion.div>
       </div>
 
-      <div className={`min-w-0 flex-1 ${left ? "self-start md:self-center" : "self-end md:self-center"}`}>
+      <div className={`min-w-0 flex-1 max-md:self-start ${left ? "self-start md:self-center" : "self-end md:self-center"}`}>
         <div className={`flex items-stretch gap-6 md:gap-10 ${left ? "" : "md:flex-row-reverse"}`}>
           <div className={`min-w-0 flex-1 text-left ${left ? "" : "md:text-right"}`}>
             <motion.h3

@@ -297,7 +297,7 @@ export const PROJECTS: Project[] = [
     reflection:
       "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
-    previewVideo: "kindred/showreel.mp4",
+    previewVideo: "kindred/showreel-circle.mp4",
     discipline: "Generative design",
     tags: ["Generative Design", "Illustration", "Creative Coding", "Web App"],
     thumbnail: "kindred/card.jpg",

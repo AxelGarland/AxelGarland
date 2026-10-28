@@ -178,7 +178,7 @@ export default function AlutitPage() {
         {/* Impact */}
         <section className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="mx-auto max-w-[70ch]">
+            <div className="max-w-[70ch]">
               <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
                 A new channel, <em className="italic text-accent">and a character people recognize</em>
               </h2>

@@ -132,9 +132,9 @@ export const PROJECTS: Project[] = [
     clientLogo: "alutit/alut logo no background.png",
     caseStudy: {
       problem:
-        "Alut's Recruitment Department was using standard social media content (postings, generic photos) that wasn't building any real presence. Leadership wanted social media to function as an active recruitment channel, not a bulletin board, which meant giving it something people would actually want to follow.",
+        "Alut\u2019s recruitment social media wasn\u2019t working. It had no point of view and read like a noticeboard for job openings, and little else.",
       role:
-        "I conceived and designed the character: concept, illustration style, and how she'd be used across roles and content.",
+        "Alutit was inspired by the recruitment coordinators, their warmth and bubbly energy. I combined that with Alut\u2019s own colors to build a character who is happy, bright and simple. She became the face of Alut\u2019s social media. She helps most with the many roles we hire for, especially health professionals who work with children. She also makes Alut feel more approachable when we talk about adults with autism.",
       process:
         "I designed Alutit, a cartoon-illustrated character fronting the recruitment account, riffing on the AI-avatar trend visible elsewhere but keeping her fully hand-illustrated rather than AI-generated, so she'd read as authored and specific to Alut, not a generic trend-follow. She was built as a functional device, not just a mascot: a consistent base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. This let her explain the actual range of jobs at Alut visually, something a standard listing can't do. A recurring whimsical motif (unicorn, rainbow) gave the account a consistent, joyful tone across otherwise very different role content.",
       outcome:

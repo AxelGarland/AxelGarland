@@ -86,15 +86,6 @@ export default function AlutitPage() {
         <header className="relative overflow-hidden pb-12 pt-36 sm:pb-16 sm:pt-36 md:flex md:min-h-[100svh] md:items-center md:pb-10 md:pt-24">
           <div className="relative mx-auto grid w-full max-w-content grid-cols-1 items-center gap-8 px-6 sm:px-10 md:grid-cols-[1fr_1.15fr] md:gap-10 md:px-14 lg:px-16">
             <div>
-              <div className="mb-6 flex items-center gap-3">
-                <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
-                  Alutit
-                </span>
-                <span aria-hidden className="h-1 w-1 rounded-full bg-line" />
-                <span className="text-sm uppercase tracking-[0.06em] text-ink-subtle">
-                  Brand Character Design
-                </span>
-              </div>
               <h1 className="mb-6 font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
                 A character
                 <br />

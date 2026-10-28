@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
+import { ReelPhones } from "@/components/projects/ReelPhones";
 import { TagLine } from "@/components/projects/TagLine";
 import { HoverCollage } from "@/components/projects/HoverCollage";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -15,6 +16,14 @@ export const metadata: Metadata = {
   description:
     "Alutit, an illustrated recruitment character designed for Alut, Israel's national organization for people with autism.",
 };
+
+const REELS = [
+  { file: "reel-playground", label: "Alutit in front of a preschool playground, talking to the camera" },
+  { file: "reel-paris", label: "Alutit in Paris with a baguette, in front of the Eiffel Tower" },
+  { file: "reel-garden", label: "Alutit in a sun hat in a garden, talking to the camera" },
+  { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
+  { file: "reel-unicorn", label: "Alutit in a unicorn onesie against a rainbow background" },
+] as const;
 
 const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
 
@@ -140,6 +149,16 @@ export default function AlutitPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Reels — five muted clips in phones that open out into a row as they scroll into view */}
+        <section className="overflow-x-clip border-t border-line bg-surface py-20 md:py-28">
+          <div className="mx-auto mb-14 max-w-content px-6 sm:px-10 md:mb-20 md:px-14 lg:px-16">
+            <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+              Alutit, <em className="italic text-accent">in motion</em>
+            </h2>
+          </div>
+          <ReelPhones reels={REELS} />
         </section>
 
         {/* Deliverables — dark inverted, matching the footer's treatment */}

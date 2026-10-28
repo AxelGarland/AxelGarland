@@ -162,9 +162,7 @@ export default function AlutitPage() {
         {/* Deliverables — dark inverted, matching the footer's treatment */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-14 max-w-[20ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-16">
-              Where Alutit appears
-            </h2>
+            <h2 className="sr-only">Where Alutit appears</h2>
 
             <div className="flex flex-col gap-10">
               {DELIVERABLES.map((item) => (

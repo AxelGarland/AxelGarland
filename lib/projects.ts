@@ -491,12 +491,12 @@ export const PROJECTS: Project[] = [
 /** The order projects appear in on the home page and the work index, alternating left and right
  *  down the page. Projects not listed here keep their pages but aren't shown in either place. */
 export const WORK_ORDER = [
-  "kindred",
-  "giuson",
-  "mundos-mejores",
   "better-eater",
-  "alutit",
   "afterlife",
+  "giuson",
+  "kindred",
+  "alutit",
+  "mundos-mejores",
   "jabberwocky",
 ] as const;
 

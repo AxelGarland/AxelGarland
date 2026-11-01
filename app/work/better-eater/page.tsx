@@ -133,22 +133,20 @@ export default function BetterEaterPage() {
         {/* Brief */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
-              <div>
+            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
+              <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-full md:mx-0 md:w-full md:max-w-[18rem]">
+                <Image
+                  src={pictureSrc("bettereater/Amit.jpg")}
+                  alt="Amit, the persona Better Eater was designed for"
+                  fill
+                  className="object-cover object-[58%_40%]"
+                  sizes="(max-width: 768px) 192px, 288px"
+                />
+              </div>
+              <div className="flex flex-col gap-6">
                 <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
                   Meet Amit, who we designed it for
                 </h2>
-                <div className="relative mt-8 aspect-square w-48 overflow-hidden rounded-full md:w-56">
-                  <Image
-                    src={pictureSrc("bettereater/Amit.jpg")}
-                    alt="Amit, the persona Better Eater was designed for"
-                    fill
-                    className="object-cover object-[58%_40%]"
-                    sizes="224px"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy.problem}
                 </p>

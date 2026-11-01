@@ -60,18 +60,27 @@ const COOK_SCREENS = [
 
 const DECISIONS = [
   {
-    title: "Cooking every 3 days",
-    body: "The cooking-frequency scale runs from every day to once a week. We recommend the middle, every three days: a bigger batch that saves time and stays realistic for a student who also works.",
+    title: "We recommend cooking every three days",
+    body: "The cooking-frequency scale runs from every day to once a week. The middle, every three days, makes a bigger batch that saves time and stays realistic for a student who also works.",
+    file: "bettereater/how often do you want to cook.png",
+    alt: "Better Eater onboarding: a slider to choose how often to cook, with every 3 days recommended",
+    shape: "portrait",
   },
   {
-    title: "Learn by watching",
+    title: "Every step comes with a video",
     body: "Written steps are there, but the video lets you copy an expert cooking, so a beginner can learn an easy and proper way to do it.",
+    file: "bettereater/cook-video-landscape.png",
+    alt: "Better Eater full-screen cooking video with chapters: Prep, Bake, Roast, Chickpeas, Bake",
+    shape: "landscape",
   },
   {
-    title: "Green, on purpose",
-    body: "Better Eater is a helper for changing how you eat, not a diet app. Green felt natural, fresh, friendly, and calming, so even if the kitchen doesn't feel like home, the process feels easy.",
+    title: "Green, because it's calm",
+    body: "Green felt natural, fresh, friendly, and calming. It keeps Better Eater a helper for changing how you eat, and makes the process feel easy.",
+    file: "bettereater/recommended meal plan.png",
+    alt: "Better Eater recommended meal plan, in the app's green",
+    shape: "portrait",
   },
-];
+] as const;
 
 export default function BetterEaterPage() {
   const project = getProject("better-eater");
@@ -212,22 +221,42 @@ export default function BetterEaterPage() {
         {/* Design decisions */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-6 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-              Why it works this way
+            <h2 className="mb-4 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+              Three decisions, one goal
             </h2>
-            <p className="mb-10 max-w-[64ch] text-lg leading-relaxed text-ink-muted md:mb-12">
-              The hardest part was not making just another cooking or meal-prep app. So each choice
-              below points back to the goal: an easy transition into the way of eating you want to
-              try, not a diet.
+            <p className="mb-14 max-w-[56ch] text-lg leading-relaxed text-ink-muted md:mb-20">
+              Every choice serves one goal: an easy move toward the way you want to eat, not a diet.
             </p>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            <div className="flex flex-col gap-16 md:gap-24">
               {DECISIONS.map((item, i) => (
-                <div key={item.title} className="border border-line p-6">
-                  <span className="mb-3 block font-display text-lg leading-none text-accent-ink">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="mb-2 font-display text-lg font-semibold text-ink">{item.title}</p>
-                  <p className="text-base leading-relaxed text-ink-muted">{item.body}</p>
+                <div
+                  key={item.title}
+                  className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16"
+                >
+                  <div className={`${i % 2 === 1 ? "md:order-2" : ""}`}>
+                    <span className="mb-3 block font-display text-lg leading-none text-accent-ink">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mb-3 max-w-[24ch] font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="max-w-[48ch] text-lg leading-relaxed text-ink-muted">{item.body}</p>
+                  </div>
+                  <div
+                    className={`relative mx-auto w-full ${
+                      item.shape === "landscape"
+                        ? "aspect-[1023/505] max-w-[32rem]"
+                        : "aspect-[505/1023] max-w-[14rem] md:max-w-[17rem]"
+                    } ${i % 2 === 1 ? "md:order-1" : ""}`}
+                  >
+                    <Image
+                      src={pictureSrc(item.file)}
+                      alt={item.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 80vw, 512px"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

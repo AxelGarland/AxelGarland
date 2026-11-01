@@ -73,21 +73,6 @@ const DECISIONS = [
   },
 ];
 
-const REFLECTIONS = [
-  {
-    title: "Working as a team",
-    body: "We both worked across the persona, wireframes, visual design, and the prototype, and the app came together easily because we shared one direction.",
-  },
-  {
-    title: "Starting from wireframes",
-    body: "Working through wireframes first let us settle the structure of the flow before any visual detail.",
-  },
-  {
-    title: "Designing for one person",
-    body: "Designing for Amit made every decision easier to judge, and showed how much a product that fits one person's daily life can matter.",
-  },
-];
-
 export default function BetterEaterPage() {
   const project = getProject("better-eater");
   if (!project || !project.caseStudy) notFound();
@@ -249,29 +234,6 @@ export default function BetterEaterPage() {
           </div>
         </section>
 
-        {/* Reflection */}
-        <section className="border-t border-line bg-ink py-20 md:py-28">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-10 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-surface sm:text-3xl md:mb-12">
-              What I took from it
-            </h2>
-            <ol className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-              {REFLECTIONS.map((item, i) => (
-                <li key={item.title} className="border border-surface/15 bg-surface/5 p-6">
-                  <span className="mb-3 block font-display text-lg leading-none text-accent-light">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="mb-2 block font-display text-lg font-semibold text-surface">
-                    {item.title}
-                  </span>
-                  <span className="block text-base leading-relaxed text-surface/70">
-                    {item.body}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
         <MoreProjects current="better-eater" />
       </main>
       <SiteFooter />

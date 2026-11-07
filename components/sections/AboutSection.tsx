@@ -12,10 +12,11 @@ export function AboutSection() {
             </h2>
             <div className="md:pt-3">
               <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted">
-                I&rsquo;m curious by nature, with a real desire to create beautiful things, useful or
-                not. Hand me a task and I feel confident taking it on, whether it&rsquo;s a website,
-                an app, an illustration or a brand. If you have a project that needs a creative
-                perspective and great results,{" "}
+                I&rsquo;m a product designer and illustrator. I like to start from a real problem and get
+                a working version in front of the people who&rsquo;ll use it early, whether that&rsquo;s
+                an internal tool, an app or an illustration. For an internal tool at Alut, that meant
+                six weeks of talking to the recruitment team before I drew a screen. If you have a
+                product that needs that,{" "}
                 <Link
                   href="/contact"
                   className="text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"

@@ -1,12 +1,13 @@
 import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import Link from "next/link";
 
-/** A "back to work" button that stays in place as the page scrolls. At rest it's just the
- *  site's arrow box; on hover or keyboard focus it slides out its label. Zero height, so it
- *  never pushes the page content around. */
+/** A "back to work" button at the top of a project page. At rest it's just the site's arrow box; on
+ *  hover or keyboard focus it slides out its label. Zero height, so it never pushes the page content
+ *  around, and it scrolls away with the page instead of hovering over the text. The header's Work
+ *  link is always there for getting back. */
 export function BackLink() {
   return (
-    <div className="sticky top-[84px] z-40 h-0">
+    <div className="relative top-[84px] z-40 h-0">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <Link
           href="/#work"

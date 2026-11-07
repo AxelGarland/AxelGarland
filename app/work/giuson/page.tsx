@@ -221,7 +221,7 @@ export default function GiusonPage() {
                       <path key={d} d={d} />
                     ))}
                   </svg>
-                  <p className="max-w-[26ch] font-display text-xl font-medium leading-snug text-surface sm:text-2xl">
+                  <p className="max-w-[26ch] font-display text-xl !font-semibold !normal-case leading-snug text-surface sm:text-2xl">
                     {item.text}
                   </p>
                 </li>

@@ -2,13 +2,13 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { HeroVideo } from "@/components/projects/HeroVideo";
-import { KindredEmbed } from "@/components/projects/KindredEmbed";
 import { PosterGallery } from "@/components/projects/PosterGallery";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -17,6 +17,15 @@ export const metadata: Metadata = {
   description:
     "Kindred, a generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
 };
+
+/** The five steps of the live site, as stills, in the order they appear there. */
+const HOW_IT_WORKS = [
+  { file: "kindred/grid.jpg", w: 2400, h: 1502, alt: "Kindred: a five by five grid, twenty-five cells that make nine parts of a face" },
+  { file: "kindred/tiles.jpg", w: 2400, h: 1633, alt: "Kindred: the twenty-seven hand-drawn tiles every face is built from" },
+  { file: "kindred/symmetry.jpg", w: 2400, h: 1545, alt: "Kindred: drawing half a face and mirroring the rest, one part at a time" },
+  { file: "kindred/add-a-relative.jpg", w: 2400, h: 1787, alt: "Kindred: ten words roll a new face that joins the line of relatives" },
+  { file: "kindred/one-word-apart.jpg", w: 2400, h: 1758, alt: "Kindred: swapping one word changes only a few tiles, so the faces read as family" },
+] as const;
 
 const POSTERS = Array.from({ length: 10 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
@@ -79,10 +88,28 @@ export default function KindredPage() {
           </div>
         </section>
 
-        {/* How it works */}
+        {/* How it works: the five steps of the live site as stills, then a link to the real thing */}
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <KindredEmbed />
+            <ol className="mx-auto flex max-w-[72rem] flex-col gap-3 bg-[#07090a] p-3 md:gap-4 md:p-4">
+              {HOW_IT_WORKS.map((step) => (
+                <li key={step.file} className="relative">
+                  <Image
+                    src={pictureSrc(step.file)}
+                    alt={step.alt}
+                    width={step.w}
+                    height={step.h}
+                    className="h-auto w-full"
+                    sizes="(max-width: 1152px) 100vw, 1152px"
+                  />
+                </li>
+              ))}
+            </ol>
+            {project.liveUrl ? (
+              <div className="mx-auto mt-10 flex max-w-[72rem] justify-center md:mt-14">
+                <HalftoneButton href={project.liveUrl} external label="Try it live" />
+              </div>
+            ) : null}
           </div>
         </section>
 

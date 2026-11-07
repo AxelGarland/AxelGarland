@@ -32,8 +32,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.p {...rise(0.22)} className="mb-10 text-xl text-ink-muted sm:text-2xl">
-            designer<span aria-hidden className="mx-3 text-accent">&middot;</span>illustrator
-            <span aria-hidden className="mx-3 text-accent">&middot;</span>creator
+            product designer<span aria-hidden className="mx-3 text-accent">&middot;</span>illustrator
           </motion.p>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">

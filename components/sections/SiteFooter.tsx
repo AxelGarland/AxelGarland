@@ -43,7 +43,7 @@ export function SiteFooter({ closing = true }: { closing?: boolean }) {
                 <a
                   href={item.href}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="inline-block py-3 text-sm text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center py-3 text-sm text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil"
                 >
                   {item.label}
                   {item.external ? <span className="sr-only"> (opens in a new tab)</span> : null}

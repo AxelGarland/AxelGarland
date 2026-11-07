@@ -491,19 +491,32 @@ export const PROJECTS: Project[] = [
 /** The order projects appear in on the home page and the work index, alternating left and right
  *  down the page. Projects not listed here keep their pages but aren't shown in either place. */
 export const WORK_ORDER = [
-  "better-eater",
-  "afterlife",
   "giuson",
-  "kindred",
+  "better-eater",
+  "interview-assistant",
   "alutit",
+  "kindred",
+  "afterlife",
   "mundos-mejores",
   "jabberwocky",
 ] as const;
+
+/** The first projects in WORK_ORDER are the featured product case studies, shown large on the home
+ *  page. The rest follow in a smaller "more work" group. */
+export const FEATURED_COUNT = 3;
 
 export function getOrderedProjects(): Project[] {
   return WORK_ORDER.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter(
     (p): p is Project => Boolean(p),
   );
+}
+
+export function getFeaturedProjects(): Project[] {
+  return getOrderedProjects().slice(0, FEATURED_COUNT);
+}
+
+export function getMoreProjects(): Project[] {
+  return getOrderedProjects().slice(FEATURED_COUNT);
 }
 
 export function getProject(slug: string): Project | undefined {

@@ -1,19 +1,12 @@
 import type p5 from "p5";
 
-/** A looping p5 animation of Axel's photo: it pixelates, then re-draws itself in four different
- *  styles (a duotone print, halftone dots, a grey-and-red illustration, pop colours), then
- *  resolves back to the photo. Every style is a function of the same 60 x 60 grid of averaged
- *  colours, so the transitions between styles are per-cell morphs rather than crossfades. */
+/** A looping p5 animation of Axel's photo: the photo breaks into a colourful style cell by cell (a
+ *  duotone print, then halftone dots, then pop colours) and resolves back to the photo. The plain,
+ *  natural-colour pixelation is not shown. Every style is a function of the same 60 x 60 grid of
+ *  averaged colours, so the transitions between styles are per-cell morphs rather than crossfades. */
 
 const COLS = 60;
 const ROWS = 60;
-/** Finer grids shown in turn while the photo breaks into pixels (and back again). */
-const PIXEL_STEPS: [number, number][] = [
-  [240, 240],
-  [144, 144],
-  [90, 90],
-];
-
 type RGB = [number, number, number];
 const INK: RGB = [26, 25, 22];
 /** The page is white now, so the light tone of the illustration styles is white too. */
@@ -133,14 +126,12 @@ const SPEED = 1.4;
 
 /** Segment lengths in seconds, in the order they play. */
 const HOLD_PHOTO = 2.4 / SPEED;
-const PIXEL_STEP = 0.28 / SPEED;
-const HOLD_MOSAIC = 0.7 / SPEED;
 const MORPH = 1.15 / SPEED;
 const HOLD_STYLE = 1.9 / SPEED;
 
 export type Segment =
   | { kind: "photo"; start: number; end: number }
-  | { kind: "level"; level: number; start: number; end: number }
+  | { kind: "reveal"; style: number; into: boolean; sweep: number; start: number; end: number }
   | { kind: "cells"; from: number; to: number; sweep: number; start: number; end: number };
 
 export function buildTimeline(): { segments: Segment[]; loop: number } {
@@ -150,8 +141,9 @@ export function buildTimeline(): { segments: Segment[]; loop: number } {
     segments.push({ kind: "photo", start: t, end: t + dur });
     t += dur;
   };
-  const level = (index: number, dur: number) => {
-    segments.push({ kind: "level", level: index, start: t, end: t + dur });
+  /** The style fades in over the photo, cell by cell (into) or the photo returns through it. */
+  const reveal = (style: number, into: boolean, sweep: number, dur: number) => {
+    segments.push({ kind: "reveal", style, into, sweep, start: t, end: t + dur });
     t += dur;
   };
   const cells = (from: number, to: number, sweep: number, dur: number) => {
@@ -161,22 +153,19 @@ export function buildTimeline(): { segments: Segment[]; loop: number } {
 
   let sweep = 0;
   photo(HOLD_PHOTO);
-  for (let i = 0; i < PIXEL_STEPS.length; i++) level(i, PIXEL_STEP);
-  cells(0, 0, 0, HOLD_MOSAIC);
-  for (const style of [1, 2, 3]) {
+  reveal(1, true, sweep++, MORPH);
+  cells(1, 1, 0, HOLD_STYLE);
+  for (const style of [2, 3]) {
     cells(style - 1, style, sweep++, MORPH);
     cells(style, style, 0, HOLD_STYLE);
   }
-  cells(3, 0, sweep++, MORPH);
-  cells(0, 0, 0, HOLD_MOSAIC);
-  for (let i = PIXEL_STEPS.length - 1; i >= 0; i--) level(i, PIXEL_STEP);
+  reveal(3, false, sweep++, MORPH);
   return { segments, loop: t };
 }
 
 export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
   return (p: p5) => {
     let src: p5.Image | null = null;
-    let levels: p5.Image[] = [];
     let styles: Float32Array[] = [];
     const delays = new Float32Array(COLS * ROWS);
     const { segments, loop } = buildTimeline();
@@ -200,19 +189,6 @@ export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
         img.loadPixels();
         const grid = averageGrid(img, COLS, ROWS);
         styles = buildStyles(grid);
-        levels = PIXEL_STEPS.map(([c, r]) => {
-          const g = averageGrid(img, c, r);
-          const out = p.createImage(c, r);
-          out.loadPixels();
-          for (let i = 0; i < c * r; i++) {
-            out.pixels[i * 4] = g[i * 3];
-            out.pixels[i * 4 + 1] = g[i * 3 + 1];
-            out.pixels[i * 4 + 2] = g[i * 3 + 2];
-            out.pixels[i * 4 + 3] = 255;
-          }
-          out.updatePixels();
-          return out;
-        });
         // Morph order radiates out from the face, with a little noise so it never looks mechanical.
         for (let cy = 0; cy < ROWS; cy++) {
           for (let cx = 0; cx < COLS; cx++) {
@@ -249,12 +225,45 @@ export function createPortraitSketch(opts: { url: string; host: HTMLElement }) {
         p.image(src, 0, 0, w, h);
         return;
       }
-      if (seg.kind === "level") {
-        p.noSmooth();
-        p.image(levels[seg.level], 0, 0, w, h);
+      const prog = (t - seg.start) / (seg.end - seg.start);
+      if (seg.kind === "reveal") {
+        // The photo underneath, and the style laid over it one cell at a time, radiating from the face.
+        p.smooth();
+        p.image(src, 0, 0, w, h);
+        const st = styles[seg.style];
+        const cw = w / COLS;
+        const ch = h / ROWS;
+        const spread = 0.55;
+        for (let cy = 0; cy < ROWS; cy++) {
+          const y0 = Math.floor(cy * ch);
+          const hh = Math.ceil((cy + 1) * ch) - y0;
+          for (let cx = 0; cx < COLS; cx++) {
+            const i = cy * COLS + cx;
+            const d = seg.sweep % 2 === 0 ? delays[i] : 1 - delays[i];
+            const q = smooth(clamp01(prog * (1 + spread) - d * spread));
+            const a = seg.into ? q : 1 - q;
+            if (a < 0.01) continue;
+            const x0 = Math.floor(cx * cw);
+            const ww = Math.ceil((cx + 1) * cw) - x0;
+            const o = i * STRIDE;
+            const alpha = a * 255;
+            const sc = st[o + 3];
+            if (sc >= 0.995 && st[o + 4] < 0.02) {
+              p.fill(st[o], st[o + 1], st[o + 2], alpha);
+              p.rect(x0, y0, ww, hh);
+              continue;
+            }
+            p.fill(st[o + 5], st[o + 6], st[o + 7], alpha);
+            p.rect(x0, y0, ww, hh);
+            if (sc < 0.02) continue;
+            const s = Math.min(ww, hh) * sc;
+            p.fill(st[o], st[o + 1], st[o + 2], alpha);
+            if (st[o + 4] > 0.45) p.circle(x0 + ww / 2, y0 + hh / 2, s);
+            else p.rect(x0 + (ww - s) / 2, y0 + (hh - s) / 2, s, s, s * st[o + 4]);
+          }
+        }
         return;
       }
-      const prog = (t - seg.start) / (seg.end - seg.start);
       const from = styles[seg.from];
       const to = styles[seg.to];
       const still = seg.from === seg.to;

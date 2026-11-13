@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { INK, RED } from "@/lib/theme";
 
 /** "AXEL GARLAND" in halftone dots for the header: the same black-and-red dots as the big name on
  *  the home page, on one line at a fixed small size. It is drawn once, so it is static. The plain
  *  text stays in the page until the font has loaded and is what screen readers use. */
 
 const TEXT = "AXEL GARLAND";
-const INK = "#1A1916";
-const RED = "#D64040";
 const FONT_PX = 25;
 const CELL = 2.3;
 const H = 32;

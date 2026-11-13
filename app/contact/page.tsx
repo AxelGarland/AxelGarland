@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 const TITLE = "Contact · Axel Garland";
-const DESCRIPTION = "Get in touch with Axel Garland, open to full-time and contract product design roles.";
+const DESCRIPTION = "Get in touch with Axel Garland about product design roles, contract work or collaborations.";
 
 export const metadata: Metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: "/contact" });
 
@@ -26,8 +26,8 @@ export default function ContactPage() {
               what&rsquo;s <em className="italic text-accent">next</em>
             </h1>
             <p className="mb-10 max-w-[42ch] text-base leading-relaxed text-ink-muted md:text-lg">
-              I recently graduated from Shenkar and I&rsquo;m looking for full-time or contract
-              roles in product design (UX/UI). Send me a note and I&rsquo;ll reply soon.
+              I recently graduated from Shenkar. I&rsquo;m available for product design roles
+              (UX/UI), contract work and collaborations. Send me a note and I&rsquo;ll reply soon.
             </p>
 
             {/* Contact details: a red dot, a quiet label, and a link at least 44px tall. */}
@@ -66,8 +66,8 @@ export default function ContactPage() {
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>
                   <a href="/Axel%20Garland%20CV.pdf" target="_blank" rel="noopener noreferrer" className={LINK}>
-                    CV
-                    <span className="sr-only"> (opens in a new tab)</span>
+                    Download CV
+                    <span className="sr-only"> (PDF, opens in a new tab)</span>
                   </a>
                 </dd>
               </div>

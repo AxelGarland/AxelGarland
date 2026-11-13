@@ -121,7 +121,7 @@ export function OpeningRetablo({ open, lid }: { open: RetabloOpen; lid: string }
       type="button"
       onClick={() => setOpened((v) => !v)}
       aria-label={opened ? `Close the “${lid}” retablo` : `Open the “${lid}” retablo`}
-      className="relative block w-full cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
+      className="relative block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
       style={retabloFrameStyle(open)}
     >
       <RetabloPieces open={open} lid={lid} opened={opened} duration={reduce ? 0 : 1500} priority />

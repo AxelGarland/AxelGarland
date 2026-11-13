@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
  *  clip a single time and stops on its last frame; clicking the clip then plays it again. */
 export function HeroVideo({
   src,
+  mobileSrc,
   poster,
   label,
   soundToggle = false,
@@ -18,6 +19,8 @@ export function HeroVideo({
   playOnce = false,
 }: {
   src: string;
+  /** A smaller file for phones, used below 768px wide. */
+  mobileSrc?: string;
   poster: string;
   label: string;
   soundToggle?: boolean;
@@ -29,6 +32,7 @@ export function HeroVideo({
   const dialog = useRef<HTMLDialogElement>(null);
   const big = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [paused, setPaused] = useState(false);
   // Touch screens get a lighter preload: these clips are several megabytes.
   const [coarse, setCoarse] = useState(false);
 
@@ -98,7 +102,6 @@ export function HeroVideo({
       <video
         ref={ref}
         className="absolute inset-0 h-full w-full object-cover"
-        src={src}
         poster={poster}
         aria-label={label}
         muted
@@ -107,7 +110,29 @@ export function HeroVideo({
         playsInline
         preload={coarse ? "metadata" : "auto"}
         controls={reduce}
-      />
+      >
+        {mobileSrc ? <source src={mobileSrc} media="(max-width: 767px)" type="video/mp4" /> : null}
+        <source src={src} type="video/mp4" />
+      </video>
+      {!playOnce && !reduce ? (
+        <button
+          type="button"
+          onClick={() => {
+            const v = ref.current;
+            if (!v) return;
+            if (v.paused) void v.play();
+            else v.pause();
+            setPaused(v.paused);
+          }}
+          aria-pressed={paused}
+          aria-label={paused ? "Play animation" : "Pause animation"}
+          className="absolute bottom-3 left-3 z-10 inline-flex h-11 w-11 items-center justify-center bg-black/60 text-white backdrop-blur-sm transition-colors duration-300 hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-light"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden>
+            {paused ? <path d="M3 1.5v11l9-5.5-9-5.5Z" /> : <path d="M3 1.5h3v11H3zM8 1.5h3v11H8z" />}
+          </svg>
+        </button>
+      ) : null}
       {expandOnMobile && !reduce ? (
         <button
           type="button"

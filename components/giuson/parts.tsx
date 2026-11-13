@@ -68,7 +68,8 @@ export function Strong({ children }: { children: ReactNode }) {
   return <strong className="font-semibold text-gj-navy">{children}</strong>;
 }
 
-const FRAME = "overflow-hidden rounded-[4px] border border-gj-line bg-white shadow-[0_1px_2px_rgba(11,27,51,0.06)]";
+const FRAME =
+  "overflow-hidden rounded-[6px] border border-gj-line bg-white shadow-[0_1px_2px_rgba(11,27,51,0.06),0_16px_34px_-20px_rgba(11,27,51,0.32)]";
 
 /** A product screen. On phones it scrolls sideways at a readable size instead of shrinking until its
  *  text disappears. */
@@ -101,22 +102,30 @@ export function Screen({
   return (
     <div className={`-mx-6 overflow-x-auto px-6 md:mx-0 md:overflow-visible md:px-0 ${className}`}>
       <div className="relative min-w-[var(--sw)] md:min-w-0" style={{ ["--sw" as string]: `${minWidth}px` }}>
-        <div className={`relative md:min-w-0 ${FRAME}`} style={aspect ? { aspectRatio: String(aspect) } : undefined}>
-          {aspect ? (
-            <Image src={pictureSrc(file)} alt={alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
-          ) : (
-            <Image
-              src={pictureSrc(file)}
-              alt={alt}
-              width={width}
-              height={height}
-              priority={priority}
-              sizes={sizes}
-              className="block h-auto w-full"
-            />
-          )}
+        <div className={`md:min-w-0 ${FRAME}`}>
+          {/* A thin window bar, so the picture reads as a screen and not as a graphic. */}
+          <div aria-hidden className="flex h-7 items-center gap-1.5 border-b border-gj-line bg-gj-tint px-3">
+            <span className="h-2 w-2 rounded-full bg-gj-muted/35" />
+            <span className="h-2 w-2 rounded-full bg-gj-muted/35" />
+            <span className="h-2 w-2 rounded-full bg-gj-muted/35" />
+          </div>
+          <div className="relative" style={aspect ? { aspectRatio: String(aspect) } : undefined}>
+            {aspect ? (
+              <Image src={pictureSrc(file)} alt={alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
+            ) : (
+              <Image
+                src={pictureSrc(file)}
+                alt={alt}
+                width={width}
+                height={height}
+                priority={priority}
+                sizes={sizes}
+                className="block h-auto w-full"
+              />
+            )}
+            {children}
+          </div>
         </div>
-        {children}
       </div>
     </div>
   );

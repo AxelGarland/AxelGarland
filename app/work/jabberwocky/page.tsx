@@ -1,5 +1,6 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
+import { CaseFacts } from "@/components/projects/CaseFacts";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -27,13 +28,14 @@ export default function JabberwockyPage() {
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Header — the title and text on the left, the book mockup smaller on the right */}
-        <header className="pb-16 pt-32 sm:pt-36 md:pb-20">
+        <header className="pb-16 pt-36 md:pb-20">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div className="order-2 md:order-1">
               <h1 className="mb-6 type-title font-display text-ink">
                 {project.title}
               </h1>
               <p className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">{project.reflection}</p>
+              <CaseFacts className="mt-5">Illustrated book · Colored pencil</CaseFacts>
             </div>
             <div className="relative order-1 mx-auto aspect-[5145/3780] w-full max-w-[30rem] md:order-2 md:max-w-none">
               <Image
@@ -62,7 +64,7 @@ export default function JabberwockyPage() {
         </section>
         <MoreProjects current="jabberwocky" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

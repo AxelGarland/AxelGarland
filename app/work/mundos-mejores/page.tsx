@@ -38,7 +38,7 @@ export default function MundosMejoresPage() {
         </section>
         <MoreProjects current="mundos-mejores" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

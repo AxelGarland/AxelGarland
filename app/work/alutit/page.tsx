@@ -4,6 +4,7 @@ import { FloatingLikes } from "@/components/projects/FloatingLikes";
 import { HalftoneStars } from "@/components/projects/HalftoneStars";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { ReelPhones } from "@/components/projects/ReelPhones";
+import { CaseFacts } from "@/components/projects/CaseFacts";
 import { TagLine } from "@/components/projects/TagLine";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -40,6 +41,41 @@ const TAGS = cardTags("alutit");
 
 /** The character in her different roles, cut out as die-cut stickers (the white border and soft
  *  shadow are part of each file). A row of three above a row of four, all the same size. */
+/** The brief, in three short lines: what was wrong, what I made, and how it works. */
+const BRIEF = [
+  ["Problem", "Our recruitment social media read like a noticeboard for job openings, with no point of view."],
+  [
+    "Response",
+    "A recognizable character, inspired by the warmth and energy of our recruitment coordinators and built in our own colors. She became the face of our social media.",
+  ],
+  [
+    "System",
+    "One base design, redressed in costumes and situations for each role, so she can show the range of jobs a listing can\u2019t, and adapt to each campaign.",
+  ],
+] as const;
+
+/** Real pieces she appears on. */
+const APPLICATIONS = [
+  {
+    caption: "Recruitment flyers",
+    span: "md:col-span-2",
+    images: [
+      { file: "alutit/apps-flyer-1.webp", alt: "A stack of Alutit recruitment brochures, the cover showing two friends on a bicycle" },
+      { file: "alutit/apps-flyer-2.webp", alt: "A stack of Alutit recruitment brochures, the cover showing Alutit in a graduation gown on a unicorn" },
+    ],
+  },
+  {
+    caption: "Merchandise",
+    span: "",
+    images: [{ file: "alutit/apps-merch.webp", alt: "Alutit merchandise laid out together: a tote bag, notebooks and stickers" }],
+  },
+  {
+    caption: "Friend-brings-friend campaign",
+    span: "",
+    images: [{ file: "alutit/apps-referral.webp", alt: "The Alutit friend-brings-friend campaign logo: Alutit with four friends in circles around her" }],
+  },
+] as const;
+
 const STICKERS = [
   [
     { file: "alutit/stickers/grad-unicorn-3.webp", alt: "Alutit in a graduation gown, tossing her cap while riding a unicorn over a rainbow" },
@@ -78,6 +114,7 @@ export default function AlutitPage() {
                 recruitment on social media, video, print and merchandise.
               </p>
               <TagLine tags={TAGS} className="" />
+              <CaseFacts className="mt-3">Character design and social media content · ALUT recruitment department</CaseFacts>
             </div>
 
             <div className="relative h-[64svh] min-h-[24rem] w-full md:h-[min(86svh,62rem)]">
@@ -110,12 +147,14 @@ export default function AlutitPage() {
                 <h2 className="type-section font-display text-ink">
                   Building presence through character
                 </h2>
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  {project.caseStudy?.problem}
-                </p>
-                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  {project.caseStudy?.role}
-                </p>
+                <dl className="m-0 flex max-w-[64ch] flex-col gap-5">
+                  {BRIEF.map(([term, text]) => (
+                    <div key={term} className="grid grid-cols-1 gap-1 sm:grid-cols-[7rem_1fr] sm:gap-6">
+                      <dt className="text-sm font-semibold uppercase tracking-[0.1em] text-ink sm:pt-[0.35em]">{term}</dt>
+                      <dd className="m-0 text-lg leading-relaxed text-ink-muted">{text}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>
@@ -149,11 +188,8 @@ export default function AlutitPage() {
                 <Fragment key={row[0].file}>
                   {rowIndex === 1 ? (
                     <p className="mx-auto max-w-[30ch] text-center font-display text-xl font-light leading-snug text-surface sm:text-2xl md:text-3xl">
-                      Alutit appears in{" "}
-                      <em className="italic text-accent-light">
-                        recruitment flyers, social media, merchandise
-                      </em>{" "}
-                      and internal messaging
+                      A costume for{" "}
+                      <em className="italic text-accent-light">every role</em> we hire for
                     </p>
                   ) : null}
                   <ul className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
@@ -172,6 +208,35 @@ export default function AlutitPage() {
                     ))}
                   </ul>
                 </Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Applications — the real pieces she appears on */}
+        <section className="border-t border-line bg-paper py-16 md:py-24">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <h2 className="mb-10 type-section font-display text-ink md:mb-14">Where she appears</h2>
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-x-8">
+              {APPLICATIONS.map((group) => (
+                <figure key={group.caption} className={`m-0 ${group.span}`}>
+                  <div className={`grid gap-4 ${group.images.length > 1 ? "grid-cols-2 md:gap-8" : "grid-cols-1"}`}>
+                    {group.images.map((img) => (
+                      <div key={img.file} className="relative aspect-[4/5]">
+                        <Image
+                          src={pictureSrc(img.file)}
+                          alt={img.alt}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 80vw, 24vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <figcaption className="mt-4 text-sm font-semibold uppercase tracking-[0.08em] text-ink-muted">
+                    {group.caption}
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
@@ -204,7 +269,7 @@ export default function AlutitPage() {
         </section>
         <MoreProjects current="alutit" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

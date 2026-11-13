@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
+import { CaseFacts } from "@/components/projects/CaseFacts";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { PosterGallery } from "@/components/projects/PosterGallery";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
@@ -53,13 +54,15 @@ export default function KindredPage() {
               <h1 className="mb-8 type-title font-display text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
+              <CaseFacts className="mb-8">Design, illustration and creative coding · Web app</CaseFacts>
               {project.liveUrl ? (
                 <HalftoneButton href={project.liveUrl} external label="Try it live" />
               ) : null}
             </div>
-            <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2 md:-mr-4 lg:-mr-10">
+            <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2">
               <HeroVideo
                 src={pictureSrc("kindred/showreel.mp4")}
+                mobileSrc={pictureSrc("kindred/showreel-mobile.mp4")}
                 poster={pictureSrc("kindred/showreel-poster.jpg")}
                 label="Kindred showreel: crowds of colorful geometric faces that keep changing"
                 soundToggle
@@ -84,6 +87,18 @@ export default function KindredPage() {
                   Kindred explores where the boundaries between code, algorithms, and illustration
                   meet, producing an endless family of graphic faces, each one generated
                   automatically.
+                </p>
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
+                  27 hand-drawn tiles
+                  <span aria-hidden className="mx-2 text-accent">&rarr;</span>
+                  <span className="sr-only">, then </span>
+                  rules
+                  <span aria-hidden className="mx-2 text-accent">&rarr;</span>
+                  <span className="sr-only">, then </span>
+                  generated faces
+                  <span aria-hidden className="mx-2 text-accent">&rarr;</span>
+                  <span className="sr-only">, then </span>
+                  posters
                 </p>
               </div>
             </div>
@@ -139,7 +154,7 @@ export default function KindredPage() {
         </section>
         <MoreProjects current="kindred" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

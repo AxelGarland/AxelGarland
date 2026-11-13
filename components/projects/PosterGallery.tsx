@@ -81,7 +81,7 @@ export function PosterGallery({ posters, label = "Poster" }: { posters: Poster[]
                 onClick={() => setActive(i)}
                 onMouseEnter={() => canHover() && setActive(i)}
                 onFocus={() => setActive(i)}
-                className={`relative aspect-[842/1191] w-[2.8rem] shrink-0 overflow-hidden border bg-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-[3.35rem] md:w-full ${
+                className={`relative aspect-[842/1191] w-[2.8rem] max-[359px]:w-[2.1rem] shrink-0 overflow-hidden border bg-white transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:w-[3.35rem] md:w-full ${
                   i === active ? "border-accent opacity-100 ring-1 ring-accent" : "border-line opacity-60 hover:opacity-100"
                 }`}
               >

@@ -1,48 +1,77 @@
-import { getOrderedProjects } from "@/lib/projects";
-import { PRODUCT_WORK, VISUAL_WORK } from "@/lib/workCards";
+import { DriftingStrip } from "@/components/projects/DriftingStrip";
+import { HalftoneText } from "@/components/projects/HalftoneText";
+import { LoadingLoop } from "@/components/projects/LoadingLoop";
+import { StripViewport } from "@/components/projects/StripViewport";
+import { CROP } from "@/lib/workCrops";
+import { getOrderedProjects, projectThumbnailSrc } from "@/lib/projects";
+import Image from "next/image";
 import Link from "next/link";
 
-const META = Object.fromEntries([...PRODUCT_WORK, ...VISUAL_WORK].map((c) => [c.slug, c.meta]));
-
-/** The other projects, set as a plain typeset index at the end of every case study: the name in the
- *  site's heavy capitals, what kind of work it is, and an arrow. Starts with the project after this
- *  one and wraps round, so every page ends by pointing somewhere. The only motion is the dotted line
- *  that draws under the name and a small nudge of the arrow, and both stop with reduced motion. */
+/** The strip of project circles at the bottom of every case study: the other projects, starting with
+ *  the one after this, on black, drifting slowly from right to left, easing down to a crawl under the pointer, with a red dot above the circle being pointed at.
+ *  The list is laid out twice, back to back, and the strip slides by exactly one copy, so it never
+ *  ends. Only the first copy is reachable by keyboard and screen readers. On a touch screen it is a
+ *  row you swipe, which also keeps drifting by itself (see StripViewport). With reduced motion it
+ *  holds still and scrolls by hand instead. Each item is as wide as its name when that is wider than
+ *  its circle, so long names (Mundos Mejores) never run into their neighbours. */
 export function MoreProjects({ current }: { current: string }) {
   const all = getOrderedProjects();
   const at = all.findIndex((p) => p.slug === current);
   const others = at < 0 ? all : [...all.slice(at + 1), ...all.slice(0, at)];
+  // Each copy holds the list twice so a copy is always wider than the screen.
+  const half = [...others, ...others];
 
   return (
-    <section aria-labelledby="more-projects" className="border-t border-line bg-paper py-14 md:py-20">
-      <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-        <h2 id="more-projects" className="type-section mb-8 font-display text-ink md:mb-10">
-          More projects
-        </h2>
-        <ul className="m-0 list-none border-t border-ink/25 p-0">
-          {others.map((project) => (
-            <li key={project.slug} className="border-b border-ink/25">
-              <Link
-                href={`/work/${project.slug}`}
-                className="group flex items-baseline gap-4 py-5 md:gap-8 md:py-6"
-              >
-                <span className="type-section font-display text-ink">
-                  <span className="dotted-rule">{project.title}</span>
-                </span>
-                <span className="ml-auto text-right text-sm uppercase tracking-[0.06em] text-ink-subtle max-sm:hidden">
-                  {META[project.slug] ?? project.discipline}
-                </span>
-                <span
-                  aria-hidden
-                  className="text-xl leading-none text-ink-subtle transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent-ink max-sm:ml-auto"
+    <StripViewport
+      label="More projects"
+      className="overflow-hidden bg-black py-16 motion-reduce:overflow-x-auto md:py-24 [@media(pointer:coarse)]:overflow-x-auto [@media(pointer:coarse)]:overscroll-x-contain [@media(pointer:coarse)]:[scrollbar-width:none] [@media(pointer:coarse)]:[&::-webkit-scrollbar]:hidden"
+    >
+      <DriftingStrip className="flex w-max animate-marquee motion-reduce:animate-none [@media(pointer:coarse)]:animate-none">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0 gap-10 pr-10 md:gap-14 md:pr-14">
+            {half.map((project, i) => {
+              const crop = CROP[project.slug] ?? { fit: "cover" as const };
+              const thumb = projectThumbnailSrc(project);
+              const first = copy === 0 && i < others.length;
+              return (
+                <Link
+                  key={`${project.slug}-${i}`}
+                  href={`/work/${project.slug}`}
+                  aria-hidden={first ? undefined : true}
+                  tabIndex={first ? undefined : -1}
+                  className="group flex shrink-0 flex-col items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent-light"
                 >
-                  &#8599;
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+                  <div className="relative aspect-square w-[10.5rem] sm:w-[12.5rem] lg:w-[14rem]">
+                    <div className={`absolute inset-0 overflow-hidden rounded-full ${crop.backdrop ?? "bg-surface-raised"}`}>
+                      {project.circleLoop ? (
+                        <LoadingLoop frames={project.circleLoop} still={project.circleLoopStill} fill />
+                      ) : thumb ? (
+                        <Image
+                          src={thumb}
+                          alt=""
+                          fill
+                          className={`transition-transform duration-[900ms] ease-out group-hover:scale-[1.05] ${
+                            crop.fit === "cover" ? "object-cover" : `object-contain ${crop.scale ?? ""}`
+                          } ${project.thumbnailBlend ? "mix-blend-multiply" : ""}`}
+                          style={crop.position ? { objectPosition: crop.position } : undefined}
+                          sizes="(max-width: 640px) 168px, 224px"
+                        />
+                      ) : null}
+                    </div>
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute bottom-full left-1/2 mb-4 h-3.5 w-3.5 -translate-x-1/2 scale-0 rounded-full bg-accent transition-transform duration-300 group-hover:scale-100"
+                    />
+                  </div>
+                  <span className="mt-5">
+                    <HalftoneText text={project.title} />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        ))}
+      </DriftingStrip>
+    </StripViewport>
   );
 }

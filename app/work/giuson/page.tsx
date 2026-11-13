@@ -59,7 +59,7 @@ export default function GiusonPage() {
         <BackLink />
 
         {/* Hero: 4 columns of text, 8 of product. The home screen introduces the two sides of the product. */}
-        <header className="bg-white pb-12 pt-32 md:pb-[3.75rem] md:pt-40">
+        <header className="bg-white pb-12 pt-36 md:pb-[3.75rem] md:pt-40">
           <Container>
             <div className={`${GRID} gap-y-10`}>
               <div className="col-span-4 md:col-span-4">
@@ -73,6 +73,10 @@ export default function GiusonPage() {
                 </Body>
                 <p className={`mt-8 border-t border-gj-line pt-4 text-gj-navy ${TEXT}`}>
                   Product Design &amp; Development &middot; ALUT &middot; 2.5 months
+                </p>
+                <p className={`mt-3 text-gj-navy ${TEXT}`}>
+                  <span className="font-semibold">Outcome</span> Used in regular recruitment work, with at least four
+                  coordinators handling specialized healthcare calls instead of one.
                 </p>
               </div>
 
@@ -446,7 +450,7 @@ export default function GiusonPage() {
 
         <MoreProjects current="giuson" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

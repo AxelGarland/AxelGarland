@@ -13,7 +13,7 @@ export function AboutSection() {
             <div className="md:pt-3">
               <div className="flex max-w-[58ch] flex-col gap-5 text-lg leading-relaxed text-ink-muted">
                 <p>
-                  I&rsquo;m a product designer with a background in visual communication and illustration.
+                  I&rsquo;m a product designer with a background in visual communication and illustration. I studied Visual Communication Design at Shenkar College.
                 </p>
                 <p>
                   I like getting close to the problem, understanding how people actually work, and turning
@@ -26,13 +26,22 @@ export function AboutSection() {
                   ideas beyond design into working products using code and AI-assisted tools.
                 </p>
                 <p>Outside product design, I illustrate and work across different mediums, from colored pencil to sculpture.</p>
-                <p>
+                <p className="flex flex-wrap items-center gap-x-8">
                   <Link
                     href="/contact"
                     className="inline-flex min-h-[44px] items-center text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink"
                   >
                     Let&rsquo;s talk.
                   </Link>
+                  <a
+                    href="/Axel%20Garland%20CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[44px] items-center text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink"
+                  >
+                    Download CV
+                    <span className="sr-only"> (PDF, opens in a new tab)</span>
+                  </a>
                 </p>
               </div>
               <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-muted">

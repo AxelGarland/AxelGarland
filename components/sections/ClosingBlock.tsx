@@ -8,9 +8,12 @@ export function ClosingBlock() {
     <section className="border-t border-line bg-surface py-24 md:py-36">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <MotionReveal>
-          <h2 className="type-title mb-10 max-w-[19ch] font-display text-ink md:mb-12">
-            Let&rsquo;s build <em className="italic text-accent">something together.</em>
+          <h2 className="type-title mb-4 font-display text-ink">
+            Let&rsquo;s <em className="italic text-accent">talk.</em>
           </h2>
+          <p className="mb-10 max-w-[44ch] text-lg leading-relaxed text-ink-muted md:mb-12">
+            Product roles, collaborations, or freelance work.
+          </p>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <HalftoneButton href="/contact" label="Get in touch" />
             <CopyEmail

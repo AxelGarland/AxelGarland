@@ -118,8 +118,20 @@ export default async function MundosBoxPage({ params }: PageProps) {
             </ul>
           </div>
         </nav>
+
+        <div className="border-t border-line py-10">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <Link
+              href="/work/mundos-mejores"
+              className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:text-ink"
+            >
+              <HalftoneArrowBox dir="left" className="!h-9 !w-9" />
+              Back to project
+            </Link>
+          </div>
+        </div>
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
+import { CaseFacts } from "@/components/projects/CaseFacts";
 import { TagLine } from "@/components/projects/TagLine";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { LandingPageViewer } from "@/components/projects/LandingPageViewer";
@@ -77,6 +78,7 @@ export default function AfterLifePage() {
           <div className="relative mx-auto aspect-video w-full max-w-[calc((100svh-68px)*16/9)] overflow-hidden">
             <HeroVideo
               src={pictureSrc("afterlife/entrance animation.mp4")}
+              mobileSrc={pictureSrc("afterlife/entrance-mobile.mp4")}
               poster={pictureSrc("afterlife/entrance-poster.jpg")}
               label="AfterLife’s landing page entrance: two skeletons dance beside the logo"
             />
@@ -98,6 +100,9 @@ export default function AfterLifePage() {
                   wrap-up of your life, so you can celebrate it and move on.
                 </p>
                 <TagLine tags={TAGS} tone="dark" />
+                <CaseFacts tone="dark" className="mt-3">
+                  Concept project · Illustration, UI design and animation in Figma
+                </CaseFacts>
               </div>
             </div>
           </div>
@@ -114,7 +119,12 @@ export default function AfterLifePage() {
                 <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                   The app walks you through your life in four stages: Video, Memories, Statistics,
                   and Ready to move on. At the center is a flower-shaped statistics chart, and each
-                  leaf opens into a screen about one part of your life, told gently and with a little humor.
+                  leaf opens into a screen about one part of your life.
+                </p>
+                <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                  I wanted death to feel strange and playful rather than solemn. Skeleton characters, flowers,
+                  statistics and gentle humor turn the interface into something between a life recap and a final
+                  celebration.
                 </p>
               </div>
               <div className="order-1 md:order-2">
@@ -169,7 +179,7 @@ export default function AfterLifePage() {
 
         <MoreProjects current="afterlife" />
       </main>
-      <SiteFooter />
+      <SiteFooter closing={false} />
     </>
   );
 }

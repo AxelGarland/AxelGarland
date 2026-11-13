@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { INK, RED } from "@/lib/theme";
 
 /** The site's one arrow: an arrowhead (a chevron, no shaft) drawn in halftone dots, black with red at
  *  the edges, with nothing around it at rest. When the link or button around it (the nearest `group`)
@@ -11,8 +12,6 @@ import { useEffect, useRef } from "react";
  *  `shape="square"` is a button-sized box (give it a size with `className` to change it);
  *  `shape="tall"` stretches to the height of whatever is beside it, with the arrow centred. */
 
-const INK = "#1A1916";
-const RED = "#D64040";
 const WHITE = "#FFFFFF";
 const SIZE = 56;
 const CELL = 2;

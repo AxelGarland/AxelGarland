@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { INK, RED } from "@/lib/theme";
 
 /** "AXEL / GARLAND" set in halftone dots: black where the letters are solid, red at the edges.
  *  It is drawn once, sized to fill the width of its column, and drawn again if that width changes,
@@ -8,8 +9,6 @@ import { useEffect, useRef, useState } from "react";
  *  loaded, and what screen readers read. */
 
 const LINES = ["AXEL", "GARLAND"] as const;
-const INK = "#1A1916";
-const RED = "#D64040";
 const FONT_WAIT_MS = 2500;
 /** Height of the block as a share of its width, for the two lines at this weight. */
 const ASPECT = 0.5;

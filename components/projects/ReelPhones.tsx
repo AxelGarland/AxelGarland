@@ -2,9 +2,12 @@
 
 import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 type Reel = { file: string; label: string };
+
+/** One switch for every clip on the page: the visitor can stop them all. */
+const PausedContext = createContext(false);
 
 /** Alternate phones sit lower on wide screens so the row reads as a rhythm, not a line. */
 const DROP = ["md:mt-0", "max-md:mt-10 md:mt-16"];
@@ -17,10 +20,15 @@ const ROW_MAX = 4;
  *  motion it stays on its first frame. */
 function PhoneVideo({ file, label, still }: { file: string; label: string; still: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const paused = useContext(PausedContext);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || still) return;
+    if (paused) {
+      el.pause();
+      return;
+    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) void el.play().catch(() => {});
@@ -30,7 +38,7 @@ function PhoneVideo({ file, label, still }: { file: string; label: string; still
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [still]);
+  }, [still, paused]);
 
   return (
     <video
@@ -123,6 +131,7 @@ function Row({ reels, spread, still }: { reels: readonly Reel[]; spread: boolean
 export function ReelPhones({ rows }: { rows: readonly (readonly Reel[])[] }) {
   const reduce = useHydrationSafeReducedMotion();
   const [wide, setWide] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -134,9 +143,21 @@ export function ReelPhones({ rows }: { rows: readonly (readonly Reel[])[] }) {
 
   return (
     <div className="mx-auto flex w-full max-w-[76rem] flex-col gap-y-8 px-6 sm:px-10 md:gap-y-28 md:px-14 lg:px-16">
-      {rows.map((reels) => (
-        <Row key={reels[0].file} reels={reels.slice(0, ROW_MAX)} spread={wide} still={reduce} />
-      ))}
+      <PausedContext.Provider value={paused}>
+        {rows.map((reels) => (
+          <Row key={reels[0].file} reels={reels.slice(0, ROW_MAX)} spread={wide} still={reduce} />
+        ))}
+      </PausedContext.Provider>
+      {!reduce ? (
+        <button
+          type="button"
+          onClick={() => setPaused((v) => !v)}
+          aria-pressed={paused}
+          className="inline-flex min-h-[44px] w-fit items-center border-b border-line text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-accent hover:text-accent-ink"
+        >
+          {paused ? "Play the videos" : "Pause the videos"}
+        </button>
+      ) : null}
     </div>
   );
 }

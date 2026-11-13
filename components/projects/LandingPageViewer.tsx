@@ -39,7 +39,7 @@ export function LandingPageViewer({ alt, className = "" }: { alt: string; classN
         type="button"
         onClick={open}
         aria-label="Open the AfterLife landing page full screen"
-        className={`group relative block w-full cursor-zoom-in overflow-hidden border border-line bg-black text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
+        className={`group relative block w-full overflow-hidden border border-line bg-black text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
       >
         <div className="relative aspect-video w-full">
           <Image

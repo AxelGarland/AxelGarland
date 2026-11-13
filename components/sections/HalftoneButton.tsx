@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { INK, RED } from "@/lib/theme";
 
 /** A call-to-action button drawn in halftone dots. It can be an in-site link, an external link (opens
  *  in a new tab) or a form button: black dots with red at the edges on white. On
@@ -9,8 +10,6 @@ import { useEffect, useRef, useState } from "react";
  *  drawn once into two canvases, one per state, and the page fades between them.
  *  The real label stays in the page as hidden text so screen readers and the keyboard work as usual. */
 
-const INK = "#1A1916";
-const RED = "#D64040";
 const WHITE = "#FFFFFF";
 const FONT_PX = 17.5;
 const TRACK = 2.3;

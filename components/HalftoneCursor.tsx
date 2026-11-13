@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
+import { INK, RED } from "@/lib/theme";
 
 /** Replaces the system pointer with one drawn in halftone dots, like the name in the hero: black
  *  dots in the body of the arrow, red along its edges, on a white halo so it shows over dark
  *  sections. Over links and buttons the arrow turns red-heavy. Only for devices with a real mouse;
  *  touch screens are untouched, and text fields keep the normal text cursor. */
 
-const INK = "#1A1916";
-const RED = "#D64040";
 /** The classic arrow, in a 24-unit box, tip at the top left. */
 const ARROW: [number, number][] = [
   [3, 2],
@@ -92,6 +91,7 @@ export function HalftoneCursor() {
       html { cursor: ${make(false)}; }
       a, button, [role="button"], summary, label, select { cursor: ${make(true)}; }
       input, textarea { cursor: text; }
+      :where(p, li, dd, blockquote, figcaption):not(:is(a, button, label, summary, [role="button"]) *) { cursor: text; }
     `;
     document.head.appendChild(style);
     return () => style.remove();

@@ -451,8 +451,8 @@ export const PROJECTS: Project[] = [
  *  down the page. Projects not listed here keep their pages but aren't shown in either place. */
 export const WORK_ORDER = [
   "giuson",
-  "kindred",
   "better-eater",
+  "kindred",
   "afterlife",
   "alutit",
   "mundos-mejores",

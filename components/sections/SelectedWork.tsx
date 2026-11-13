@@ -8,7 +8,7 @@ import Link from "next/link";
 
 /** The home page's work, on a black stage with a few small drifting stars. Two kinds of work, two
  *  kinds of picture. Product work keeps its rectangles, because the screens need their full width:
- *  Smart Giuson and Kindred lead on a 7 / 5 row, Better Eater and AfterLife sit smaller below,
+ *  Smart Giuson and Better Eater lead on a 7 / 5 row, Kindred and AfterLife sit smaller below,
  *  lined up with them. Illustration and visual work comes back as circles, three across.
  *
  *  Both share one grammar and no card chrome: a picture, a short red rule, the name in capitals, a
@@ -90,7 +90,7 @@ function VisualCard({ card }: { card: WorkCard }) {
 }
 
 export function SelectedWork() {
-  const [giuson, kindred, betterEater, afterlife] = PRODUCT_WORK;
+  const [giuson, betterEater, kindred, afterlife] = PRODUCT_WORK;
   const lead = "aspect-[16/10] md:aspect-auto md:h-[clamp(20rem,31vw,28rem)]";
   const small = "aspect-[16/10]";
   return (
@@ -102,12 +102,12 @@ export function SelectedWork() {
         <h2 className="type-title mb-14 font-display text-surface md:mb-20">Selected work</h2>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-16 md:grid-cols-12 md:gap-y-24">
-          {/* The lead row: Smart Giuson across seven columns, Kindred across five, pictures the same height. */}
+          {/* The lead row: Smart Giuson across seven columns, Better Eater across five, pictures the same height. */}
           <ProductCard card={giuson} frame={lead} className="md:col-span-7" />
-          <ProductCard card={kindred} frame={lead} className="md:col-span-5" />
-          {/* Below, smaller: each lines up with the one above it, Better Eater under Giuson's left edge
-              and AfterLife under Kindred's. */}
-          <ProductCard card={betterEater} frame={small} className="md:col-span-5" />
+          <ProductCard card={betterEater} frame={lead} className="md:col-span-5" />
+          {/* Below, smaller: each lines up with the one above it, Kindred under Giuson's left edge
+              and AfterLife under Better Eater's. */}
+          <ProductCard card={kindred} frame={small} className="md:col-span-5" />
           <ProductCard card={afterlife} frame={small} className="md:col-span-5 md:col-start-8" />
         </div>
 

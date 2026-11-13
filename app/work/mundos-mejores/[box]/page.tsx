@@ -5,6 +5,7 @@ import { PhotoCarousel } from "@/components/projects/PhotoCarousel";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { getBox, MUNDOS_BOXES } from "@/lib/mundos";
 import { pictureSrc } from "@/lib/pictures";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,10 +22,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const found = getBox((await params).box);
   if (!found) return {};
-  return {
-    title: found.box.title === "Mundos Mejores" ? "Mundos Mejores, the family box · Axel Garland" : `${found.box.title} · Mundos Mejores · Axel Garland`,
-    description: `${found.box.title}, from Mundos Mejores: a retablo-inspired box by Axel Garland.`,
-  };
+  const family = found.box.slug === "familia";
+  return pageMetadata({
+    title: family ? "The Family Box · Mundos Mejores · Axel Garland" : `${found.box.title} · Mundos Mejores · Axel Garland`,
+    description: family
+      ? "The family box from Mundos Mejores: a retablo-inspired box by Axel Garland."
+      : `${found.box.title}, one of the retablo-inspired boxes of Mundos Mejores by Axel Garland.`,
+    path: `/work/mundos-mejores/${found.box.slug}`,
+  });
 }
 
 export default async function MundosBoxPage({ params }: PageProps) {
@@ -63,7 +68,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
                   sizes="320px"
                 />
               )}
-              <h1 className="mt-8 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mt-8 type-title font-display text-ink">
                 {box.title}
               </h1>
               {box.verse ? (

@@ -5,16 +5,20 @@ import { TagLine } from "@/components/projects/TagLine";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
+import { pageMetadata } from "@/lib/seo";
+import { cardTags } from "@/lib/workCards";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Better Eater · Axel Garland",
-  description: "Better Eater, a personalized meal-planning and recipe app.",
-};
+  description:
+    "Better Eater, a meal-planning and recipe app: a Shenkar team project I co-designed, from persona and wireframes to a Figma prototype.",
+  path: "/work/better-eater",
+});
 
-const TAGS = ["Product Design", "Mobile App", "Interactive Course"];
+const TAGS = cardTags("better-eater");
 
 const SCREENS = [
   {
@@ -32,7 +36,7 @@ const SCREENS = [
   {
     file: "bettereater/iPhone 14 Pro Space Black Mockup copy.png",
     alt: "Better Eater home screen: a greeting, progress so far, and the next meals with a Start Cooking button",
-    title: "Come back to what's next",
+    title: "Come back to what’s next",
     body: "A greeting, the progress so far, and the next meals waiting, each one tap away from Start Cooking.",
   },
   {
@@ -46,7 +50,7 @@ const SCREENS = [
 const COOK_SCREENS = [
   {
     file: "bettereater/cook-instructions-landscape.png",
-    alt: "Better Eater cooking mode: a captioned step video beside the recipe's ingredients and instructions",
+    alt: "Better Eater cooking mode: a captioned step video beside the recipe’s ingredients and instructions",
     title: "Cook along",
     body: "A captioned video of each step, with the ingredients and instructions right beside it.",
   },
@@ -54,13 +58,13 @@ const COOK_SCREENS = [
     file: "bettereater/cook-video-landscape.png",
     alt: "Better Eater full-screen cooking video with chapters: Prep, Bake, Roast, Chickpeas, Bake",
     title: "Jump between steps",
-    body: "Full-screen chapters like Prep, Bake, and Roast, so it's easy to skip ahead or replay a step without losing your place.",
+    body: "Full-screen chapters like Prep, Bake, and Roast, so it’s easy to skip ahead or replay a step without losing your place.",
   },
 ];
 
 const DECISIONS = [
   {
-    title: "We recommend cooking every three days",
+    title: "Every three days is the recommended pace",
     body: "The cooking-frequency scale runs from every day to once a week. The middle, every three days, makes a bigger batch that saves time and stays realistic for a student who also works.",
     file: "bettereater/how often do you want to cook.png",
     alt: "Better Eater onboarding: a slider to choose how often to cook, with every 3 days recommended",
@@ -68,16 +72,16 @@ const DECISIONS = [
   },
   {
     title: "Every step comes with a video",
-    body: "Written steps are there, but the video lets you copy an expert cooking, so a beginner can learn an easy and proper way to do it.",
+    body: "Written steps are there, but a video of an expert cooking is easier to copy, so a beginner learns the right way.",
     file: "bettereater/cook-video-landscape.png",
     alt: "Better Eater full-screen cooking video with chapters: Prep, Bake, Roast, Chickpeas, Bake",
     shape: "landscape",
   },
   {
-    title: "Green, because it's calm",
-    body: "Green felt natural, fresh, friendly, and calming. It keeps Better Eater a helper for changing how you eat, and makes the process feel easy.",
+    title: "Green, because it’s calm",
+    body: "Green reads as fresh and calm. It keeps Better Eater feeling like a helper, not a diet.",
     file: "bettereater/recommended meal plan.png",
-    alt: "Better Eater recommended meal plan, in the app's green",
+    alt: "Better Eater recommended meal plan, in the app’s green",
     shape: "portrait",
   },
 ] as const;
@@ -107,9 +111,13 @@ export default function BetterEaterPage() {
                 />
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                {project.summary} Built to help you move toward the way of eating you want to try.
+                A meal-planning and recipe app that helps you move toward the way of eating you want to try.
               </p>
               <TagLine tags={TAGS} />
+              <p className="mt-3 text-sm text-ink-muted">
+                Shenkar course project, with Yuval Sa&rsquo;ar &middot; Persona, wireframes, visual design, branding,
+                prototype
+              </p>
             </div>
             <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[34rem] overflow-hidden md:max-w-none">
               <Image
@@ -138,17 +146,14 @@ export default function BetterEaterPage() {
                 />
               </div>
               <div className="flex flex-col gap-6">
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
-                  Meet Amit, who we designed it for
+                <h2 className="type-section font-display text-ink">
+                  Meet Amit, the person we designed for
                 </h2>
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy.problem}
                 </p>
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
                   {project.caseStudy.process}
-                </p>
-                <p className="max-w-[64ch] text-base leading-relaxed text-ink-subtle">
-                  {project.caseStudy.role}
                 </p>
               </div>
             </div>
@@ -159,7 +164,7 @@ export default function BetterEaterPage() {
         <section className="bg-surface py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-12 max-w-[56ch] md:mb-16">
-              <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+              <h2 className="type-section font-display text-ink">
                 From plan to plate
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-muted">
@@ -221,7 +226,7 @@ export default function BetterEaterPage() {
         {/* Design decisions */}
         <section className="border-t border-line bg-paper py-20 md:py-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-4 max-w-[36ch] font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+            <h2 className="mb-4 max-w-[36ch] type-section font-display text-ink">
               Three decisions, one goal
             </h2>
             <p className="mb-14 max-w-[56ch] text-lg leading-relaxed text-ink-muted md:mb-20">
@@ -237,7 +242,7 @@ export default function BetterEaterPage() {
                     <span className="mb-3 block font-display text-lg leading-none text-accent-ink">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mb-3 max-w-[24ch] font-display text-xl font-semibold leading-[1.15] text-ink sm:text-2xl">
+                    <h3 className="mb-3 max-w-[24ch] type-sub font-display text-ink">
                       {item.title}
                     </h3>
                     <p className="max-w-[48ch] text-lg leading-relaxed text-ink-muted">{item.body}</p>
@@ -260,6 +265,17 @@ export default function BetterEaterPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Result */}
+        <section className="bg-surface py-20 md:py-28">
+          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
+            <h2 className="mb-4 type-section font-display text-ink">The result</h2>
+            <p className="max-w-[56ch] text-lg leading-relaxed text-ink-muted">
+              A full flow, from planning the week to cooking and shopping for the next one, built as a Figma
+              prototype.
+            </p>
           </div>
         </section>
 

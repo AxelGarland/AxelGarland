@@ -19,9 +19,9 @@ const ARROW: [number, number][] = [
   [10.7, 14.8],
   [17.2, 14.6],
 ];
-const SCALE = 1.45;
-const BOX = 36;
-const CELL = 2.6;
+const SCALE = 1.1;
+const BOX = 28;
+const CELL = 2.2;
 
 function draw(invert: boolean, dpr: number): string {
   const canvas = document.createElement("canvas");

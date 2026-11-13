@@ -1,58 +1,17 @@
 import { ContactForm } from "@/components/sections/ContactForm";
+import { CopyEmail } from "@/components/sections/CopyEmail";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Contact · Axel Garland",
-  description: "Get in touch with Axel Garland, open to full-time and contract design roles.",
-};
+const TITLE = "Contact · Axel Garland";
+const DESCRIPTION = "Get in touch with Axel Garland, open to full-time and contract product design roles.";
 
-const details = [
-  {
-    label: "Email",
-    value: "axelgrobman@gmail.com",
-    href: "mailto:axelgrobman@gmail.com",
-    icon: (
-      <path
-        d="M3 6h18v12H3V6Zm0 0 9 7 9-7"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    ),
-  },
-  {
-    label: "Based in",
-    value: "Tel Aviv",
-    icon: (
-      <>
-        <path
-          d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-        <circle cx="12" cy="9.5" r="2.2" stroke="currentColor" strokeWidth="1.5" />
-      </>
-    ),
-  },
-  {
-    label: "Connect",
-    value: "LinkedIn",
-    href: "https://www.linkedin.com/in/axel-garland-138188292/",
-    icon: (
-      <path
-        d="M9 15l6-6M10.5 7.5l1-1a3.5 3.5 0 0 1 5 5l-1 1M13.5 16.5l-1 1a3.5 3.5 0 0 1-5-5l1-1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    ),
-  },
-];
+export const metadata: Metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: "/contact" });
+
+const LINK =
+  "inline-flex min-h-[44px] w-fit items-center border-b border-line text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent-ink";
 
 export default function ContactPage() {
   return (
@@ -61,51 +20,58 @@ export default function ContactPage() {
       <main id="main" className="flex min-h-[100dvh] flex-col bg-surface pb-24 pt-32 sm:pt-36">
         <div className="mx-auto grid w-full max-w-content grid-cols-1 gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20 md:px-14 lg:px-16">
           <div>
-            <h1 className="mb-6 font-display text-[clamp(1.76rem,3.9vw,2.73rem)] font-light leading-[1.05] tracking-tight text-ink">
+            <h1 className="type-title mb-6 font-display text-ink">
               Let&rsquo;s talk about
               <br />
               what&rsquo;s <em className="italic text-accent">next</em>
             </h1>
             <p className="mb-10 max-w-[42ch] text-base leading-relaxed text-ink-muted md:text-lg">
               I recently graduated from Shenkar and I&rsquo;m looking for full-time or contract
-              design roles: UX/UI, product design, or work that leans on illustration too. Send a
-              note and I&rsquo;ll get back to you soon.
+              roles in product design (UX/UI). Send me a note and I&rsquo;ll reply soon.
             </p>
 
-            <div className="flex flex-col gap-5">
-              {details.map((d) => (
-                <div key={d.label} className="flex flex-col gap-1">
-                  <div className="flex items-center gap-3">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden
-                      className="shrink-0 text-accent"
-                    >
-                      {d.icon}
-                    </svg>
-                    <p className="text-xs uppercase tracking-[0.1em] text-ink-subtle">
-                      {d.label}
-                    </p>
-                  </div>
-                  {d.href ? (
-                    <a
-                      href={d.href}
-                      {...(d.href.startsWith("http")
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="w-fit border-b border-line pb-px pl-8 text-base font-medium text-ink transition-colors duration-300 hover:border-accent hover:text-accent-ink"
-                    >
-                      {d.value}
-                    </a>
-                  ) : (
-                    <p className="pl-8 text-base font-medium text-ink">{d.value}</p>
-                  )}
-                </div>
-              ))}
-            </div>
+            {/* Contact details: a red dot, a quiet label, and a link at least 44px tall. */}
+            <dl className="m-0 flex flex-col gap-6">
+              <div>
+                <dt className="flex items-center gap-3 text-sm uppercase tracking-[0.1em] text-ink-subtle">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  Email
+                </dt>
+                <dd className="m-0 pl-[1.125rem]">
+                  <CopyEmail email="axelgrobman@gmail.com" className={LINK} />
+                </dd>
+              </div>
+              <div>
+                <dt className="flex items-center gap-3 text-sm uppercase tracking-[0.1em] text-ink-subtle">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  Based in
+                </dt>
+                <dd className="m-0 flex min-h-[44px] items-center pl-[1.125rem] text-base font-medium text-ink">
+                  Tel Aviv
+                </dd>
+              </div>
+              <div>
+                <dt className="flex items-center gap-3 text-sm uppercase tracking-[0.1em] text-ink-subtle">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  Links
+                </dt>
+                <dd className="m-0 flex flex-wrap gap-x-8 pl-[1.125rem]">
+                  <a
+                    href="https://www.linkedin.com/in/axel-garland-138188292/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={LINK}
+                  >
+                    LinkedIn
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                  <a href="/Axel%20Garland%20CV.pdf" target="_blank" rel="noopener noreferrer" className={LINK}>
+                    CV
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
 
           <div className="border border-line bg-paper p-8 md:p-10">

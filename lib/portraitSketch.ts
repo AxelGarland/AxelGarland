@@ -128,12 +128,15 @@ function buildStyles(base: Uint8ClampedArray): Float32Array[] {
   return [trueColour, duotone, halftone, pop];
 }
 
+/** How much faster the whole loop plays than the original timing (1 = the original). */
+const SPEED = 1.4;
+
 /** Segment lengths in seconds, in the order they play. */
-const HOLD_PHOTO = 2.4;
-const PIXEL_STEP = 0.28;
-const HOLD_MOSAIC = 0.7;
-const MORPH = 1.15;
-const HOLD_STYLE = 1.9;
+const HOLD_PHOTO = 2.4 / SPEED;
+const PIXEL_STEP = 0.28 / SPEED;
+const HOLD_MOSAIC = 0.7 / SPEED;
+const MORPH = 1.15 / SPEED;
+const HOLD_STYLE = 1.9 / SPEED;
 
 export type Segment =
   | { kind: "photo"; start: number; end: number }

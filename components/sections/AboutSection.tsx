@@ -7,30 +7,42 @@ export function AboutSection() {
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <MotionReveal>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.6fr] md:gap-20">
-            <h2 className="font-display text-[clamp(1.95rem,3.9vw,3.31rem)] font-light leading-[1.02] tracking-tight text-ink">
+            <h2 className="type-title font-display text-ink">
               About me
             </h2>
             <div className="md:pt-3">
-              <p className="max-w-[58ch] text-lg leading-relaxed text-ink-muted">
-                I&rsquo;m a product designer and illustrator. I like to start from a real problem and get
-                a working version in front of the people who&rsquo;ll use it early, whether that&rsquo;s
-                an internal tool, an app or an illustration. For an internal tool at Alut, that meant
-                six weeks of talking to the recruitment team before I drew a screen. If you have a
-                product that needs that,{" "}
-                <Link
-                  href="/contact"
-                  className="text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                >
-                  let me know
-                </Link>
-                .
-              </p>
-              <p className="mt-8 text-sm text-ink-muted">
-                <span className="mr-3 text-accent-ink">Tools</span>
-                Figma<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
-                Adobe Creative Suite<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
-                Cursor<span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />{" "}
-                Claude Code
+              <div className="flex max-w-[58ch] flex-col gap-5 text-lg leading-relaxed text-ink-muted">
+                <p>
+                  I&rsquo;m a product designer with a background in visual communication and illustration.
+                </p>
+                <p>
+                  I like getting close to the problem, understanding how people actually work, and turning
+                  complex ideas into clear, useful experiences. I&rsquo;m especially drawn to products with a
+                  lot of information, moving parts or ambiguity, where good design makes things
+                  simpler.
+                </p>
+                <p>
+                  I work across UX, UI, visual systems and prototyping, and I&rsquo;m comfortable taking
+                  ideas beyond design into working products using code and AI-assisted tools.
+                </p>
+                <p>Outside product design, I illustrate and work across different mediums, from colored pencil to sculpture.</p>
+                <p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-[44px] items-center text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink"
+                  >
+                    Let&rsquo;s talk.
+                  </Link>
+                </p>
+              </div>
+              <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-muted">
+                <span className="mr-1 text-accent-ink">Tools</span>
+                {["Figma", "Adobe Creative Suite", "Cursor", "Claude Code"].map((tool, i) => (
+                  <span key={tool} className="inline-flex items-center gap-3 whitespace-nowrap">
+                    {i > 0 ? <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-accent" /> : null}
+                    {tool}
+                  </span>
+                ))}
               </p>
             </div>
           </div>

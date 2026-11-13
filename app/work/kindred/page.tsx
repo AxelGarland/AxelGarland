@@ -7,16 +7,18 @@ import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kindred · Axel Garland",
   description:
     "Kindred, a generative illustration system: hand-drawn tiles and coded rules of symmetry that make an endless family of faces.",
-};
+  path: "/work/kindred",
+});
 
 /** The five steps of the live site, as stills, in the order they appear there. */
 const HOW_IT_WORKS = [
@@ -48,18 +50,18 @@ export default function KindredPage() {
         <header className="pb-16 pt-36 sm:pb-20 sm:pt-36">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div className="order-2 md:order-1">
-              <h1 className="mb-8 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
+              <h1 className="mb-8 type-title font-display text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
               {project.liveUrl ? (
-                <HalftoneButton href={project.liveUrl} external label="Try it yourself" />
+                <HalftoneButton href={project.liveUrl} external label="Try it live" />
               ) : null}
             </div>
             <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2 md:-mr-4 lg:-mr-10">
               <HeroVideo
                 src={pictureSrc("kindred/showreel.mp4")}
                 poster={pictureSrc("kindred/showreel-poster.jpg")}
-                label="Kindred showreel: crowds of colourful geometric faces that keep changing"
+                label="Kindred showreel: crowds of colorful geometric faces that keep changing"
                 soundToggle
                 expandOnMobile
                 playOnce
@@ -73,7 +75,7 @@ export default function KindredPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_2fr] md:gap-16">
               <div>
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
+                <h2 className="type-section font-display text-ink">
                   Where code, algorithms, and illustration meet
                 </h2>
               </div>
@@ -117,7 +119,7 @@ export default function KindredPage() {
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-12 px-6 sm:px-10 md:grid-cols-[5fr_7fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div>
-              <h2 className="mb-5 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
+              <h2 className="mb-5 type-title font-display text-ink">
                 Crowds for the wall
               </h2>
               <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">

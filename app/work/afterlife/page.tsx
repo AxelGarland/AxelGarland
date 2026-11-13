@@ -9,22 +9,25 @@ import { TabletFrame } from "@/components/projects/TabletFrame";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
+import { pageMetadata } from "@/lib/seo";
+import { cardTags } from "@/lib/workCards";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "AfterLife · Axel Garland",
   description:
     "AfterLife, a conceptual landing page and app for a service that gives you a wrap-up of your life, so you can celebrate it and move on.",
-};
+  path: "/work/afterlife",
+});
 
-const TAGS = ["Illustration", "Landing Page", "Web App"];
+const TAGS = cardTags("afterlife");
 
 const APP_FRAMES = [
   {
     file: "afterlife/Frame 40.png",
-    alt: "AfterLife app welcome screen: a skeleton with open arms and a Let's start button",
+    alt: "AfterLife app welcome screen: a skeleton with open arms and a Let’s start button",
   },
   {
     file: "afterlife/Frame 43.png",
@@ -40,11 +43,11 @@ const APP_FRAMES = [
   },
   {
     file: "afterlife/Frame 44.png",
-    alt: "AfterLife app screen: It's okay to cry, with tear drops showing 8 liters of tears, 50% of joy",
+    alt: "AfterLife app screen: It’s okay to cry, with tear drops showing 8 liters of tears, 50% of joy",
   },
   {
     file: "afterlife/Frame 27.png",
-    alt: "AfterLife app final screen: You made it, with two dancing skeletons and an I'm ready button",
+    alt: "AfterLife app final screen: You made it, with two dancing skeletons and an I’m ready button",
   },
   {
     file: "afterlife/Frame 37.png",
@@ -75,7 +78,7 @@ export default function AfterLifePage() {
             <HeroVideo
               src={pictureSrc("afterlife/entrance animation.mp4")}
               poster={pictureSrc("afterlife/entrance-poster.jpg")}
-              label="AfterLife's landing page entrance: two skeletons dance beside the logo"
+              label="AfterLife’s landing page entrance: two skeletons dance beside the logo"
             />
             <div
               aria-hidden
@@ -86,13 +89,13 @@ export default function AfterLifePage() {
           </div>
           <div className="mx-auto max-w-content px-6 pb-16 pt-6 sm:px-10 sm:pb-20 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-end gap-x-16 gap-y-6 md:grid-cols-[1.1fr_1fr]">
-              <h1 className="font-display text-[clamp(2.15rem,4.68vw,4.29rem)] font-light leading-[1] tracking-tight text-surface">
+              <h1 className="type-title font-display text-surface">
                 Your life, <em className="italic text-accent">wrapped</em>
               </h1>
               <div>
                 <p className="mb-5 max-w-[48ch] text-lg leading-relaxed text-surface/75">
-                  A conceptual landing page and app for AfterLife, a service that gives you a
-                  wrap-up of your life. You celebrate it, and your soul is ready to move on.
+                  A concept I designed: a landing page and app for a service that gives you a
+                  wrap-up of your life, so you can celebrate it and move on.
                 </p>
                 <TagLine tags={TAGS} tone="dark" />
               </div>
@@ -105,7 +108,7 @@ export default function AfterLifePage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="mb-14 grid grid-cols-1 items-center gap-x-16 gap-y-10 md:mb-20 md:grid-cols-[1fr_1.1fr]">
               <div className="order-2 md:order-1">
-                <h2 className="font-display text-[clamp(1.75rem,3.2vw,2.9rem)] font-light leading-[1.02] tracking-tight text-ink">
+                <h2 className="type-section font-display text-ink">
                   A recap for a whole life
                 </h2>
                 <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
@@ -150,10 +153,10 @@ export default function AfterLifePage() {
             <div className="mb-12 grid grid-cols-1 items-center gap-x-16 gap-y-8 md:mb-16 md:grid-cols-[1.1fr_1fr]">
               <LoadingLoop frames={OPENERS} />
               <div>
-                <h2 className="mb-4 font-display text-[clamp(1.75rem,3.2vw,2.9rem)] font-light leading-[1.02] tracking-tight text-ink">
-                  Loading page animation and <em className="italic text-accent">landing page</em>
+                <h2 className="mb-4 type-section font-display text-ink">
+                  Loading animation and <em className="italic text-accent">landing page</em>
                 </h2>
-                <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">Animated and designed in Figma.</p>
+                <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">I designed and animated the loading sequence and the landing page in Figma.</p>
               </div>
             </div>
             {/* A preview of the landing page's first screen; clicking opens the whole page full screen */}

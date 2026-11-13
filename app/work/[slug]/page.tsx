@@ -64,7 +64,6 @@ const BESPOKE_SLUGS = [
   "jabberwocky",
   "kindred",
   "mundos-mejores",
-  "interview-assistant",
   "better-eater",
   "afterlife",
 ];

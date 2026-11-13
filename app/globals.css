@@ -9,6 +9,9 @@
 @layer base {
   html {
     @apply bg-surface;
+    /* framer-motion measures scroll-linked sections against the page itself, and warns (in
+       development) when that element is `position: static`. */
+    position: relative;
   }
 
   /* Scale type and spacing with the wider layout on large screens */
@@ -38,6 +41,89 @@
 
   ::selection {
     @apply bg-line text-ink;
+  }
+
+  /* One focus ring for the whole site: red, 2px, offset. It has no specificity, so a component that
+     sets its own (the footer's yellow, the Smart Giuson blue) still wins. */
+  :where(a, button, summary, [role="button"], input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid theme("colors.accent.DEFAULT");
+    outline-offset: 4px;
+  }
+}
+
+/* The site's type scale: one title size, one section size, one sub-heading size. Elements keep
+   `font-display` (heavy capitals); these set size, leading and tracking only. */
+@layer components {
+  .type-title {
+    font-size: clamp(1.95rem, 3.9vw, 3.31rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+  .type-section {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    line-height: 1.12;
+  }
+  .type-sub {
+    font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  /* A row of red dots that draws under a title when its card is hovered or focused. */
+  .dotted-rule {
+    position: relative;
+    display: inline-block;
+  }
+  .dotted-rule::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.35rem;
+    border-bottom: 3px dotted theme("colors.accent.DEFAULT");
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .dotted-rule::after,
+  .group:focus-visible .dotted-rule::after {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* While one card is hovered or keyboard-focused, the others step back. */
+  .work-card {
+    transition: filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-stage[data-kbd]:not(:has(.work-card:hover)) .work-card:not(:focus-visible) {
+    filter: brightness(0.5) saturate(0.7);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .work-stage:has(.work-card:hover) .work-card:not(:hover) {
+      filter: brightness(0.5) saturate(0.7);
+    }
+  }
+
+  /* When Back to work returns to a card, it gets one slow red ring so you can find your place. */
+  @keyframes card-return {
+    0% {
+      box-shadow: 0 0 0 0 rgba(214, 64, 64, 0.55);
+    }
+    100% {
+      box-shadow: 0 0 0 16px rgba(214, 64, 64, 0);
+    }
+  }
+  .card-returning {
+    animation: card-return 1s ease-out 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dotted-rule::after {
+    transition: none;
+  }
+  .card-returning {
+    animation: none;
+  }
+  .work-card {
+    transition: none;
   }
 }
 

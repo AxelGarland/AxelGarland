@@ -1,16 +1,22 @@
+"use client";
+
 import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /** A "back to work" button at the top of a project page. At rest it's just the site's arrow box; on
  *  hover or keyboard focus it slides out its label. Zero height, so it never pushes the page content
  *  around, and it scrolls away with the page instead of hovering over the text. The header's Work
  *  link is always there for getting back. */
 export function BackLink() {
+  // Back returns to the card you left on the home page, not just to the top of the work section.
+  const slug = usePathname().split("/")[2];
+  const href = slug ? `/#work-${slug}` : "/#work";
   return (
     <div className="relative top-[84px] z-40 h-0">
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <Link
-          href="/#work"
+          href={href}
           aria-label="Back to Work"
           className="group inline-flex items-stretch bg-surface shadow-[0_8px_22px_-12px_rgba(26,25,22,0.45)] transition-colors duration-300 hover:bg-ink hover:text-surface focus-visible:bg-ink focus-visible:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >

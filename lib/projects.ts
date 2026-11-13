@@ -126,19 +126,19 @@ export const PROJECTS: Project[] = [
     slug: "alutit",
     title: "Alutit",
     section: "case-study",
-    summary: "Illustrated branding project for the recruitment department of Alut, the Israeli Society for Children and Adults with Autism.",
+    summary: "Illustrated branding project for the recruitment department of ALUT, the Israeli Society for Children and Adults with Autism.",
     accentColor: "violet",
     heroFit: "contain",
     clientLogo: "alutit/alut logo no background.png",
     caseStudy: {
       problem:
-        "Alut\u2019s recruitment social media wasn\u2019t working. It had no point of view and read like a noticeboard for job openings, and little else.",
+        "Our recruitment social media wasn\u2019t working. It had no point of view and read like a noticeboard for job openings, and little else.",
       role:
-        "Alutit was inspired by the recruitment coordinators, their warmth and bubbly energy. I combined that with Alut\u2019s own colors to build a character who is happy, bright and simple. She became the face of Alut\u2019s social media. She helps most with the many roles we hire for, especially health professionals who work with children. She also makes Alut feel more approachable when we talk about adults with autism.",
+        "Alutit was inspired by the recruitment coordinators and their warmth and energy. I combined that with our own colors to build a character who is happy, bright and simple. She became the face of our social media. She helps most with the many roles we hire for, especially health professionals who work with children, and she makes us feel more approachable when we talk about adults with autism.",
       process:
-        "I designed Alutit, a cartoon-illustrated character fronting the recruitment account, riffing on the AI-avatar trend visible elsewhere but keeping her fully hand-illustrated rather than AI-generated, so she'd read as authored and specific to Alut, not a generic trend-follow. She was built as a functional device, not just a mascot: a consistent base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. This let her explain the actual range of jobs at Alut visually, something a standard listing can't do. A recurring whimsical motif (unicorn, rainbow) gave the account a consistent, joyful tone across otherwise very different role content.",
+        "I designed Alutit, a cartoon-illustrated character fronting the recruitment account, riffing on the AI-avatar trend visible elsewhere but keeping her fully hand-illustrated rather than AI-generated, so she’d read as authored and specific to ALUT, not a generic trend-follow. She was built as a functional device, not just a mascot: a consistent base design (curly orange hair, glasses) redressed into role-specific outfits: tool belt and hard hat for maintenance, scrubs and stethoscope for care roles, cap and gown for milestones. This let her explain the actual range of jobs at ALUT visually, something a standard listing can’t do. A recurring whimsical motif (unicorn, rainbow) gave the account a consistent, joyful tone across otherwise very different role content.",
       outcome:
-        "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of Alut's recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That's a meaningful shift in the recruitment department's strategy, and a real branding success for Alut.",
+        "She appeared across social media content, video, recruitment materials, and physical merch, becoming the consistent face of ALUT’s recruitment presence online. Her ongoing presence across those channels now feeds a steady, passive stream of candidates applying to open roles sourced from social, not a campaign spike, but a running channel. That’s a meaningful shift in the recruitment department’s strategy, and a real branding success for ALUT.",
     },
     discipline: "Illustration & branding",
     tags: ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"],
@@ -154,22 +154,22 @@ export const PROJECTS: Project[] = [
       { file: "alutit/alutit onesie.png", alt: "Alutit wearing a unicorn onesie" },
       { file: "alutit/alutit desk.png", alt: "Alutit at her desk in an Alutit-branded shirt" },
       { file: "alutit/alutit office.png", alt: "Alutit in an office setting with recruitment materials on the wall" },
-      { file: "alutit/אלוטית גן.JPG", alt: "Alutit in front of an Alut kindergarten facility" },
+      { file: "alutit/אלוטית גן.JPG", alt: "Alutit in front of an ALUT kindergarten facility" },
       { file: "alutit/אלוטית מרצ׳.png", alt: "Alutit merchandise flat-lay: tote bag, notebook, and game board" },
       { file: "alutit/אלוטית תיק.png", alt: "The Alutit tote bag handed out at campus recruitment events" },
       { file: "alutit/social media.png", alt: "Alutit at her desk, shown as a social media post" },
       { file: "alutit/social media 1.png", alt: "Alutit in a garden, shown as a social media post" },
       { file: "alutit/social media 3.png", alt: "Alutit in front of the Eiffel Tower, shown as an Instagram Reels-style post" },
-      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to Alut, the perfect job for students\"" },
-      { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at Alut,\" featuring Alutit in a graduation cap on a unicorn" },
+      { file: "alutit/alutit flyer 1.png", alt: "Printed recruitment booklet for students, \"Come to ALUT, the perfect job for students\"" },
+      { file: "alutit/alutit flyer 2.png", alt: "Printed recruitment booklet for social workers, \"Your career starts at ALUT,\" featuring Alutit in a graduation cap on a unicorn" },
     ],
     lightboxFeatured: ["alutit/אלוטית תיק.png", "alutit/אלוטית מרצ׳.png"],
   },
   {
     slug: "giuson",
-    title: "Giuson",
+    title: "Smart Giuson",
     section: "case-study",
-    summary: "Mass recruitment made easier. A tool developed for the recruitment department of Alut, the Israeli Society for Children and Adults with Autism.",
+    summary: "An internal recruitment tool that brings live vacancies, professional knowledge and call guidance into one place, so more coordinators could run specialized healthcare recruitment calls.",
     accentColor: "teal",
     clientLogo: "alutit/alut logo no background.png",
     prototype: {
@@ -216,16 +216,16 @@ export const PROJECTS: Project[] = [
     caseStudy: {
       problem:
         "Recruiting at this scale means holding a huge amount of information at once, while the picture keeps changing. Open positions shift constantly, in facilities all over the country, so recruiters need to stay connected to the live needs on the ground. Before Giuson, that meant juggling a PDF, a Google Sheet, their own notes and Google Maps, and very few recruiters could ever learn enough to specialize.",
-      role: "I designed and built the tool for Alut's recruitment department.",
+      role: "I designed and built the tool for Alut’s recruitment department.",
       process:
         "For a month and a half, I worked alongside the recruitment team. I listened in on their conversations to understand the flow of their work, asked what they needed and what would make their jobs easier, and learned where it hurt: every answer lived in a different place, and without easy access to everything, the work slowed down. So I built a tool tailored to those needs. It holds all the information in one place, shows open roles on a live map, and explains each role and its salaries clearly, so recruiters can use it right in the middle of a conversation.",
       outcome:
-        "Throughout the summer, everyone on the recruiting team used it. It let five recruiters make these specialized calls instead of just one or two, and it became a necessary work tool, both for the recruitment office and for the managers in the field who hire on site. The success was big enough that we're now building a similar tool for the rest of the roles open at Alut.",
+        "Throughout the summer, everyone on the recruiting team used it. It let five recruiters make these specialized calls instead of just one or two, and it became a necessary work tool, both for the recruitment office and for the managers in the field who hire on site. The success was big enough that we’re now building a similar tool for the rest of the roles open at Alut.",
     },
     discipline: "Product design",
     tags: ["Product Design", "Internal Tool", "Recruitment"],
-    thumbnail: "giuson/giuson banner.jpg",
-    hero: "giuson/giuson banner.jpg",
+    thumbnail: "giuson/giuson-thumb.webp",
+    hero: "giuson/giuson-thumb.webp",
     gallery: [
       {
         file: "giuson/giuson recruitment map.png",
@@ -233,7 +233,7 @@ export const PROJECTS: Project[] = [
       },
       {
         file: "giuson/giuson home.png",
-        alt: "The tool's home screen: two entry points, recruitment search and the information hub",
+        alt: "The tool’s home screen: two entry points, recruitment search and the information hub",
       },
       {
         file: "giuson/giuson role detail.png",
@@ -246,47 +246,6 @@ export const PROJECTS: Project[] = [
     ],
     lightboxFeatured: ["giuson/giuson recruitment map.png", "giuson/giuson hours table.png"],
   },
-  {
-    slug: "interview-assistant",
-    title: "Interview for Success",
-    section: "case-study",
-    summary:
-      "An interview toolkit for Alut's non-recruiter managers: interview prep, reference calls, and a weighted scoring system for candidates.",
-    accentColor: "gold",
-    clientLogo: "alutit/alut logo no background.png",
-    caseStudy: {
-      problem:
-        "Managers across Alut's facilities aren't recruitment specialists, but they're the ones interviewing and hiring for their own teams. Without a shared structure, interview quality, reference checks, and hiring decisions varied manager to manager, with no consistent way to compare candidates. The head of the recruitment department saw the need and came up with the idea: give the managers in the field a tool.",
-      role: "I designed and built the tool together with the head of the recruitment department, whose years of recruiting experience shaped it.",
-      process:
-        "The head of recruitment is the department's authority, with years of experience, so the goal was to carry her knowledge into a process that newer managers could follow. Four connected pieces: role-specific interview questions, where each role has its own list and every question measures a different section or quality; a structured reference-call script covering what to ask and how to run the call; a weighted rating questionnaire that turns interview signals into one comparable score; and a labor-law FAQ that keeps managers compliant along the way: what's legal to ask, notice requirements, timelines.",
-      outcome:
-        "We presented it in a meeting held for managers, and they were excited to have a tool that would help them. They use it, and they keep asking us to add more roles. The scores then became part of the intake process, so for certain intakes managers have to use it.",
-    },
-    discipline: "Product design",
-    tags: ["Product Design", "Internal Tool", "Recruitment"],
-    thumbnail: "interview-assistant/hero.png",
-    hero: "interview-assistant/hero.png",
-    gallery: [
-      {
-        file: "interview-assistant/interview-prep.png",
-        alt: "Interview prep: candidate and role details in, a set of tailored interview questions out",
-      },
-      {
-        file: "interview-assistant/recommender.png",
-        alt: "Reference-check script: structure and questions for the recommender phone call",
-      },
-      {
-        file: "interview-assistant/rating.png",
-        alt: "Rating questionnaire: weighted scoring across categories, rolled into one comparable number",
-      },
-      {
-        file: "interview-assistant/faq.png",
-        alt: "Labor-law FAQ: quick, compliant answers for hiring managers",
-      },
-    ],
-  },
-
   // --- Selected Work ---
   {
     slug: "kindred",
@@ -295,7 +254,7 @@ export const PROJECTS: Project[] = [
     summary:
       "Where illustration meets generative coding. An experimental system that became an engine for creating posters, and for selling them.",
     reflection:
-      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we're perceived from the outside is never one fixed image, it's built from many separate perceptions of others and of ourselves, combined.",
+      "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we’re perceived from the outside is never one fixed image, it’s built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
     previewVideo: "kindred/showreel-circle.mp4",
     discipline: "Generative design",
@@ -312,7 +271,7 @@ export const PROJECTS: Project[] = [
     accentColor: "gold",
     heroFit: "contain",
     reflection:
-      "My final project at Shenkar, a Peruvian retablo installation about life, death, and the places you can find and remember the ones you love.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds. These better worlds are the ones where she can do the things she loved, and where I can find her.",
+      "My final project at Shenkar, a Peruvian retablo installation about life, death, and the places you can find and remember the ones you love. Retablos are traditional Peruvian boxes that open to show small scenes. I built five, each with sculpted figures.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds. These better worlds are the ones where she can do the things she loved, and where I can find her.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
     // One picture from each of the five boxes, in box order, each cut so its figure is centred.
@@ -369,18 +328,18 @@ export const PROJECTS: Project[] = [
     slug: "jabberwocky",
     title: "Jabberwocky",
     section: "selected-work",
-    summary: "A fully illustrated book of Lewis Carroll's nonsense poem.",
+    summary: "A fully illustrated book of Lewis Carroll’s nonsense poem.",
     accentColor: "coral",
     reflection:
-      "Jabberwocky is a fully illustrated book of Lewis Carroll's nonsense poem. The illustrations that bring to life the fantastical world Carroll created were made with colored pencils. I wanted to tell the story behind the poem's nonsensical words, bring its characters to life, and build a world for them to live in.",
+      "Jabberwocky is a fully illustrated book of Lewis Carroll’s nonsense poem. The illustrations that bring to life the fantastical world Carroll created were made with colored pencils. I wanted to tell the story behind the poem’s nonsensical words, bring its characters to life, and build a world for them to live in.",
     discipline: "Illustrated book",
-    tags: ["Illustration", "Illustrated Book", "Children's Books"],
+    tags: ["Illustration", "Illustrated Book", "Children’s Books"],
     circleLoopStill: 0,
     circleLoop: [
-      { file: "jabberwocky/circle-01.jpg", alt: "Jabberwocky book cover: the Jabberwock's head above the title" },
+      { file: "jabberwocky/circle-01.jpg", alt: "Jabberwocky book cover: the Jabberwock’s head above the title" },
       { file: "jabberwocky/circle-02.jpg", alt: "A castle with smoking towers among grey hills under a pink sky" },
       { file: "jabberwocky/circle-03.jpg", alt: "A bearded king in a crown lifting a boy: Beware of the Jabberwock, my son" },
-      { file: "jabberwocky/circle-04.jpg", alt: "The Jabberwock's open jaws, the jaws that bite" },
+      { file: "jabberwocky/circle-04.jpg", alt: "The Jabberwock’s open jaws, the jaws that bite" },
       { file: "jabberwocky/circle-05.jpg", alt: "The Jub Jub bird lifting a tiny figure in its beak" },
       { file: "jabberwocky/circle-06.jpg", alt: "The Bandersnatch, a spotted beast with a long tongue, facing a boy with a sword" },
       { file: "jabberwocky/circle-07.jpg", alt: "The boy riding a striped horse, sword in hand" },
@@ -389,7 +348,7 @@ export const PROJECTS: Project[] = [
       { file: "jabberwocky/circle-10.jpg", alt: "The boy and the Jabberwock in a fiery battle" },
       { file: "jabberwocky/circle-12.jpg", alt: "The king on his throne among his trophies" },
       { file: "jabberwocky/circle-13.jpg", alt: "A celebration: the king embracing the boy under bunting" },
-      { file: "jabberwocky/circle-14.jpg", alt: "A dark creature with the Jabberwock's head under a purple sky" },
+      { file: "jabberwocky/circle-14.jpg", alt: "A dark creature with the Jabberwock’s head under a purple sky" },
     ],
     thumbnail: "jabberwocky/book-mockup.jpg",
     thumbnailBlend: true,
@@ -411,7 +370,7 @@ export const PROJECTS: Project[] = [
       },
       {
         file: "jabberwocky/spread-04.jpg",
-        alt: "Spread: The jaws that bite, the claws that catch! Close-up of the Jabberwock's jaws beside two black claws",
+        alt: "Spread: The jaws that bite, the claws that catch! Close-up of the Jabberwock’s jaws beside two black claws",
       },
       {
         file: "jabberwocky/spread-05.jpg",
@@ -465,10 +424,10 @@ export const PROJECTS: Project[] = [
     accentColor: "blue",
     caseStudy: {
       problem:
-        "Amit is driven and curious, and holds herself to her own deadlines. She's taken up yoga and meditation, and she's always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn't wanting to eat well. It's not knowing where to begin, and not having room in a busy week to work it out.",
-      role: "Co-designed with Yuval Sa'ar as a team project for a Shenkar course. We both worked across the persona, wireframes, visual design, branding, and the prototype.",
+        "Amit is driven and curious, and holds herself to her own deadlines. She’s taken up yoga and meditation, and she’s always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn’t wanting to eat well. It’s not knowing where to begin, and not having room in a busy week to work it out.",
+      role: "Co-designed with Yuval Sa’ar as a team project for a Shenkar course. We both worked across the persona, wireframes, visual design, branding, and the prototype.",
       process:
-        "Better Eater is a helper for the transition itself. It supports whichever way of eating you want to try, whether that's vegan, vegetarian, keto, or something else, and makes cooking easy at any level, as part of your life.",
+        "Better Eater is a helper for the transition itself. It supports whichever way of eating you want to try, whether that’s vegan, vegetarian, keto, or something else, and makes cooking easy at any level, as part of your life.",
       outcome:
         "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
     },
@@ -492,18 +451,17 @@ export const PROJECTS: Project[] = [
  *  down the page. Projects not listed here keep their pages but aren't shown in either place. */
 export const WORK_ORDER = [
   "giuson",
-  "better-eater",
-  "interview-assistant",
-  "alutit",
   "kindred",
+  "better-eater",
   "afterlife",
+  "alutit",
   "mundos-mejores",
   "jabberwocky",
 ] as const;
 
-/** The first projects in WORK_ORDER are the featured product case studies, shown large on the home
- *  page. The rest follow in a smaller "more work" group. */
-export const FEATURED_COUNT = 3;
+/** The first projects in WORK_ORDER are the featured work, shown large on the home page. The rest
+ *  follow as the "Illustration work" group, smaller, in a grid. */
+export const FEATURED_COUNT = 4;
 
 export function getOrderedProjects(): Project[] {
   return WORK_ORDER.map((slug) => PROJECTS.find((p) => p.slug === slug)).filter(

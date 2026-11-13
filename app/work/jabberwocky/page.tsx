@@ -5,14 +5,17 @@ import { SlideStackGallery } from "@/components/projects/SlideStackGallery";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Jabberwocky · Axel Garland",
-  description: "Jabberwocky, a fully illustrated book of Lewis Carroll's nonsense poem.",
-};
+  description:
+    "Jabberwocky, a fully illustrated book of Lewis Carroll’s nonsense poem.",
+  path: "/work/jabberwocky",
+});
 
 export default function JabberwockyPage() {
   const project = getProject("jabberwocky");
@@ -27,7 +30,7 @@ export default function JabberwockyPage() {
         <header className="pb-16 pt-32 sm:pt-36 md:pb-20">
           <div className="mx-auto grid max-w-content grid-cols-1 items-center gap-10 px-6 sm:px-10 md:grid-cols-[1fr_1fr] md:gap-14 md:px-14 lg:gap-20 lg:px-16">
             <div className="order-2 md:order-1">
-              <h1 className="mb-6 font-display text-[clamp(1.95rem,3.9vw,3.51rem)] font-light leading-[1.02] tracking-tight text-ink">
+              <h1 className="mb-6 type-title font-display text-ink">
                 {project.title}
               </h1>
               <p className="max-w-[46ch] text-lg leading-relaxed text-ink-muted">{project.reflection}</p>

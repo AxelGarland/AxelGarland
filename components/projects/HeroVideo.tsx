@@ -29,6 +29,22 @@ export function HeroVideo({
   const dialog = useRef<HTMLDialogElement>(null);
   const big = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  // Touch screens get a lighter preload: these clips are several megabytes.
+  const [coarse, setCoarse] = useState(false);
+
+  // The server never renders `autoplay`, because the visitor's reduced-motion setting is not known
+  // there and the browser would start the clip before React could stop it. Once it is known, a visitor
+  // who has not asked for less motion gets the clip playing; everyone else gets controls.
+  useEffect(() => {
+    setCoarse(window.matchMedia("(pointer: coarse)").matches);
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.pause();
+      return;
+    }
+    void el.play().catch(() => {});
+  }, []);
 
   const toggle = () => {
     const v = ref.current;
@@ -89,8 +105,7 @@ export function HeroVideo({
         loop={!playOnce}
         onClick={replay}
         playsInline
-        preload="auto"
-        autoPlay={!reduce}
+        preload={coarse ? "metadata" : "auto"}
         controls={reduce}
       />
       {expandOnMobile && !reduce ? (
@@ -106,7 +121,7 @@ export function HeroVideo({
           type="button"
           onClick={toggle}
           aria-pressed={!muted}
-          className="absolute bottom-3 right-3 z-10 inline-flex min-h-[40px] items-center [@media(pointer:coarse)]:hidden gap-2 bg-black/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition-colors duration-300 hover:bg-black"
+          className="absolute bottom-3 right-3 z-10 inline-flex min-h-[40px] items-center [@media(pointer:coarse)]:hidden gap-2 bg-black/70 px-4 py-2 text-sm font-semibold uppercase tracking-[0.1em] text-white backdrop-blur-sm transition-colors duration-300 hover:bg-black"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
             <path d="M2 6h3l4-3v10l-4-3H2V6Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />

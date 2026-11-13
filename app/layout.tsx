@@ -1,5 +1,5 @@
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Heebo, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { HalftoneCursor } from "@/components/HalftoneCursor";
@@ -28,9 +28,9 @@ const hebrewSans = Heebo({
   display: "swap",
 });
 
-const SITE_TITLE = "Axel Garland · Product & Visual Designer";
+const SITE_TITLE = "Axel Garland · Product Designer";
 const SITE_DESCRIPTION =
-  "Axel Garland, a product & visual designer working across UX/UI, branding, and illustration. Portfolio and case studies.";
+  "Axel Garland is a product designer. Case studies in UX/UI and internal tools, plus generative design and illustration.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.axelgarland.com"),
@@ -45,13 +45,15 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: SITE_TITLE, description: SITE_DESCRIPTION },
 };
 
+export const viewport: Viewport = { themeColor: "#FFFFFF" };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body
         className={`${displaySerif.variable} ${bodySans.variable} ${hebrewSans.variable} font-sans bg-surface text-mist antialiased`}
       >

@@ -8,16 +8,19 @@ import { TagLine } from "@/components/projects/TagLine";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
+import { pageMetadata } from "@/lib/seo";
+import { cardTags } from "@/lib/workCards";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Alutit · Axel Garland",
   description:
-    "Alutit, an illustrated recruitment character designed for Alut, The Israeli Society for Children and Adults with autism.",
-};
+    "Alutit, an illustrated recruitment character designed by Axel Garland for ALUT, the Israeli Society for Children and Adults with Autism.",
+  path: "/work/alutit",
+});
 
 const REELS = [
   [
@@ -28,12 +31,12 @@ const REELS = [
   [
     { file: "reel-desk", label: "Alutit at her desk, talking to the camera" },
     { file: "reel-unicorn", label: "Alutit in a unicorn onesie against a rainbow background" },
-    { file: "reel-chef", label: "Alutit in a chef's uniform in a kitchen, talking to the camera" },
+    { file: "reel-chef", label: "Alutit in a chef’s uniform in a kitchen, talking to the camera" },
     { file: "reel-graduate", label: "Alutit in a graduation gown in front of a university building, with Hebrew captions" },
   ],
 ] as const;
 
-const TAGS = ["Character Design", "Illustration", "Social Media", "Recruitment", "Merchandise"];
+const TAGS = cardTags("alutit");
 
 /** The character in her different roles, cut out as die-cut stickers (the white border and soft
  *  shadow are part of each file). A row of three above a row of four, all the same size. */
@@ -64,16 +67,15 @@ export default function AlutitPage() {
         <header className="relative overflow-hidden pb-12 pt-36 sm:pb-16 sm:pt-36 md:flex md:min-h-[100svh] md:items-center md:pb-10 md:pt-24">
           <div className="relative mx-auto grid w-full max-w-content grid-cols-1 items-center gap-8 px-6 sm:px-10 md:grid-cols-[1fr_1.15fr] md:gap-10 md:px-14 lg:px-16">
             <div>
-              <h1 className="mb-6 font-display text-[clamp(1.95rem,4.29vw,3.51rem)] font-light leading-[1.05] tracking-tight text-ink">
+              <h1 className="mb-6 type-title font-display text-ink">
                 A character
                 <br />
                 with <em className="italic text-accent">purpose</em>
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                Alutit is an illustrated character designed for Alut, The Israeli Society for Children
-                and Adults with autism. The character was designed for the recruitment department, to
-                give a warm, colorful, and recognizable face across social media, video, print and
-                merchandise.
+                Alutit is an illustrated character I designed for the recruitment department at ALUT,
+                the Israeli Society for Children and Adults with Autism. She is the face of our
+                recruitment on social media, video, print and merchandise.
               </p>
               <TagLine tags={TAGS} className="" />
             </div>
@@ -105,7 +107,7 @@ export default function AlutitPage() {
                 />
               </div>
               <div className="flex flex-col gap-6">
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink">
+                <h2 className="type-section font-display text-ink">
                   Building presence through character
                 </h2>
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
@@ -122,7 +124,7 @@ export default function AlutitPage() {
         {/* Reels — five muted clips in phones that open out into a row as they scroll into view */}
         <FloatingLikes className="border-t border-line bg-surface py-20 md:py-28">
           <div className="mx-auto mb-14 max-w-content px-6 sm:px-10 md:mb-20 md:px-14 lg:px-16">
-            <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
+            <h2 className="type-section font-display text-ink">
               Recruitment videos for <em className="italic text-accent">social media</em>
             </h2>
           </div>
@@ -149,7 +151,7 @@ export default function AlutitPage() {
                     <p className="mx-auto max-w-[30ch] text-center font-display text-xl font-light leading-snug text-surface sm:text-2xl md:text-3xl">
                       Alutit appears in{" "}
                       <em className="italic text-accent-light">
-                        recruitment flyers, social media, merch
+                        recruitment flyers, social media, merchandise
                       </em>{" "}
                       and internal messaging
                     </p>
@@ -180,12 +182,12 @@ export default function AlutitPage() {
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[1.25fr_1fr] md:gap-16">
               <div className="max-w-[70ch] md:self-center md:pb-28">
-                <h2 className="font-display text-2xl font-semibold leading-[1.15] text-ink sm:text-3xl">
-                  And the <em className="italic text-accent">success</em> of it all
+                <h2 className="type-section font-display text-ink">
+                  What <em className="italic text-accent">changed</em>
                 </h2>
                 <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-                  A constant weekly influx of applicants comes through our social media presence, with
-                  more than 43 hires coming directly from the Alutit page.
+                  The Alutit page became our second-biggest source of steady applicants and hires,
+                  especially counselors (madrichim) and assistants (סייעות), with more than 60 hires.
                 </p>
               </div>
               <div className="relative mx-auto aspect-[581/784] w-full max-w-[15.2rem] md:mx-0 md:ml-auto md:max-w-[17.6rem]">

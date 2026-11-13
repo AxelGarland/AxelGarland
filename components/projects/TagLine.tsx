@@ -15,12 +15,12 @@ export function TagLine({
       {tags.map((tag, i) => (
         <span key={tag}>
           <span className="whitespace-nowrap">
-            {tag}
-            {i < tags.length - 1 ? (
-              <span aria-hidden className="ml-3 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />
+            {i > 0 ? (
+              <span aria-hidden className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />
             ) : null}
+            {tag}
           </span>
-          {i < tags.length - 1 ? " " : null}
+          {i < tags.length - 1 ? <span className="mx-1.5"> </span> : null}
         </span>
       ))}
     </p>

@@ -1,17 +1,14 @@
 "use client";
 
-import { useHydrationSafeReducedMotion } from "@/hooks/useHydrationSafeReducedMotion";
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
 import { HalftoneButton } from "@/components/sections/HalftoneButton";
 import { HalftoneName } from "@/components/sections/HalftoneName";
-import { OpenForWorkRing } from "@/components/sections/OpenForWorkRing";
 import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export function HeroSection() {
-  const reduce = useHydrationSafeReducedMotion();
   // The entrance always ends in the visible state. Reduced motion is handled by MotionConfig below,
   // which drops the movement and keeps a plain fade, so the text can never be left hidden (the old
   // version removed `animate` once reduced motion was detected, after the text had already been
@@ -36,18 +33,14 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">
-            <motion.div
-              whileHover={reduce ? undefined : { y: -2 }}
-              whileTap={reduce ? undefined : { scale: 0.97 }}
-              transition={{ duration: 0.3, ease: EASE }}
-            >
-              <HalftoneButton href="#work" label="Let&rsquo;s see some work" />
-            </motion.div>
+            <div className="transition-transform duration-300 motion-safe:hover:-translate-y-0.5 motion-safe:active:scale-[0.97]">
+              <HalftoneButton href="#work" label="See my work" />
+            </div>
             <Link
               href="/contact"
-              className="inline-flex min-h-[44px] items-center border-b border-line text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              className="inline-flex min-h-[44px] items-center border-b border-line text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:border-accent hover:text-accent"
             >
-              Let&rsquo;s work together
+              Get in touch
             </Link>
           </motion.div>
         </div>
@@ -59,7 +52,6 @@ export function HeroSection() {
           transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
           className="relative mx-auto mb-16 mt-14 aspect-square w-[72%] max-w-[20rem] md:mx-0 md:mb-0 md:mt-0 md:h-[min(76svh,44vw,46rem)] md:w-[min(76svh,44vw,46rem)] md:max-w-none md:shrink-0"
         >
-          <OpenForWorkRing />
           <HeroPortrait />
         </motion.div>
       </div>

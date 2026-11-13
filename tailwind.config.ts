@@ -12,6 +12,8 @@ const config: Config = {
         /** Page background — warm editorial palette (2026-09-04, replacing the flat light-grey theme):
          *  a cream base with a slightly deeper "raised" tone for cards/panels and an "elevated" step
          *  for hover/placeholder states. Sourced from Axel's own Adobe Express mockup. */
+        /** The work section's stage: near-black, a little deeper than the footer's `ink`. */
+        night: "#050505",
         surface: {
           DEFAULT: "#FFFFFF",
           raised: "#F5F4F1",
@@ -96,6 +98,18 @@ const config: Config = {
         pencil: {
           DEFAULT: "#FEB728",
         },
+        /** Smart Giuson's own palette (the redesigned product): deep navy type, one strong blue, and
+         *  cool off-white grounds. Used only on the Smart Giuson case study. */
+        gj: {
+          navy: "#0B1B33",
+          blue: "#0A5CE6",
+          deep: "#0847B3",
+          sky: "#4D92FF",
+          tint: "#F3F6FB",
+          line: "#D9E1EE",
+          muted: "#34415A",
+          soft: "#E6EFFF",
+        },
         blush: {
           DEFAULT: "#D64040",
           soft: "rgba(214, 64, 64, 0.2)",
@@ -124,6 +138,7 @@ const config: Config = {
         "drift-medium": "drift 48s ease-in-out infinite alternate-reverse",
         "drift-vertical": "driftVertical 40s ease-in-out infinite alternate",
         marquee: "marquee 80s linear infinite",
+        "gj-flow": "gjFlow 7s linear infinite",
       },
       keyframes: {
         "ring-spin": {
@@ -149,6 +164,9 @@ const config: Config = {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        gjFlow: {
+          to: { strokeDashoffset: "-48" },
         },
       },
       backgroundImage: {

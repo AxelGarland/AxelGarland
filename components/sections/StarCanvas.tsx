@@ -78,6 +78,10 @@ export function StarCanvas() {
     const wrap = (v: number, m: number) => ((v % m) + m) % m;
 
     const draw = (dt: number) => {
+      // With no size yet (a page opened in a zero-size or not-yet-laid-out window) wrap() would
+      // return NaN, and createLinearGradient throws on NaN. The ResizeObserver redraws once the
+      // section has a real size.
+      if (!(w > 0 && h > 0)) return;
       const still = motionQuery.matches;
       t += dt;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

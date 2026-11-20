@@ -22,7 +22,7 @@ const clip = (slug: string): Preview => ({ kind: "video", src: `/home/previews/$
 
 const PREVIEW: Record<string, { context: string; preview: Preview }> = {
   giuson: { context: "ALUT", preview: clip("giuson") },
-  "better-eater": { context: "Shenkar course project", preview: clip("better-eater") },
+  "better-eater": { context: "Concept project", preview: clip("better-eater") },
   kindred: { context: "Generative illustration system", preview: clip("kindred") },
   afterlife: { context: "Concept project", preview: clip("afterlife") },
   alutit: { context: "ALUT recruitment", preview: clip("alutit") },

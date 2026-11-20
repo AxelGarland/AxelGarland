@@ -15,7 +15,12 @@ function trackPointer(event) {
 }
 function closeEye() { peek.inside = false; }
 // The page tells the scene when it is on screen, so it does not draw while it is out of sight.
-addEventListener('message', e => { if (e.data && e.data.type === 'visible') e.data.value ? loop() : noLoop(); });
+let onScreen = true;
+addEventListener('message', e => {
+  if (!e.data || e.data.type !== 'visible') return;
+  onScreen = !!e.data.value;
+  if (typeof loop === 'function') onScreen ? loop() : noLoop();
+});
 function preload() {
   axel = loadImage(assets[0]);
   icons = assets.slice(1).map(src => loadImage(src));
@@ -38,6 +43,7 @@ function setup() {
   });
   paused = reduce.matches;
   imageMode(CENTER);
+  if (!onScreen) noLoop();
 }
 function react(i) {
   active = i; started = millis();

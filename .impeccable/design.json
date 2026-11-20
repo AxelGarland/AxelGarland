@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-20T19:25:20+00:00",
+  "generatedAt": "2026-11-20T21:37:56+00:00",
   "title": "Design System: Axel Garland Portfolio",
   "extensions": {
     "colorMeta": {
@@ -22,7 +22,7 @@
       "ink-muted": {
         "role": "neutral",
         "displayName": "Quiet Ink",
-        "canonical": "#5C5A54",
+        "canonical": "#4D4B46",
         "tonalRamp": [
           "#1C1B19",
           "#2E2D2A",
@@ -37,7 +37,7 @@
       "ink-subtle": {
         "role": "neutral",
         "displayName": "Soft Ink",
-        "canonical": "#6A6862",
+        "canonical": "#5A5852",
         "tonalRamp": [
           "#201F1D",
           "#353431",
@@ -285,7 +285,7 @@
       "refersTo": "",
       "description": "A project in the list: heavy capital name, context and meta lines between hairlines; hover turns the name cobalt and nudges it right.",
       "html": "<div class=\"ds-row\"><h3>Smart Giuson</h3><p>ALUT <span>Product design \u00b7 Internal tool</span></p></div>",
-      "css": ".ds-row{padding:24px 0;border-top:1px solid #E1DFDA;border-bottom:1px solid #E1DFDA;font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-row h3{margin:0;font:800 2rem/1.05 'Work Sans','Heebo',system-ui,sans-serif;text-transform:uppercase;color:#1A1916;transition:color .3s,transform .3s} .ds-row p{margin:6px 0 0;color:#5C5A54;font-size:1rem} .ds-row p span{margin-left:8px;font-size:.875rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8} .ds-row:hover h3{color:#2354E6;transform:translateX(6px)}"
+      "css": ".ds-row{padding:24px 0;border-top:1px solid #E1DFDA;border-bottom:1px solid #E1DFDA;font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-row h3{margin:0;font:800 2rem/1.05 'Work Sans','Heebo',system-ui,sans-serif;text-transform:uppercase;color:#1A1916;transition:color .3s,transform .3s} .ds-row p{margin:6px 0 0;color:#4D4B46;font-size:1rem} .ds-row p span{margin-left:8px;font-size:.875rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8} .ds-row:hover h3{color:#2354E6;transform:translateX(6px)}"
     },
     {
       "name": "Text Field",
@@ -293,7 +293,7 @@
       "refersTo": "field",
       "description": "Square white field with a soft-ink border; focus turns border and ring cobalt.",
       "html": "<label class=\"ds-lab\">Name<input class=\"ds-field\" type=\"text\"></label>",
-      "css": ".ds-lab{display:block;font:500 .875rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6A6862} .ds-field{display:block;width:100%;margin-top:8px;padding:12px 16px;border:1px solid rgba(106,104,98,.8);background:#fff;color:#1A1916;font:400 1rem 'Work Sans','Heebo',system-ui,sans-serif;outline:none;transition:border-color .3s,box-shadow .3s} .ds-field:focus{border-color:#2354E6;box-shadow:0 0 0 2px rgba(35,84,230,.25)}"
+      "css": ".ds-lab{display:block;font:500 .875rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#5A5852} .ds-field{display:block;width:100%;margin-top:8px;padding:12px 16px;border:1px solid rgba(106,104,98,.8);background:#fff;color:#1A1916;font:400 1rem 'Work Sans','Heebo',system-ui,sans-serif;outline:none;transition:border-color .3s,box-shadow .3s} .ds-field:focus{border-color:#2354E6;box-shadow:0 0 0 2px rgba(35,84,230,.25)}"
     },
     {
       "name": "Navigation",
@@ -301,7 +301,7 @@
       "refersTo": "",
       "description": "Name in heavy capitals left; three small uppercase links right; the current one has a cobalt dot.",
       "html": "<nav class=\"ds-nav\"><b>AXEL GARLAND</b><span><a href=\"#\">HOME</a><a href=\"#\" class=\"on\">WORK</a><a href=\"#\">CONTACT</a></span></nav>",
-      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #E1DFDA;background:rgba(255,255,255,.95);font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-nav b{font:800 1.45rem/1 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:-.02em;color:#1A1916} .ds-nav a{margin-left:28px;font:500 .8rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.14em;color:#5C5A54;text-decoration:none} .ds-nav a.on{color:#1A1916} .ds-nav a.on::after{content:'';display:inline-block;width:5px;height:5px;margin-left:8px;border-radius:50%;background:#2354E6;vertical-align:middle}"
+      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #E1DFDA;background:rgba(255,255,255,.95);font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-nav b{font:800 1.45rem/1 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:-.02em;color:#1A1916} .ds-nav a{margin-left:28px;font:500 .8rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.14em;color:#4D4B46;text-decoration:none} .ds-nav a.on{color:#1A1916} .ds-nav a.on::after{content:'';display:inline-block;width:5px;height:5px;margin-left:8px;border-radius:50%;background:#2354E6;vertical-align:middle}"
     },
     {
       "name": "Role Box",

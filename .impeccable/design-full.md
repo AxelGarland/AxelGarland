@@ -3,8 +3,8 @@ name: Axel Garland Portfolio
 description: Hand-made clay and paint objects on a clean white design-tool canvas, set in heavy capitals with one cobalt accent.
 colors:
   ink: "#1A1916"
-  ink-muted: "#5C5A54"
-  ink-subtle: "#6A6862"
+  ink-muted: "#4D4B46"
+  ink-subtle: "#5A5852"
   canvas-white: "#FFFFFF"
   paper: "#F5F4F1"
   paper-deep: "#ECEAE5"
@@ -114,7 +114,7 @@ A near-monochrome ink-on-white palette with a single saturated blue.
 
 ### Neutral
 - **Studio Ink** (#1A1916): all headings and buttons. Warm near-black, never pure black.
-- **Quiet Ink** (#5C5A54) and **Soft Ink** (#6A6862): body copy, context lines, labels.
+- **Quiet Ink** (#4D4B46) and **Soft Ink** (#5A5852): body copy, context lines, labels.
 - **Canvas White** (#FFFFFF): the page ground, including the hero and the work list.
 - **Paper** (#F5F4F1) and **Paper Deep** (#ECEAE5): the quiet panels behind case-study sections and the contact form.
 - **Hairline** (#E1DFDA): the one divider and border color.

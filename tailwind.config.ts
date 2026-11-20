@@ -24,8 +24,8 @@ const config: Config = {
          *  dark-theme system needed. */
         ink: {
           DEFAULT: "#1A1916",
-          muted: "#5C5A54",
-          subtle: "#6A6862",
+          muted: "#4D4B46",
+          subtle: "#5A5852",
         },
         /** Card/panel background — same family as `surface`, kept as a distinct name for spots that
          *  read better as a slightly-raised "card" than the bare page (contact form, case-study panels). */
@@ -37,8 +37,8 @@ const config: Config = {
          *  aliased to identical values so nothing relying on the old name breaks mid-migration. */
         mist: {
           DEFAULT: "#1A1916",
-          muted: "#5C5A54",
-          subtle: "#6A6862",
+          muted: "#4D4B46",
+          subtle: "#5A5852",
         },
         /** The site's one accent color: eyebrows, links, focus rings, hover states. Cobalt, the same blue as
          *  the design-tool frames in the hero and the clay arrow cursor (it was a red until 2026-11-20). */

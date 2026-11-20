@@ -86,7 +86,7 @@ export function HeroLab({
     <section
       ref={runway}
       id="hero-runway"
-      className="relative h-[240svh] bg-white"
+      className="relative h-[200svh] bg-white"
     >
       {/* Part of the page's own markup, so it applies from the first paint and the bar never flashes on reload.
           The bar is hidden until the hero has been scrolled past, then slides in. Keyboard focus inside it

@@ -3,8 +3,8 @@ name: Axel Garland Portfolio
 description: Hand-made clay and paint objects on a clean white design-tool canvas, set in heavy capitals with one cobalt accent.
 colors:
   ink: "#1A1916"
-  ink-muted: "#5C5A54"
-  ink-subtle: "#6A6862"
+  ink-muted: "#4D4B46"
+  ink-subtle: "#5A5852"
   canvas-white: "#FFFFFF"
   paper: "#F5F4F1"
   paper-deep: "#ECEAE5"

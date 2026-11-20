@@ -1,6 +1,5 @@
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { ToolOrbit } from "@/components/home/ToolOrbit";
-import Link from "next/link";
 
 export function AboutSection() {
   return (
@@ -28,12 +27,6 @@ export function AboutSection() {
                 </p>
                 <p>Outside product design, I illustrate and work across different mediums, from colored pencil to sculpture.</p>
                 <p className="flex flex-wrap items-center gap-x-8">
-                  <Link
-                    href="/contact"
-                    className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-                  >
-                    Let&rsquo;s talk.
-                  </Link>
                   <a
                     href="/Axel%20Garland%20CV.pdf"
                     target="_blank"

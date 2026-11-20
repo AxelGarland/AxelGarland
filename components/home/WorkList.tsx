@@ -53,9 +53,11 @@ function ClipShow({ p, active, still }: { p: Extract<Preview, { kind: "video" }>
   }, [active, armed, still]);
   return (
     <div className="absolute inset-0" style={p.backdrop ? { backgroundColor: p.backdrop } : undefined}>
-      {/* The poster shows until the clip is first asked for; the clip itself is only fetched on first hover. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={p.poster} alt="" className={`absolute inset-0 h-full w-full ${p.fit === "contain" ? "object-contain" : "object-cover"}`} />
+      {/* Nothing is fetched until a row is first pointed at: then the poster shows at once and the clip loads behind it. */}
+      {armed ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={p.poster} alt="" className={`absolute inset-0 h-full w-full ${p.fit === "contain" ? "object-contain" : "object-cover"}`} />
+      ) : null}
       {armed && !still ? (
         <video
           ref={ref}
@@ -133,7 +135,7 @@ export function WorkList({ current }: { current?: string } = {}) {
                         <p className="mt-1.5 text-base text-ink-muted">
                           {info.context}
                           <span aria-hidden className="mx-2 hidden text-ink/30 sm:inline">&middot;</span>
-                          <span className="hidden text-sm uppercase tracking-[0.06em] text-ink-muted/80 sm:inline">{card.meta}</span>
+                          <span className="hidden text-[0.9375rem] uppercase tracking-[0.06em] text-ink-muted sm:inline">{card.meta}</span>
                         </p>
                       </div>
                       {/* No hover on touch screens, so a small picture stands in for the preview. */}

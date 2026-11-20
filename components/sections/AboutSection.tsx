@@ -1,5 +1,5 @@
 import { MotionReveal } from "@/components/motion/MotionReveal";
-import { ToolsLoop } from "@/components/home/ToolsLoop";
+import { ToolOrbit } from "@/components/home/ToolOrbit";
 import Link from "next/link";
 
 export function AboutSection() {
@@ -8,10 +8,10 @@ export function AboutSection() {
       <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
         <MotionReveal>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.6fr] md:gap-20">
-            <h2 className="type-title font-display text-ink">
+            <h2 className="type-title font-display text-ink md:col-start-1 md:row-start-1">
               About me
             </h2>
-            <div className="md:pt-3">
+            <div className="md:col-start-2 md:row-span-2 md:row-start-1 md:pt-3">
               <div className="flex max-w-[58ch] flex-col gap-5 text-lg leading-relaxed text-ink-muted">
                 <p>
                   I&rsquo;m a product designer with a background in visual communication and illustration. I studied Visual Communication Design at Shenkar College.
@@ -45,7 +45,10 @@ export function AboutSection() {
                   </a>
                 </p>
               </div>
-              <ToolsLoop />
+            </div>
+            {/* In the left column under the heading on wide screens; after the text on a phone. */}
+            <div className="md:col-start-1 md:row-start-2 md:-mt-4">
+              <ToolOrbit />
             </div>
           </div>
         </MotionReveal>

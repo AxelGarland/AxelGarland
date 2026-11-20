@@ -1,4 +1,3 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { CaseFacts } from "@/components/projects/CaseFacts";
 import { MoreProjects } from "@/components/projects/MoreProjects";
@@ -24,7 +23,6 @@ export default function JabberwockyPage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Header — the title and text on the left, the book mockup smaller on the right */}
@@ -64,7 +62,7 @@ export default function JabberwockyPage() {
         </section>
         <MoreProjects current="jabberwocky" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

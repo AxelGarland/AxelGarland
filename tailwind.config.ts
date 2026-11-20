@@ -40,18 +40,17 @@ const config: Config = {
           muted: "#5C5A54",
           subtle: "#6A6862",
         },
-        /** The site's one accent color: eyebrows, links, focus rings, hover states. Same red as
-         *  `blush` (2026-09-15, replacing the previous terracotta, which read too close to
-         *  Claude's own brand orange for a portfolio). */
+        /** The site's one accent color: eyebrows, links, focus rings, hover states. Cobalt, the same blue as
+         *  the design-tool frames in the hero and the clay arrow cursor (it was a red until 2026-11-20). */
         accent: {
-          DEFAULT: "#D64040",
-          hover: "#A03030",
-          soft: "rgba(214, 64, 64, 0.14)",
-          glow: "rgba(214, 64, 64, 0.35)",
-          /** Small red text on cream needs a deeper red to pass 4.5:1 contrast. */
-          ink: "#B83232",
-          /** The same role on the near-black sections: a lighter red, 5:1 or better. */
-          light: "#E55B5B",
+          DEFAULT: "#2354E6",
+          hover: "#1B43BD",
+          soft: "rgba(35, 84, 230, 0.14)",
+          glow: "rgba(35, 84, 230, 0.35)",
+          /** Small blue text on white at 4.5:1 or better. */
+          ink: "#1D49CC",
+          /** The same role on the near-black sections: a lighter blue, 5:1 or better. */
+          light: "#7D9BFF",
         },
         /** Crisp warm-grey border — replaces opacity-based `border-ink/10` style borders where a
          *  solid hairline reads cleaner against the cream palette. */
@@ -93,8 +92,7 @@ const config: Config = {
           DEFAULT: "#3B82F6",
           soft: "rgba(59, 130, 246, 0.18)",
         },
-        /** Sampled directly from the hero self-portrait illustration: the pencil's yellow and the
-         *  red cheek blush. Used for the hero's "Work" button and its ambient glow blobs. */
+        /** Sampled directly from the hero self-portrait illustration: the pencil's yellow. */
         pencil: {
           DEFAULT: "#FEB728",
         },
@@ -109,10 +107,6 @@ const config: Config = {
           line: "#D9E1EE",
           muted: "#34415A",
           soft: "#E6EFFF",
-        },
-        blush: {
-          DEFAULT: "#D64040",
-          soft: "rgba(214, 64, 64, 0.2)",
         },
       },
       fontFamily: {

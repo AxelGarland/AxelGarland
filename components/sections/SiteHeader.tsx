@@ -1,6 +1,5 @@
 "use client";
 
-import { HalftoneLogo } from "@/components/sections/HalftoneLogo";
 import { PRODUCT_WORK, VISUAL_WORK } from "@/lib/workCards";
 import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
@@ -141,7 +140,7 @@ export function SiteHeader() {
           className="inline-flex min-h-[44px] items-center transition-opacity duration-300 hover:opacity-75"
           onClick={() => setOpen(false)}
         >
-          <HalftoneLogo />
+          <span className="font-display text-[1.45rem] leading-none tracking-[-0.02em] text-ink">AXEL GARLAND</span>
         </Link>
 
         <ul className="hidden list-none items-center gap-8 md:flex lg:gap-10">

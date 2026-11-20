@@ -1,4 +1,3 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { CaseFacts } from "@/components/projects/CaseFacts";
@@ -68,7 +67,6 @@ export default function AfterLifePage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Hero — full-bleed, the entrance animation fills the width and fades into the black below */}
@@ -179,7 +177,7 @@ export default function AfterLifePage() {
 
         <MoreProjects current="afterlife" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

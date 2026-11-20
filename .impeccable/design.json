@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T19:25:20+00:00",
+  "title": "Design System: Axel Garland Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Studio Ink",
+        "canonical": "#1A1916",
+        "tonalRamp": [
+          "#080807",
+          "#0D0D0B",
+          "#121210",
+          "#171714",
+          "#383735",
+          "#747472",
+          "#B1B0AF",
+          "#EDEDEC"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "canonical": "#5C5A54",
+        "tonalRamp": [
+          "#1C1B19",
+          "#2E2D2A",
+          "#413F3B",
+          "#53514C",
+          "#71706A",
+          "#9C9B97",
+          "#C7C7C4",
+          "#F2F2F1"
+        ]
+      },
+      "ink-subtle": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#6A6862",
+        "tonalRamp": [
+          "#201F1D",
+          "#353431",
+          "#4A4944",
+          "#5F5E58",
+          "#7E7C77",
+          "#A5A4A0",
+          "#CCCBC9",
+          "#F3F3F2"
+        ]
+      },
+      "canvas-white": {
+        "role": "neutral",
+        "displayName": "Canvas White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#E6E6E6",
+          "#EDEDED",
+          "#F2F2F2",
+          "#F6F6F6",
+          "#F9F9F9",
+          "#FBFBFB",
+          "#FDFDFD",
+          "#FFFFFF"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F5F4F1",
+        "tonalRamp": [
+          "#4A4948",
+          "#7B7A78",
+          "#ACABA9",
+          "#DDDCD9",
+          "#F6F5F3",
+          "#F9F8F7",
+          "#FBFBFA",
+          "#FEFEFE"
+        ]
+      },
+      "paper-deep": {
+        "role": "neutral",
+        "displayName": "Paper Deep",
+        "canonical": "#ECEAE5",
+        "tonalRamp": [
+          "#474645",
+          "#767573",
+          "#A5A4A0",
+          "#D4D3CE",
+          "#EEEDE8",
+          "#F3F2EF",
+          "#F8F8F6",
+          "#FDFDFD"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#E1DFDA",
+        "tonalRamp": [
+          "#444341",
+          "#71706D",
+          "#9E9C98",
+          "#CBC9C4",
+          "#E5E3DF",
+          "#EDEBE9",
+          "#F5F4F2",
+          "#FDFCFC"
+        ]
+      },
+      "cobalt": {
+        "role": "primary",
+        "displayName": "Selection Cobalt",
+        "canonical": "#2354E6",
+        "tonalRamp": [
+          "#0A1945",
+          "#112A73",
+          "#183BA1",
+          "#1F4CCF",
+          "#406AE9",
+          "#7A97F0",
+          "#B3C4F6",
+          "#EDF1FD"
+        ]
+      },
+      "cobalt-pressed": {
+        "role": "primary",
+        "displayName": "Pressed Cobalt",
+        "canonical": "#1B43BD",
+        "tonalRamp": [
+          "#081439",
+          "#0D215F",
+          "#132F84",
+          "#183CAA",
+          "#395CC6",
+          "#758DD7",
+          "#B1BFE9",
+          "#EDF0FA"
+        ]
+      },
+      "cobalt-text": {
+        "role": "primary",
+        "displayName": "Cobalt Text",
+        "canonical": "#1D49CC",
+        "tonalRamp": [
+          "#09163D",
+          "#0F2566",
+          "#14338F",
+          "#1A42B8",
+          "#3B61D3",
+          "#7691E0",
+          "#B2C0EE",
+          "#EDF0FB"
+        ]
+      },
+      "cobalt-on-dark": {
+        "role": "primary",
+        "displayName": "Cobalt on Dark",
+        "canonical": "#7D9BFF",
+        "tonalRamp": [
+          "#262E4C",
+          "#3F4D7F",
+          "#586CB2",
+          "#718BE5",
+          "#8EA8FF",
+          "#B0C2FF",
+          "#D3DDFF",
+          "#F5F7FF"
+        ]
+      },
+      "pencil-yellow": {
+        "role": "tertiary",
+        "displayName": "Pencil Yellow",
+        "canonical": "#FEB728",
+        "tonalRamp": [
+          "#4C370C",
+          "#7F5C14",
+          "#B2801C",
+          "#E5A524",
+          "#FEC044",
+          "#FED37D",
+          "#FFE6B5",
+          "#FFF9EE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-name": {
+        "displayName": "Display name",
+        "purpose": "Hero name and the contact heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Page and section titles."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Work-row names and sub-sections."
+      },
+      "sub": {
+        "displayName": "Sub",
+        "purpose": "Smaller headings inside case studies."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Meta lines, form labels, navigation."
+      }
+    },
+    "shadows": [
+      {
+        "name": "picture-drop",
+        "value": "0 14px 30px -12px rgba(0,0,0,0.5)",
+        "purpose": "Neutral offset shadow under pictures inside designed clips and mockups. Not used on controls."
+      }
+    ],
+    "motion": [
+      {
+        "name": "selection-pop",
+        "value": "0.2s cubic-bezier(0.2, 1.4, 0.4, 1)",
+        "purpose": "Corner handles of the selection frame scaling in."
+      },
+      {
+        "name": "fade-quick",
+        "value": "0.15s ease",
+        "purpose": "Selection frame fading in on hover or focus."
+      },
+      {
+        "name": "row-ease",
+        "value": "0.3s ease",
+        "purpose": "Work-row name colour and nudge."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action: ink rectangle; hover draws the cobalt selection frame with square handles.",
+      "html": "<button class=\"ds-btn-solid\">See my work<span class=\"ds-sel\"></span><i></i><i></i><i></i><i></i></button>",
+      "css": ".ds-btn-solid{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:3.9rem;padding:0 2.25rem;background:#1A1916;color:#fff;font:600 1.15rem 'Work Sans','Heebo',system-ui,sans-serif;border:0;cursor:pointer;} .ds-btn-solid .ds-sel{position:absolute;inset:-5px;border:1px solid #2354E6;opacity:0;transition:opacity .15s;pointer-events:none} .ds-btn-solid i{position:absolute;width:9px;height:9px;margin:-4.5px;background:#fff;border:1px solid #2354E6;opacity:0;transform:scale(.3);transition:opacity .15s,transform .2s cubic-bezier(.2,1.4,.4,1)} .ds-btn-solid i:nth-of-type(1){left:-5px;top:-5px} .ds-btn-solid i:nth-of-type(2){right:-5px;top:-5px} .ds-btn-solid i:nth-of-type(3){left:-5px;bottom:-5px} .ds-btn-solid i:nth-of-type(4){right:-5px;bottom:-5px} .ds-btn-solid:hover .ds-sel,.ds-btn-solid:focus-visible .ds-sel{opacity:1} .ds-btn-solid:hover i,.ds-btn-solid:focus-visible i{opacity:1;transform:none} .ds-btn-solid:focus-visible{outline:none}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action: white rectangle with a 1.5px ink border.",
+      "html": "<button class=\"ds-btn-line\">Get in touch<span class=\"ds-sel\"></span><i></i><i></i><i></i><i></i></button>",
+      "css": ".ds-btn-line{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:3.9rem;padding:0 2.25rem;background:#fff;color:#1A1916;font:600 1.15rem 'Work Sans','Heebo',system-ui,sans-serif;border:0;cursor:pointer;box-shadow:inset 0 0 0 1.5px #1A1916;} .ds-btn-line .ds-sel{position:absolute;inset:-5px;border:1px solid #2354E6;opacity:0;transition:opacity .15s;pointer-events:none} .ds-btn-line i{position:absolute;width:9px;height:9px;margin:-4.5px;background:#fff;border:1px solid #2354E6;opacity:0;transform:scale(.3);transition:opacity .15s,transform .2s cubic-bezier(.2,1.4,.4,1)} .ds-btn-line i:nth-of-type(1){left:-5px;top:-5px} .ds-btn-line i:nth-of-type(2){right:-5px;top:-5px} .ds-btn-line i:nth-of-type(3){left:-5px;bottom:-5px} .ds-btn-line i:nth-of-type(4){right:-5px;bottom:-5px} .ds-btn-line:hover .ds-sel,.ds-btn-line:focus-visible .ds-sel{opacity:1} .ds-btn-line:hover i,.ds-btn-line:focus-visible i{opacity:1;transform:none} .ds-btn-line:focus-visible{outline:none}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Hairline-underlined link; hover turns text and line cobalt.",
+      "html": "<a class=\"ds-link\" href=\"#\">Download CV</a>",
+      "css": ".ds-link{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid #E1DFDA;color:#1A1916;font:400 1rem 'Work Sans','Heebo',system-ui,sans-serif;text-decoration:none;transition:color .3s,border-color .3s} .ds-link:hover,.ds-link:focus-visible{color:#2354E6;border-color:#2354E6;outline:none}"
+    },
+    {
+      "name": "Work Row",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "A project in the list: heavy capital name, context and meta lines between hairlines; hover turns the name cobalt and nudges it right.",
+      "html": "<div class=\"ds-row\"><h3>Smart Giuson</h3><p>ALUT <span>Product design \u00b7 Internal tool</span></p></div>",
+      "css": ".ds-row{padding:24px 0;border-top:1px solid #E1DFDA;border-bottom:1px solid #E1DFDA;font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-row h3{margin:0;font:800 2rem/1.05 'Work Sans','Heebo',system-ui,sans-serif;text-transform:uppercase;color:#1A1916;transition:color .3s,transform .3s} .ds-row p{margin:6px 0 0;color:#5C5A54;font-size:1rem} .ds-row p span{margin-left:8px;font-size:.875rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8} .ds-row:hover h3{color:#2354E6;transform:translateX(6px)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Square white field with a soft-ink border; focus turns border and ring cobalt.",
+      "html": "<label class=\"ds-lab\">Name<input class=\"ds-field\" type=\"text\"></label>",
+      "css": ".ds-lab{display:block;font:500 .875rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6A6862} .ds-field{display:block;width:100%;margin-top:8px;padding:12px 16px;border:1px solid rgba(106,104,98,.8);background:#fff;color:#1A1916;font:400 1rem 'Work Sans','Heebo',system-ui,sans-serif;outline:none;transition:border-color .3s,box-shadow .3s} .ds-field:focus{border-color:#2354E6;box-shadow:0 0 0 2px rgba(35,84,230,.25)}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Name in heavy capitals left; three small uppercase links right; the current one has a cobalt dot.",
+      "html": "<nav class=\"ds-nav\"><b>AXEL GARLAND</b><span><a href=\"#\">HOME</a><a href=\"#\" class=\"on\">WORK</a><a href=\"#\">CONTACT</a></span></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #E1DFDA;background:rgba(255,255,255,.95);font-family:'Work Sans','Heebo',system-ui,sans-serif} .ds-nav b{font:800 1.45rem/1 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:-.02em;color:#1A1916} .ds-nav a{margin-left:28px;font:500 .8rem 'Work Sans','Heebo',system-ui,sans-serif;letter-spacing:.14em;color:#5C5A54;text-decoration:none} .ds-nav a.on{color:#1A1916} .ds-nav a.on::after{content:'';display:inline-block;width:5px;height:5px;margin-left:8px;border-radius:50%;background:#2354E6;vertical-align:middle}"
+    },
+    {
+      "name": "Role Box",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The hero role label: a 1.6px cobalt rectangle with square corner handles holding a bold role name.",
+      "html": "<div class=\"ds-role\">Product Designer<i></i><i></i><i></i><i></i></div>",
+      "css": ".ds-role{position:relative;display:inline-block;padding:20px 40px;border:1.6px solid #2354E6;font:700 1.7rem Arial,sans-serif;color:#181715} .ds-role i{position:absolute;width:6px;height:6px;margin:-3.5px;background:#fff;border:1px solid #2354E6} .ds-role i:nth-of-type(1){left:0;top:0} .ds-role i:nth-of-type(2){right:0;top:0} .ds-role i:nth-of-type(3){left:0;bottom:0} .ds-role i:nth-of-type(4){right:0;bottom:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clay on the Canvas",
+    "overview": "The page is a white canvas, like the one in a design tool. The work sits on it: a sculpted and painted bust, clay icons, colored pencil and paper. The interface stays plain so the objects can be seen.\n\nThe site looks like the tools it was designed in, and the objects look like they were made by hand. That is the position: craft and code are one practice, not two portfolios side by side.\n\nHeadings are heavy capitals set tight. Everything else is quiet: one hairline, one blue. Nothing on a page explains itself. Project pages keep their own palettes (Better Eater green, Giuson navy, Kindred orange); the site around them does not change.\n\nRejected on purpose, and not to return: a red accent, halftone or dotted lettering and shapes, a 3D name, and a star as contact decoration.",
+    "keyCharacteristics": [
+      "White ground, ink type, one cobalt accent.",
+      "Heavy uppercase display type; plain Work Sans for reading.",
+      "Square controls with no icons or arrows; hover selects them like a layer.",
+      "Clay-and-paint objects as the only decoration.",
+      "Clay arrow pointer, cobalt over empty space and pink over anything clickable."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Cobalt is the only accent. It marks what you can select, hover or focus. Red was removed on purpose; do not bring it back.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warm Ink Rule",
+        "body": "Text is #1A1916, not #000. Black appears only inside project work and video.",
+        "section": "colors"
+      },
+      {
+        "name": "The Capital Voice Rule",
+        "body": "Only headings are heavy capitals. Running text stays ordinary so it can be read.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Dots Rule",
+        "body": "Lettering is solid. Halftone and dotted type were removed because they cost legibility and clash with the clay.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Canvas Rule",
+        "body": "A control never lifts. Hover and focus are shown by the blue selection frame, not by shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Selection Cobalt (#2354E6) as the only accent, and show hover and focus with the thin blue frame and corner handles.",
+      "Do set all headings in Work Sans 800 uppercase with tight tracking, and let body copy stay ordinary.",
+      "Do keep controls square and label-only.",
+      "Do let clay and paint objects, clips and project pictures carry the personality.",
+      "Do keep real, plain wording and real numbers; keep every interactive state reachable by keyboard."
+    ],
+    "donts": [
+      "Don't use red anywhere on site chrome.",
+      "Don't use halftone or dotted lettering, arrows, shapes or sparkles.",
+      "Don't bring back the 3D name, or put a star in the contact section.",
+      "Don't put explanatory micro-copy inside interfaces; keep rationale on one quiet page.",
+      "Don't put a small label above a heading as an eyebrow, and don't use rounded pills for actions."
+    ]
+  }
+}

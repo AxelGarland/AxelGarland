@@ -2,7 +2,6 @@ import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Heebo, Work_Sans } from "next/font/google";
 import "./globals.css";
-import { HalftoneCursor } from "@/components/HalftoneCursor";
 import { SiteHeader } from "@/components/sections/SiteHeader";
 
 const bodySans = Work_Sans({
@@ -65,7 +64,6 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         {children}
-        <HalftoneCursor />
         <AnalyticsTracker />
       </body>
     </html>

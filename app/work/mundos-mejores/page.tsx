@@ -1,4 +1,3 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { SiteFooter } from "@/components/sections/SiteFooter";
@@ -24,7 +23,6 @@ export default function MundosMejoresPage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* The text, and the boxes opening one after another */}
@@ -38,7 +36,7 @@ export default function MundosMejoresPage() {
         </section>
         <MoreProjects current="mundos-mejores" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

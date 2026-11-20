@@ -1,7 +1,6 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { FloatingLikes } from "@/components/projects/FloatingLikes";
-import { HalftoneStars } from "@/components/projects/HalftoneStars";
+import { Sparkles } from "@/components/projects/Sparkles";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { ReelPhones } from "@/components/projects/ReelPhones";
 import { CaseFacts } from "@/components/projects/CaseFacts";
@@ -96,7 +95,6 @@ export default function AlutitPage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Hero */}
@@ -180,7 +178,7 @@ export default function AlutitPage() {
 
         {/* Stickers — on black, so each white die-cut border stands out */}
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
-          <HalftoneStars />
+          <Sparkles />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <h2 className="sr-only">Where Alutit appears</h2>
             <div className="flex flex-col gap-y-10 md:gap-y-14">
@@ -269,7 +267,7 @@ export default function AlutitPage() {
         </section>
         <MoreProjects current="alutit" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

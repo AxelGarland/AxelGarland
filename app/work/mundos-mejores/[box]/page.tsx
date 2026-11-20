@@ -1,4 +1,3 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { HalftoneArrowBox } from "@/components/projects/HalftoneArrowBox";
 import { OpeningRetablo } from "@/components/projects/OpeningRetablo";
 import { PhotoCarousel } from "@/components/projects/PhotoCarousel";
@@ -41,7 +40,6 @@ export default async function MundosBoxPage({ params }: PageProps) {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         {/* Header: back to all boxes, the closed retablo, and the box's name */}
         <section className="pb-12 pt-32 sm:pt-36 md:pb-16">
@@ -131,7 +129,7 @@ export default async function MundosBoxPage({ params }: PageProps) {
           </div>
         </div>
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

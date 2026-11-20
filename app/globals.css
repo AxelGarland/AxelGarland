@@ -39,11 +39,7 @@
     text-wrap: pretty;
   }
 
-  ::selection {
-    @apply bg-line text-ink;
-  }
-
-  /* One focus ring for the whole site: red, 2px, offset. It has no specificity, so a component that
+  /* One focus ring for the whole site: cobalt, 2px, offset. It has no specificity, so a component that
      sets its own (the footer's yellow, the Smart Giuson blue) still wins. */
   :where(a, button, summary, [role="button"], input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
     outline: 2px solid theme("colors.accent.DEFAULT");
@@ -81,13 +77,28 @@
     }
   }
 
+  /* On a light work section brightness would not dim dark text, so the others fade instead. */
+  .work-stage.work-light .work-card {
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-stage.work-light[data-kbd]:not(:has(.work-card:hover)) .work-card:not(:focus-visible) {
+    filter: none;
+    opacity: 0.35;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .work-stage.work-light:has(.work-card:hover) .work-card:not(:hover) {
+      filter: none;
+      opacity: 0.35;
+    }
+  }
+
   /* When Back to work returns to a card, it gets one slow red ring so you can find your place. */
   @keyframes card-return {
     0% {
-      box-shadow: 0 0 0 0 rgba(214, 64, 64, 0.55);
+      box-shadow: 0 0 0 0 rgba(35, 84, 230, 0.55);
     }
     100% {
-      box-shadow: 0 0 0 16px rgba(214, 64, 64, 0);
+      box-shadow: 0 0 0 16px rgba(35, 84, 230, 0);
     }
   }
   .card-returning {
@@ -114,4 +125,37 @@ html .font-display {
 html .font-display em,
 html em.font-display {
   font-style: normal;
+}
+
+
+/* The pointer: a clay arrow, cobalt over empty space and pink over anything that can be clicked. Drawn once
+   from the Axel-Clay-Cursors sketch and saved as pictures in /public/home/cursors (44px, with an 88px copy
+   for sharp screens). Only for a mouse or trackpad. The tip of the arrow is the click point (4, 3). Text
+   fields and running text keep the text cursor. */
+@media (pointer: fine) {
+  html {
+    cursor: url(/home/cursors/arrow.png) 4 3, default;
+    cursor: image-set(url(/home/cursors/arrow.png) 1x, url(/home/cursors/arrow@2x.png) 2x) 4 3, url(/home/cursors/arrow.png) 4 3, default;
+  }
+  :where(a[href], button:enabled, summary, [role="button"]:not([aria-disabled="true"]), label[for], select:enabled) {
+    cursor: url(/home/cursors/hand.png) 4 3, pointer !important;
+    cursor: image-set(url(/home/cursors/hand.png) 1x, url(/home/cursors/hand@2x.png) 2x) 4 3, url(/home/cursors/hand.png) 4 3, pointer !important;
+  }
+  input, textarea {
+    cursor: text;
+  }
+  :where(p, li, dd, blockquote, figcaption):not(:is(a, button, label, summary, [role="button"]) *) {
+    cursor: text;
+  }
+}
+
+
+/* The parts the browser draws still belong to the design: selection, caret, form controls and focus. */
+::selection {
+  background: #2354e6;
+  color: #ffffff;
+}
+html {
+  accent-color: #2354e6;
+  caret-color: #2354e6;
 }

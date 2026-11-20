@@ -25,9 +25,9 @@ export function PrototypeMockup({ prototype, title, className = "" }: PrototypeM
     >
       <div className="flex items-center gap-3 border-b border-line bg-surface-raised px-4 py-3">
         <div className="flex shrink-0 gap-1.5" aria-hidden>
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ec6a5e]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#f4bf4f]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#61c454]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#d6d3cc]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#d6d3cc]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#d6d3cc]" />
         </div>
         <div className="mx-auto flex min-w-0 items-center gap-2 bg-paper px-4 py-1.5 text-xs text-ink-subtle">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden className="shrink-0">

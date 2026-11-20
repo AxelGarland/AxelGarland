@@ -5,7 +5,7 @@ import type { MetadataRoute } from "next";
 const BASE = "https://www.axelgarland.com";
 
 /** The date the site's pages were last revised. Update it when the content changes. */
-const LAST_MODIFIED = new Date("2026-11-13");
+const LAST_MODIFIED = new Date("2026-11-16");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = ["", "/contact"].map((path) => ({ url: `${BASE}${path}`, lastModified: LAST_MODIFIED }));

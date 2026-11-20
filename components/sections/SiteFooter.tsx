@@ -1,65 +1,63 @@
-import { ClosingBlock } from "@/components/sections/ClosingBlock";
+import { ContactFooter } from "@/components/sections/ContactFooter";
 import { CopyEmail } from "@/components/sections/CopyEmail";
 import Link from "next/link";
 
 const EMAIL = "axelgrobman@gmail.com";
 
-const links = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/axel-garland-138188292/" },
-  { label: "CV", href: "/Axel%20Garland%20CV.pdf" },
-] as const;
-
-const navLinks = [
-  { label: "Work", href: "/#work" },
-  { label: "Contact", href: "/contact" },
-] as const;
-
-/** One link style for everything in the footer: 14px, 44px tall, the same gaps, the same yellow focus
- *  ring (the footer is dark, so the site's red would not show). */
 const LINK =
-  "inline-flex min-h-[44px] items-center text-sm uppercase tracking-[0.08em] text-surface/70 transition-colors duration-300 hover:text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pencil";
+  "inline-flex min-h-[44px] items-center text-sm uppercase tracking-[0.08em] text-ink-muted transition-colors duration-300 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
 
+/** The end of every page. By default it is the "Let's talk." block with the painted portrait. Pages that
+ *  already have their own way to get in touch (Contact, the 404) pass `closing={false}` and get a slim
+ *  white footer with the same links instead. */
 export function SiteFooter({ closing = true }: { closing?: boolean }) {
   return (
     <>
-      {closing ? <ClosingBlock /> : null}
-      <footer className="bg-ink py-12 text-surface md:py-16">
-        <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-          <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
-            <p className="font-display text-lg tracking-tight text-surface">Axel Garland</p>
-            <nav aria-label="Footer navigation">
-              <ul className="m-0 flex list-none flex-wrap gap-x-8 p-0">
-                {navLinks.map((item) => (
-                  <li key={item.label}>
-                    <Link href={item.href} className={LINK}>
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-surface/10 pt-6">
-            <ul className="m-0 flex list-none flex-wrap items-center gap-x-8 p-0">
-              <li>
-                <CopyEmail email={EMAIL} className={LINK}>
-                  Email
-                </CopyEmail>
-              </li>
-              {links.map((item) => (
-                <li key={item.label}>
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" className={LINK}>
-                    {item.label}
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-surface/60">© {new Date().getFullYear()} Axel Garland</p>
-          </div>
-        </div>
-      </footer>
+      {closing ? <ContactFooter /> : <SlimFooter />}
+      <div className="border-t border-line bg-surface">
+        <p className="mx-auto max-w-content px-6 py-6 text-sm text-ink-muted sm:px-10 md:px-14 lg:px-16">
+          Website made by Axel Garland. All rights reserved &copy; {new Date().getFullYear()}.
+        </p>
+      </div>
     </>
+  );
+}
+
+function SlimFooter() {
+  return (
+    <footer className="border-t border-line bg-surface py-10 md:py-12">
+      <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-x-8 gap-y-3 px-6 sm:px-10 md:px-14 lg:px-16">
+        <p className="font-display text-lg tracking-tight text-ink">Axel Garland</p>
+        <ul className="m-0 flex list-none flex-wrap items-center gap-x-8 p-0">
+          <li>
+            <Link href="/#work" className={LINK}>
+              Work
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className={LINK}>
+              Contact
+            </Link>
+          </li>
+          <li>
+            <CopyEmail email={EMAIL} className={LINK}>
+              Email
+            </CopyEmail>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/axel-garland-138188292/" target="_blank" rel="noopener noreferrer" className={LINK}>
+              LinkedIn
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </li>
+          <li>
+            <a href="/Axel%20Garland%20CV.pdf" target="_blank" rel="noopener noreferrer" className={LINK}>
+              CV
+              <span className="sr-only"> (PDF, opens in a new tab)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
   );
 }

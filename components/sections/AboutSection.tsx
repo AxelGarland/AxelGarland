@@ -1,4 +1,5 @@
 import { MotionReveal } from "@/components/motion/MotionReveal";
+import { ToolsLoop } from "@/components/home/ToolsLoop";
 import Link from "next/link";
 
 export function AboutSection() {
@@ -29,7 +30,7 @@ export function AboutSection() {
                 <p className="flex flex-wrap items-center gap-x-8">
                   <Link
                     href="/contact"
-                    className="inline-flex min-h-[44px] items-center text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink"
+                    className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     Let&rsquo;s talk.
                   </Link>
@@ -37,22 +38,14 @@ export function AboutSection() {
                     href="/Axel%20Garland%20CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[44px] items-center text-ink underline decoration-accent underline-offset-4 transition-colors duration-300 hover:text-accent-ink"
+                    className="inline-flex min-h-[44px] items-center border-b border-line text-base text-ink transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                   >
                     Download CV
                     <span className="sr-only"> (PDF, opens in a new tab)</span>
                   </a>
                 </p>
               </div>
-              <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-muted">
-                <span className="mr-1 text-accent-ink">Tools</span>
-                {["Figma", "Adobe Creative Suite", "Cursor", "Claude Code"].map((tool, i) => (
-                  <span key={tool} className="inline-flex items-center gap-3 whitespace-nowrap">
-                    {i > 0 ? <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-accent" /> : null}
-                    {tool}
-                  </span>
-                ))}
-              </p>
+              <ToolsLoop />
             </div>
           </div>
         </MotionReveal>

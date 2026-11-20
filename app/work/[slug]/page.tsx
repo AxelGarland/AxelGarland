@@ -3,7 +3,6 @@ import { PrototypeMockup } from "@/components/projects/PrototypeMockup";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectPicture } from "@/components/projects/ProjectPicture";
 import { VideoHero } from "@/components/projects/VideoHero";
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject, PROJECTS, SECTION_LABELS, type AccentColor } from "@/lib/projects";
@@ -122,7 +121,6 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="min-h-[100dvh] bg-surface">
         <article className="pb-16 pt-24 sm:pb-20 sm:pt-28">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">

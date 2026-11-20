@@ -2,10 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-/** White halftone sparkles (four-point, diamond-shaped stars) scattered over a dark section, behind
- *  its content. Each star is a field of round dots that are biggest at its centre and shrink to
- *  nothing at the tips. Positions are fractions of the section so the pattern holds at any size, and
- *  the canvas is redrawn when the section is resized. Purely decorative. */
+/** Solid white four-point sparkles scattered over a dark section, behind its content. Positions are
+ *  fractions of the section so the pattern holds at any size, and the canvas is redrawn when the section is
+ *  resized. Purely decorative. */
 
 /** x and y are percentages of the section, r is the star's radius in px at full size. */
 const STARS = [
@@ -25,10 +24,7 @@ const STARS = [
   { x: 92, y: 91, r: 66 },
 ] as const;
 
-const CELL = 5;
-const SHAPE = 0.62;
-
-export function HalftoneStars() {
+export function Sparkles() {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -51,19 +47,18 @@ export function HalftoneStars() {
 
       const scale = Math.min(1, w / 1200);
       for (const star of STARS) {
-        const r = star.r * scale;
+        const r = star.r * scale * 0.7;
         const cx = (star.x / 100) * w;
         const cy = (star.y / 100) * h;
-        for (let y = -r; y <= r; y += CELL) {
-          for (let x = -r; x <= r; x += CELL) {
-            const d = Math.pow(Math.abs(x) / r, SHAPE) + Math.pow(Math.abs(y) / r, SHAPE);
-            const cov = 1 - d;
-            if (cov <= 0.05) continue;
-            ctx.beginPath();
-            ctx.arc(cx + x, cy + y, (CELL / 2) * Math.sqrt(cov) * 1.15, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
+        // Four points joined by curves that pull in toward the centre.
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - r);
+        ctx.quadraticCurveTo(cx, cy, cx + r, cy);
+        ctx.quadraticCurveTo(cx, cy, cx, cy + r);
+        ctx.quadraticCurveTo(cx, cy, cx - r, cy);
+        ctx.quadraticCurveTo(cx, cy, cx, cy - r);
+        ctx.closePath();
+        ctx.fill();
       }
     };
 

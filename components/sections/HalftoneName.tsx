@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { INK, RED } from "@/lib/theme";
+import { INK, ACCENT } from "@/lib/theme";
 
 /** "AXEL / GARLAND" set in halftone dots: black where the letters are solid, red at the edges.
  *  It is drawn once, sized to fill the width of its column, and drawn again if that width changes,
@@ -64,7 +64,7 @@ function draw(canvas: HTMLCanvasElement, W: number, H: number, dpr: number, fami
       }
       const cov = n ? sum / n / 255 : 0;
       if (cov < 0.1) continue;
-      ctx.fillStyle = cov > 0.55 ? INK : RED;
+      ctx.fillStyle = cov > 0.55 ? INK : ACCENT;
       ctx.beginPath();
       ctx.arc(x + cell / 2, y + cell / 2, (cell / 2) * Math.sqrt(cov) * 1.08, 0, Math.PI * 2);
       ctx.fill();

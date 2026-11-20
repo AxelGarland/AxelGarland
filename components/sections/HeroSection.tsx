@@ -1,7 +1,7 @@
 "use client";
 
 import { HeroPortrait } from "@/components/sections/HeroPortrait";
-import { HalftoneButton } from "@/components/sections/HalftoneButton";
+import { DesignButton } from "@/components/home/DesignButton";
 import { HalftoneName } from "@/components/sections/HalftoneName";
 import { MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export function HeroSection() {
 
           <motion.div {...rise(0.34)} className="flex flex-wrap items-center gap-x-8 gap-y-5">
             <div className="transition-transform duration-300 motion-safe:hover:-translate-y-0.5 motion-safe:active:scale-[0.97]">
-              <HalftoneButton href="#work" label="See my work" />
+              <DesignButton href="#work" label="See my work" />
             </div>
             <Link
               href="/contact"

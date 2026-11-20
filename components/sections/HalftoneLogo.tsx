@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { INK, RED } from "@/lib/theme";
+import { INK, ACCENT } from "@/lib/theme";
 
 /** "AXEL GARLAND" in halftone dots for the header: the same black-and-red dots as the big name on
  *  the home page, on one line at a fixed small size. It is drawn once, so it is static. The plain
@@ -60,7 +60,7 @@ export function HalftoneLogo() {
           }
           const cov = n ? sum / n / 255 : 0;
           if (cov < 0.12) continue;
-          ctx.fillStyle = cov > 0.55 ? INK : RED;
+          ctx.fillStyle = cov > 0.55 ? INK : ACCENT;
           ctx.beginPath();
           ctx.arc(x + CELL / 2, y + CELL / 2, (CELL / 2) * Math.sqrt(cov) * 1.1, 0, Math.PI * 2);
           ctx.fill();

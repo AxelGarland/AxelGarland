@@ -1,6 +1,6 @@
 "use client";
 
-import { HalftoneButton } from "@/components/sections/HalftoneButton";
+import { DesignButton } from "@/components/home/DesignButton";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdenpl";
@@ -82,12 +82,12 @@ export function ContactForm() {
       </div>
 
       {status === "error" ? (
-        <p ref={message} tabIndex={-1} role="alert" className="text-base text-accent-ink outline-none">
+        <p ref={message} tabIndex={-1} role="alert" className="border-l-2 border-ink pl-4 text-base font-semibold text-ink outline-none">
           Something went wrong. Try again, or email me directly.
         </p>
       ) : null}
 
-      <HalftoneButton type="submit" disabled={status === "submitting"} label={status === "submitting" ? "Sending…" : "Send"} />
+      <DesignButton type="submit" disabled={status === "submitting"} label={status === "submitting" ? "Sending…" : "Send"} />
     </form>
   );
 }

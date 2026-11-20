@@ -1,10 +1,9 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
 import { CaseFacts } from "@/components/projects/CaseFacts";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { PosterGallery } from "@/components/projects/PosterGallery";
-import { HalftoneButton } from "@/components/sections/HalftoneButton";
+import { DesignButton } from "@/components/home/DesignButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
 import { getProject } from "@/lib/projects";
@@ -44,7 +43,6 @@ export default function KindredPage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Hero — the showreel sits beside the headline so it plays on the very first screen */}
@@ -56,7 +54,7 @@ export default function KindredPage() {
               </h1>
               <CaseFacts className="mb-8">Design, illustration and creative coding · Web app</CaseFacts>
               {project.liveUrl ? (
-                <HalftoneButton href={project.liveUrl} external label="Try it live" />
+                <DesignButton href={project.liveUrl} external label="Try it live" />
               ) : null}
             </div>
             <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2">
@@ -124,7 +122,7 @@ export default function KindredPage() {
             </ol>
             {project.liveUrl ? (
               <div className="mx-auto mt-10 flex max-w-[72rem] justify-center md:mt-14">
-                <HalftoneButton href={project.liveUrl} external label="Try it live" />
+                <DesignButton href={project.liveUrl} external label="Try it live" />
               </div>
             ) : null}
           </div>
@@ -154,7 +152,7 @@ export default function KindredPage() {
         </section>
         <MoreProjects current="kindred" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { BackLink } from "@/components/projects/BackLink";
 import { CaseFacts } from "@/components/projects/CaseFacts";
 import { MoreProjects } from "@/components/projects/MoreProjects";
@@ -71,7 +70,6 @@ export default function BetterEaterPage() {
 
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="bg-surface">
         <BackLink />
         {/* Hero: the app's wordmark as the title with the text beneath it, the screens on the right */}
@@ -207,7 +205,7 @@ export default function BetterEaterPage() {
 
         <MoreProjects current="better-eater" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

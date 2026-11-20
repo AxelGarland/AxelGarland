@@ -9,7 +9,7 @@ import Link from "next/link";
 /** The home page's work, on a black stage with a few small drifting stars. Two kinds of work, two
  *  kinds of picture. Product work keeps its rectangles, because the screens need their full width:
  *  Smart Giuson and Better Eater lead on a 7 / 5 row, Kindred and AfterLife sit smaller below,
- *  lined up with them. Illustration and visual work comes back as circles, three across.
+ *  lined up with them. Illustration, motion and visual work comes back as circles, four across.
  *
  *  Both share one grammar and no card chrome: a picture, a short red rule, the name in capitals, a
  *  line, and quiet metadata. The whole card is the link, so there is no arrow. On hover the rule
@@ -76,7 +76,7 @@ function VisualCard({ card }: { card: WorkCard }) {
             src={pictureSrc(circle.image)}
             alt={card.alt}
             fill
-            sizes="(max-width: 640px) 70vw, (max-width: 768px) 40vw, 28vw"
+            sizes="(max-width: 640px) 70vw, (max-width: 768px) 40vw, 21vw"
             className="object-cover"
             style={circle.position ? { objectPosition: circle.position } : undefined}
           />
@@ -112,8 +112,8 @@ export function SelectedWork() {
         </div>
 
         <div className="mt-28 md:mt-40">
-          <h2 className="type-title mb-14 font-display text-surface md:mb-20">Visual &amp; illustration</h2>
-          <ul className="m-0 grid list-none grid-cols-1 gap-x-6 gap-y-16 p-0 sm:grid-cols-2 md:grid-cols-3">
+          <h2 className="type-title mb-14 font-display text-surface md:mb-20">Visual, motion &amp; illustration</h2>
+          <ul className="m-0 grid list-none grid-cols-1 gap-x-6 gap-y-16 p-0 sm:grid-cols-2 md:grid-cols-4">
             {VISUAL_WORK.map((card) => (
               <li key={card.slug}>
                 <VisualCard card={card} />

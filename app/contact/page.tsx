@@ -1,6 +1,5 @@
 import { ContactForm } from "@/components/sections/ContactForm";
 import { CopyEmail } from "@/components/sections/CopyEmail";
-import { GrainOverlay } from "@/components/GrainOverlay";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -16,7 +15,6 @@ const LINK =
 export default function ContactPage() {
   return (
     <>
-      <GrainOverlay />
       <main id="main" className="flex min-h-[100dvh] flex-col bg-surface pb-24 pt-32 sm:pt-36">
         <div className="mx-auto grid w-full max-w-content grid-cols-1 gap-14 px-6 sm:px-10 md:grid-cols-2 md:gap-20 md:px-14 lg:px-16">
           <div>

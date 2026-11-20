@@ -450,7 +450,7 @@ export default function GiusonPage() {
 
         <MoreProjects current="giuson" />
       </main>
-      <SiteFooter closing={false} />
+      <SiteFooter />
     </>
   );
 }

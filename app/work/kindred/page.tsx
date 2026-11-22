@@ -3,6 +3,7 @@ import { MoreProjects } from "@/components/projects/MoreProjects";
 import { CaseFacts } from "@/components/projects/CaseFacts";
 import { HeroVideo } from "@/components/projects/HeroVideo";
 import { PosterGallery } from "@/components/projects/PosterGallery";
+import { TapToEnlarge } from "@/components/projects/TapToEnlarge";
 import { DesignButton } from "@/components/home/DesignButton";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { pictureSrc } from "@/lib/pictures";
@@ -125,6 +126,7 @@ export default function KindredPage() {
                     className="h-auto w-full"
                     sizes="(max-width: 1152px) 100vw, 1152px"
                   />
+                  <TapToEnlarge file={step.file} alt={step.alt} width={step.w} height={step.h} openWidth={900} />
                 </li>
               ))}
             </ol>

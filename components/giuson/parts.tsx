@@ -1,6 +1,6 @@
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
-import { ScreenOpener } from "@/components/giuson/ScreenOpener";
+import { TapToEnlarge } from "@/components/projects/TapToEnlarge";
 import type { ReactNode } from "react";
 
 /** Shared pieces of the Smart Giuson case study: one page grid, three type sizes, and the
@@ -122,7 +122,7 @@ export function Screen({
               />
             )}
             {children}
-            <ScreenOpener file={file} alt={alt} width={width} height={height} />
+            <TapToEnlarge file={file} alt={alt} width={width} height={height} tone="giuson" />
           </div>
         </div>
       </div>

@@ -13,16 +13,12 @@ export function AboutSection() {
             <div className="md:col-start-2 md:row-span-2 md:row-start-1 md:pt-3">
               <div className="flex max-w-[58ch] flex-col gap-5 text-lg leading-relaxed text-ink-muted">
                 <p>
-                  I&rsquo;m a product designer with a background in illustration. I studied Visual Communication Design at Shenkar College.
+                  I&rsquo;m a product designer with a background in illustration and a Visual Communication Design degree from Shenkar.
                 </p>
                 <p>
-                  I like getting close to the problem, understanding how people actually work, and turning
-                  complex ideas into clear, useful experiences. I&rsquo;m drawn to products with lots of information, moving parts, or ambiguity, where good design makes things simpler.
+                  I like understanding how people work and making complex things easier to use. I work across UX, UI, and prototyping, and use code and AI tools to turn ideas into working products.
                 </p>
-                <p>
-                  I work across UX, UI, visual systems, and prototyping, and I take ideas into working products with code and AI-assisted tools.
-                </p>
-                <p>Outside product design, I illustrate and work across different mediums, from colored pencil to sculpture.</p>
+                <p>I also draw and sculpt, working with everything from colored pencils to clay.</p>
                 <p className="flex flex-wrap items-center gap-x-8">
                   <a
                     href="/Axel%20Garland%20CV.pdf"

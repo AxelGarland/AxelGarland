@@ -69,15 +69,14 @@ export default function GiusonPage() {
                   width={2880}
                   height={1800}
                   priority
-                  minWidth={680}
-                  sizes="(max-width: 768px) 680px, 66vw"
+                  sizes="(max-width: 768px) 100vw, 66vw"
                 />
-              </div>
                 <p className={`mt-4 text-gj-muted ${TEXT}`}>
                   The screens on this page show my redesign of the interface, in English. The version used at ALUT is in
                   Hebrew.
                 </p>
             </div>
+              </div>
           </Container>
         </header>
 
@@ -210,8 +209,7 @@ export default function GiusonPage() {
                   alt="The redesigned facility view: the facility name and distance, its open positions, the selected role's requirements, and a six-item call checklist beside them"
                   width={2880}
                   height={1590}
-                  minWidth={700}
-                  sizes="(max-width: 768px) 700px, 66vw"
+                  sizes="(max-width: 768px) 100vw, 66vw"
                 />
               </div>
             </div>
@@ -238,8 +236,7 @@ export default function GiusonPage() {
                   alt="The redesigned Recruiting screen: location Tel Aviv, role Speech therapist, a 25 km radius, a list of facilities with open positions, and a map of markers around the candidate"
                   width={2880}
                   height={1380}
-                  minWidth={900}
-                  sizes="(max-width: 768px) 900px, 1100px"
+                  sizes="(max-width: 768px) 100vw, 1100px"
                 >
                   <Pin n={1} x={58.2} y={19} />
                   <Pin n={2} x={33.5} y={34} />
@@ -286,8 +283,7 @@ export default function GiusonPage() {
                   alt="The redesigned Information screen: a search field, topic tabs, and a list of roles with a speech therapist entry expanded to show its requirements"
                   width={2880}
                   height={2120}
-                  minWidth={720}
-                  sizes="(max-width: 768px) 720px, 66vw"
+                  sizes="(max-width: 768px) 100vw, 66vw"
                 >
                   <Pin n={1} x={51.8} y={13.9} />
                 </Screen>

@@ -72,7 +72,7 @@ export default function AfterLifePage() {
         {/* Hero — full-bleed, the entrance animation fills the width and fades into the black below */}
         <header className="bg-black pt-[68px]">
           {/* The premise comes first, above the animation, so the first screen explains the project. */}
-          <div className="mx-auto max-w-content px-6 pb-8 pt-12 sm:px-10 md:px-14 md:pt-14 lg:px-16">
+          <div className="mx-auto max-w-content px-6 pb-8 pt-20 sm:px-10 md:px-14 md:pt-14 lg:px-16">
             <div className="grid grid-cols-1 items-end gap-x-16 gap-y-5 md:grid-cols-[1.1fr_1fr]">
               <h1 className="type-title font-display text-surface">
                 Your life, <em className="italic text-accent">wrapped</em>

@@ -1,5 +1,6 @@
 import { pictureSrc } from "@/lib/pictures";
 import Image from "next/image";
+import { ScreenOpener } from "@/components/giuson/ScreenOpener";
 import type { ReactNode } from "react";
 
 /** Shared pieces of the Smart Giuson case study: one page grid, three type sizes, and the
@@ -71,16 +72,15 @@ export function Strong({ children }: { children: ReactNode }) {
 const FRAME =
   "overflow-hidden rounded-[6px] border border-gj-line bg-white shadow-[0_1px_2px_rgba(11,27,51,0.06),0_16px_34px_-20px_rgba(11,27,51,0.32)]";
 
-/** A product screen. On phones it scrolls sideways at a readable size instead of shrinking until its
- *  text disappears. */
+/** A product screen. On phones it fits the screen width and opens full screen on tap, where it can be
+ *  panned and pinched at a readable size. */
 export function Screen({
   file,
   alt,
   width,
   height,
   priority = false,
-  minWidth = 820,
-  sizes = "(max-width: 768px) 820px, min(96vw, 1280px)",
+  sizes = "(max-width: 768px) 100vw, min(96vw, 1280px)",
   aspect,
   className = "",
   children,
@@ -90,8 +90,6 @@ export function Screen({
   width: number;
   height: number;
   priority?: boolean;
-  /** Width in px the screen keeps on phones before it starts scrolling. */
-  minWidth?: number;
   sizes?: string;
   /** Crop the screen to this width / height ratio, keeping its top edge. */
   aspect?: number;
@@ -100,9 +98,9 @@ export function Screen({
   children?: ReactNode;
 }) {
   return (
-    <div className={`-mx-6 overflow-x-auto px-6 md:mx-0 md:overflow-visible md:px-0 ${className}`}>
-      <div className="relative min-w-[var(--sw)] md:min-w-0" style={{ ["--sw" as string]: `${minWidth}px` }}>
-        <div className={`md:min-w-0 ${FRAME}`}>
+    <div className={className}>
+      <div className="relative">
+        <div className={FRAME}>
           {/* A thin window bar, so the picture reads as a screen and not as a graphic. */}
           <div aria-hidden className="flex h-7 items-center gap-1.5 border-b border-gj-line bg-gj-tint px-3">
             <span className="h-2 w-2 rounded-full bg-gj-muted/35" />
@@ -124,6 +122,7 @@ export function Screen({
               />
             )}
             {children}
+            <ScreenOpener file={file} alt={alt} width={width} height={height} />
           </div>
         </div>
       </div>
@@ -137,7 +136,7 @@ export function Pin({ n, x, y }: { n: number; x: number; y: number }) {
   return (
     <span
       aria-hidden
-      className="absolute flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gj-blue text-[1.1rem] font-semibold leading-none text-white"
+      className="absolute flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gj-blue text-[0.8rem] font-semibold leading-none text-white md:h-7 md:w-7 md:text-[1.1rem]"
       style={{ left: `${x}%`, top: `${y}%` }}
     >
       {n}

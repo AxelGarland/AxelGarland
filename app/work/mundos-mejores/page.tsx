@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = pageMetadata({
   title: "Mundos Mejores · Axel Garland",
   description:
-    "Mundos Mejores, a series of retablo-inspired boxes combining traditional Peruvian craft with illustration, Axel Garland’s final project at Shenkar.",
+    "Mundos Mejores, five retablo boxes with sculpted figures about life, death, and memory: Axel Garland’s final project at Shenkar.",
   path: "/work/mundos-mejores",
 });
 

@@ -13,17 +13,14 @@ export function AboutSection() {
             <div className="md:col-start-2 md:row-span-2 md:row-start-1 md:pt-3">
               <div className="flex max-w-[58ch] flex-col gap-5 text-lg leading-relaxed text-ink-muted">
                 <p>
-                  I&rsquo;m a product designer with a background in visual communication and illustration. I studied Visual Communication Design at Shenkar College.
+                  I&rsquo;m a product designer with a background in illustration. I studied Visual Communication Design at Shenkar College.
                 </p>
                 <p>
                   I like getting close to the problem, understanding how people actually work, and turning
-                  complex ideas into clear, useful experiences. I&rsquo;m especially drawn to products with a
-                  lot of information, moving parts or ambiguity, where good design makes things
-                  simpler.
+                  complex ideas into clear, useful experiences. I&rsquo;m drawn to products with lots of information, moving parts, or ambiguity, where good design makes things simpler.
                 </p>
                 <p>
-                  I work across UX, UI, visual systems and prototyping, and I&rsquo;m comfortable taking
-                  ideas beyond design into working products using code and AI-assisted tools.
+                  I work across UX, UI, visual systems, and prototyping, and I take ideas into working products with code and AI-assisted tools.
                 </p>
                 <p>Outside product design, I illustrate and work across different mediums, from colored pencil to sculpture.</p>
                 <p className="flex flex-wrap items-center gap-x-8">

@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 const TITLE = "Contact · Axel Garland";
-const DESCRIPTION = "Get in touch with Axel Garland about product design roles, contract work or collaborations.";
+const DESCRIPTION = "Get in touch with Axel Garland about product design roles, freelance work, or collaborations.";
 
 export const metadata: Metadata = pageMetadata({ title: TITLE, description: DESCRIPTION, path: "/contact" });
 
@@ -25,7 +25,7 @@ export default function ContactPage() {
             </h1>
             <p className="mb-10 max-w-[42ch] text-base leading-relaxed text-ink-muted md:text-lg">
               I recently graduated from Shenkar. I&rsquo;m available for product design roles
-              (UX/UI), contract work and collaborations. Send me a note and I&rsquo;ll reply soon.
+              (UX/UI), freelance work, and collaborations. Send me a note and I&rsquo;ll reply soon.
             </p>
 
             {/* Contact details: a red dot, a quiet label, and a link at least 44px tall. */}

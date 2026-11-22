@@ -1,5 +1,4 @@
 import { BeforeWorkflow, Evidence, FlowCompare } from "@/components/giuson/Diagrams";
-import { SalaryExplainer } from "@/components/giuson/SalaryExplainer";
 import { WalkthroughVideo } from "@/components/giuson/WalkthroughVideo";
 import {
   Body,
@@ -35,7 +34,6 @@ export const metadata: Metadata = pageMetadata({
 const ITERATION = [
   { feedback: "Jumping between pages", change: "Continuous workspace" },
   { feedback: "Important call topics could be missed", change: "Six-step checklist" },
-  { feedback: "Salary information wasn’t immediately intuitive", change: "Salary explained step by step (concept)" },
 ] as const;
 
 const ANNOTATIONS = [
@@ -107,12 +105,10 @@ export default function GiusonPage() {
                   it: roles, staffing needs, salary scales, grants, scholarships, and employment terms.
                 </Body>
                 <Body>
-                  The immediate request was to update the existing recruitment PDF. But updating the document would not
-                  solve the larger problem: coordinators still had to learn, remember, and cross-reference a large amount
-                  of changing information during candidate calls.
+                  I was first asked to update the recruitment PDF. That would not fix the real problem: coordinators still had to learn, remember, and cross-reference changing information during candidate calls.
                 </Body>
                 <p className={`max-w-[62ch] font-semibold text-gj-navy ${TEXT}`}>
-                  How could I make changing recruitment information easier to use while recruiting?
+                  How could changing information be easier to use during a call?
                 </p>
               </div>
 
@@ -122,9 +118,7 @@ export default function GiusonPage() {
 
               <div className={`col-span-4 md:col-span-12 ${PART} md:mt-12`}>
                 <Body className="mb-8 max-w-[70ch]">
-                  To understand the process, I joined professional meetings, listened to recruitment calls, reviewed the
-                  existing material, and worked closely with the Head of Recruitment and the coordinator already handling
-                  specialized healthcare recruitment.
+                  I joined professional meetings, listened to recruitment calls, reviewed the existing material, and worked with the Head of Recruitment and the coordinator who already handled specialized healthcare calls.
                 </Body>
                 <Evidence />
               </div>
@@ -192,8 +186,7 @@ export default function GiusonPage() {
                     about location, the role, salary, and benefits.
                   </Body>
                   <Body>
-                    I moved the experience into one continuous workspace so coordinators could access information in the
-                    order the conversation required.
+                    I moved everything into one continuous workspace, so coordinators could get information in the order the conversation needed it.
                   </Body>
                 </div>
               </div>
@@ -210,8 +203,7 @@ export default function GiusonPage() {
               <div className="col-span-4 flex flex-col gap-3 md:col-span-6 md:col-start-5">
                 <Body>Candidate location directly affects which opportunities are realistic.</Body>
                 <Body>
-                  Combining profession, address, search radius, and live staffing needs allowed coordinators to find
-                  relevant facilities without leaving the recruitment workflow.
+                  Profession, address, radius, and live staffing needs together let coordinators find relevant facilities without leaving the call.
                 </Body>
               </div>
 
@@ -248,8 +240,7 @@ export default function GiusonPage() {
                 <h3 className={`text-gj-navy ${HEADING}`}>Call guidance</h3>
                 <div className="mt-4 flex flex-col gap-3">
                   <Body>
-                    Coordinators needed help remembering what had to be covered, but a rigid wizard would not match a real
-                    conversation.
+                    Coordinators needed help remembering what to cover, but a rigid wizard wouldn&rsquo;t fit a real conversation.
                   </Body>
                   <Body>I introduced a six-part checklist that works as a memory aid rather than a script.</Body>
                 </div>
@@ -269,15 +260,14 @@ export default function GiusonPage() {
           </Container>
         </section>
 
-        {/* 04 Iteration, with the salary example */}
+        {/* 04 Iteration */}
         <section className={`bg-white ${CHAPTER}`}>
           <Container>
             <div className={GRID}>
               <SectionLabel n="04">Iteration</SectionLabel>
               <H2 className="col-span-4 md:col-span-5">Real use showed what still needed work.</H2>
               <Body className="col-span-4 mt-6 md:col-span-5 md:col-start-7 md:mt-0">
-                A week of use with recruitment coordinators and site managers led directly to changes in navigation,
-                guidance, and information hierarchy.
+                A week of use with coordinators and site managers led to two changes: a continuous workspace and a call checklist.
               </Body>
 
               <ol className={`col-span-4 m-0 list-none p-0 md:col-span-10 md:col-start-2 md:mt-12 ${TO_VISUAL}`}>
@@ -308,34 +298,11 @@ export default function GiusonPage() {
                           className="object-cover object-top"
                         />
                       ) : null}
-                      {i === 2 ? (
-                        <div className={`flex h-full flex-col justify-center whitespace-nowrap px-2 ${TEXT}`}>
-                          <p className="font-semibold leading-none text-gj-navy">₪71</p>
-                          <p className="mt-1 leading-none text-gj-muted">per hour</p>
-                        </div>
-                      ) : null}
                     </div>
                   </li>
                 ))}
                 <li aria-hidden className="border-t border-gj-line" />
               </ol>
-            </div>
-
-            {/* Salary information: text 4, UI 8 */}
-            <div className={`${GRID} ${PART} mt-12 gap-y-8`}>
-              <div className="col-span-4 md:col-span-4">
-                <h3 className={`text-gj-navy ${HEADING}`}>Salary information</h3>
-                <div className="mt-4 flex flex-col gap-3">
-                  <Body>Salary depends on profession, professional status, and recognized experience.</Body>
-                  <Body>
-                    The initial presentation still required too much interpretation, so I explored a clearer relationship
-                    between candidate details, the applicable scale, and the resulting rate.
-                  </Body>
-                </div>
-              </div>
-              <div className="col-span-4 md:col-span-8">
-                <SalaryExplainer />
-              </div>
             </div>
           </Container>
         </section>
@@ -353,8 +320,7 @@ export default function GiusonPage() {
                     information.
                   </Body>
                   <Body>
-                    Information mode gives them a central place to check requirements, salary ladders, grants,
-                    scholarships, and employment terms without relying on recruitment-team documents or personal notes.
+                    Information mode gives them one place to check requirements, salary ladders, grants, scholarships, and employment terms, instead of recruitment-team documents or personal notes.
                   </Body>
                 </div>
               </div>
@@ -406,8 +372,7 @@ export default function GiusonPage() {
                 <div className="border-t border-white/20 pt-6">
                   <h3 className={`mb-2 font-semibold text-white ${TEXT}`}>Broader participation</h3>
                   <p className={`max-w-[48ch] text-white/75 ${TEXT}`}>
-                    At least four coordinators were conducting specialized healthcare recruitment calls during the summer
-                    period, compared with one previously.
+                    At least four coordinators ran specialized healthcare recruitment calls over the summer, compared with one before.
                   </p>
                   <p className={`mt-4 font-display text-gj-sky !normal-case ${HEADING}`} aria-label="1 to 4 plus">
                     <span aria-hidden>1 &rarr; 4+</span>

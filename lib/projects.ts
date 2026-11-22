@@ -271,7 +271,7 @@ export const PROJECTS: Project[] = [
     accentColor: "gold",
     heroFit: "contain",
     reflection:
-      "My final project at Shenkar, a Peruvian retablo installation about life, death, and the places you can find and remember the ones you love. Retablos are traditional Peruvian boxes that open to show small scenes. I built five, each with sculpted figures.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. In it, I asked her what happens after we die. She told me we go to better worlds. These better worlds are the ones where she can do the things she loved, and where I can find her.",
+      "My final project at Shenkar: a Peruvian retablo installation about life, death, and the places where you can find and remember the people you love. Retablos are traditional Peruvian boxes that open to show small scenes. I built five, each with sculpted figures.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. I had asked her what happens after we die. She told me we go to better worlds, where she can do the things she loved and where I can find her.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
     // One picture from each of the five boxes, in box order, each cut so its figure is centred.
@@ -331,7 +331,7 @@ export const PROJECTS: Project[] = [
     summary: "A fully illustrated book of Lewis Carroll’s nonsense poem.",
     accentColor: "coral",
     reflection:
-      "Jabberwocky is a fully illustrated book of Lewis Carroll’s nonsense poem. The illustrations that bring to life the fantastical world Carroll created were made with colored pencils. I wanted to tell the story behind the poem’s nonsensical words, bring its characters to life, and build a world for them to live in.",
+      "A fully illustrated book of Lewis Carroll’s nonsense poem, drawn in colored pencil. I wanted to tell the story behind the poem’s nonsense words, bring its characters to life, and build a world for them to live in.",
     discipline: "Illustrated book",
     tags: ["Illustration", "Illustrated Book", "Children’s Books"],
     circleLoopStill: 0,

@@ -42,14 +42,14 @@ const TAGS = cardTags("alutit");
  *  shadow are part of each file). A row of three above a row of four, all the same size. */
 /** The brief, in three short lines: what was wrong, what I made, and how it works. */
 const BRIEF = [
-  ["Problem", "Our recruitment social media read like a noticeboard for job openings, with no point of view."],
+  ["Problem", "ALUT’s recruitment social media read like a noticeboard for job openings, with no point of view."],
   [
     "Response",
-    "A recognizable character, inspired by the warmth and energy of our recruitment coordinators and built in our own colors. She became the face of our social media.",
+    "A recognizable character, inspired by the warmth and energy of ALUT’s recruitment coordinators and built in its own colors. She became the face of its social media.",
   ],
   [
     "System",
-    "One base design, redressed in costumes and situations for each role, so she can show the range of jobs a listing can\u2019t, and adapt to each campaign.",
+    "One base design, redressed for each role and situation, so she can show the range of jobs a listing can\u2019t and adapt to each campaign.",
   ],
 ] as const;
 
@@ -108,8 +108,7 @@ export default function AlutitPage() {
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
                 Alutit is an illustrated character I designed for the recruitment department at ALUT,
-                the Israeli Society for Children and Adults with Autism. She is the face of our
-                recruitment on social media, video, print and merchandise.
+                the Israeli Society for Children and Adults with Autism. She is the face of ALUT&rsquo;s recruitment on social media, video, print, and merchandise.
               </p>
               <TagLine tags={TAGS} className="" />
               <CaseFacts className="mt-3">Character design and social media content · ALUT recruitment department</CaseFacts>
@@ -168,9 +167,9 @@ export default function AlutitPage() {
           <ReelPhones rows={REELS} />
           <div className="mx-auto mt-16 max-w-content px-6 sm:px-10 md:mt-24 md:px-14 lg:px-16">
             <p className="max-w-[40ch] font-display text-xl !font-semibold !normal-case leading-snug text-ink sm:text-2xl md:text-3xl">
-              Before I took over the page&rsquo;s content, our reels reached around{" "}
+              Before I took over the page, reels reached around{" "}
               <em className="italic text-accent">73 views</em>. Now they regularly reach{" "}
-              <em className="italic text-accent">1,500</em>, and up to{" "}
+              <em className="italic text-accent">1,500</em> and up to{" "}
               <em className="italic text-accent">3,500</em>.
             </p>
           </div>
@@ -187,7 +186,7 @@ export default function AlutitPage() {
                   {rowIndex === 1 ? (
                     <p className="mx-auto max-w-[30ch] text-center font-display text-xl font-light leading-snug text-surface sm:text-2xl md:text-3xl">
                       A costume for{" "}
-                      <em className="italic text-accent-light">every role</em> we hire for
+                      <em className="italic text-accent-light">every role</em>
                     </p>
                   ) : null}
                   <ul className="flex flex-wrap justify-center gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-14">
@@ -249,8 +248,7 @@ export default function AlutitPage() {
                   What <em className="italic text-accent">changed</em>
                 </h2>
                 <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-                  The Alutit page became our second-biggest source of steady applicants and hires,
-                  especially counselors (madrichim) and assistants (סייעות), with more than 60 hires.
+                  The Alutit page became ALUT&rsquo;s second-biggest source of steady applicants and hires, especially counselors (madrichim) and assistants (סייעות): more than 60 hires.
                 </p>
               </div>
               <div className="relative mx-auto aspect-[581/784] w-full max-w-[15.2rem] md:mx-0 md:ml-auto md:max-w-[17.6rem]">

@@ -18,7 +18,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = pageMetadata({
   title: "AfterLife · Axel Garland",
   description:
-    "AfterLife, a conceptual landing page and app for a service that gives you a wrap-up of your life, so you can celebrate it and move on.",
+    "AfterLife, a concept for a landing page and app that gives you a recap of your life, so you can celebrate it and move on.",
   path: "/work/afterlife",
 });
 
@@ -94,12 +94,11 @@ export default function AfterLifePage() {
               </h1>
               <div>
                 <p className="mb-5 max-w-[48ch] text-lg leading-relaxed text-surface/75">
-                  A concept I designed: a landing page and app for a service that gives you a
-                  wrap-up of your life, so you can celebrate it and move on.
+                  A concept for a landing page and app that gives you a recap of your life, so you can celebrate it and move on.
                 </p>
                 <TagLine tags={TAGS} tone="dark" />
                 <CaseFacts tone="dark" className="mt-3">
-                  Concept project · Illustration, UI design and animation in Figma
+                  Concept project · Illustration, UI design, and animation in Figma
                 </CaseFacts>
               </div>
             </div>
@@ -120,9 +119,7 @@ export default function AfterLifePage() {
                   leaf opens into a screen about one part of your life.
                 </p>
                 <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                  I wanted death to feel strange and playful rather than solemn. Skeleton characters, flowers,
-                  statistics and gentle humor turn the interface into something between a life recap and a final
-                  celebration.
+                  I wanted death to feel playful, not solemn. Skeletons, flowers, statistics, and gentle humor make the app part life recap, part final celebration.
                 </p>
               </div>
               <div className="order-1 md:order-2">

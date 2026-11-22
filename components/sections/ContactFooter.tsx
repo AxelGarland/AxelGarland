@@ -165,7 +165,7 @@ export function ContactFooter() {
           <span className="block w-max text-accent">talk.</span>
         </h2>
         <p className="my-9 max-w-[90%] text-ink-muted sm:max-w-[56%]" style={{ fontSize: "clamp(16px, 1.65vw, 23px)" }}>
-          Product roles, collaborations, or freelance work.
+          Product roles, freelance work, or collaborations.
         </p>
         <nav aria-label="Contact" className="flex max-w-full flex-wrap items-center gap-x-6 gap-y-4 sm:max-w-[67%]">
           <DesignButton href="/contact" label="Get in touch" variant="solid" />

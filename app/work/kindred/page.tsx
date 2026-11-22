@@ -52,7 +52,7 @@ export default function KindredPage() {
               <h1 className="mb-8 type-title font-display text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
-              <CaseFacts className="mb-8">Design, illustration and creative coding · Web app</CaseFacts>
+              <CaseFacts className="mb-8">Design, illustration, and creative coding · Web app</CaseFacts>
               {project.liveUrl ? (
                 <DesignButton href={project.liveUrl} external label="Try it live" />
               ) : null}
@@ -82,9 +82,7 @@ export default function KindredPage() {
               </div>
               <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  Kindred explores where the boundaries between code, algorithms, and illustration
-                  meet, producing an endless family of graphic faces, each one generated
-                  automatically.
+                  Kindred generates an endless family of graphic faces, each one different, from hand-drawn tiles and coded rules.
                 </p>
                 <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
                   27 hand-drawn tiles
@@ -136,7 +134,7 @@ export default function KindredPage() {
                 Crowds for the wall
               </h2>
               <p className="max-w-[40ch] text-lg leading-relaxed text-ink-muted">
-                Each poster is a crowd of twelve faces drawn from the same rules. Prints are
+                Each poster is a crowd of 12 faces drawn from the same rules. Prints are
                 available on request:{" "}
                 <Link
                   href="/contact"

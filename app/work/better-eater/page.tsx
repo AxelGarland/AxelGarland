@@ -14,7 +14,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = pageMetadata({
   title: "Better Eater · Axel Garland",
   description:
-    "Better Eater, a meal-planning and recipe app: a Shenkar team project I co-designed, focused on mobile interface design from onboarding to cooking.",
+    "Better Eater, a meal-planning and recipe app: a concept project by Axel Garland and Yuval Sa’ar, focused on mobile interface design from onboarding to cooking.",
   path: "/work/better-eater",
 });
 
@@ -32,7 +32,7 @@ const FLOW = [
     file: "bettereater/recommended meal plan.png",
     alt: "Better Eater recommended meal plan: breakfast, lunch, and dinner for a chosen day",
     title: "Get a weekly plan",
-    body: "A recommended breakfast, lunch, and dinner for each day, with time, taste, and difficulty at a glance, and a shortcut to add every ingredient to the shopping list.",
+    body: "Breakfast, lunch, and dinner for each day, with time, taste, and difficulty at a glance, and a shortcut to add every ingredient to the shopping list.",
   },
   {
     file: "bettereater/iPhone 14 Pro Space Black Mockup.png",
@@ -60,7 +60,7 @@ const DECISIONS = [
   },
   {
     title: "A soft green palette",
-    body: "A soft green palette keeps the interface associated with food and freshness without leaning into the clinical language of diet apps.",
+    body: "Soft green ties the interface to food and freshness, not the clinical look of diet apps.",
   },
 ] as const;
 
@@ -88,11 +88,11 @@ export default function BetterEaterPage() {
                 />
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                A meal-planning and recipe app that helps you move toward the way of eating you want to try.
+                A meal-planning and recipe app for trying a new way of eating.
               </p>
               <TagLine tags={TAGS} />
               <CaseFacts className="mt-3">
-                Shenkar course project, with Yuval Sa’ar · Persona, wireframes, visual design, branding, prototype
+                Concept project for a Shenkar course, with Yuval Sa&rsquo;ar · Persona, wireframes, visual design, branding, prototype
               </CaseFacts>
             </div>
             <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[34rem] overflow-hidden md:max-w-none">
@@ -114,13 +114,11 @@ export default function BetterEaterPage() {
             <h2 className="type-section font-display text-ink">Who it&rsquo;s for</h2>
             <div className="flex max-w-[64ch] flex-col gap-4 text-lg leading-relaxed text-ink-muted">
               <p>
-                Amit has always wanted to eat vegan. The pain point isn&rsquo;t wanting to eat well. It&rsquo;s not
-                knowing where to begin, and not having room in a busy week to work it out. She&rsquo;s a composite
+                Amit has always wanted to eat vegan. The problem isn&rsquo;t wanting to eat well. It&rsquo;s not knowing where to begin, and having no room in a busy week to work it out. She&rsquo;s a composite
                 of two people we interviewed who wanted to change their diet.
               </p>
               <p>
-                Better Eater supports whichever way of eating you want to try, whether that&rsquo;s vegan,
-                vegetarian, keto, or something else, and makes cooking easy at any level.
+                Better Eater supports any way of eating you want to try, whether vegan, vegetarian, keto, or something else, and makes cooking easy at any level.
               </p>
             </div>
           </div>

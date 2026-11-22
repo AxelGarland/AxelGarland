@@ -27,7 +27,7 @@ const PREVIEW: Record<string, { context: string; preview: Preview }> = {
   afterlife: { context: "Concept landing page and app", preview: clip("afterlife") },
   alutit: { context: "Branding project for ALUT’s recruitment department", preview: clip("alutit") },
   "mundos-mejores": { context: "Illustrative installation for a graduation project at Shenkar", preview: clip("mundos") },
-  jabberwocky: { context: "Illustrated children’s book", preview: clip("jabberwocky") },
+  jabberwocky: { context: "Illustrated edition of Lewis Carroll’s poem", preview: clip("jabberwocky") },
 };
 
 /** Only projects with a preview defined; anything newer in the card data (a project still on hold) is left out. */

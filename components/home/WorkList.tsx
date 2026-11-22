@@ -21,13 +21,13 @@ type Preview = { kind: "video"; src: string; poster: string; backdrop?: string; 
 const clip = (slug: string): Preview => ({ kind: "video", src: `/home/previews/${slug}.mp4`, poster: `/home/previews/${slug}.jpg` });
 
 const PREVIEW: Record<string, { context: string; preview: Preview }> = {
-  giuson: { context: "ALUT", preview: clip("giuson") },
-  "better-eater": { context: "Concept project", preview: clip("better-eater") },
-  kindred: { context: "Generative illustration system", preview: clip("kindred") },
-  afterlife: { context: "Concept project", preview: clip("afterlife") },
-  alutit: { context: "ALUT recruitment", preview: clip("alutit") },
-  "mundos-mejores": { context: "Graduation project, Shenkar", preview: clip("mundos") },
-  jabberwocky: { context: "Illustrated book", preview: clip("jabberwocky") },
+  giuson: { context: "Internal application developed for recruitment coordinators of ALUT", preview: clip("giuson") },
+  "better-eater": { context: "Meal planning concept app", preview: clip("better-eater") },
+  kindred: { context: "Experimental app that explores generative illustration", preview: clip("kindred") },
+  afterlife: { context: "Concept landing page and app", preview: clip("afterlife") },
+  alutit: { context: "Branding project for ALUT’s recruitment department", preview: clip("alutit") },
+  "mundos-mejores": { context: "Illustrative installation for a graduation project at Shenkar", preview: clip("mundos") },
+  jabberwocky: { context: "Illustrated children’s book", preview: clip("jabberwocky") },
 };
 
 /** Only projects with a preview defined; anything newer in the card data (a project still on hold) is left out. */
@@ -134,8 +134,6 @@ export function WorkList({ current }: { current?: string } = {}) {
                         </h3>
                         <p className="mt-1.5 text-base text-ink-muted">
                           {info.context}
-                          <span aria-hidden className="mx-2 hidden text-ink/30 sm:inline">&middot;</span>
-                          <span className="hidden text-[0.9375rem] uppercase tracking-[0.06em] text-ink-muted sm:inline">{card.meta}</span>
                         </p>
                       </div>
                       {/* No hover on touch screens, so a small picture stands in for the preview. */}

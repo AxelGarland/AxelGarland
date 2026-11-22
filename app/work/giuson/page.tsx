@@ -14,7 +14,6 @@ import {
   Screen,
   SectionLabel,
   TEXT,
-  TO_VISUAL,
 } from "@/components/giuson/parts";
 import { BackLink } from "@/components/projects/BackLink";
 import { MoreProjects } from "@/components/projects/MoreProjects";
@@ -31,24 +30,11 @@ export const metadata: Metadata = pageMetadata({
   path: "/work/giuson",
 });
 
-const ITERATION = [
-  { feedback: "Jumping between pages", change: "Continuous workspace" },
-  { feedback: "Important call topics could be missed", change: "Six-step checklist" },
-] as const;
-
 const ANNOTATIONS = [
   ["Candidate context", "Location, profession, and radius define the search."],
   ["Live opportunities", "Vacancies reflect staffing needs maintained by site managers."],
   ["Geography + detail", "The list supports comparison while the map makes proximity visible."],
 ] as const;
-
-function Arrow() {
-  return (
-    <svg aria-hidden viewBox="0 0 40 24" className="hidden h-5 w-8 shrink-0 text-gj-muted md:block" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12h34M28 4l8 8-8 8" />
-    </svg>
-  );
-}
 
 export default function GiusonPage() {
   return (
@@ -62,12 +48,10 @@ export default function GiusonPage() {
             <div className={`${GRID} gap-y-10`}>
               <div className="col-span-4 md:col-span-4">
                 <h1 className={`${DISPLAY} text-gj-navy`}>Smart Giuson</h1>
-                <p className={`mt-6 text-gj-navy ${HEADING}`}>
-                  Making complex recruitment information easier to use during real calls.
-                </p>
-                <Body className="mt-5">
-                  An internal recruitment tool for ALUT that combines live vacancies, role information, and call guidance
-                  in one place.
+                <Body className="mt-6">
+                  I designed and built an internal tool for ALUT&rsquo;s recruitment team. It brings live vacancies, role
+                  information, and call guidance together so coordinators can find relevant positions and answer questions
+                  during candidate calls.
                 </Body>
                 <p className={`mt-8 border-t border-gj-line pt-4 text-gj-navy ${TEXT}`}>
                   Product Design &amp; Development &middot; ALUT &middot; 2.5 months
@@ -89,6 +73,10 @@ export default function GiusonPage() {
                   sizes="(max-width: 768px) 680px, 66vw"
                 />
               </div>
+                <p className={`mt-4 text-gj-muted ${TEXT}`}>
+                  The screens on this page show my redesign of the interface, in English. The version used at ALUT is in
+                  Hebrew.
+                </p>
             </div>
           </Container>
         </header>
@@ -134,28 +122,12 @@ export default function GiusonPage() {
               <div className="col-span-4 md:col-span-4">
                 <H2>One call. One workspace.</H2>
                 <Body className="mt-4">
-                  A coordinator can move from candidate context to relevant vacancies, facility information, and call
-                  guidance without switching between tools.
+                  Recruiting mode takes a coordinator from candidate context to relevant vacancies, facility information,
+                  and call guidance without switching between tools.
                 </Body>
-                <div className="mt-8 flex flex-col gap-5 border-t border-gj-line pt-6">
-                  <div>
-                    <h3 className={`mb-1 font-semibold text-gj-navy ${TEXT}`}>Recruiting</h3>
-                    <p className={`text-gj-muted ${TEXT}`}>
-                      Supports candidate calls with location, live vacancies, facility information, employment terms, and
-                      call guidance.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className={`mb-1 font-semibold text-gj-navy ${TEXT}`}>Information</h3>
-                    <p className={`text-gj-muted ${TEXT}`}>
-                      Gives coordinators and site managers direct access to role information, salary ladders, grants,
-                      scholarships, and employment terms.
-                    </p>
-                  </div>
-                  <p className={`text-gj-muted ${TEXT}`}>
-                    Vacancy data stays connected to the Google Sheets that site managers already maintain.
-                  </p>
-                </div>
+                <p className={`mt-4 text-gj-muted ${TEXT}`}>
+                  Vacancy data stays connected to the Google Sheets that site managers already maintain.
+                </p>
               </div>
               <div className="col-span-4 md:col-span-8">
                 <WalkthroughVideo
@@ -168,26 +140,40 @@ export default function GiusonPage() {
           </Container>
         </section>
 
-        {/* 03 Design decisions */}
+        {/* 03 Design decisions: each observation from a week of use sits beside the decision it led to */}
         <section className={`bg-gj-tint ${CHAPTER}`}>
           <Container>
             <div className={GRID}>
               <SectionLabel n="03">Design decisions</SectionLabel>
-              <H2 className="col-span-4 md:col-span-6">Three decisions that shaped the product</H2>
+              <H2 className="col-span-4 md:col-span-5">A week of use shaped three decisions.</H2>
+              <Body className="col-span-4 mt-6 md:col-span-5 md:col-start-7 md:mt-0">
+                Recruitment coordinators and site managers used the first version for a week. I noted what they needed
+                during calls, and each observation led to a change.
+              </Body>
             </div>
 
             {/* Decision 1: text 4, diagram 8 */}
             <div className={`${GRID} ${PART} mt-12 gap-y-8`}>
               <div className="col-span-4 md:col-span-4">
-                <h3 className={`text-gj-navy ${HEADING}`}>A call doesn&rsquo;t follow a fixed sequence</h3>
-                <div className="mt-4 flex flex-col gap-3">
-                  <Body>
-                    The first version separated information across pages. In practice, candidates moved between questions
-                    about location, the role, salary, and benefits.
-                  </Body>
-                  <Body>
-                    I moved everything into one continuous workspace, so coordinators could get information in the order the conversation needed it.
-                  </Body>
+                <h3 className={`text-gj-navy ${HEADING}`}>One continuous workspace</h3>
+                <div className={`mt-4 flex flex-col gap-3 ${TEXT}`}>
+                  <p className="text-gj-navy">
+                    <span className="font-semibold">Observation</span> Conversations moved between topics.
+                  </p>
+                  <p className="text-gj-muted">
+                    The first version separated information across pages. Candidates moved between questions about
+                    location, the role, salary, and benefits. Now everything sits in one workspace, so coordinators get
+                    information in the order the conversation needs it.
+                  </p>
+                </div>
+                <div className="relative mt-6 aspect-[4/3] w-44 overflow-hidden rounded-[3px] border border-gj-line bg-gj-tint">
+                  <Image
+                    src={pictureSrc("giuson/sg-workspace.webp")}
+                    alt="The continuous workspace: the map and the selected facility on one scrolling page"
+                    fill
+                    sizes="176px"
+                    className="object-cover object-top"
+                  />
                 </div>
               </div>
               <div className="col-span-4 md:col-span-8">
@@ -195,16 +181,55 @@ export default function GiusonPage() {
               </div>
             </div>
 
-            {/* Decision 2: the wide product moment, 10 columns */}
+            {/* Decision 2: text 4, UI 8 */}
+            <div className={`${GRID} ${PART} gap-y-8 md:items-center`}>
+              <div className="col-span-4 md:col-span-4">
+                <h3 className={`text-gj-navy ${HEADING}`}>A six-part checklist</h3>
+                <div className={`mt-4 flex flex-col gap-3 ${TEXT}`}>
+                  <p className="text-gj-navy">
+                    <span className="font-semibold">Observation</span> Coordinators could miss important topics.
+                  </p>
+                  <p className="text-gj-muted">
+                    Coordinators needed help remembering what to cover, and a fixed sequence of steps would not fit a real
+                    conversation. The six topics can be covered in any order.
+                  </p>
+                </div>
+                <div className="relative mt-6 aspect-[4/3] w-44 overflow-hidden rounded-[3px] border border-gj-line bg-gj-tint">
+                  <Image
+                    src={pictureSrc("giuson/sg-checklist.webp")}
+                    alt="The six-item recruitment checklist"
+                    fill
+                    sizes="176px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+              <div className="col-span-4 md:col-span-8">
+                <Screen
+                  file="giuson/sg-facility.webp"
+                  alt="The redesigned facility view: the facility name and distance, its open positions, the selected role's requirements, and a six-item call checklist beside them"
+                  width={2880}
+                  height={1590}
+                  minWidth={700}
+                  sizes="(max-width: 768px) 700px, 66vw"
+                />
+              </div>
+            </div>
+
+            {/* Decision 3: the wide product moment, 10 columns */}
             <div className={`${GRID} ${PART} gap-y-8`}>
               <div className="col-span-4 md:col-span-4">
                 <h3 className={`text-gj-navy ${HEADING}`}>Location-based matching</h3>
               </div>
-              <div className="col-span-4 flex flex-col gap-3 md:col-span-6 md:col-start-5">
-                <Body>Candidate location directly affects which opportunities are realistic.</Body>
-                <Body>
-                  Profession, address, radius, and live staffing needs together let coordinators find relevant facilities without leaving the call.
-                </Body>
+              <div className={`col-span-4 flex flex-col gap-3 md:col-span-6 md:col-start-5 ${TEXT}`}>
+                <p className="text-gj-navy">
+                  <span className="font-semibold">Observation</span> Candidate location affected which opportunities were
+                  suitable.
+                </p>
+                <p className="text-gj-muted">
+                  Profession, address, radius, and live vacancies appear together, so coordinators can find relevant
+                  facilities without leaving the call.
+                </p>
               </div>
 
               <div className="col-span-4 md:col-span-10 md:col-start-2">
@@ -233,94 +258,25 @@ export default function GiusonPage() {
                 </ol>
               </div>
             </div>
-
-            {/* Decision 3: text 4, UI 8 */}
-            <div className={`${GRID} ${PART} gap-y-8 md:items-center`}>
-              <div className="col-span-4 md:col-span-4">
-                <h3 className={`text-gj-navy ${HEADING}`}>Call guidance</h3>
-                <div className="mt-4 flex flex-col gap-3">
-                  <Body>
-                    Coordinators needed help remembering what to cover, but a rigid wizard wouldn&rsquo;t fit a real conversation.
-                  </Body>
-                  <Body>I introduced a six-part checklist that works as a memory aid rather than a script.</Body>
-                </div>
-                <p className={`mt-4 font-semibold text-gj-navy ${TEXT}`}>6 essential topics. No forced order.</p>
-              </div>
-              <div className="col-span-4 md:col-span-8">
-                <Screen
-                  file="giuson/sg-facility.webp"
-                  alt="The redesigned facility view: the facility name and distance, its open positions, the selected role's requirements, and a six-item call checklist beside them"
-                  width={2880}
-                  height={1590}
-                  minWidth={700}
-                  sizes="(max-width: 768px) 700px, 66vw"
-                />
-              </div>
-            </div>
           </Container>
         </section>
 
-        {/* 04 Iteration */}
-        <section className={`bg-white ${CHAPTER}`}>
-          <Container>
-            <div className={GRID}>
-              <SectionLabel n="04">Iteration</SectionLabel>
-              <H2 className="col-span-4 md:col-span-5">Real use showed what still needed work.</H2>
-              <Body className="col-span-4 mt-6 md:col-span-5 md:col-start-7 md:mt-0">
-                A week of use with coordinators and site managers led to two changes: a continuous workspace and a call checklist.
-              </Body>
-
-              <ol className={`col-span-4 m-0 list-none p-0 md:col-span-10 md:col-start-2 md:mt-12 ${TO_VISUAL}`}>
-                {ITERATION.map((row, i) => (
-                  <li
-                    key={row.change}
-                    className="grid grid-cols-1 items-center gap-3 border-t border-gj-line py-4 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_6rem] md:gap-8"
-                  >
-                    <p className={`leading-snug text-gj-navy ${TEXT}`}>{row.feedback}</p>
-                    <Arrow />
-                    <p className={`font-semibold leading-snug text-gj-navy ${TEXT}`}>{row.change}</p>
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-[3px] border border-gj-line bg-gj-tint max-md:w-28">
-                      {i === 0 ? (
-                        <Image
-                          src={pictureSrc("giuson/sg-workspace.webp")}
-                          alt="The continuous workspace: the map and the selected facility on one scrolling page"
-                          fill
-                          sizes="112px"
-                          className="object-cover object-top"
-                        />
-                      ) : null}
-                      {i === 1 ? (
-                        <Image
-                          src={pictureSrc("giuson/sg-checklist.webp")}
-                          alt="The six-item recruitment checklist"
-                          fill
-                          sizes="112px"
-                          className="object-cover object-top"
-                        />
-                      ) : null}
-                    </div>
-                  </li>
-                ))}
-                <li aria-hidden className="border-t border-gj-line" />
-              </ol>
-            </div>
-          </Container>
-        </section>
-
-        {/* 05 Shared knowledge: text 4, UI 8 */}
+        {/* 04 Information mode: text 4, UI 8 */}
         <section className={`bg-gj-tint ${CHAPTER}`}>
           <Container>
             <div className={`${GRID} gap-y-8`}>
-              <SectionLabel n="05">Shared knowledge</SectionLabel>
+              <SectionLabel n="04">Information mode</SectionLabel>
               <div className="col-span-4 md:col-span-4">
                 <H2>The information became useful beyond recruitment calls.</H2>
                 <div className="mt-5 flex flex-col gap-3">
                   <Body>
-                    Site managers also conduct their own hiring and need access to the same role and employment
-                    information.
+                    Information mode holds role requirements, the pay scale, grants, scholarships, and employment terms in
+                    one searchable place. I added the pay scale information myself and gave it its own tab, so coordinators
+                    can pass accurate salary information on to applicants during a call.
                   </Body>
                   <Body>
-                    Information mode gives them one place to check requirements, salary ladders, grants, scholarships, and employment terms, instead of recruitment-team documents or personal notes.
+                    Site managers also do their own hiring. They use it to check the same information instead of asking
+                    the recruitment team or relying on personal notes.
                   </Body>
                 </div>
               </div>
@@ -348,7 +304,7 @@ export default function GiusonPage() {
         <section className={`bg-gj-navy text-white ${CHAPTER} md:py-[5rem]`}>
           <Container>
             <div className={GRID}>
-              <SectionLabel n="06" dark>
+              <SectionLabel n="05" dark>
                 Impact
               </SectionLabel>
               <H2 dark className="col-span-4 md:col-span-8">
@@ -372,7 +328,7 @@ export default function GiusonPage() {
                 <div className="border-t border-white/20 pt-6">
                   <h3 className={`mb-2 font-semibold text-white ${TEXT}`}>Broader participation</h3>
                   <p className={`max-w-[48ch] text-white/75 ${TEXT}`}>
-                    At least four coordinators ran specialized healthcare recruitment calls over the summer, compared with one before.
+                    In summer 2026, at least four coordinators ran specialized healthcare recruitment calls, compared with one before. The tool made this kind of recruitment easier, so more coordinators could do it.
                   </p>
                   <p className={`mt-4 font-display text-gj-sky !normal-case ${HEADING}`} aria-label="1 to 4 plus">
                     <span aria-hidden>1 &rarr; 4+</span>
@@ -398,16 +354,9 @@ export default function GiusonPage() {
               <H2 className="col-span-4 md:col-span-5">Reflection</H2>
               <div className="col-span-4 mt-6 flex flex-col gap-4 md:col-span-5 md:col-start-7 md:mt-0">
                 <Body>
-                  This project started as an information update and became a working product because I looked at how the
-                  information was actually being used.
+                  Listening to recruitment calls changed what I designed. Coordinators needed to move between topics as the
+                  conversation unfolded, so I organized the tool around that flexibility.
                 </Body>
-                <Body>
-                  The most important shift was moving from &ldquo;How should this document be updated?&rdquo; to
-                  &ldquo;What do people need while doing the work?&rdquo;
-                </Body>
-                <p className={`max-w-[62ch] font-semibold text-gj-navy ${TEXT}`}>
-                  The best solution wasn&rsquo;t a better document. It was a better way to work with the information.
-                </p>
               </div>
             </div>
           </Container>

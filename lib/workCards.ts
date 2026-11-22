@@ -43,7 +43,7 @@ export const PRODUCT_WORK: WorkCard[] = [
   {
     slug: "kindred",
     title: "Kindred",
-    line: "A generative system that builds posters from hand-drawn face tiles, and a way to sell them.",
+    line: "A generative illustration tool that combines 27 hand-drawn tiles into families of faces.",
     meta: "Generative design · Web app",
     image: "kindred/card.jpg",
     alt: "Kindred: a grid of colorful hand-drawn faces built from a small set of tiles",
@@ -52,7 +52,7 @@ export const PRODUCT_WORK: WorkCard[] = [
   {
     slug: "afterlife",
     title: "AfterLife",
-    line: "A conceptual landing page and app that wraps up your life, so you can celebrate it.",
+    line: "A fictional app that lets you look back on your life after death, before moving on.",
     meta: "Interactive design · UI · Illustration",
     image: "afterlife/Frame 40.png",
     alt: "AfterLife welcome screen: an illustrated skeleton among flowers, with a Let’s start button",

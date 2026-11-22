@@ -112,6 +112,10 @@ function RetabloTile({ box, width }: { box: RetabloBox; width: string }) {
       <span className="mt-3 font-display text-base leading-tight text-ink decoration-accent underline-offset-4 group-hover:underline sm:text-lg">
         {box.title}
       </span>
+      <span className="mt-1 text-sm text-ink-muted">
+        <span className="hidden [@media(hover:hover)]:inline">Click to open</span>
+        <span className="[@media(hover:hover)]:hidden">Tap to open</span>
+      </span>
     </Link>
   );
 }

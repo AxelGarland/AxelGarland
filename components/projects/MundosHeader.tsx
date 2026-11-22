@@ -18,7 +18,7 @@ export function MundosHeader({ title, intro, boxes }: { title: string; intro: st
               </p>
             ))}
           </div>
-          <CaseFacts className="mt-5">Graduation project, Shenkar · Five hand-built retablos · Sculpted figures · Recorded audio</CaseFacts>
+          <CaseFacts className="mt-5">Graduation project, Shenkar · Concept, sculpture, and five hand-built retablos</CaseFacts>
         </div>
         <RetabloShowcase boxes={boxes} className="order-1 md:order-2" />
       </div>

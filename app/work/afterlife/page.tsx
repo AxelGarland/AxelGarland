@@ -18,7 +18,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = pageMetadata({
   title: "AfterLife · Axel Garland",
   description:
-    "AfterLife, a concept for a landing page and app that gives you a recap of your life, so you can celebrate it and move on.",
+    "AfterLife, a fictional app that lets you look back on your life after death, before moving on. A concept project in Figma by Axel Garland.",
   path: "/work/afterlife",
 });
 
@@ -71,9 +71,22 @@ export default function AfterLifePage() {
         <BackLink />
         {/* Hero — full-bleed, the entrance animation fills the width and fades into the black below */}
         <header className="bg-black pt-[68px]">
+          {/* The premise comes first, above the animation, so the first screen explains the project. */}
+          <div className="mx-auto max-w-content px-6 pb-8 pt-12 sm:px-10 md:px-14 md:pt-14 lg:px-16">
+            <div className="grid grid-cols-1 items-end gap-x-16 gap-y-5 md:grid-cols-[1.1fr_1fr]">
+              <h1 className="type-title font-display text-surface">
+                Your life, <em className="italic text-accent">wrapped</em>
+              </h1>
+              <p className="max-w-[48ch] text-lg leading-relaxed text-surface/75">
+                AfterLife is a fictional app that lets you look back on your life after death, before moving on. I designed
+                its interface, illustrations, and motion in Figma, using humor and familiar recap formats to approach the
+                subject playfully.
+              </p>
+            </div>
+          </div>
           {/* Never wider than the screen's height allows, so the whole frame fits instead of being
               cropped top and bottom on wide windows; the black page fills either side. */}
-          <div className="relative mx-auto aspect-video w-full max-w-[calc((100svh-68px)*16/9)] overflow-hidden">
+          <div className="relative mx-auto aspect-video w-full max-w-[calc((100svh-68px-14rem)*16/9)] overflow-hidden">
             <HeroVideo
               src={pictureSrc("afterlife/entrance animation.mp4")}
               mobileSrc={pictureSrc("afterlife/entrance-mobile.mp4")}
@@ -88,20 +101,10 @@ export default function AfterLifePage() {
             <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent" />
           </div>
           <div className="mx-auto max-w-content px-6 pb-16 pt-6 sm:px-10 sm:pb-20 md:px-14 lg:px-16">
-            <div className="grid grid-cols-1 items-end gap-x-16 gap-y-6 md:grid-cols-[1.1fr_1fr]">
-              <h1 className="type-title font-display text-surface">
-                Your life, <em className="italic text-accent">wrapped</em>
-              </h1>
-              <div>
-                <p className="mb-5 max-w-[48ch] text-lg leading-relaxed text-surface/75">
-                  A concept for a landing page and app that gives you a recap of your life, so you can celebrate it and move on.
-                </p>
-                <TagLine tags={TAGS} tone="dark" />
-                <CaseFacts tone="dark" className="mt-3">
-                  Concept project · Illustration, UI design, and animation in Figma
-                </CaseFacts>
-              </div>
-            </div>
+            <TagLine tags={TAGS} tone="dark" />
+            <CaseFacts tone="dark" className="mt-3">
+              Concept project · Illustration, UI design, and animation in Figma
+            </CaseFacts>
           </div>
         </header>
 
@@ -111,15 +114,15 @@ export default function AfterLifePage() {
             <div className="mb-14 grid grid-cols-1 items-center gap-x-16 gap-y-10 md:mb-20 md:grid-cols-[1fr_1.1fr]">
               <div className="order-2 md:order-1">
                 <h2 className="type-section font-display text-ink">
-                  A recap for a whole life
+                  Four stages
                 </h2>
                 <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                  The app walks you through your life in four stages: Video, Memories, Statistics,
-                  and Ready to move on. At the center is a flower-shaped statistics chart, and each
-                  leaf opens into a screen about one part of your life.
+                  The app moves through Video, Memories, Statistics, and Ready to move on.
                 </p>
                 <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                  I wanted death to feel playful, not solemn. Skeletons, flowers, statistics, and gentle humor make the app part life recap, part final celebration.
+                  At the center is a flower-shaped statistics chart. Each leaf stands for one part of your life, such as
+                  friends, love, or dreams, and opens into its own screen. The chart organizes the recap and works as its
+                  menu.
                 </p>
               </div>
               <div className="order-1 md:order-2">

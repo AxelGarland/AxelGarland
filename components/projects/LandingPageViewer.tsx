@@ -38,7 +38,7 @@ export function LandingPageViewer({ alt, className = "" }: { alt: string; classN
       <button
         type="button"
         onClick={open}
-        aria-label="Open the AfterLife landing page full screen"
+        aria-label="View the full AfterLife landing-page design"
         className={`group relative block w-full overflow-hidden border border-line bg-black text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
       >
         <div className="relative aspect-video w-full">
@@ -50,9 +50,9 @@ export function LandingPageViewer({ alt, className = "" }: { alt: string; classN
             sizes="(max-width: 960px) 100vw, 960px"
           />
         </div>
-        <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 [@media(hover:hover)]:group-hover:bg-black/45">
-          <span className="rounded-full bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-ink shadow-md transition-opacity duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
-            Open the landing page
+        <span className="absolute inset-0 flex items-end justify-center bg-black/0 p-5 transition-colors duration-300 [@media(hover:hover)]:group-hover:bg-black/30">
+          <span className="bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-ink">
+            View the full landing-page design
           </span>
         </span>
       </button>

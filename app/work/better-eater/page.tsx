@@ -26,7 +26,7 @@ const FLOW = [
     file: "bettereater/how often do you want to cook.png",
     alt: "Better Eater onboarding: a slider to choose how often to cook, with every 3 days recommended",
     title: "Set your pace",
-    body: "Choose how often to cook, from every day to every seven days.",
+    body: "Choose how often to cook, from every day to every seven days. Every three days is recommended: you cook one batch that covers several days, which saves time and stays realistic in a busy week.",
   },
   {
     file: "bettereater/recommended meal plan.png",
@@ -46,23 +46,8 @@ const COOK = {
   file: "bettereater/cook-instructions-landscape.png",
   alt: "Better Eater cooking mode: a captioned step video beside the recipe’s ingredients and instructions",
   title: "Cook along",
-  body: "A captioned video of each step, with the ingredients and instructions right beside it.",
+  body: "A captioned video of each step, with the ingredients and written instructions beside it, so beginners can see the technique instead of working it out from text.",
 } as const;
-
-const DECISIONS = [
-  {
-    title: "A recommended pace",
-    body: "The cooking-frequency scale runs from every day to once a week. Every three days is marked as recommended: a bigger batch that saves time and stays realistic for a student who also works.",
-  },
-  {
-    title: "Video beside the written steps",
-    body: "Each step combines written instructions with video, so beginners can see the technique instead of interpreting it from text alone.",
-  },
-  {
-    title: "A soft green palette",
-    body: "Soft green ties the interface to food and freshness, not the clinical look of diet apps.",
-  },
-] as const;
 
 export default function BetterEaterPage() {
   const project = getProject("better-eater");
@@ -88,11 +73,11 @@ export default function BetterEaterPage() {
                 />
               </h1>
               <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                A meal-planning and recipe app for trying a new way of eating.
+                A meal-planning and recipe app for people trying a new way of eating.
               </p>
               <TagLine tags={TAGS} />
               <CaseFacts className="mt-3">
-                Concept project for a Shenkar course, with Yuval Sa&rsquo;ar · Persona, wireframes, visual design, branding, prototype
+                Concept project for a Shenkar course, with Yuval Sa&rsquo;ar · Persona, wireframes, visual design, branding, and prototype
               </CaseFacts>
             </div>
             <div className="relative mx-auto aspect-[1335/1093] w-full max-w-[34rem] overflow-hidden md:max-w-none">
@@ -114,11 +99,12 @@ export default function BetterEaterPage() {
             <h2 className="type-section font-display text-ink">Who it&rsquo;s for</h2>
             <div className="flex max-w-[64ch] flex-col gap-4 text-lg leading-relaxed text-ink-muted">
               <p>
-                Amit has always wanted to eat vegan. The problem isn&rsquo;t wanting to eat well. It&rsquo;s not knowing where to begin, and having no room in a busy week to work it out. She&rsquo;s a composite
-                of two people we interviewed who wanted to change their diet.
+                Better Eater is for people who want to try a new way of eating but struggle to fit planning and cooking
+                into their week.
               </p>
               <p>
-                Better Eater supports any way of eating you want to try, whether vegan, vegetarian, keto, or something else, and makes cooking easy at any level.
+                Two interviews informed Amit, a persona used to guide the concept. The screens shown follow her transition
+                toward vegan eating.
               </p>
             </div>
           </div>
@@ -164,26 +150,15 @@ export default function BetterEaterPage() {
                 );
               })}
             </ol>
-          </div>
-        </section>
-
-        {/* Interface decisions: three, specific, and no screen shown twice */}
-        <section className="border-t border-line bg-paper py-16 md:py-24">
-          <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-10 type-section font-display text-ink md:mb-14">Interface decisions</h2>
-            <ul className="m-0 grid list-none grid-cols-1 gap-10 p-0 md:grid-cols-3 md:gap-x-10">
-              {DECISIONS.map((item) => (
-                <li key={item.title} className="border-t border-ink/25 pt-5">
-                  <h3 className="mb-3 type-sub font-display text-ink">{item.title}</h3>
-                  <p className="max-w-[40ch] text-base leading-relaxed text-ink-muted">{item.body}</p>
-                </li>
-              ))}
-            </ul>
+            <p className="mx-auto mt-14 max-w-[44rem] text-sm leading-relaxed text-ink-muted">
+              Visual design: a soft green palette ties the interface to food and freshness, and keeps it away from the
+              clinical look of diet apps.
+            </p>
           </div>
         </section>
 
         {/* The last picture: the full-screen cooking video, a screen not shown above. The page ends here. */}
-        <section className="bg-surface py-16 md:py-24">
+        <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
             <div className="relative mx-auto aspect-[1023/505] w-full max-w-[44rem]">
               <Image
@@ -195,8 +170,8 @@ export default function BetterEaterPage() {
               />
             </div>
             <p className="mx-auto mt-6 max-w-[44rem] text-sm leading-relaxed text-ink-muted">
-              Full-screen chapters like Prep, Bake, and Roast make it easy to skip ahead or replay a step without
-              losing your place.
+              Full-screen cooking video with chapters such as Prep, Bake, and Roast, so you can skip ahead or replay a
+              step without losing your place.
             </p>
           </div>
         </section>

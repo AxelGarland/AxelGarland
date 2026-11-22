@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
     slug: "alutit",
     title: "Alutit",
     section: "case-study",
-    summary: "Illustrated branding project for the recruitment department of ALUT, the Israeli Society for Children and Adults with Autism.",
+    summary: "A character for ALUT’s recruitment team, developed across social campaigns, videos, print, and merchandise.",
     accentColor: "violet",
     heroFit: "contain",
     clientLogo: "alutit/alut logo no background.png",
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
     title: "Kindred",
     section: "selected-work",
     summary:
-      "Where illustration meets generative coding. An experimental system that became an engine for creating posters, and for selling them.",
+      "A generative illustration tool that combines 27 hand-drawn tiles with rules for arranging and mirroring them into families of faces.",
     reflection:
       "Kindred is a system for generative illustration, exploring where the boundaries between code, algorithms, and illustration meet: an endless family of graphic faces, each one generated automatically. The idea underneath it: how we’re perceived from the outside is never one fixed image, it’s built from many separate perceptions of others and of ourselves, combined.",
     liveUrl: "https://mask-facette-app.vercel.app/",
@@ -267,11 +267,11 @@ export const PROJECTS: Project[] = [
     slug: "mundos-mejores",
     title: "Mundos Mejores",
     section: "selected-work",
-    summary: "Sculpted illustration, an immersive way to tell a story about death, mourning, and memory.",
+    summary: "Five hand-built retablos: boxes that open to reveal scenes with sculpted figures.",
     accentColor: "gold",
     heroFit: "contain",
     reflection:
-      "My final project at Shenkar: a Peruvian retablo installation about life, death, and the places where you can find and remember the people you love. Retablos are traditional Peruvian boxes that open to show small scenes. I built five, each with sculpted figures.\n\nThe project started with a recorded conversation with my grandmother Rosa, which I listened to again after she passed away. I had asked her what happens after we die. She told me we go to better worlds, where she can do the things she loved and where I can find her.",
+      "Mundos Mejores is my graduation project from Shenkar. I built five Peruvian retablos, boxes that open to reveal scenes with sculpted figures.\n\nThe project grew from a recorded conversation with my grandmother Rosa. When I asked what happens after we die, she told me we go to better worlds. After she passed away, I imagined those worlds around the things she loved.",
     discipline: "Sculpture",
     tags: ["Sculpture", "Illustration", "Graduation Project"],
     // One picture from each of the five boxes, in box order, each cut so its figure is centred.
@@ -309,7 +309,7 @@ export const PROJECTS: Project[] = [
     slug: "afterlife",
     title: "AfterLife",
     section: "selected-work",
-    summary: "A conceptual landing page and app for a service that gives you a wrap-up of your life, so you can celebrate it and move on.",
+    summary: "A fictional app that lets you look back on your life after death, before moving on.",
     accentColor: "indigo",
     reflection:
       "AfterLife is a solo school project: a landing page and an app for an invented service that helps you move into the afterlife. I wanted to talk about death in a positive way, so the centerpiece is a recap like Spotify Wrapped, but for your whole life, told in a deadpan voice with illustrations drawn in Illustrator.",
@@ -328,10 +328,10 @@ export const PROJECTS: Project[] = [
     slug: "jabberwocky",
     title: "Jabberwocky",
     section: "selected-work",
-    summary: "A fully illustrated book of Lewis Carroll’s nonsense poem.",
+    summary: "An illustrated edition of Lewis Carroll’s poem, drawn in colored pencil.",
     accentColor: "coral",
     reflection:
-      "A fully illustrated book of Lewis Carroll’s nonsense poem, drawn in colored pencil. I wanted to tell the story behind the poem’s nonsense words, bring its characters to life, and build a world for them to live in.",
+      "My illustrated edition of Lewis Carroll’s Jabberwocky, drawn in colored pencil. I used the poem’s invented words as a starting point for creating its creatures and landscapes.",
     discipline: "Illustrated book",
     tags: ["Illustration", "Illustrated Book", "Children’s Books"],
     circleLoopStill: 0,
@@ -427,7 +427,7 @@ export const PROJECTS: Project[] = [
         "Amit is driven and curious, and holds herself to her own deadlines. She’s taken up yoga and meditation, and she’s always wanted to eat vegan, but she never knew where to start or how to find the time for it. The pain point isn’t wanting to eat well. It’s not knowing where to begin, and not having room in a busy week to work it out.",
       role: "Co-designed with Yuval Sa’ar as a team project for a Shenkar course. We both worked across the persona, wireframes, visual design, branding, and the prototype.",
       process:
-        "Better Eater is a helper for the transition itself. It supports whichever way of eating you want to try, whether that’s vegan, vegetarian, keto, or something else, and makes cooking easy at any level, as part of your life.",
+        "Better Eater is a helper for the transition itself: it plans the week, recommends meals, and guides the cooking. The screens follow Amit’s move toward vegan eating.",
       outcome:
         "A designed flow covering the full loop (plan the week, get a recommendation, see the recipe, cook it, shop for the next one), built as a Figma prototype.",
     },

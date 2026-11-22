@@ -51,6 +51,10 @@ const BRIEF = [
     "System",
     "One base design, redressed for each role and situation, so she can show the range of jobs a listing can\u2019t and adapt to each campaign.",
   ],
+  [
+    "My work",
+    "I did all of it myself. I drew Alutit by hand, as one base design with curly orange hair and glasses, and redressed her for each role. I also took over the recruitment page, made its content, animated the reels with AI, and made the flyers and merchandise.",
+  ],
 ] as const;
 
 /** Real pieces she appears on. */
@@ -106,9 +110,12 @@ export default function AlutitPage() {
                 <br />
                 with <em className="italic text-accent">purpose</em>
               </h1>
-              <p className="mb-8 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
-                Alutit is an illustrated character I designed for the recruitment department at ALUT,
-                the Israeli Society for Children and Adults with Autism. She is the face of ALUT&rsquo;s recruitment on social media, video, print, and merchandise.
+              <p className="mb-3 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                I created Alutit, a character for ALUT&rsquo;s recruitment team, and developed her across social
+                campaigns, videos, print, and merchandise.
+              </p>
+              <p className="mb-8 max-w-[46ch] text-sm leading-relaxed text-ink-muted">
+                ALUT is the Israeli Society for Children and Adults with Autism.
               </p>
               <TagLine tags={TAGS} className="" />
               <CaseFacts className="mt-3">Character design and social media content · ALUT recruitment department</CaseFacts>
@@ -172,6 +179,7 @@ export default function AlutitPage() {
               <em className="italic text-accent">1,500</em> and up to{" "}
               <em className="italic text-accent">3,500</em>.
             </p>
+            <p className="mt-4 text-sm text-ink-muted">Views per reel on ALUT&rsquo;s recruitment page.</p>
           </div>
         </FloatingLikes>
 
@@ -179,7 +187,7 @@ export default function AlutitPage() {
         <section className="relative overflow-hidden bg-ink py-20 md:py-28">
           <Sparkles />
           <div className="relative mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="sr-only">Where Alutit appears</h2>
+            <h2 className="mb-10 type-section font-display text-surface md:mb-14">Adapting the character</h2>
             <div className="flex flex-col gap-y-10 md:gap-y-14">
               {STICKERS.map((row, rowIndex) => (
                 <Fragment key={row[0].file}>
@@ -213,7 +221,7 @@ export default function AlutitPage() {
         {/* Applications — the real pieces she appears on */}
         <section className="border-t border-line bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-content px-6 sm:px-10 md:px-14 lg:px-16">
-            <h2 className="mb-10 type-section font-display text-ink md:mb-14">Where she appears</h2>
+            <h2 className="mb-10 type-section font-display text-ink md:mb-14">Campaigns, print, and merchandise</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-x-8">
               {APPLICATIONS.map((group) => (
                 <figure key={group.caption} className={`m-0 ${group.span}`}>
@@ -248,7 +256,7 @@ export default function AlutitPage() {
                   What <em className="italic text-accent">changed</em>
                 </h2>
                 <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-                  The Alutit page became ALUT&rsquo;s second-biggest source of steady applicants and hires, especially counselors (madrichim) and assistants (סייעות): more than 60 hires.
+                  The Alutit page became ALUT&rsquo;s second-biggest source of steady applicants, especially counselors (madrichim) and assistants (סייעות). It has led to more than 60 hires.
                 </p>
               </div>
               <div className="relative mx-auto aspect-[581/784] w-full max-w-[15.2rem] md:mx-0 md:ml-auto md:max-w-[17.6rem]">

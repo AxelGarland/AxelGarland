@@ -52,9 +52,13 @@ export default function KindredPage() {
               <h1 className="mb-8 type-title font-display text-ink">
                 Of the same kind. <em className="italic text-accent">Never the same.</em>
               </h1>
-              <CaseFacts className="mb-8">Design, illustration, and creative coding · Web app</CaseFacts>
+              <p className="mb-6 max-w-[46ch] text-lg leading-relaxed text-ink-muted">
+                Kindred is a generative illustration tool I designed and built. It combines 27 hand-drawn tiles with rules
+                for arranging and mirroring them to create families of different faces.
+              </p>
+              <CaseFacts className="mb-8">Illustration, interface design, and code · Web app</CaseFacts>
               {project.liveUrl ? (
-                <DesignButton href={project.liveUrl} external label="Try it live" />
+                <DesignButton href={project.liveUrl} external label="Open Kindred" />
               ) : null}
             </div>
             <div className="relative order-1 aspect-video w-full overflow-hidden bg-black md:order-2">
@@ -82,7 +86,13 @@ export default function KindredPage() {
               </div>
               <div className="flex flex-col gap-6">
                 <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
-                  Kindred generates an endless family of graphic faces, each one different, from hand-drawn tiles and coded rules.
+                  A face is built from many separate perceptions of others and of ourselves, so every face here is
+                  assembled from shared parts. Swapping one word changes only a few tiles, so related faces read as
+                  relatives.
+                </p>
+                <p className="max-w-[64ch] text-lg leading-relaxed text-ink-muted">
+                  I draw each part once and mirror it, so every face stays balanced, and the rules keep any combination
+                  reading as a face.
                 </p>
                 <p className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
                   27 hand-drawn tiles
@@ -118,9 +128,13 @@ export default function KindredPage() {
                 </li>
               ))}
             </ol>
+            <p className="mx-auto mt-6 max-w-[72rem] text-sm leading-relaxed text-ink-muted">
+              Stills from the live app. Prompts such as &ldquo;Pick a part, or hover a cell&rdquo; belong to the
+              interactive version.
+            </p>
             {project.liveUrl ? (
               <div className="mx-auto mt-10 flex max-w-[72rem] justify-center md:mt-14">
-                <DesignButton href={project.liveUrl} external label="Try it live" />
+                <DesignButton href={project.liveUrl} external label="Open Kindred" />
               </div>
             ) : null}
           </div>

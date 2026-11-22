@@ -33,7 +33,7 @@ Live site on Vercel, source on GitHub (AxelGarland/AxelGarland). Visitors are mo
 - Real numbers only, never invented metrics.
 
 ## Evidence on Hand
-- Case studies in `app/work/*`: Smart Giuson (internal ALUT tool; used in regular recruitment work, with at least four coordinators handling specialized healthcare calls instead of one), Better Eater (Shenkar course project), Kindred (generative illustration system, 27 hand-drawn tiles, live web app), AfterLife (concept project), Alutit (ALUT recruitment character; the Alutit page became the second-biggest source of steady applicants and hires, with more than 60 hires; reels grew from about 73 views to regularly 1,500 and up to 3,500), Mundos Mejores (graduation project, five retablos), Jabberwocky (illustrated book).
+- Case studies in `app/work/*`: Smart Giuson (internal ALUT tool; used in regular recruitment work, with at least four coordinators handling specialized healthcare calls instead of one), Better Eater (Shenkar course project), Kindred (generative illustration system, 27 hand-drawn tiles, live web app), AfterLife (concept project), Alutit (ALUT recruitment character; the Alutit page became the second-biggest source of steady applicants, with more than 60 hires; reels grew from about 73 views to regularly 1,500 and up to 3,500), Mundos Mejores (graduation project, five retablos), Jabberwocky (illustrated book).
 - Pictures in `public/pictures/`, designed preview clips in `public/home/previews/`, CV at `/Axel Garland CV.pdf`, clay portrait and tool icons as generated assets in `public/home/`.
 - No testimonials, press or third-party quotes exist yet; do not fabricate any.
 

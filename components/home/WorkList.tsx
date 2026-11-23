@@ -128,7 +128,7 @@ export function WorkList({ current }: { current?: string } = {}) {
                     className="group work-card flex scroll-mt-28 items-center gap-5 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2354e6] md:gap-7 md:py-6"
                   >
                     <div data-card-frame className="flex min-w-0 flex-1 items-center gap-5 md:gap-7">
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 lg:max-w-[46%]">
                         <h3 className="font-display type-section leading-[1.05] text-ink transition-[color,transform] duration-300 group-hover:text-[#2354e6] group-focus-visible:text-[#2354e6] motion-safe:group-hover:translate-x-1.5">
                           {card.title}
                         </h3>
